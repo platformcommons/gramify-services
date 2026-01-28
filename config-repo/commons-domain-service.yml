@@ -1,0 +1,10 @@
+server:
+  port: ${SERVER_PORT:9002}
+  servlet:
+    context-path: /commons-domain-service
+
+commons:
+  platform:
+    service:
+      datasource:
+        db_name: commons_domain_db

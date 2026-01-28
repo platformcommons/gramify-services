@@ -1,0 +1,21 @@
+logging:
+  level:
+    root: warn
+    com.platformcommons: info
+
+commons:
+  platform:
+    cache:
+      enabled: true
+    event:
+      enabled: true
+    attachment:
+      s3:
+        privateBucketName: prod-private-bucket
+        publicBucketName: prod-public-bucket
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false

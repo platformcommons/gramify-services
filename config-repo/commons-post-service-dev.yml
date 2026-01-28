@@ -1,0 +1,8 @@
+server:
+  port: 9001
+
+commons:
+  platform:
+    service:
+      datasource:
+        db_name: commons_post_db_dev

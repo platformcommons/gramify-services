@@ -10,6 +10,8 @@ The Gramify platform requires the following infrastructure components:
 - **Apache Kafka**: Message streaming platform
 - **Apache Zookeeper**: Coordination service for Kafka
 - **Netflix Eureka**: Service discovery and registration
+- **Apache Solr**: Search platform for full-text search
+- **Elasticsearch**: Distributed search and analytics engine
 
 ## Quick Start with Docker Compose
 
@@ -44,7 +46,7 @@ docker run -d \
 wget https://repo1.maven.org/maven2/org/springframework/cloud/spring-cloud-config-server/3.1.3/spring-cloud-config-server-3.1.3.jar
 ```
 
-2. Create application.yml:
+2. Create application.yml: (details in config-repo directory)
 ```yaml
 server:
   port: 8888
@@ -266,6 +268,90 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 ```
 
+### 6. Apache Solr
+
+#### Docker Setup
+```bash
+docker run -d \
+  --name solr \
+  -p 8983:8983 \
+  -v solr_data:/var/solr \
+  solr:9.3 solr-precreate gramify
+```
+
+#### Manual Installation
+1. Download Solr:
+```bash
+wget https://downloads.apache.org/lucene/solr/9.3.0/solr-9.3.0.tgz
+tar -xzf solr-9.3.0.tgz
+cd solr-9.3.0
+```
+
+2. Start Solr:
+```bash
+./bin/solr start -p 8983
+```
+
+3. Create Gramify core:
+```bash
+./bin/solr create -c gramify
+```
+
+#### Spring Boot Integration
+Add to your application.yml:
+```yaml
+spring:
+  data:
+    solr:
+      host: http://localhost:8983/solr
+```
+
+### 7. Elasticsearch
+
+#### Docker Setup
+```bash
+docker run -d \
+  --name elasticsearch \
+  -p 9200:9200 \
+  -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  -e "xpack.security.enabled=false" \
+  -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
+  -v es_data:/usr/share/elasticsearch/data \
+  docker.elastic.co/elasticsearch/elasticsearch:8.9.0
+```
+
+#### Manual Installation
+1. Download Elasticsearch:
+```bash
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.0-linux-x86_64.tar.gz
+tar -xzf elasticsearch-8.9.0-linux-x86_64.tar.gz
+cd elasticsearch-8.9.0
+```
+
+2. Configure elasticsearch.yml:
+```yaml
+cluster.name: gramify-cluster
+node.name: gramify-node-1
+network.host: localhost
+http.port: 9200
+discovery.type: single-node
+xpack.security.enabled: false
+```
+
+3. Start Elasticsearch:
+```bash
+./bin/elasticsearch
+```
+
+#### Spring Boot Integration
+Add to your application.yml:
+```yaml
+spring:
+  elasticsearch:
+    uris: http://localhost:9200
+```
+
 ## Complete Docker Compose Setup
 
 Create `infrastructure/docker-compose.yml`:
@@ -316,6 +402,32 @@ services:
     image: springcloud/eureka
     ports:
       - "8761:8761"
+
+  solr:
+    image: solr:9.3
+    ports:
+      - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - gramify
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.0
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+volumes:
+  solr_data:
+  es_data:
 ```
 
 ## Service Configuration
@@ -368,13 +480,19 @@ kafka-topics.sh --list --bootstrap-server localhost:9092
 
 # Ignite REST API
 curl http://localhost:8080/ignite?cmd=version
+
+# Solr Admin
+curl http://localhost:8983/solr/admin/cores?action=STATUS
+
+# Elasticsearch
+curl http://localhost:9200/_cluster/health
 ```
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Port Conflicts**: Ensure ports 2181, 8761, 8888, 9092, 47100, 47500, 49112 are available
+1. **Port Conflicts**: Ensure ports 2181, 8761, 8888, 9092, 47100, 47500, 49112, 8983, 9200, 9300 are available
 2. **Memory Issues**: Increase JVM heap size for Kafka and Ignite:
    ```bash
    export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"
@@ -386,6 +504,8 @@ curl http://localhost:8080/ignite?cmd=version
 - Kafka: `logs/server.log`
 - Zookeeper: `logs/zookeeper.out`
 - Ignite: `work/log/ignite-*.log`
+- Solr: `server/logs/solr.log`
+- Elasticsearch: `logs/elasticsearch.log`
 
 ## Production Considerations
 

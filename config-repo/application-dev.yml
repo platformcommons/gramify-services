@@ -1,0 +1,26 @@
+logging:
+  level:
+    root: debug
+    com.platformcommons: debug
+    org.springframework.web: debug
+
+commons:
+  platform:
+    cache:
+      enabled: false
+    event:
+      enabled: false
+    service:
+      datasource:
+        url: localhost
+        port: 3306
+    attachment:
+      s3:
+        privateBucketName: dev-private-bucket
+        publicBucketName: dev-public-bucket
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

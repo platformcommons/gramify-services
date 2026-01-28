@@ -9,10 +9,10 @@ The project is organized into several microservices, each with its own responsib
 - **commons-app-config-service**: Manages application configurations.
 - **commons-assessment-reporting-service**: Handles reporting for assessments.
 - **commons-assessment-service**: Core service for managing assessments.
-- **commons-blocks-profiles-service**: Manages user profiles and blocks.
+- **commons-blocks-profiles-service**: Manages profile of blocks.
 - **commons-domain-service**: Domain-specific logic and data management.
 - **commons-iam-service**: Identity and Access Management service.
-- **commons-ie-service**: Import/Export service.
+- **commons-ie-service**: Farmer profile service.
 - **commons-post-service**: Manages posts and related content.
 - **commons-report-service**: General reporting service.
 - **commons-search-service**: Search functionality across the platform.
@@ -38,6 +38,8 @@ All Gramify services require the following infrastructure components to be runni
 - **Apache Kafka** (Message Streaming)
 - **Apache Zookeeper** (Kafka Coordination)
 - **Netflix Eureka** (Service Discovery)
+- **Apache Solr** (Search Platform)
+- **Elasticsearch** (Search & Analytics)
 
 📋 **[Complete Infrastructure Setup Guide](INFRASTRUCTURE-SETUP.md)**
 
@@ -96,3 +98,9 @@ The project uses CI-friendly versions (`${revision}${changelist}`). You can pass
 ```bash
 mvn clean install -Drevision=1.0.0 -Dchangelist=-RELEASE
 ```
+
+## Contact Us
+
+For any queries, please reach out to:
+- dev@platformcommons.org
+- aashish@platformcommons.org

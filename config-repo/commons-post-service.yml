@@ -1,0 +1,10 @@
+server:
+  port: ${SERVER_PORT:9001}
+  servlet:
+    context-path: /commons-post-service
+
+commons:
+  platform:
+    service:
+      datasource:
+        db_name: commons_post_db
