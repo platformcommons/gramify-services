@@ -1,0 +1,140 @@
+databaseChangeLog:
+- changeSet:
+    id: 1758100438038-6
+    author: mnk46 (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: is_reported
+            type: bit
+        tableName: post
+- changeSet:
+    id: 1758100438038-7
+    author: mnk46 (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: market_code
+            type: varchar(255)
+        tableName: report_flag
+- changeSet:
+    id: 1758545986988-6
+    author: mnk46 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: post_tag_actorPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: actor_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tag_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: tag_code
+            type: VARCHAR(255)
+        - column:
+            name: sequence
+            type: BIGINT
+        - column:
+            name: post_id
+            type: BIGINT
+        tableName: post_tag_actor
+- changeSet:
+    id: 1758545986988-7
+    author: mnk46 (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_POST_TAG_ACTORUNIQUE_IDENTIFIER_COL
+        tableName: post_tag_actor
+- changeSet:
+    id: 1758545986988-8
+    author: mnk46 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: post_id
+        baseTableName: post_tag_actor
+        constraintName: FKaptpja18gn7qrt4anh4yonnel
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: post
+        validate: true
+

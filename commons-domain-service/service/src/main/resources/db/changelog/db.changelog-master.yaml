@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/0.0.1_changelog.yml
+  - include:
+      file: db/changelog/0.0.1_initial_procedures.yml
+  - include:
+      file: db/changelog/0.0.4_changelog.yml
+  - include:
+      file: db/changelog/0.0.6_changelog.yml
+  - include:
+      file: db/changelog/0.0.7_skill_procedure.yml
+  - include:
+        file: db/changelog/0.0.7_changelog.yml
+  - include:
+      file: db/changelog/0.0.8_changelog.yml
+  - include:
+      file: db/changelog/0.0.9_changelog.yml
+  - include:
+      file: db/changelog/1.0.0_changelog.yml
+  - include:
+      file: db/changelog/1.0.0_tag_changelog.yml
+  - include:
+      file: db/changelog/1.0.0_tag_procedure.yml

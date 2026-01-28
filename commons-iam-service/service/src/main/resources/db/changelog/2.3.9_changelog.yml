@@ -1,0 +1,199 @@
+databaseChangeLog:
+- changeSet:
+    id: 1734004407293-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: condition
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: condition_check
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: desired_value
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: from
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: projection
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: auth_conditional_rulePK
+            name: auth_rule
+            type: INT
+        tableName: auth_conditional_rule
+- changeSet:
+    id: 1734004407293-2
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: auth_conditional_rule_auth_rule
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: selection_args
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: selection_args_key
+            type: VARCHAR(255)
+        tableName: auth_conditional_rule_selection_args
+- changeSet:
+    id: 1734004407293-3
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: auth_methodPK
+            name: id
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: code
+            type: VARCHAR(55)
+        - column:
+            constraints:
+              nullable: false
+            name: service
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: tenant
+            type: BIGINT
+        - column:
+            name: validate_all
+            type: BIT
+        tableName: auth_method
+- changeSet:
+    id: 1734004407293-4
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: rule_type
+            type: VARCHAR(31)
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: auth_rulePK
+            name: id
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: message
+            type: VARCHAR(255)
+        - column:
+            name: role_or_authority
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: rule_order
+            type: INT
+        - column:
+            name: auth_method
+            type: INT
+        tableName: auth_rule
+- changeSet:
+    id: 1734004407293-10
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code, tenant
+        constraintName: UKj04ycn8a5119eep1lfnmwet83
+        tableName: auth_method
+- changeSet:
+    id: 1734004407293-11
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: auth_rule
+        baseTableName: auth_conditional_rule
+        constraintName: FK3xkk2d2va8o2w19j89qmy3sk
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: auth_rule
+        validate: true
+- changeSet:
+    id: 1734004407293-12
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: auth_method
+        baseTableName: auth_rule
+        constraintName: FK6c1mg6ifpwmetdnmyxu9699n8
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: auth_method
+        validate: true
+- changeSet:
+    id: 1734004407293-13
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: auth_conditional_rule_auth_rule
+        baseTableName: auth_conditional_rule_selection_args
+        constraintName: FKmljeouui3oo5cjcyfuvbhumql
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: auth_rule
+        referencedTableName: auth_conditional_rule
+        validate: true
+

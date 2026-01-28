@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 1740730606313-3
+    author: manish (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: market_context
+            type: varchar(255)
+        tableName: user_verification

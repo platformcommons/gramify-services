@@ -1,0 +1,587 @@
+databaseChangeLog:
+- changeSet:
+    id: 1709275583727-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: contactPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: contact_type
+            type: VARCHAR(255)
+        - column:
+            name: contact_value
+            type: VARCHAR(255)
+        - column:
+            name: verified
+            type: BIT
+        - column:
+            name: verified_by
+            type: INT
+        tableName: contact
+- changeSet:
+    id: 1709275583727-2
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: role_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: permission_id
+            type: BIGINT
+        tableName: inherited_role_permission
+- changeSet:
+    id: 1709275583727-3
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_contactPK
+            name: id
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: primary_contact
+            type: BIT
+        - column:
+            name: contact_id
+            type: BIGINT
+        - column:
+            name: user_id
+            type: BIGINT
+        tableName: user_contact
+- changeSet:
+    id: 1709275583727-5
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_securityPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: account_lock_reason
+            type: VARCHAR(255)
+        - column:
+            name: failed_login_attempts
+            type: INT
+        - column:
+            name: is_account_locked
+            type: BIT
+        - column:
+            name: is_expired
+            type: BIT
+        - column:
+            name: otp
+            type: INT
+        - column:
+            name: otp_for
+            type: VARCHAR(255)
+        - column:
+            name: otp_key
+            type: VARCHAR(255)
+        - column:
+            name: otp_validity
+            type: datetime
+        - column:
+            name: password
+            type: VARCHAR(255)
+        - column:
+            name: password_set_on
+            type: datetime
+        - column:
+            name: user
+            type: BIGINT
+        tableName: user_security
+- changeSet:
+    id: 1709275583727-6
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_sessionPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: app_id
+            type: VARCHAR(255)
+        - column:
+            name: app_key
+            type: VARCHAR(255)
+        - column:
+            name: app_version
+            type: VARCHAR(255)
+        - column:
+            name: device_type
+            type: VARCHAR(255)
+        - column:
+            name: ip_address
+            type: VARCHAR(255)
+        - column:
+            name: last_login_date_time
+            type: datetime
+        - column:
+            name: login_type
+            type: VARCHAR(255)
+        - column:
+            name: session
+            type: VARCHAR(255)
+        - column:
+            name: status
+            type: BIT
+        - column:
+            name: user_agent
+            type: VARCHAR(255)
+        - column:
+            name: user_id
+            type: BIGINT
+        tableName: user_session
+- changeSet:
+    id: 1709275583727-7
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: app_context
+            type: varchar(255)
+        tableName: tenant_meta_master
+- changeSet:
+    id: 1709275583727-9
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_CONTACTUNIQUE_IDENTIFIER_COL
+        tableName: contact
+- changeSet:
+    id: 1709275583727-10
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_USER_CONTACTUNIQUE_IDENTIFIER_COL
+        tableName: user_contact
+
+
+- changeSet:
+    id: 1709275583727-12
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_USER_SECURITYUNIQUE_IDENTIFIER_COL
+        tableName: user_security
+- changeSet:
+    id: 1709275583727-13
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_USER_SESSIONUNIQUE_IDENTIFIER_COL
+        tableName: user_session
+- changeSet:
+    id: 1709275583727-14
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: user, tenant_id
+        constraintName: UK8wbhcv33vctag9q8aeiqt60fw
+        tableName: user_security
+- changeSet:
+    id: 1709275583727-15
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: app_context, meta_code
+        constraintName: UKl0gp5hpot7i5q5y0jf1m7erwo
+        tableName: tenant_meta_master
+- changeSet:
+    id: 1709275583727-16
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: contact_id
+        baseTableName: user_contact
+        constraintName: FK2pm3m3m7xlwh9nfca4wvgpnwb
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: contact
+        validate: true
+- changeSet:
+    id: 1709275583727-17
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user
+        baseTableName: user_security
+        constraintName: FK5a3f3rd40ffxwqpgjtpvsaako
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+    id: 1709275583727-18
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: user_contact
+        constraintName: FK9fm1vrfyjcs735xlykhnedyd7
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+
+- changeSet:
+    id: 1709275583727-21
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: permission_id
+        baseTableName: inherited_role_permission
+        constraintName: FKrgbod4ggutby1c1q3lpgi79ef
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: role
+        validate: true
+- changeSet:
+    id: 1709275583727-23
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: user_session
+        constraintName: FKs2btlvdomqggby8a3dnlq98ks
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+    id: 1709275583727-24
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: role_id
+        baseTableName: inherited_role_permission
+        constraintName: FKtcyvp9q2evcwjser4hopnlxi4
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: role
+        validate: true
+#- changeSet:
+#    id: modify_auto_increment_start_value
+#    author: jitendra (manually added)
+#    changes:
+#    - sql:
+#        sql: ALTER TABLE user AUTO_INCREMENT = 5000000
+#        comment: "Modify auto increment start value for user table"
+#    - sql:
+#        sql: ALTER TABLE tenant AUTO_INCREMENT = 35000
+#        comment: "Modify auto increment start value for tenant table"
+- changeSet:
+    id: 1710244981051-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: __sequencePK
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: next_val
+            type: BIGINT
+        tableName: __sequence

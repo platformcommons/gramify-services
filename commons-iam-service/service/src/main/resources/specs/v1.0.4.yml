@@ -1,0 +1,40 @@
+openapi: 3.0.0
+
+info:
+  version: 0.0.1
+  title: Demo Service
+tags:
+  - name: "Message"
+
+paths:
+  /api/v1/messages:
+    post:
+      tags:
+        - "Message"
+      operationId: createMessage
+      requestBody:
+        description: Create a message
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        "201":
+          description: CREATED
+
+
+components:
+  schemas:
+    Message:
+      description: This is the Message object
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: The text of message
+          type: string
+        id:
+          string: identifier
+          type: string

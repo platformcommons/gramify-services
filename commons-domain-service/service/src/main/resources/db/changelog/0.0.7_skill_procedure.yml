@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: skill_procedures_1573022228406
+      author: jitendra
+      changes:
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/procedures/02_addSkillHierarchy.sql

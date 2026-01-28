@@ -1,0 +1,22 @@
+databaseChangeLog:
+- changeSet:
+    id: 1728064609002-1
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: tagged_to_service_area_code
+            type: varchar(255)
+        tableName: ie
+- changeSet:
+    id: 1728064609002-2
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: tagged_to_service_area_type
+            type: varchar(255)
+        tableName: ie
+

@@ -1,0 +1,29 @@
+# Change Log is not intended for developer reference
+# WARN: not intended to be part of master changelog to do it manually
+databaseChangeLog:
+  - changeSet:
+      id: 1737456218420-54
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: contact_id
+            baseTableName: user_contact
+            constraintName: FK302o0qxepy67frbmwcgmjy1fb
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_contact
+            validate: true
+  - changeSet:
+      id: 1737456218420-68
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: address_id
+            baseTableName: tenant_address
+            constraintName: FKkm7n4g62s78q26q51wqkb9dew
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_address
+            validate: true

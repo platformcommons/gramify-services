@@ -1,0 +1,477 @@
+openapi: 3.0.0
+info:
+  version: 0.0.3
+  title: Commons Search Service
+tags:
+  - name: TenantUser
+  - name: CompanyMasterData
+  - name: EducationalInstitute
+  - name: App
+
+paths:
+  /api/v1/tenant-user:
+    post:
+      tags:
+        - TenantUser
+      operationId: saveTenantUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantUser'
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantUser'
+    put:
+      tags:
+        - TenantUser
+      operationId: updateTenantUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantUser'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  api/v1/tenant-users/search:
+    post:
+      tags:
+        - TenantUser
+      operationId: readTenantUserByDetails
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Search'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TenantUser'
+  api/v1/tenant-users/search/{keyword}:
+    get:
+      tags:
+        - TenantUser
+      operationId: readTenantUser
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: path
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TenantUser'
+
+  /api/v1/company:
+    post:
+      tags:
+        - CompanyMasterData
+      operationId: saveCompanyMasterData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyMasterData'
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyMasterData'
+
+    put:
+      tags:
+        - CompanyMasterData
+      operationId: updateCompanyMasterData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyMasterData'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+
+  api/v1/company/search/{keyword}:
+    get:
+      tags:
+        - CompanyMasterData
+      operationId: readCompany
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: path
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyMasterData'
+
+  api/v2/company/search:
+    get:
+      tags:
+        - CompanyMasterData
+      operationId: readCompanyByName
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: query
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyMasterData'
+
+  /api/v1/educational:
+    post:
+      tags:
+        - EducationalInstitute
+      operationId: saveEducationalInstitute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationalInstitute'
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationalInstitute'
+
+    put:
+      tags:
+        - EducationalInstitute
+      operationId: updateEducationalInstitute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationalInstitute'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+
+  api/v1/educational/search/{keyword}:
+    get:
+      tags:
+        - EducationalInstitute
+      operationId: readEducationalInstitute
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: path
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EducationalInstitute'
+
+  api/v2/educational/search:
+    get:
+      tags:
+        - EducationalInstitute
+      operationId: readEducationalInstituteByName
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: query
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EducationalInstitute'
+
+  api/v1/app/search/{keyword}:
+    get:
+      tags:
+        - App
+      operationId: readApp
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: path
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/App'
+
+components:
+  schemas:
+    TenantUser:
+      description: This is the TenantUser object
+      type: object
+      required:
+        - complete_name
+        - mobile
+        - email
+      properties:
+        id:
+          type: integer
+          format: int64
+        user_login:
+          type: string
+        complete_name:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        email:
+          type: string
+        gender:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pincode:
+          type: integer
+          format: int64
+        tenant_id:
+          type: integer
+          format: int64
+        tenant_login:
+          type: string
+        roles_codes:
+          type: string
+
+    Search:
+      type: object
+      required:
+        - complete_name
+        - mobile
+        - email
+      properties:
+        complete_name:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        email:
+          type: string
+
+    CompanyMasterData:
+      description: This is the CompanyMasterData object
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        alias:
+          type: string
+        state:
+          type: string
+        city:
+          type: string
+        domain:
+          type: string
+        category:
+          type: string
+
+    EducationalInstitute:
+      description: This is the EducationalInstitute object
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        alias:
+          type: string
+        state:
+          type: string
+        city:
+          type: string
+        type:
+          type: string
+
+    App:
+      title: App
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        authorId:
+          type: integer
+          format: int64
+        authorName:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+        domainCodes:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        subDomainCodes:
+          type: array
+          items:
+            type: string
+        useCaseIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        features:
+          type: object
+          additionalProperties:
+            type: string
+        rating:
+          type: number
+          format: double
+
+    UseCase:
+      title: UseCase
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        authorId:
+          type: integer
+          format: int64
+        authorName:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+        domainCodes:
+          type: array
+          items:
+            type: string
+        subDomainCodes:
+          type: array
+          items:
+            type: string
+        features:
+          type: object
+          additionalProperties:
+            type: string
+
+    Domain:
+      title: Domain
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        code:
+          type: string
+        context:
+          type: string
+        tenantId:
+          type: integer
+          format: int64
+        subDomainCodes:
+          type: array
+          items:
+            type: string
+        isRoot:
+          type: boolean
+
+    DomainHierarchy:
+      title: DomainHierarchy
+      type: object
+      properties:
+        parentId:
+          type: integer
+          format: int64
+        childId:
+          type: integer
+          format: int64
+
+

@@ -1,0 +1,267 @@
+databaseChangeLog:
+- changeSet:
+    id: 1735880390518-3
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: extra_attributePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: attribute_code
+            type: VARCHAR(255)
+        tableName: extra_attribute
+
+- changeSet:
+    id: 1735880390518-5
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: lead_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: extra_attributes_id
+            type: BIGINT
+        tableName: lead_extra_attributes
+
+- changeSet:
+    id: 1735880390518-7
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: extra_attributes_id
+        constraintName: UK_4gm6dhd7dvxcbr2rfwh100x6n
+        tableName: lead_extra_attributes
+- changeSet:
+    id: 1735880390518-8
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: extra_attributes_id
+        baseTableName: lead_extra_attributes
+        constraintName: FK4qdhsko0pct7s2kcdko9fxme4
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: extra_attribute
+        validate: true
+- changeSet:
+    id: 1735880390518-9
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: lead_id
+        baseTableName: lead_extra_attributes
+        constraintName: FKg4f7oq6shsbv4o3uq3ik9k1um
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: lead
+        validate: true
+
+
+- changeSet:
+    id: 1735970160408-2
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: attribute_metaPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: attribute_code
+            type: VARCHAR(255)
+        - column:
+            name: data_source
+            type: VARCHAR(255)
+        - column:
+            name: data_type
+            type: VARCHAR(255)
+        - column:
+            name: validation_constraint
+            type: VARCHAR(255)
+        tableName: attribute_meta
+- changeSet:
+    id: 1735970160408-3
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ATTRIBUTE_METAUNIQUE_IDENTIFIER_COL
+        tableName: attribute_meta
+
+
+
+- changeSet:
+    id: 1735977475301-3
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: extra_attribute_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: attribute_values_id
+            type: BIGINT
+        tableName: extra_attribute_attribute_values
+- changeSet:
+    id: 1735977475301-4
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: extra_attribute_valuePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: data_code
+            type: VARCHAR(255)
+        - column:
+            name: data_value
+            type: TEXT
+        - column:
+            name: sequence
+            type: BIGINT
+        tableName: extra_attribute_value
+
+- changeSet:
+    id: 1735977475301-7
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: attribute_values_id
+        baseTableName: extra_attribute_attribute_values
+        constraintName: FK1xc195dotjm7oqum5tnskupwl
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: extra_attribute_value
+        validate: true
+- changeSet:
+    id: 1735977475301-8
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: extra_attribute_id
+        baseTableName: extra_attribute_attribute_values
+        constraintName: FKmx0uh6dg1m0gvr8d4l3ug4ysa
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: extra_attribute
+        validate: true

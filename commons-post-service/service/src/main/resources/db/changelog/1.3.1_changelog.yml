@@ -1,0 +1,45 @@
+databaseChangeLog:
+- changeSet:
+    id: 1748235627941-6
+    author: manish (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: linked_entity_code
+            type: varchar(255)
+        tableName: post
+
+- changeSet:
+    id: 1748352778635-6
+    author: manish (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: points_awarded
+            type: bigint
+        tableName: post
+
+- changeSet:
+    id: 1748441466261-6
+    author: manish (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: post_end_date
+            type: datetime
+        tableName: post
+- changeSet:
+    id: 1748441466261-7
+    author: manish (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: post_start_date
+            type: datetime
+        tableName: post
+
+

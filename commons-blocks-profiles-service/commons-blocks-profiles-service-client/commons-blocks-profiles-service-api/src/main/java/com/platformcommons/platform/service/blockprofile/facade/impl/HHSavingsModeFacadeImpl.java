@@ -1,0 +1,173 @@
+package com.platformcommons.platform.service.blockprofile.facade.impl;
+
+import com.platformcommons.platform.service.access.PolicyEvaluator;
+import com.platformcommons.platform.service.dto.base.PageDTO;
+
+import com.platformcommons.platform.service.blockprofile.dto.*;
+import com.platformcommons.platform.service.blockprofile.facade.HHSavingsModeFacade;
+import com.platformcommons.platform.service.blockprofile.messaging.producer.HHSavingsModeProducer;
+import com.platformcommons.platform.service.blockprofile.service_ext.HHSavingsModeServiceExt;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import java.util.*;
+
+@Component
+@Slf4j
+
+public class HHSavingsModeFacadeImpl implements HHSavingsModeFacade {
+
+    private final HHSavingsModeServiceExt serviceExt;
+    private final HHSavingsModeProducer producer;
+    private final PolicyEvaluator evaluator;
+
+    private static final String HHSAVINGSMODE_CREATE = "METHOD_CODE.COMMONS-BLOCKS-PROFILES-SERVICE.HHSAVINGSMODE.CREATE";
+    private static final String HHSAVINGSMODE_UPDATE = "METHOD_CODE.COMMONS-BLOCKS-PROFILES-SERVICE.HHSAVINGSMODE.UPDATED";
+    private static final String HHSAVINGSMODE_DELETE = "METHOD_CODE.COMMONS-BLOCKS-PROFILES-SERVICE.HHSAVINGSMODE.DELETE";
+    private static final String HHSAVINGSMODE_GET = "METHOD_CODE.COMMONS-BLOCKS-PROFILES-SERVICE.HHSAVINGSMODE.GET";
+
+    public HHSavingsModeFacadeImpl(HHSavingsModeServiceExt serviceExt, HHSavingsModeProducer producer, PolicyEvaluator evaluator) {
+        this.serviceExt = serviceExt;
+        this.producer = producer;
+        this.evaluator = evaluator;
+    }
+
+
+    /**
+     * Creates a new HHSavingsMode entry in the system.
+     *
+     * @param HHSavingsModeDTO The HHSavingsMode information to be saved
+     * @return The saved HHSavingsMode data
+     */
+    @Override
+    public HHSavingsModeDTO save(HHSavingsModeDTO HHSavingsModeDTO) {
+        log.debug("Entry - save(HHSavingsModeDTO={})", HHSavingsModeDTO);
+        evaluator.evaluate(HHSAVINGSMODE_CREATE, new HashMap<>());
+        HHSavingsModeDTO = preHookSave(HHSavingsModeDTO);
+        HHSavingsModeDTO dto = serviceExt.save(HHSavingsModeDTO);
+        dto = postHookSave(dto);
+        producer.created(dto);
+        log.debug("Exit - save() with result: {}", dto);
+        return dto;
+    }
+
+
+    /**
+     * Updates an existing HHSavingsMode entry.
+     *
+     * @param HHSavingsModeDTO The HHSavingsMode information to be updated
+     * @return The updated HHSavingsMode data
+     */
+    @Override
+    public HHSavingsModeDTO update(HHSavingsModeDTO HHSavingsModeDTO) {
+        log.debug("Entry - update(HHSavingsModeDTO={})", HHSavingsModeDTO);
+        evaluator.evaluate(HHSAVINGSMODE_UPDATE, new HashMap<>());
+        HHSavingsModeDTO = preHookUpdate(HHSavingsModeDTO);
+        HHSavingsModeDTO dto = serviceExt.update(HHSavingsModeDTO);
+        dto = postHookUpdate(dto);
+        producer.updated(dto);
+        log.debug("Exit - update() with result: {}", dto);
+        return dto;
+    }
+
+
+    /**
+     * Retrieves a paginated list of HHSavingsModes.
+     *
+     * @param page Zero-based page index
+     * @param size The size of the page to be returned
+     * @return A page of HHSavingsModes
+     */
+    @Override
+    public PageDTO<HHSavingsModeDTO> getAllPage(Integer page, Integer size) {
+        log.debug("Entry - getAllPage(page={}, size={})", page, size);
+        evaluator.evaluate(HHSAVINGSMODE_GET, new HashMap<>());
+        PageDTO<HHSavingsModeDTO> result = serviceExt.getByPage(page, size);
+        result = postHookGetAll(result);
+        log.debug("Exit - getAllPage() with result: {}", result);
+        return result;
+    }
+
+
+    /**
+     * Deletes a HHSavingsMode by their ID with a specified reason.
+     *
+     * @param id     The ID of the HHSavingsMode to delete
+     * @param reason The reason for deletion
+     */
+    @Override
+    public void delete(Long id, String reason) {
+        log.debug("Entry - delete(id={}, reason={})", id, reason);
+        evaluator.evaluate(HHSAVINGSMODE_DELETE, new HashMap<>());
+        preHookDelete(id, reason);
+        HHSavingsModeDTO dto = serviceExt.deleteById(id, reason);
+        dto = postHookDelete(dto);
+        producer.deleted(dto);
+        log.debug("Exit - delete()");
+    }
+
+    /**
+     * Retrieves a HHSavingsMode by their ID.
+     *
+     * @param id The ID of the HHSavingsMode to retrieve
+     * @return The HHSavingsMode with the specified ID
+     */
+    @Override
+    public HHSavingsModeDTO getById(Long id) {
+        log.debug("Entry - getById(id={})", id);
+        evaluator.evaluate(HHSAVINGSMODE_GET, new HashMap<>());
+        HHSavingsModeDTO dto = serviceExt.getById(id);
+        dto = postHookGetById(dto);
+        log.debug("Exit - getById() with result: {}", dto);
+        return dto;
+    }
+
+    /**
+     * Retrieves all HHSavingsModes by the given set of IDs.
+     *
+     * @param ids Set of IDs to fetch
+     * @return Set of HHSavingsModeDTO
+     */
+    @Override
+    public Set<HHSavingsModeDTO> getAllByIds(Set<Long> ids) {
+        log.debug("Entry - getAllByIds(ids={})", ids);
+        evaluator.evaluate(HHSAVINGSMODE_GET, new HashMap<>());
+        Set<HHSavingsModeDTO> result = serviceExt.getAllByIds(ids);
+        log.debug("Exit - getAllByIds() with result: {}", result);
+        return result;
+    }
+
+
+
+    /*Hooks to be overridden by subclasses*/
+    protected HHSavingsModeDTO postHookSave(HHSavingsModeDTO dto) {
+        return dto;
+    }
+
+    protected HHSavingsModeDTO preHookSave(HHSavingsModeDTO dto) {
+        return dto;
+    }
+
+    protected HHSavingsModeDTO postHookUpdate(HHSavingsModeDTO dto) {
+        return dto;
+    }
+
+    protected HHSavingsModeDTO preHookUpdate(HHSavingsModeDTO HHSavingsModeDTO) {
+        return HHSavingsModeDTO;
+    }
+
+    protected HHSavingsModeDTO postHookDelete(HHSavingsModeDTO dto) {
+        return dto;
+    }
+
+    protected void preHookDelete(Long id, String reason) {
+    }
+
+    protected HHSavingsModeDTO postHookGetById(HHSavingsModeDTO dto) {
+        return dto;
+    }
+
+    protected PageDTO<HHSavingsModeDTO> postHookGetAll(PageDTO<HHSavingsModeDTO> result) {
+        return result;
+    }
+}

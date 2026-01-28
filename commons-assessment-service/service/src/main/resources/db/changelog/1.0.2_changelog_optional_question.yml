@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 1758551790-1
+    author: dibyajit ( manual )
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: is_mandatory
+            type: bit
+        tableName: question

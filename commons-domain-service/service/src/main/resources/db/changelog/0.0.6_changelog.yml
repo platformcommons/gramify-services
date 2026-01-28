@@ -1,0 +1,20 @@
+databaseChangeLog:
+- changeSet:
+    id: 1684818206358-1
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: slug
+            type: varchar(255)
+        tableName: app
+- changeSet:
+    id: 1684818206358-2
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: slug, is_active
+        constraintName: UKml8if0tthdnig6ur6jpblmyxv
+        tableName: app
+

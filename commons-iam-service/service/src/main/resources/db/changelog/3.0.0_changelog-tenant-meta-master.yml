@@ -1,0 +1,82 @@
+databaseChangeLog:
+- changeSet:
+    id: 1736772067143-6
+    author: aadarsh (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tenant_meta_master_mapPK
+            name: id
+            type: bigint
+        tableName: tenant_meta_master
+- changeSet:
+    id: 1736772067143-7
+    author: aadarsh (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_meta_master_id
+            type: bigint
+        tableName: tenant_meta_master_meta_allowed_value
+- changeSet:
+    id: 1736772067143-8
+    author: aadarsh (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_meta_master_id
+            type: bigint
+        tableName: tenant_meta_master_meta_default_values
+
+
+- changeSet:
+    id: 1736772067143-11
+    author: aadarsh (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: id
+        indexName: IX_tenant_meta_masterPK
+        tableName: tenant_meta_master
+        unique: true
+
+- changeSet:
+    id: 1736772067143-12
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tenant_meta_master_id
+        baseTableName: tenant_meta_master_meta_default_values
+        constraintName: FKnfghjp9i7d7j8h2a2axb5pjq9
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant_meta_master
+        validate: true
+- changeSet:
+    id: 1736772067143-13
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tenant_meta_master_id
+        baseTableName: tenant_meta_master_meta_allowed_value
+        constraintName: FKsqcook47ndycs5wvvd2i36vbm
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant_meta_master
+        validate: true
+
+

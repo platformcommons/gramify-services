@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: user_read_event_trigger
+      author: vishal-kale
+      changes:
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/triggers/01_user_read_event_log_AFTER_INSERT.sql

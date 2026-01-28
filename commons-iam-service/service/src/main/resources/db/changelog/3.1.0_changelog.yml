@@ -1,0 +1,1105 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1734097778989-2
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: currency_value_rangePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: currency
+                              type: VARCHAR(255)
+                        - column:
+                              name: maximum_value
+                              type: DOUBLE
+                        - column:
+                              name: minimum_value
+                              type: DOUBLE
+                        - column:
+                              name: value
+                              type: DOUBLE
+                    tableName: currency_value_range
+    - changeSet:
+          id: 1734097778989-5
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: first_name
+                              type: varchar(255)
+                    tableName: lead
+    - changeSet:
+          id: 1734097778989-6
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: is_active
+                              type: bit
+                    tableName: tenant
+    - changeSet:
+          id: 1734097778989-7
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: last_name
+                              type: varchar(255)
+                    tableName: lead
+    - changeSet:
+          id: 1734097778989-8
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: use_mobile_as_login
+                              type: bit
+                    tableName: tenant
+    - changeSet:
+          id: 1734097778989-12
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_CURRENCY_VALUE_RANGEUNIQUE_IDENTIFIER_COL
+                    tableName: currency_value_range
+    - changeSet:
+        id: 1734415099814-3
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: user_created_on
+                    type: datetime
+              tableName: lead
+    - changeSet:
+        id: 1734604641501-2
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: lead_id
+                    type: bigint
+              tableName: tenant
+    - changeSet:
+        id: 1734604641501-9
+        author: sandeep (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: lead_id
+              baseTableName: tenant
+              constraintName: FKjo3ngc4s9anwx42920r6pqtak
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: lead
+              validate: true
+    - changeSet:
+        id: 1734604641501-3
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: tenant_id
+                    type: bigint
+              tableName: lead
+    - changeSet:
+        id: 1734692714250-2
+        author: sandeep (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    constraints:
+                      nullable: false
+                    name: user_verification_id
+                    type: BIGINT
+                - column:
+                    name: role_code
+                    type: VARCHAR(255)
+              tableName: user_verification_assigned_roles
+    - changeSet:
+        id: 1734692714250-3
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: app_context
+                    type: varchar(255)
+              tableName: tenant_meta_additional_property
+    - changeSet:
+        id: 1734692714250-4
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: app_context
+                    type: varchar(255)
+              tableName: user_verification
+    - changeSet:
+        id: 1734692714250-9
+        author: sandeep (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: user_verification_id
+              baseTableName: user_verification_assigned_roles
+              constraintName: FKimpsfjmrxy86kg2b7y8lcj74x
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: user_verification
+              validate: true
+    - changeSet:
+        id: 1735210528625-1
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: mobile_country_code
+                    type: varchar(255)
+              tableName: lead
+    - changeSet:
+        id: 1735210528625-2
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: whatsapp_number
+                    type: varchar(255)
+              tableName: lead
+    - changeSet:
+        id: 1735210528625-3
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: whatsapp_number_country_code
+                    type: varchar(255)
+              tableName: lead
+    - changeSet:
+        id: 1735296025340-2
+        author: manish (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    autoIncrement: true
+                    constraints:
+                      nullable: false
+                      primaryKey: true
+                      primaryKeyName: tenant_profilePK
+                    name: id
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: unique_identifier
+                    type: VARCHAR(255)
+                - column:
+                    name: app_created_timestamp
+                    type: BIGINT
+                - column:
+                    name: app_last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    name: created_by_app_version
+                    type: BIGINT
+                - column:
+                    name: inactive_reason
+                    type: VARCHAR(255)
+                - column:
+                    name: inactive_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: is_active
+                    type: BIT
+                - column:
+                    name: last_modified_by_app_version
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: tenant_id
+                    type: BIGINT
+                - column:
+                    name: size
+                    type: VARCHAR(255)
+                - column:
+                    name: type
+                    type: VARCHAR(255)
+              tableName: tenant_profile
+    - changeSet:
+        id: 1735296025340-3
+        author: manish (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    constraints:
+                      nullable: false
+                    name: tenant_profile_id
+                    type: BIGINT
+                - column:
+                    name: industries
+                    type: VARCHAR(255)
+              tableName: tenant_profile_industries
+    - changeSet:
+        id: 1735296025340-4
+        author: manish (generated)
+        changes:
+          - addUniqueConstraint:
+              columnNames: unique_identifier
+              constraintName: UC_TENANT_PROFILEUNIQUE_IDENTIFIER_COL
+              tableName: tenant_profile
+    - changeSet:
+        id: 1735296025340-5
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: tenant_profile_id
+              baseTableName: tenant_profile_industries
+              constraintName: FKibtaglmisd8wq0uv4c4110le4
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: tenant_profile
+              validate: true
+    - changeSet:
+        id: 1735296025340-7
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: tenant_profile_id
+                    type: bigint
+              tableName: tenant
+    - changeSet:
+        id: 1735541252309-2
+        author: manish (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    autoIncrement: true
+                    constraints:
+                      nullable: false
+                      primaryKey: true
+                      primaryKeyName: addressPK
+                    name: id
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: unique_identifier
+                    type: VARCHAR(255)
+                - column:
+                    name: app_created_timestamp
+                    type: BIGINT
+                - column:
+                    name: app_last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    name: created_by_app_version
+                    type: BIGINT
+                - column:
+                    name: inactive_reason
+                    type: VARCHAR(255)
+                - column:
+                    name: inactive_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: is_active
+                    type: BIT
+                - column:
+                    name: last_modified_by_app_version
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: tenant_id
+                    type: BIGINT
+                - column:
+                    name: address
+                    type: VARCHAR(255)
+                - column:
+                    name: address_line1
+                    type: VARCHAR(255)
+                - column:
+                    name: address_line2
+                    type: VARCHAR(255)
+                - column:
+                    name: city_code
+                    type: VARCHAR(255)
+                - column:
+                    name: country_code
+                    type: VARCHAR(255)
+                - column:
+                    name: pin_code
+                    type: VARCHAR(255)
+                - column:
+                    name: state_code
+                    type: VARCHAR(255)
+              tableName: address
+    - changeSet:
+        id: 1735541252309-3
+        author: manish (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    autoIncrement: true
+                    constraints:
+                      nullable: false
+                      primaryKey: true
+                      primaryKeyName: social_media_accountPK
+                    name: id
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: unique_identifier
+                    type: VARCHAR(255)
+                - column:
+                    name: app_created_timestamp
+                    type: BIGINT
+                - column:
+                    name: app_last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    name: created_by_app_version
+                    type: BIGINT
+                - column:
+                    name: inactive_reason
+                    type: VARCHAR(255)
+                - column:
+                    name: inactive_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: is_active
+                    type: BIT
+                - column:
+                    name: last_modified_by_app_version
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: tenant_id
+                    type: BIGINT
+                - column:
+                    name: social_media_type
+                    type: VARCHAR(255)
+                - column:
+                    name: social_media_value
+                    type: VARCHAR(255)
+              tableName: social_media_account
+    - changeSet:
+        id: 1735541252309-4
+        author: manish (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    autoIncrement: true
+                    constraints:
+                      nullable: false
+                      primaryKey: true
+                      primaryKeyName: tenant_addressPK
+                    name: id
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: unique_identifier
+                    type: VARCHAR(255)
+                - column:
+                    name: app_created_timestamp
+                    type: BIGINT
+                - column:
+                    name: app_last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    name: created_by_app_version
+                    type: BIGINT
+                - column:
+                    name: inactive_reason
+                    type: VARCHAR(255)
+                - column:
+                    name: inactive_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: is_active
+                    type: BIT
+                - column:
+                    name: last_modified_by_app_version
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: tenant_id
+                    type: BIGINT
+                - column:
+                    name: address_type
+                    type: VARCHAR(255)
+                - column:
+                    name: address_id
+                    type: BIGINT
+                - column:
+                    name: tenant_profile_id
+                    type: BIGINT
+              tableName: tenant_address
+    - changeSet:
+        id: 1735541252309-5
+        author: manish (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    constraints:
+                      nullable: false
+                    name: tenant_profile_id
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: attachment_id
+                    type: BIGINT
+              tableName: tenant_profile_attachments
+    - changeSet:
+        id: 1735541252309-6
+        author: manish (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    autoIncrement: true
+                    constraints:
+                      nullable: false
+                      primaryKey: true
+                      primaryKeyName: tenant_social_mediaPK
+                    name: id
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: created_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_tenant
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_by_user
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: unique_identifier
+                    type: VARCHAR(255)
+                - column:
+                    name: app_created_timestamp
+                    type: BIGINT
+                - column:
+                    name: app_last_modified_timestamp
+                    type: BIGINT
+                - column:
+                    name: created_by_app_version
+                    type: BIGINT
+                - column:
+                    name: inactive_reason
+                    type: VARCHAR(255)
+                - column:
+                    name: inactive_timestamp
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: is_active
+                    type: BIT
+                - column:
+                    name: last_modified_by_app_version
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                    name: tenant_id
+                    type: BIGINT
+                - column:
+                    name: social_media_account_id
+                    type: BIGINT
+                - column:
+                    name: tenant_profile_id
+                    type: BIGINT
+              tableName: tenant_social_media
+    - changeSet:
+        id: 1735541252309-7
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: headline
+                    type: varchar(255)
+              tableName: tenant_profile
+    - changeSet:
+        id: 1735541252309-8
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: year_of_establishment
+                    type: integer
+              tableName: tenant_profile
+    - changeSet:
+        id: 1735541252309-9
+        author: manish (generated)
+        changes:
+          - addUniqueConstraint:
+              columnNames: unique_identifier
+              constraintName: UC_ADDRESSUNIQUE_IDENTIFIER_COL
+              tableName: address
+    - changeSet:
+        id: 1735541252309-10
+        author: manish (generated)
+        changes:
+          - addUniqueConstraint:
+              columnNames: unique_identifier
+              constraintName: UC_SOCIAL_MEDIA_ACCOUNTUNIQUE_IDENTIFIER_COL
+              tableName: social_media_account
+    - changeSet:
+        id: 1735541252309-11
+        author: manish (generated)
+        changes:
+          - addUniqueConstraint:
+              columnNames: unique_identifier
+              constraintName: UC_TENANT_ADDRESSUNIQUE_IDENTIFIER_COL
+              tableName: tenant_address
+    - changeSet:
+        id: 1735541252309-12
+        author: manish (generated)
+        changes:
+          - addUniqueConstraint:
+              columnNames: unique_identifier
+              constraintName: UC_TENANT_SOCIAL_MEDIAUNIQUE_IDENTIFIER_COL
+              tableName: tenant_social_media
+    - changeSet:
+        id: 1735541252309-13
+        author: manish (generated)
+        changes:
+          - addUniqueConstraint:
+              columnNames: attachment_id
+              constraintName: UK_ds4tsxmnv8hnpvocr8e9y972x
+              tableName: tenant_profile_attachments
+    - changeSet:
+        id: 1735541252309-14
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: tenant_profile_id
+              baseTableName: tenant_address
+              constraintName: FK6nif86ppdbk7yp79ieh8tq0or
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: tenant_profile
+              validate: true
+    - changeSet:
+        id: 1735541252309-15
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: tenant_profile_id
+              baseTableName: tenant_profile_attachments
+              constraintName: FK9ox2gpc5w7wqa0kg0lfjgv2p9
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: tenant_profile
+              validate: true
+    - changeSet:
+        id: 1735541252309-16
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: tenant_profile_id
+              baseTableName: tenant_social_media
+              constraintName: FKbpwkeceqff3hs9y2nfrv00vn6
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: tenant_profile
+              validate: true
+    - changeSet:
+        id: 1735541252309-17
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: social_media_account_id
+              baseTableName: tenant_social_media
+              constraintName: FKh70011s7kbd7tdvvkyq4abqaf
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: social_media_account
+              validate: true
+    - changeSet:
+        id: 1735541252309-18
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: attachment_id
+              baseTableName: tenant_profile_attachments
+              constraintName: FKpuh3ywpb8ekip5xnkvh8p6uom
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: attachment
+              validate: true
+    - changeSet:
+        id: 1735541252309-19
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: address_id
+              baseTableName: tenant_address
+              constraintName: FKs1ohnpy2wt2qsxu49go09r2kj
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: address
+              validate: true
+    - changeSet:
+        id: 1735296025340-6
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: tenant_profile_id
+              baseTableName: tenant
+              constraintName: FKmnhp1vm9axkm9d1wfqa9f0i77
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: tenant_profile
+              validate: true
+    - changeSet:
+        id: 1735455218648-1
+        author: sandeep (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    constraints:
+                      nullable: false
+                    name: lead_id
+                    type: BIGINT
+                - column:
+                    name: industries
+                    type: VARCHAR(255)
+              tableName: organisation_industries
+    - changeSet:
+        id: 1735455218648-2
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: organisation_logo
+                    type: varchar(255)
+              tableName: lead
+    - changeSet:
+        id: 1735455218648-3
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: organisation_size
+                    type: varchar(255)
+              tableName: lead
+    - changeSet:
+        id: 1735455218648-4
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: organisation_type
+                    type: varchar(255)
+              tableName: lead
+    - changeSet:
+        id: 1735455218648-5
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: website
+                    type: varchar(255)
+              tableName: lead
+    - changeSet:
+        id: 1735455218648-10
+        author: sandeep (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: lead_id
+              baseTableName: organisation_industries
+              constraintName: FKmhopsrbqmocbhxdpyqsllfrqx
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: lead
+              validate: true
+    - changeSet:
+        id: 1735505427742-1
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: is_email_verified
+                    type: bit
+              tableName: lead
+    - changeSet:
+        id: 1735505427742-2
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: is_mobile_verified
+                    type: bit
+              tableName: lead
+    - changeSet:
+        id: 1735644908639-6
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: slug
+                    type: varchar(255)
+              tableName: tenant
+    - changeSet:
+        id: 1735650559372-2
+        author: manish (generated)
+        changes:
+          - addUniqueConstraint:
+              columnNames: slug
+              constraintName: UC_TENANTSLUG_COL
+              tableName: tenant
+    - changeSet:
+        id: 1735644908639-1
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: latitude
+                    type: double precision
+              tableName: address
+    - changeSet:
+        id: 1735644908639-2
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: location_name
+                    type: varchar(255)
+              tableName: address
+    - changeSet:
+        id: 1735644908639-3
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: longitude
+                    type: double precision
+              tableName: address
+    - changeSet:
+        id: 1735644908639-4
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: place_id
+                    type: varchar(255)
+              tableName: address
+    - changeSet:
+        id: 1735644908639-5
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: type
+                    type: varchar(255)
+              tableName: address
+    - changeSet:
+        id: 1736167799640-11
+        author: manish (generated)
+        changes:
+          - createTable:
+              columns:
+                - column:
+                    constraints:
+                      nullable: false
+                      primaryKey: true
+                    name: tenant_profile_id
+                    type: BIGINT
+                - column:
+                    constraints:
+                      nullable: false
+                      primaryKey: true
+                    name: extra_attribute_id
+                    type: BIGINT
+              tableName: tenant_profile_extra_attributes
+    - changeSet:
+        id: 1736167799640-31
+        author: manish (generated)
+        changes:
+          - addUniqueConstraint:
+              columnNames: extra_attribute_id
+              constraintName: UK_4bbuysucvsfrl1gfcw07e3p1i
+              tableName: tenant_profile_extra_attributes
+    - changeSet:
+        id: 1736167799640-44
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: tenant_profile_id
+              baseTableName: tenant_profile_extra_attributes
+              constraintName: FKr1i02p11yo26e745ag7xtoywr
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: tenant_profile
+              validate: true
+    - changeSet:
+        id: 1736167799640-49
+        author: manish (generated)
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: extra_attribute_id
+              baseTableName: tenant_profile_extra_attributes
+              constraintName: FKtmtv0rhymvef0ykm6jepj0lse
+              deferrable: false
+              initiallyDeferred: false
+              referencedColumnNames: id
+              referencedTableName: extra_attribute
+              validate: true
+    - changeSet:
+        id: 1736483143169-3
+        author: manish (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: cover_image
+                    type: varchar(255)
+              tableName: tenant_profile

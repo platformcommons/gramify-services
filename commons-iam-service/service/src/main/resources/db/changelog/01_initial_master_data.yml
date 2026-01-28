@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: master_tenant_user_data_1573022228406
+      author: dibyajit
+      changes:
+        - sqlFile:
+            comment: This script inserts basic tenant , user  required by the service.
+            endDelimiter: ;
+            splitStatements: true
+            path: db/changelog/scripts/01_master_user.sql

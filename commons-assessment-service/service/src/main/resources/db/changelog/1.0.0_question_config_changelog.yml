@@ -1,0 +1,113 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1740728716836-4
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: question_configPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: config_key
+                  type: VARCHAR(255)
+              - column:
+                  name: config_value
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: question
+                  type: BIGINT
+            tableName: question_config
+  - changeSet:
+      id: 1740728716836-6
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_QUESTION_CONFIGUNIQUE_IDENTIFIER_COL
+            tableName: question_config
+  - changeSet:
+      id: 1740728716836-8
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: question
+            baseTableName: question_config
+            constraintName: FKhgt61bpa7uyjpwkp40cl5hv8t
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: question
+            validate: true

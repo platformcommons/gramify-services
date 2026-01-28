@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 1733984538036-3
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: hint_text
+            type: varchar(255)
+        tableName: question

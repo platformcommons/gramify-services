@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial_trigger_1573022228406
+      author: sandeep-sharma
+      changes:
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/triggers/01_reaction_AFTER_INSERT.sql
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/triggers/01_response_AFTER_INSERT.sql
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/triggers/02_reaction_AFTER_UPDATE.sql
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/triggers/02_response_AFTER_UPDATE.sql
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/triggers/03_reaction_AFTER_DELETE.sql
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/triggers/03_response_AFTER_DELETE.sql

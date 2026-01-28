@@ -1,0 +1,43 @@
+# Change Log is not intended for developer reference
+# WARN: not intended to be part of master changelog to do it manually
+databaseChangeLog:
+  - changeSet:
+      id: 1737456218420-81
+      author: jitendra (generated)
+      changes:
+        - dropForeignKeyConstraint:
+            baseTableName: user_contact
+            constraintName: FK2pm3m3m7xlwh9nfca4wvgpnwb
+  - changeSet:
+      id: 1737456218420-86
+      author: jitendra (generated)
+      changes:
+        - dropUniqueConstraint:
+            constraintName: UC_CONTACTUNIQUE_IDENTIFIER_COL
+            tableName: contact
+  - changeSet:
+      id: 1737456218420-88
+      author: jitendra (generated)
+      changes:
+        - dropTable:
+            tableName: contact
+  - changeSet:
+      id: 1737456218420-83
+      author: jitendra (generated)
+      changes:
+        - dropForeignKeyConstraint:
+            baseTableName: tenant_address
+            constraintName: FKs1ohnpy2wt2qsxu49go09r2kj
+  - changeSet:
+      id: 1737456218420-85
+      author: jitendra (generated)
+      changes:
+        - dropUniqueConstraint:
+            constraintName: UC_ADDRESSUNIQUE_IDENTIFIER_COL
+            tableName: address
+  - changeSet:
+      id: 1737456218420-87
+      author: jitendra (generated)
+      changes:
+        - dropTable:
+            tableName: address

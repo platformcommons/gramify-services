@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-post-service-base</artifactId>
+        <version>${revision}${changelist}</version>
+    </parent>
+
+    <artifactId>commons-post-service-dto</artifactId>
+    <packaging>jar</packaging>
+
+    <name>commons-post-service-dto</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-service-dto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-domain-service-dto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mindtree.bridge.platform</groupId>
+            <artifactId>BRBASE-generated-dto</artifactId>
+            <version>${BRBASE-generated-dto.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-iam-dto</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-api-generator-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <language>com.platformcommons.platform.dev.CommonsServiceDTOGenerator</language>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

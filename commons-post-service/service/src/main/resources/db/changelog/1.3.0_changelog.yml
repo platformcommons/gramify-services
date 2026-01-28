@@ -1,0 +1,212 @@
+databaseChangeLog:
+- changeSet:
+    id: 1725863805265-6
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: currency_value_rangePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: currency
+            type: VARCHAR(255)
+        - column:
+            name: maximum_value
+            type: DOUBLE
+        - column:
+            name: minimum_value
+            type: DOUBLE
+        - column:
+            name: value
+            type: DOUBLE
+        tableName: currency_value_range
+- changeSet:
+    id: 1725863805265-7
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_data_shared_contextPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: context
+            type: VARCHAR(255)
+        - column:
+            name: context_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: ref_data_code
+            type: VARCHAR(255)
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1725863805265-8
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_CURRENCY_VALUE_RANGEUNIQUE_IDENTIFIER_COL
+        tableName: currency_value_range
+- changeSet:
+    id: 1725863805265-9
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_DATA_SHARED_CONTEXTUNIQUE_IDENTIFIER_COL
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1725863805265-10
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: context, context_id, ref_data_code, is_active
+        constraintName: idx_ref_data_uniqueness_with_context
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1725863805265-11
+    author: sandeep (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: context
+        indexName: idx_context
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1725863805265-12
+    author: sandeep (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: context_id
+        indexName: idx_contextId
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1725863805265-13
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ref_data_code
+        baseTableName: ref_data_shared_context
+        constraintName: FK3m5etvn9v2a2o53na4iv4n46n
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+

@@ -1,0 +1,38 @@
+# NOt Intended to add to master changelog
+databaseChangeLog:
+  - changeSet:
+      id: 1726734881689-1
+      author: sandeep (generated)
+      changes:
+        - sql:
+            dbms: mysql
+            endDelimiter: ;
+            splitStatements: false
+            sql: "ALTER TABLE `commons_app_config_db`.`app_rbac` DROP COLUMN `tenant_login`;"
+  - changeSet:
+      id: 1726734881689-2
+      author: sandeep (generated)
+      changes:
+        - sql:
+            dbms: mysql
+            endDelimiter: ;
+            splitStatements: false
+            sql: "ALTER TABLE `commons_app_config_db`.`app_rbac` DROP INDEX `app_code_role_idc`;"
+  - changeSet:
+      id: 1726734881689-3
+      author: sandeep (generated)
+      changes:
+        - sql:
+            dbms: mysql
+            endDelimiter: ;
+            splitStatements: false
+            sql: "ALTER TABLE commons_app_config_db.app_operation MODIFY app_rbac BIGINT NULL;"
+  - changeSet:
+      id: 1726734881689-4
+      author: sandeep (generated)
+      changes:
+        - sql:
+            dbms: mysql
+            endDelimiter: ;
+            splitStatements: false
+            sql: "ALTER TABLE commons_app_config_db.app_rbac_meta MODIFY entity_type VARCHAR(255) NULL;"

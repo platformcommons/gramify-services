@@ -1,0 +1,2648 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Commons Assessment Service
+tags:
+  - name: AiaDefaultResponse
+  - name: AssessmentInstanceAccessor
+  - name: Assessment
+  - name: MimicAssessmentActor
+  - name: AssessmentInstance
+  - name: AssessmentInstanceActor
+  - name: AssessmentInstanceAnalytics
+  - name: AssessmentInstanceAssesse
+  - name: AssessmentQuestionPaper
+  - name: DefaultOptions
+  - name: DrObjectiveResponse
+  - name: DrSubjectiveResponse
+  - name: ExtraAttribute
+  - name: MTFOption
+  - name: Options
+  - name: QPSets
+  - name: Question
+  - name: QuestionPaperSection
+  - name: QuestionPaperSet
+  - name: QuestionText
+  - name: SectionQuestions
+  - name: Skill
+  - name: SkillHierarchy
+  - name: AssessmentAttachment
+paths:
+  /api/v1/assessment-instance-accessor/remove:
+    delete:
+      tags:
+        - AssessmentInstanceAccessor
+      summary: removeAssessmentInstanceAccessors
+      operationId: removeAssessmentInstanceAccessors
+      produces:
+        - '*/*'
+      parameters:
+        - name: instanceId
+          in: query
+          description: instanceId
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: logins
+          in: query
+          description: logins
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+
+  /api/v1/assessmentQuestionPapers:
+    post:
+      tags:
+        - AssessmentQuestionPaper
+      summary: createAssessmentQuestionPaper
+      operationId: createAssessmentQuestionPaper
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssessmentQuestionPaper'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+
+  /api/v1/assessmentinstances:
+    post:
+      tags:
+        - AssessmentInstance
+      summary: createAssessmentInstance
+      operationId: createAssessmentInstance
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssessmentInstance'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+
+  /api/v1/assessmentinstances/duplicate:
+    post:
+      tags:
+        - AssessmentInstance
+      summary: duplicateAssessmentInstance
+      operationId: duplicateAssessmentInstance
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: assessmentInstanceId
+          in: query
+          description: assessmentInstanceId
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: name
+          in: query
+          description: name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentInstance'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /api/v1/assessments:
+    post:
+      tags:
+        - Assessment
+      summary: createAssessment
+      operationId: createAssessment
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Assessment'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /api/v1/assessments/{assessmentId}:
+    get:
+      tags:
+        - Assessment
+      summary: getAssessmentById
+      operationId: getAssessmentById
+      produces:
+        - '*/*'
+      parameters:
+        - name: assessmentId
+          in: path
+          description: assessmentId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /api/v1/questions/response-exists/{questionId}:
+    get:
+      tags:
+        - Question
+      summary: checkQuestionResponseExists
+      operationId: checkQuestionResponseExists
+      produces:
+        - '*/*'
+      parameters:
+        - name: questionId
+          in: path
+          description: questionId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /api/v2/assessmentinstances:
+    patch:
+      tags:
+        - AssessmentInstance
+      summary: updateAssessmentInstanceV2
+      operationId: updateAssessmentInstanceV2
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssessmentInstance'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentInstance'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /api/v2/assessmentinstances/{assessmentInstanceId}:
+    get:
+      tags:
+        - AssessmentInstance
+      summary: getAssessmentInstanceByIdV2
+      operationId: getAssessmentInstanceByIdV2
+      produces:
+        - '*/*'
+      parameters:
+        - name: assessmentInstanceId
+          in: path
+          description: assessmentInstanceId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentInstance'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - AssessmentInstance
+      summary: deleteAssessmentInstanceV2
+      operationId: deleteAssessmentInstanceV2
+      produces:
+        - '*/*'
+      parameters:
+        - name: assessmentInstanceId
+          in: path
+          description: assessmentInstanceId
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: reason
+          in: query
+          description: reason
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentInstance'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /api/v2/assessments:
+    patch:
+      tags:
+        - Assessment
+      summary: updateAssessmentV2
+      operationId: updateAssessmentV2
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Assessment'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /api/v2/questions:
+    post:
+      tags:
+        - Question
+      summary: createQuestionV2
+      operationId: createQuestionV2
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    patch:
+      tags:
+        - Question
+      summary: updateQuestionV2
+      operationId: updateQuestionV2
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /api/v3/assessmentQuestionPapers:
+    patch:
+      tags:
+        - AssessmentQuestionPaper
+      summary: updateAssessmentQuestionPaperV3
+      operationId: updateAssessmentQuestionPaperV3
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssessmentQuestionPaper'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentQuestionPaper'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /api/v2/assessmentInstanceAssesses:
+    post:
+      tags:
+        - AssessmentInstanceAssesse
+      summary: createAssessmentInstanceAssesse
+      operationId: createAssessmentInstanceAssesse
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssessmentInstanceAssesse'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    patch:
+      tags:
+        - AssessmentInstanceAssesse
+      summary: updateAssessmentInstanceAssesse
+      operationId: updateAssessmentInstanceAssesse
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssessmentInstanceAssesse'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentInstanceAssesse'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /api/v2/assessmentInstanceAssesses/{id}:
+    get:
+      tags:
+        - AssessmentInstanceAssesse
+      summary: Retrieve AssessmentInstanceAssesse by ID
+      operationId: getAssessmentInstanceAssesseById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: The ID of the AssessmentInstanceAssesse to retrieve
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentInstanceAssesse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+#  /api/v1/attachment/assessment:
+#    post:
+#      tags:
+#        - AssessmentQuestionAttachment
+#      summary: createAssessmentAttachment
+#      operationId: createAssessmentAttachment
+#      consumes:
+#        - multipart/form-data
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: file
+#          in: formData
+#          required: false
+#          schema:
+#            type: file
+#        - name: entityId
+#          in: query
+#          description: entityId
+#          required: false
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '201':
+#          description: Created
+#          schema:
+#            type: string
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#  /api/v1/fact:
+#    patch:
+#      tags:
+#        - Fact
+#      summary: syncAssessmentData
+#      operationId: syncAssessmentData
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentId
+#          in: query
+#          description: assessmentId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#        - name: lang
+#          in: query
+#          description: lang
+#          required: false
+#          schema:
+#            type: string
+#      responses:
+#        '200':
+#          description: OK
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#
+#  /api/v1/fact/all:
+#    patch:
+#      tags:
+#        - Fact
+#      summary: syncAllAssessmentData
+#      operationId: syncAllAssessmentData
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: lang
+#          in: query
+#          description: lang
+#          required: false
+#          schema:
+#            type: string
+#      responses:
+#        '200':
+#          description: OK
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#
+#  /api/v1/fact/bulk/response:
+#    patch:
+#      tags:
+#        - Fact
+#      summary: syncBulkAssessmentResponseData
+#      operationId: syncBulkAssessmentResponseData
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentId
+#          in: query
+#          description: assessmentId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#
+#  /api/v1/fact/instance/analytics:
+#    patch:
+#      tags:
+#        - Fact
+#      summary: syncInstanceAnalytics
+#      operationId: syncInstanceAnalytics
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: instanceId
+#          in: query
+#          description: instanceId
+#          required: false
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/fact/instance/analytics/schedule:
+#    patch:
+#      tags:
+#        - Fact
+#      summary: scheduleInstanceAnalyticsNow
+#      operationId: scheduleInstanceAnalyticsNow
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      responses:
+#        '200':
+#          description: OK
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/questions:
+#    post:
+#      tags:
+#        - Question
+#      summary: createQuestion
+#      operationId: createQuestion
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Question'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                type: integer
+#                format: int64
+#        '201':
+#          description: Created
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#    patch:
+#      tags:
+#        - Question
+#      summary: updateQuestion
+#      operationId: updateQuestion
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Question'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Question'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/questions/{questionId}:
+#    get:
+#      tags:
+#        - Question
+#      summary: getQuestionById
+#      operationId: getQuestionById
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: questionId
+#          in: path
+#          description: questionId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Question'
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#    delete:
+#      tags:
+#        - Question
+#      summary: deleteQuestion
+#      operationId: deleteQuestion
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: questionId
+#          in: path
+#          description: questionId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#        - name: reason
+#          in: query
+#          description: reason
+#          schema:
+#            required: false
+#            type: string
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Question'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/skillhierarchies:
+#    post:
+#      tags:
+#        - SkillHierarchy
+#      summary: createSkillHierarchy
+#      operationId: createSkillHierarchy
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/SkillHierarchy'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                type: integer
+#                format: int64
+#        '201':
+#          description: Created
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#
+#    patch:
+#      tags:
+#        - SkillHierarchy
+#      summary: updateLTLDSkillHierarchy
+#      operationId: updateLTLDSkillHierarchy
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/SkillHierarchy'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/SkillHierarchy'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/skillhierarchies/{skillHierarchyId}:
+#    get:
+#      tags:
+#        - SkillHierarchy
+#      summary: getSkillHierarchyById
+#      operationId: getSkillHierarchyById
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: skillHierarchyId
+#          in: path
+#          description: skillHierarchyId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/SkillHierarchy'
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#
+#    delete:
+#      tags:
+#        - SkillHierarchy
+#      summary: deleteLTLDSkillHierarchy
+#      operationId: deleteLTLDSkillHierarchy
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: skillHierarchyId
+#          in: path
+#          description: skillHierarchyId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/SkillHierarchy'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/skills:
+#    post:
+#      tags:
+#        - Skill
+#      summary: createSkill
+#      operationId: createSkill
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Skill'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                type: integer
+#                format: int64
+#        '201':
+#          description: Created
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#
+#    patch:
+#      tags:
+#        - Skill
+#      summary: updateSkill
+#      operationId: updateSkill
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Skill'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Skill'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/skills/{skillId}:
+#    get:
+#      tags:
+#        - Skill
+#      summary: getSkillById
+#      operationId: getSkillById
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: skillId
+#          in: path
+#          description: skillId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Skill'
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#
+#    delete:
+#      tags:
+#        - Skill
+#      summary: deleteSkill
+#      operationId: deleteSkill
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: skillId
+#          in: path
+#          description: skillId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Skill'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v2/assessments/{assessmentId}:
+#    delete:
+#      tags:
+#        - Assessment
+#      summary: deleteAssessmentV2
+#      operationId: deleteAssessmentV2
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentId
+#          in: path
+#          description: assessmentId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#        - name: reason
+#          in: query
+#          description: reason
+#          required: true
+#          schema:
+#            type: string
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            applicaiton/json:
+#              schema:
+#                $ref: '#/components/schemas/Assessment'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v3/assessmentQuestionPapers/{assessmentQuestionPaperId}:
+#    delete:
+#      tags:
+#        - AssessmentQuestionPaper
+#      summary: deleteAssessmentQuestionPaperV3
+#      operationId: deleteAssessmentQuestionPaperV3
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentQuestionPaperId
+#          in: path
+#          description: assessmentQuestionPaperId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#        - name: reason
+#          in: query
+#          description: reason
+#          required: false
+#          schema:
+#            type: string
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            applicaiton/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentQuestionPaper'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/assessmentQuestionPapers/{assessmentQuestionPaperId}:
+#    get:
+#      tags:
+#        - AssessmentQuestionPaper
+#      summary: getAssessmentQuestionPaperById
+#      operationId: getAssessmentQuestionPaperById
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentQuestionPaperId
+#          in: path
+#          description: assessmentQuestionPaperId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentQuestionPaper'
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#  /api/v2/assessmentQuestionPapers:
+#    post:
+#      tags:
+#        - AssessmentQuestionPaper
+#      summary: createAssessmentQuestionPaperV2
+#      operationId: createAssessmentQuestionPaperV2
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentQuestionPaper'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentQuestionPaper'
+#        '201':
+#          description: Created
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#  /api/v1/assessmentQuestionPapers/mandatory/{assessmentQuestionPaperId}/{sectionQuestionId}/{toggleValue}:
+#    put:
+#      tags:
+#        - AssessmentQuestionPaper
+#      summary: toggleQuestionMandatoryOption
+#      operationId: toggleQuestionMandatoryOption
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentQuestionPaperId
+#          in: path
+#          description: assessmentQuestionPaperId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#        - name: sectionQuestionId
+#          in: path
+#          description: sectionQuestionId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#        - name: toggleValue
+#          in: path
+#          description: toggleValue
+#          required: true
+#          schema:
+#            type: boolean
+#      responses:
+#        '200':
+#          description: OK
+#          schema:
+#            $ref: '#/components/schemas/ResponseEntity'
+#        '201':
+#          description: Created
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#  /api/v1/assessmentInstanceAssesses/assessmentinstance/{assessmentInstanceId}:
+#    get:
+#      tags:
+#        - AssessmentInstanceAssesse
+#      summary: assessmentInstanceAssesseeExistsForAssessmentInstance
+#      operationId: assessmentInstanceAssesseeExistsForAssessmentInstance
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentInstanceId
+#          in: path
+#          description: assessmentInstanceId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                type: boolean
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#  /api/v1/assessmentInstanceAssesses/{assessmentInstanceAssesseId}:
+#    get:
+#      tags:
+#        - AssessmentInstanceAssesse
+#      summary: getAssessmentInstanceAssesseById
+#      operationId: getAssessmentInstanceAssesseById
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentInstanceAssesseId
+#          in: path
+#          description: assessmentInstanceAssesseId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentInstanceAssesse'
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#
+#    delete:
+#      tags:
+#        - AssessmentInstanceAssesse
+#      summary: deleteAssessmentInstanceAssesse
+#      operationId: deleteAssessmentInstanceAssesse
+#      produces:
+#        - '*/*'
+#      parameters:
+#        - name: assessmentInstanceAssesseId
+#          in: path
+#          description: assessmentInstanceAssesseId
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#        - name: reason
+#          in: query
+#          description: reason
+#          required: false
+#          schema:
+#            type: string
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentInstanceAssesse'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#  /api/v1/assessmentInstanceAssesses:
+#    post:
+#      tags:
+#        - AssessmentInstanceAssesse
+#      summary: createAssessmentInstanceAssesse
+#      operationId: createAssessmentInstanceAssesse
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentInstanceAssesse'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                type: integer
+#                format: int64
+#        '201':
+#          description: Created
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+#        '404':
+#          description: Not Found
+#    patch:
+#      tags:
+#        - AssessmentInstanceAssesse
+#      summary: updateAssessmentInstanceAssesse
+#      operationId: updateAssessmentInstanceAssesse
+#      consumes:
+#        - application/json
+#      produces:
+#        - '*/*'
+#      requestBody:
+#          required: true
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentInstanceAssesse'
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/AssessmentInstanceAssesse'
+#        '204':
+#          description: No Content
+#        '401':
+#          description: Unauthorized
+#        '403':
+#          description: Forbidden
+
+
+components:
+  schemas:
+    AiaDefaultResponse:
+      title: AiaDefaultResponse
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        optionId:
+          $ref: '#/components/schemas/Options'
+        sectionQuestion:
+          $ref: '#/components/schemas/SectionQuestions'
+        childDefaultOptionId:
+          type: integer
+          format: int64
+        childQuestionParentQuestionId:
+          type: integer
+          format: int64
+        childQuestionId:
+          type: integer
+          format: int64
+        tenant:
+          type: integer
+          format: int64
+        location:
+          type: string
+        remarks:
+          type: string
+        aiaDesc:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        drobjectiveresponseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DrObjectiveResponse'
+        drsubjectiveresponseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DrSubjectiveResponse'
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    Assessment:
+      title: Assessment
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        assessmentSubType:
+          $ref: '#/components/schemas/MimicRefData'
+        assessmentMode:
+          $ref: '#/components/schemas/MimicRefData'
+        assessmentType:
+          $ref: '#/components/schemas/MimicRefData'
+        assessmentConfigs:
+          type: array
+          items:
+            $ref: "#/components/schemas/Config"
+        assessmentCode:
+          type: string
+          maxLength: 254
+        assessmentKind:
+          $ref: '#/components/schemas/MimicRefData'
+        assessmentSubKind:
+          $ref: '#/components/schemas/MimicRefData'
+        context:
+          type: string
+          maxLength: 254
+        domain:
+          type: string
+          maxLength: 254
+        frequency:
+          type: integer
+          format: int64
+        levelCode:
+          type: string
+          maxLength: 254
+        subjectCode:
+          type: string
+          maxLength: 254
+        tenant:
+          type: integer
+          format: int64
+        totallMarks:
+          type: number
+          format: double
+        isEnabled:
+          type: boolean
+        subDomain:
+          type: string
+        assessmentDesc:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        assessmentName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        baseLanguage:
+          type: string
+          maxLength: 45
+        duplicatedFrom:
+          type: integer
+          format: int64
+        duplicatedCount:
+          type: integer
+          format: int64
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    MimicAssessmentActor:
+      title: MimicAssessmentActor
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        actorId:
+          type: string
+        actorType:
+          type: string
+        name:
+          type: string
+        groupId:
+          type: integer
+          format: int64
+        groupCode:
+          type: string
+        actorIeId:
+          type: string
+    Config:
+      type: object
+      required:
+        - id
+        - configKey
+      properties:
+        id:
+          type: integer
+          format: int64
+        configKey:
+          type: string
+        configValue:
+          type: string
+    AssessmentInstance:
+      title: AssessmentInstance
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        testType:
+          $ref: '#/components/schemas/MimicRefData'
+        assessment:
+          $ref: '#/components/schemas/Assessment'
+        scheduleStatus:
+          $ref: '#/components/schemas/MimicRefData'
+        monitoredBy:
+          $ref: '#/components/schemas/AssessmentInstanceActor'
+        conductedBy:
+          $ref: '#/components/schemas/AssessmentInstanceActor'
+        academicSession:
+          type: string
+        confirmationDate:
+          type: string
+          format: date
+        duration:
+          type: integer
+          format: int64
+        endDate:
+          type: string
+          format: date
+        forEntityId:
+          type: string
+        forEntityType:
+          type: string
+        sclevelBatch:
+          type: integer
+          format: int64
+        school:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date-time
+        tenant:
+          type: integer
+          format: int64
+        testNumber:
+          type: integer
+          format: int64
+        imageURL:
+          type: string
+        isPublic:
+          type: boolean
+        specificVisibility:
+          type: boolean
+        editable:
+          type: boolean
+        asmtInstDesc:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        asmtInstName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        author:
+          type: string
+        tenantId:
+          type: integer
+          format: int64
+        duplicatedFrom:
+          type: integer
+          format: int64
+        duplicatedCount:
+          type: integer
+          format: int64
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        sequence:
+          type: integer
+          format: int64
+    AssessmentInstanceActor:
+      title: AssessmentInstanceActor
+      type: object
+      properties:
+        actorId:
+          type: string
+        actorType:
+          type: string
+    AssessmentInstanceAccessor:
+      type: object
+      required:
+        -id
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+    AssessmentInstanceAssesse:
+      title: AssessmentInstanceAssesse
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        assessee:
+          $ref: '#/components/schemas/MimicAssessmentActor'
+        statusOfResult:
+          $ref: '#/components/schemas/MimicRefData'
+        assessmentTaken:
+          $ref: '#/components/schemas/MimicRefData'
+        assessor:
+          $ref: '#/components/schemas/MimicAssessmentActor'
+        assessmentInstance:
+          $ref: '#/components/schemas/AssessmentInstance'
+        QPSets:
+          $ref: '#/components/schemas/QPSets'
+        assessorType:
+          type: string
+          maxLength: 100
+        grade:
+          type: string
+          maxLength: 100
+        isLatest:
+          type: boolean
+        marksObtained:
+          type: number
+          format: double
+        result:
+          type: integer
+          format: int64
+        isGroupAssessmentResponse:
+          type: boolean
+        assessmentActorList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicAssessmentActor'
+        tenant:
+          type: integer
+          format: int64
+        assessedForEntityId:
+          type: string
+        assessedForEntityType:
+          type: string
+        assessmentTakenOn:
+          type: string
+          format: date-time
+        notes:
+          type: string
+        location:
+          type: string
+        aiadefaultResponseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/AiaDefaultResponse'
+        createdAt:
+          type: integer
+          format: int64
+        lastModifiedAt:
+          type: integer
+          format: int64
+        aiaAsseseeDesc:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+        assessmentTakenForDate:
+          type: string
+          format: date-time
+    AssessmentQuestionPaper:
+      title: AssessmentQuestionPaper
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        assessment:
+          $ref: '#/components/schemas/Assessment'
+        assessmentQuestionPaperCode:
+          type: string
+          maxLength: 100
+        tenant:
+          type: integer
+          format: int64
+        aqpDesc:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        aqpName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        questionPaperSectionList:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestionPaperSection'
+        duplicatedFrom:
+          type: integer
+          format: int64
+        duplicatedCount:
+          type: integer
+          format: int64
+        questionPaperSetList:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestionPaperSet'
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    DefaultOptions:
+      title: DefaultOptions
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        parentOptionCode:
+          type: string
+        isChildOption:
+          type: boolean
+        options:
+          $ref: '#/components/schemas/Options'
+        actionCode:
+          type: string
+        isCorrect:
+          type: boolean
+        remarksRequired:
+          type: boolean
+        orderNo:
+          type: integer
+          format: int64
+        tenant:
+          type: integer
+          format: int64
+        weight:
+          type: number
+          format: double
+        defaultOptExpl:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        childQuestionList:
+          type: array
+          items:
+            type: integer
+            format: int64
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    DrObjectiveResponse:
+      title: DrObjectiveResponse
+      type: object
+      required:
+        - id
+        - defaultOption
+      properties:
+        id:
+          type: integer
+          format: int64
+        defaultOption:
+          $ref: '#/components/schemas/DefaultOptions'
+        remarks:
+          type: string
+          description: remarks
+          maxLength: 1000
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+        mtfOptionId:
+          $ref: '#/components/schemas/MTFOption'
+    DrSubjectiveResponse:
+      title: DrSubjectiveResponse
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        responseText:
+          type: string
+        remarks:
+          type: string
+          description: remarks
+          maxLength: 1000
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    ExtraAttribute:
+      title: ExtraAttribute
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        attributeType:
+          type: string
+        attributeValue:
+          type: string
+        tenant:
+          type: integer
+          format: int64
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    Options:
+      title: Options
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        #        attachmentList:
+        #          type: array
+        #          items:
+        #            $ref: '#/components/schemas/MimicLTLDAttachment'
+        optionCode:
+          type: string
+          maxLength: 100
+        tenant:
+          type: integer
+          format: int64
+        optionImageURL:
+          type: string
+        optionName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    QPSets:
+      title: QPSets
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        assessment:
+          $ref: '#/components/schemas/Assessment'
+        qpsetsCode:
+          type: string
+          maxLength: 100
+        tenant:
+          type: integer
+          format: int64
+        qpsetsName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+    Question:
+      title: Question
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        #        attachmentList:
+        #          type: array
+        #          items:
+        #            $ref: '#/components/schemas/LTLDAttachmentDTO'
+        skillCode:
+          type: string
+        subSkillCode:
+          type: string
+        questionConfigs:
+          items:
+            $ref: '#/components/schemas/Config'
+        responseValidation:
+          type: string
+        validationMessage:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+        duplicatedFrom:
+          type: integer
+          format: int64
+        duplicatedCount:
+          type: integer
+          format: int64
+        isQuestionModified:
+          type: boolean
+        isMandatory:
+          type: boolean
+        questionType:
+          $ref: '#/components/schemas/MimicRefData'
+        questionClass:
+          $ref: '#/components/schemas/MimicRefData'
+        questionSubtype:
+          $ref: '#/components/schemas/MimicRefData'
+        complexityLevel:
+          type: integer
+          format: int64
+        domain:
+          type: string
+        frequencyINDays:
+          type: integer
+          format: int64
+        questionCode:
+          type: string
+        responseUOMCode:
+          type: string
+        tenant:
+          type: integer
+          format: int64
+        timeToRectifyInDays:
+          type: integer
+          format: int64
+        weight:
+          type: number
+          format: double
+        questionMeta:
+          type: string
+        questionImageURL:
+          type: string
+        subDomain:
+          type: string
+        skill:
+          type: integer
+          format: int64
+        subSkill:
+          type: integer
+          format: int64
+        questionText:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        questionSubText:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        questionName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        defaultOptionsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefaultOptions'
+        ltldskillList:
+          type: array
+          items:
+            type: integer
+            format: int64
+        mtfoptionList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MTFOption'
+        hintText:
+          type: string
+        optionSourceType:
+          type: string
+        optionSourceValue:
+          type: string
+        defaultParamForOptionSource:
+          type: string
+    MTFOption:
+      title: MTFOption
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        optionLeft:
+          $ref: '#/components/schemas/Options'
+        optionRight:
+          $ref: '#/components/schemas/Options'
+        weight:
+          type: number
+          format: double
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    QuestionPaperSection:
+      title: QuestionPaperSection
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        orderNo:
+          type: integer
+          format: int64
+        tenant:
+          type: integer
+          format: int64
+        totalMarks:
+          type: number
+          format: double
+        totalQuestions:
+          type: integer
+          format: int64
+        totalQuestionsToBeAnswered:
+          type: integer
+          format: int64
+        sectionDesc:
+          type: string
+        qpsDesc:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        qpsName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        qpsText:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        sectionQuestionsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SectionQuestions'
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    QuestionPaperSet:
+      title: QuestionPaperSet
+      type: object
+      required:
+        - id
+        - sectionQuestion
+      properties:
+        id:
+          type: integer
+          format: int64
+        assessmentQuestionPaper:
+          $ref: '#/components/schemas/AssessmentQuestionPaper'
+        question:
+          $ref: '#/components/schemas/Question'
+        sectionQuestion:
+          $ref: '#/components/schemas/SectionQuestions'
+        qpsets:
+          $ref: '#/components/schemas/QPSets'
+        name:
+          type: string
+        questionNumber:
+          type: integer
+          format: int64
+        tenant:
+          type: integer
+          format: int64
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    SectionQuestions:
+      title: SectionQuestions
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        orderNo:
+          type: integer
+          format: int64
+        question:
+          $ref: '#/components/schemas/Question'
+        questionNumber:
+          type: integer
+          format: int64
+        tenant:
+          type: integer
+          format: int64
+        sectionQuestionMeta:
+          type: string
+        isMandatory:
+          type: boolean
+        secQuestDesc:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        questionPaperSetList:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestionPaperSet'
+        weight:
+          type: number
+          format: double
+        questionId:
+          type: integer
+          format: int64
+        questionCode:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+    Skill:
+      required:
+        - id
+      title: Skill
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        majorSubType:
+          $ref: '#/components/schemas/MimicRefData'
+        majorType:
+          $ref: '#/components/schemas/MimicRefData'
+        skillType:
+          $ref: '#/components/schemas/MimicRefData'
+        difficultyLevel:
+          type: integer
+          format: int64
+        domain:
+          type: string
+        skillCode:
+          type: string
+        skillDesc:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        skillName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+    SkillHierarchy:
+      title: SkillHierarchy
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        parentSkillId:
+          $ref: '#/components/schemas/Skill'
+        childSkillId:
+          $ref: '#/components/schemas/Skill'
+        contributedWeight:
+          type: integer
+          format: int64
+    AssessmentResponseReport:
+      type: object
+      properties:
+        assessment:
+          type: string
+        empMId:
+          type: string
+        questionId:
+          type: string
+        question:
+          type: string
+        questionTag:
+          type: string
+        questionWeight:
+          type: string
+        optionId:
+          type: string
+        optionScore:
+          type: string
+        subjectiveResponse:
+          type: string
+        takenOn:
+          type: string
+    AssessmentAttachment:
+      type: object
+      properties:
+        entityId:
+          type: integer
+          format: int64
+        entityType:
+          type: string
+          maxLength: 100
+        fileName:
+          type: string
+          maxLength: 100
+        attachment:
+          type: string
+          format: byte
+        mimeType:
+          type: string
+        tempURL:
+          type: string
+    MimicRefData:
+      type: object
+      title: Assessment Ref Data Model
+      description: Ref Data Model is assembled into Mimic Ref Data to ensure no breaking changes are introduced in the APIs
+      properties:
+        code:
+          type: string
+          maxLength: 100
+          title: Ref Data Code
+          example:
+            - "ASSESSMENT_TYPE.SURVEY"
+            - "SCHEDULE_STATUS.RELEASED"
+          description: Ref Data Code is the unique identifier for the Ref Data
+        description:
+          type: string
+          title: Ref data description
+          example: The ref data is used to indicate the assessment is draft
+          description: Description for reference data
+        labels:
+          items:
+            $ref: '#/components/schemas/MimicMLText'
+        refClass:
+          $ref: '#/components/schemas/MimicLinkedRefCode'
+    MimicLinkedRefCode:
+      type: object
+      title: Assessment Linked Ref Code Model
+      description: A reference entity code is assembled to ensure no breaking changes are introduced in the APIs
+      properties:
+        code:
+          type: string
+          maxLength: 100
+          example:
+            - "ASSESSMENT_TYPE.SURVEY"
+            - "SCHEDULE_STATUS.RELEASED"
+    MimicMLText:
+      type: object
+      title: Assessment MLText Model
+      description: MLText is assembled into Mimic MLText to ensure no breaking changes are introduced in the APIs
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 0
+          description: Id is Auto Generated
+        text:
+          type: string
+          example: India
+          description: Should Contain text of specified language in Mimic Language Dto
+        language:
+          $ref: '#/components/schemas/MimicLanguage'
+    MimicLanguage:
+      type: object
+      description: this class represents a Language
+      properties:
+        code:
+          type: string
+        label:
+          type: string
+    MimicLTLDAttachment:
+      type: object
+      title: Assessment LTLDAttachmentDTO Model
+      description: LTLDAttachmentDTO is assembled into Mimic LTLDAttachmentDTO to ensure no breaking changes are introduced in the APIs
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 0
+          description: Id is Auto Generated
+        name:
+          type: string
+          description: name of the attachment
+        path:
+          type: string
+          description: path of the attachment
+
+#    AIAStatusRequest:
+#      type: object
+#      required:
+#        - assessmentInstanceId
+#      properties:
+#        assesseId:
+#          type: string
+#          maxLength: 100
+#        assesseType:
+#          type: string
+#          maxLength: 100
+#        assessorId:
+#          type: string
+#          maxLength: 100
+#        assessorType:
+#          type: string
+#          maxLength: 100
+#        assessmentInstanceId:
+#          type: integer
+#          format: int64
+#    ResponseFact:
+#      title: AssessmentResponseFact
+#      type: object
+#      properties:
+#        id:
+#          type: integer
+#          format: int64
+#        aiaDefaultResponseid:
+#          type: integer
+#          format: int64
+#        assessedForEntityId:
+#          type: string
+#        assessedForEntityType:
+#          type: string
+#        assesseeActorId:
+#          type: string
+#        assesseeActorType:
+#          type: string
+#        assessmentId:
+#          type: integer
+#          format: int64
+#        assessmentInstanceAssesseId:
+#          type: integer
+#          format: int64
+#        assessmentInstanceId:
+#          type: integer
+#          format: int64
+#        assessmentTakenOn:
+#          type: string
+#          format: date-time
+#        assessorId:
+#          type: string
+#        assessorType:
+#          type: string
+#        inActiveAt:
+#          type: integer
+#          format: int64
+#        inActiveReason:
+#          type: string
+#        language:
+#          type: string
+#        multiSelectResponse:
+#          type: string
+#        multiSelectResponseids:
+#          type: string
+#        objectiveResponse:
+#          type: string
+#        optionId:
+#          type: integer
+#          format: int64
+#        questionId:
+#          type: integer
+#          format: int64
+#        questionResponse:
+#          type: string
+#        questionText:
+#          type: string
+#        sectionQuestionsId:
+#          type: integer
+#          format: int64
+#        subjectiveResponse:
+#          type: string
+#        subjectiveResponseId:
+#          type: integer
+#          format: int64
+#    QuestionFact:
+#      title: AssessmentQuestionFact
+#      type: object
+#      properties:
+#        id:
+#          type: integer
+#          format: int64
+#        assessmentCreatedAt:
+#          type: integer
+#          format: int64
+#        assessmentCreatedBy:
+#          type: integer
+#          format: int64
+#        assessmentDomain:
+#          type: string
+#        assessmentId:
+#          type: integer
+#          format: int64
+#        assessmentInstanceEnddate:
+#          type: string
+#          format: date-time
+#        assessmentInstanceId:
+#          type: integer
+#          format: int64
+#        assessmentInstanceStartdate:
+#          type: string
+#          format: date-time
+#        assessmentName:
+#          type: string
+#        assessmentQuestionPaperId:
+#          type: integer
+#          format: int64
+#        assessmentQuestionPapername:
+#          type: string
+#        assessmentSubDomains:
+#          type: string
+#        assessmentSubtype:
+#          type: string
+#        assessmentType:
+#          type: string
+#        inActiveAt:
+#          type: integer
+#          format: int64
+#        inActiveReason:
+#          type: string
+#        language:
+#          type: string
+#        questionCode:
+#          type: string
+#        questionCreatedAt:
+#          type: integer
+#          format: int64
+#        questionCreatedBy:
+#          type: integer
+#          format: int64
+#        questionDomain:
+#          type: string
+#        questionId:
+#          type: integer
+#          format: int64
+#        questionPaperSectionId:
+#          type: integer
+#          format: int64
+#        questionPaperSectionname:
+#          type: string
+#        questionPaperSectionSequence:
+#          type: integer
+#          format: int64
+#        questionSubDomains:
+#          type: string
+#        questionSubtype:
+#          type: string
+#        questionText:
+#          type: string
+#        questionType:
+#          type: string
+#        questionWeight:
+#          type: number
+#          format: double
+#        sectionQuestionDescription:
+#          type: string
+#        sectionQuestionId:
+#          type: integer
+#          format: int64
+#        sectionQuestionIsMandatory:
+#          type: string
+#        sectionQuestionSequence:
+#          type: integer
+#          format: int64
+#    OptionFact:
+#      title: AssessmentOptionFact
+#      type: object
+#      properties:
+#        id:
+#          type: integer
+#          format: int64
+#        assessmentId:
+#          type: integer
+#          format: int64
+#        assessmentQuestionPaperId:
+#          type: integer
+#          format: int64
+#        childQuestion:
+#          type: string
+#        defaultOptionId:
+#          type: integer
+#          format: int64
+#        inActiveAt:
+#          type: integer
+#          format: int64
+#        inActiveReason:
+#          type: string
+#        isCorrect:
+#          type: string
+#        language:
+#          type: string
+#        optionCode:
+#          type: string
+#        optionText:
+#          type: string
+#        optionWeight:
+#          type: number
+#          format: double
+#        optionsId:
+#          type: integer
+#          format: int64
+#        questionId:
+#          type: integer
+#          format: int64
+#        questionPaperSectionId:
+#          type: integer
+#          format: int64
+#        questionText:
+#          type: string
+#        sectionQuestionId:
+#          type: integer
+#          format: int64

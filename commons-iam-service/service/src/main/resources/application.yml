@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: commons-iam-service
+  profiles:
+    active: ${COMMONS_ENVIRONMENT_PROFILE:dev}
+  config:
+    import: "optional:configserver:${COMMONS_CONFIG_SERVER_URL:https://dev.platformcommons.org/commons-config}"
+  boot:
+    admin:
+      client:
+        instance:
+          management-base-path: /actuator
+          url: http://127.0.0.1:8080
+#  spring.boot.admin.client.instance.management-base-path=/actuator
+logging:
+  level:
+    com:
+      netflix: off
+#  spring.boot.admin.client.url=

@@ -1,0 +1,2637 @@
+openapi: 3.0.0
+info:
+  title: commons-blocks-profiles-service
+  version: 1.0.0
+tags:
+  - name: HouseholdIncomeAndPovertyProfil
+    description: Operations for HouseholdIncomeAndPovertyProfil
+  - name: HHEnterpriseType
+    description: Operations for HHEnterpriseType
+  - name: VillageNicheProductProfile
+    description: Operations for VillageNicheProductProfile
+  - name: HHArtisanType
+    description: Operations for HHArtisanType
+  - name: CommonRepairNeed
+    description: Operations for CommonRepairNeed
+  - name: VillageSoilType
+    description: Operations for VillageSoilType
+  - name: NonAgriculturalMarketActivies
+    description: Operations for NonAgriculturalMarketActivies
+  - name: VillageRoadInfrastructure
+    description: Operations for VillageRoadInfrastructure
+  - name: HHLoanSource
+    description: Operations for HHLoanSource
+  - name: VillageHealthInfrastructure
+    description: Operations for VillageHealthInfrastructure
+  - name: CentralSchemeList
+    description: Operations for CentralSchemeList
+  - name: VillageEnvironmentalRiskProfile
+    description: Operations for VillageEnvironmentalRiskProfile
+  - name: HHGovernanceAspiration
+    description: Operations for HHGovernanceAspiration
+  - name: VillageForestResourceProfile
+    description: Operations for VillageForestResourceProfile
+  - name: HouseholdFinancialBehaviour
+    description: Operations for HouseholdFinancialBehaviour
+  - name: VillageHumanResourceProfile
+    description: Operations for VillageHumanResourceProfile
+  - name: HHSocialConstraints
+    description: Operations for HHSocialConstraints
+  - name: IssuesInHigherEducationAccess
+    description: Operations for IssuesInHigherEducationAccess
+  - name: HorticultureProduct
+    description: Operations for HorticultureProduct
+  - name: SeedsInDemand
+    description: Operations for SeedsInDemand
+  - name: VillageMineralAndBiodiversityPr
+    description: Operations for VillageMineralAndBiodiversityPr
+  - name: HHMigrationMonth
+    description: Operations for HHMigrationMonth
+  - name: ProductionSeasonality
+    description: Operations for ProductionSeasonality
+  - name: HHEconomicConstraints
+    description: Operations for HHEconomicConstraints
+  - name: VillageLandResourceProfile
+    description: Operations for VillageLandResourceProfile
+  - name: OtherCommunityGroup
+    description: Operations for OtherCommunityGroup
+  - name: OtherIndustryType
+    description: Operations for OtherIndustryType
+  - name: VillageLivestockProfile
+    description: Operations for VillageLivestockProfile
+  - name: VillageConsumptionPattern
+    description: Operations for VillageConsumptionPattern
+  - name: VillageTransportConnectivityIss
+    description: Operations for VillageTransportConnectivityIss
+  - name: VillageInstitutionalResourcePro
+    description: Operations for VillageInstitutionalResourcePro
+  - name: VillageCommunicationInfrastruct
+    description: Operations for VillageCommunicationInfrastruct
+  - name: HHSocialAspiration
+    description: Operations for HHSocialAspiration
+  - name: StorageNeededForCrop
+    description: Operations for StorageNeededForCrop
+  - name: VillageCommonFauna
+    description: Operations for VillageCommonFauna
+  - name: SeasonalityOfSurplus
+    description: Operations for SeasonalityOfSurplus
+  - name: SourceOfRawMaterial
+    description: Operations for SourceOfRawMaterial
+  - name: StapleFoodsConsumed
+    description: Operations for StapleFoodsConsumed
+  - name: SchemeImplementationChallenge
+    description: Operations for SchemeImplementationChallenge
+  - name: VillageWaterResourceProfile
+    description: Operations for VillageWaterResourceProfile
+  - name: BlockVillageDemographicsProfile
+    description: Operations for BlockVillageDemographicsProfile
+  - name: WherePeopleGoForCommonIllness
+    description: Operations for WherePeopleGoForCommonIllness
+  - name: MainCreditSource
+    description: Operations for MainCreditSource
+  - name: FertilizersInDemand
+    description: Operations for FertilizersInDemand
+  - name: HouseholdConstraintsProfile
+    description: Operations for HouseholdConstraintsProfile
+  - name: KeyConstraintsForSurplusExport
+    description: Operations for KeyConstraintsForSurplusExport
+  - name: MainNicheMarket
+    description: Operations for MainNicheMarket
+  - name: NGOThematicArea
+    description: Operations for NGOThematicArea
+  - name: ItemsUsuallyBoughtLocally
+    description: Operations for ItemsUsuallyBoughtLocally
+  - name: VillageHorticultureProfile
+    description: Operations for VillageHorticultureProfile
+  - name: HHSkilledWorkerType
+    description: Operations for HHSkilledWorkerType
+  - name: ArtisanType
+    description: Operations for ArtisanType
+  - name: HouseholdAspirationsProfile
+    description: Operations for HouseholdAspirationsProfile
+  - name: VillageInfrastructureConstraint
+    description: Operations for VillageInfrastructureConstraint
+  - name: ItemsUsuallyBoughtFromOutside
+    description: Operations for ItemsUsuallyBoughtFromOutside
+  - name: ExportPotentialSurplusProduceTy
+    description: Operations for ExportPotentialSurplusProduceTy
+  - name: MainSkilledTradesPresent
+    description: Operations for MainSkilledTradesPresent
+  - name: EmergingEnterpriseType
+    description: Operations for EmergingEnterpriseType
+  - name: VillageYouthAspirations
+    description: Operations for VillageYouthAspirations
+  - name: VillageDigitalConnectivityProfi
+    description: Operations for VillageDigitalConnectivityProfi
+  - name: MainSurplusDestination
+    description: Operations for MainSurplusDestination
+  - name: ExistingStorageIssue
+    description: Operations for ExistingStorageIssue
+  - name: CommonConsumerGoodsPurchased
+    description: Operations for CommonConsumerGoodsPurchased
+  - name: VillageSocialStructureProfile
+    description: Operations for VillageSocialStructureProfile
+  - name: VillageCommonWildlife
+    description: Operations for VillageCommonWildlife
+  - name: VillageWaterSanitationProfile
+    description: Operations for VillageWaterSanitationProfile
+  - name: LocalFestival
+    description: Operations for LocalFestival
+  - name: ProductionSeason
+    description: Operations for ProductionSeason
+  - name: CroppingSeason
+    description: Operations for CroppingSeason
+  - name: PurposeOfCredit
+    description: Operations for PurposeOfCredit
+  - name: HouseholdHumanResourceProfile
+    description: Operations for HouseholdHumanResourceProfile
+  - name: MainSurplusMarketsOutsideBlock
+    description: Operations for MainSurplusMarketsOutsideBlock
+  - name: VillageTopInfrastructureNeed
+    description: Operations for VillageTopInfrastructureNeed
+  - name: HouseholdLivelihoodProfile
+    description: Operations for HouseholdLivelihoodProfile
+  - name: VillageForestProduceType
+    description: Operations for VillageForestProduceType
+  - name: OperatingDay
+    description: Operations for OperatingDay
+  - name: VillageMarketProfile
+    description: Operations for VillageMarketProfile
+  - name: VillageRoadConnectivityProfile
+    description: Operations for VillageRoadConnectivityProfile
+  - name: PowerCutSeason
+    description: Operations for PowerCutSeason
+  - name: HHEconomicAspiration
+    description: Operations for HHEconomicAspiration
+  - name: VillageEducationInfrastructure
+    description: Operations for VillageEducationInfrastructure
+  - name: Consumption
+    description: Operations for Consumption
+  - name: NicheProductsAvailability
+    description: Operations for NicheProductsAvailability
+  - name: RawMaterialsNeededForIndustry
+    description: Operations for RawMaterialsNeededForIndustry
+  - name: VillageHumanCapitalProfile
+    description: Operations for VillageHumanCapitalProfile
+  - name: VillageFinancialInstitutionProf
+    description: Operations for VillageFinancialInstitutionProf
+  - name: RenewableInfraType
+    description: Operations for RenewableInfraType
+  - name: HHInfrastructureAspiration
+    description: Operations for HHInfrastructureAspiration
+  - name: Household
+    description: Operations for Household
+  - name: WhereFarmersBuyInput
+    description: Operations for WhereFarmersBuyInput
+  - name: VillageWaterSupplyGap
+    description: Operations for VillageWaterSupplyGap
+  - name: VillageExportPotentialProfile
+    description: Operations for VillageExportPotentialProfile
+  - name: LocalArtFormType
+    description: Operations for LocalArtFormType
+  - name: GovtSchemes
+    description: Operations for GovtSchemes
+  - name: HHEmploymentType
+    description: Operations for HHEmploymentType
+  - name: CommonHealthIssue
+    description: Operations for CommonHealthIssue
+  - name: VillageCommonFlora
+    description: Operations for VillageCommonFlora
+  - name: SurplusMovedThrough
+    description: Operations for SurplusMovedThrough
+  - name: VillageElectricityInfrastructur
+    description: Operations for VillageElectricityInfrastructur
+  - name: VillageFisheriesProfile
+    description: Operations for VillageFisheriesProfile
+  - name: VillageServiceDemandProfile
+    description: Operations for VillageServiceDemandProfile
+  - name: VillageCulturalResourceProfile
+    description: Operations for VillageCulturalResourceProfile
+  - name: Crop
+    description: Operations for Crop
+  - name: HHSavingsMode
+    description: Operations for HHSavingsMode
+  - name: VillageOtherInfrastructure
+    description: Operations for VillageOtherInfrastructure
+  - name: MajorFestival
+    description: Operations for MajorFestival
+  - name: VillageSkillShortageType
+    description: Operations for VillageSkillShortageType
+  - name: NicheProductBuyerType
+    description: Operations for NicheProductBuyerType
+  - name: VillageIrrigationInfrastructure
+    description: Operations for VillageIrrigationInfrastructure
+  - name: PesticidesInDemand
+    description: Operations for PesticidesInDemand
+  - name: SupportNeededForNicheGrowth
+    description: Operations for SupportNeededForNicheGrowth
+  - name: MachinesInDemand
+    description: Operations for MachinesInDemand
+  - name: CurrentStorageMethod
+    description: Operations for CurrentStorageMethod
+  - name: ExportPotentialNicheProductBuye
+    description: Operations for ExportPotentialNicheProductBuye
+  - name: VillageEducationalInfrastructur
+    description: Operations for VillageEducationalInfrastructur
+  - name: MainReligiousPlace
+    description: Operations for MainReligiousPlace
+  - name: WherePeopleGoForRepairs
+    description: Operations for WherePeopleGoForRepairs
+  - name: SurplusProduceType
+    description: Operations for SurplusProduceType
+  - name: Village
+    description: Operations for Village
+  - name: VillageSurplusProduceProfile
+    description: Operations for VillageSurplusProduceProfile
+  - name: HouseholdDemographics
+    description: Operations for HouseholdDemographics
+  - name: HyperLocalMarketProfile
+    description: Operations for HyperLocalMarketProfile
+  - name: VillageCropProfile
+    description: Operations for VillageCropProfile
+  - name: VillageCasteComposition
+    description: Operations for VillageCasteComposition
+  - name: VillageAgriInputDemandProfile
+    description: Operations for VillageAgriInputDemandProfile
+  - name: VillageIrrigationSystemType
+    description: Operations for VillageIrrigationSystemType
+components:
+  schemas:
+    HouseholdIncomeAndPovertyProfil:
+      title: HouseholdIncomeAndPovertyProfil
+      type: object
+      properties:
+        hhHasBankAccount:
+          type: boolean
+        hhBplStatus:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        hhAnnualIncome:
+          $ref: '#/components/schemas/CurrencyValue'
+        hhShgMembership:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+    HHEnterpriseType:
+      title: HHEnterpriseType
+      type: object
+      properties:
+        householdHumanResourceProfileId:
+          type: integer
+          format: int64
+        enterpriseType:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    VillageNicheProductProfile:
+      title: VillageNicheProductProfile
+      type: object
+      properties:
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        hasNicheCraftCluster:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        areNicheProductsSoldOutside:
+          type: boolean
+        nicheProductScaleLevel:
+          $ref: '#/components/schemas/RefData'
+        nicheproductbuyertypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/NicheProductBuyerType'
+        mainnichemarketList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MainNicheMarket'
+        nicheproductsavailabilityList:
+          type: array
+          items:
+            $ref: '#/components/schemas/NicheProductsAvailability'
+        supportneededfornichegrowthList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportNeededForNicheGrowth'
+    HHArtisanType:
+      title: HHArtisanType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        householdHumanResourceProfileId:
+          type: integer
+          format: int64
+        artisanType:
+          $ref: '#/components/schemas/RefData'
+    CommonRepairNeed:
+      title: CommonRepairNeed
+      type: object
+      properties:
+        commonRepairNeed:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        villageServiceDemandProfileId:
+          type: integer
+          format: int64
+    VillageSoilType:
+      title: VillageSoilType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageLandResourceProfileId:
+          type: integer
+          format: int64
+        villageSoilType:
+          $ref: '#/components/schemas/RefData'
+    NonAgriculturalMarketActivies:
+      title: NonAgriculturalMarketActivies
+      type: object
+      properties:
+        localConsumerEconomyStrength:
+          type: string
+        handloomUnitCount:
+          type: integer
+          format: int32
+        potteryUnitCount:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int64
+        hasSmallScaleIndustries:
+          type: boolean
+        carpentryUnitCount:
+          type: integer
+          format: int32
+        serviceAvailabilityLevel:
+          $ref: '#/components/schemas/RefData'
+        pharmacyCount:
+          type: integer
+          format: int32
+        eateryCount:
+          type: integer
+          format: int32
+        hasCarpenter:
+          type: boolean
+        generalStoreCount:
+          type: integer
+          format: int32
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        nonFarmLivelihoodSignificance:
+          $ref: '#/components/schemas/RefData'
+        mobileRepairShopCount:
+          type: integer
+          format: int32
+        hasElectrician:
+          type: boolean
+        hasMobileRepairService:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        otherRetailType:
+          $ref: '#/components/schemas/RefData'
+        hasPlumber:
+          type: boolean
+        hasMechanic:
+          type: boolean
+        otherindustrytypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/OtherIndustryType'
+    VillageRoadInfrastructure:
+      title: VillageRoadInfrastructure
+      type: object
+      properties:
+        roadLengthStateHighwayKm:
+          $ref: '#/components/schemas/UoMValue'
+        roadUsabilityInMonsoon:
+          type: string
+        hasAllWeatherConnectivity:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        roadLengthRuralRoadKm:
+          $ref: '#/components/schemas/UoMValue'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        ruralRoadUnpavedShare:
+          $ref: '#/components/schemas/UoMValue'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        roadLengthMdrKm:
+          $ref: '#/components/schemas/UoMValue'
+    HHLoanSource:
+      title: HHLoanSource
+      type: object
+      properties:
+        loanSource:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        householdId:
+          type: integer
+          format: int64
+    VillageHealthInfrastructure:
+      title: VillageHealthInfrastructure
+      type: object
+      properties:
+        infantMortalityRate:
+          $ref: '#/components/schemas/UoMValue'
+        institutionalDeliveryRate:
+          $ref: '#/components/schemas/UoMValue'
+        anmAvailabilityLevel:
+          $ref: '#/components/schemas/RefData'
+        subCenterCount:
+          $ref: '#/components/schemas/UoMValue'
+        id:
+          type: integer
+          format: int64
+        immunisationCoverageLevel:
+          $ref: '#/components/schemas/RefData'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        doctorVacancyCount:
+          $ref: '#/components/schemas/UoMValue'
+        phcNameCoveringVillage:
+          type: string
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        commonhealthissueList:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommonHealthIssue'
+    CentralSchemeList:
+      title: CentralSchemeList
+      type: object
+      properties:
+        centralScheme:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        govtSchemesId:
+          type: integer
+          format: int64
+    VillageEnvironmentalRiskProfile:
+      title: VillageEnvironmentalRiskProfile
+      type: object
+      properties:
+        villageGroundwaterDeclineLevel:
+          $ref: '#/components/schemas/RefData'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        villageSoilErosionSeverity:
+          $ref: '#/components/schemas/RefData'
+        villageFacesDrought:
+          type: boolean
+        villageRainfallIrregularityLevel:
+          $ref: '#/components/schemas/RefData'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+    HHGovernanceAspiration:
+      title: HHGovernanceAspiration
+      type: object
+      properties:
+        governanceAspiration:
+          $ref: '#/components/schemas/RefData'
+        householdAspirationsProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    VillageForestResourceProfile:
+      title: VillageForestResourceProfile
+      type: object
+      properties:
+        villageForestType:
+          $ref: '#/components/schemas/RefData'
+        villageForestProduceDependenceLevel:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        villageForestAreaShare:
+          $ref: '#/components/schemas/UoMValue'
+        villageforestproducetypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageForestProduceType'
+        villagecommonwildlifeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageCommonWildlife'
+    HouseholdFinancialBehaviour:
+      title: HouseholdFinancialBehaviour
+      type: object
+      properties:
+        hhRemittanceSourceLocation:
+          type: string
+        hhSavesRegularly:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        hhHasRemittanceIncome:
+          type: boolean
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        hhsavingsmodeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHSavingsMode'
+    VillageHumanResourceProfile:
+      title: VillageHumanResourceProfile
+      type: object
+      properties:
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        artisanFamilyCount:
+          $ref: '#/components/schemas/UoMValue'
+        keyCommunityLeadersDescription:
+          type: string
+        skilledLaborShortageLevel:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        artisantypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtisanType'
+        emergingenterprisetypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmergingEnterpriseType'
+        mainskilledtradespresentList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MainSkilledTradesPresent'
+        hhskilledworkertypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHSkilledWorkerType'
+    HHSocialConstraints:
+      title: HHSocialConstraints
+      type: object
+      properties:
+        householdConstraintsProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        socialConstraint:
+          $ref: '#/components/schemas/RefData'
+    IssuesInHigherEducationAccess:
+      title: IssuesInHigherEducationAccess
+      type: object
+      properties:
+        issueInHigherEducationAccess:
+          $ref: '#/components/schemas/RefData'
+        villageEducationInfrastructureId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    HorticultureProduct:
+      title: HorticultureProduct
+      type: object
+      properties:
+        villageHorticultureProfileId:
+          type: integer
+          format: int64
+        horticultureProduct:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    SeedsInDemand:
+      title: SeedsInDemand
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        seedInDemand:
+          $ref: '#/components/schemas/RefData'
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+    VillageMineralAndBiodiversityPr:
+      title: VillageMineralAndBiodiversityPr
+      type: object
+      properties:
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        villageProtectedAreaName:
+          type: string
+        id:
+          type: integer
+          format: int64
+        villageHasProtectedArea:
+          type: boolean
+        villageMineralExtractionType:
+          $ref: '#/components/schemas/RefData'
+        villageHasMineralExtraction:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        villagecommonfloraList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageCommonFlora'
+        villagecommonfaunaList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageCommonFauna'
+    HHMigrationMonth:
+      title: HHMigrationMonth
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        migrationMonth:
+          $ref: '#/components/schemas/RefData'
+        householdLivelihoodProfileId:
+          type: integer
+          format: int64
+    ProductionSeasonality:
+      title: ProductionSeasonality
+      type: object
+      properties:
+        villageLivestockProfileId:
+          type: integer
+          format: int64
+        productionSeasonality:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    HHEconomicConstraints:
+      title: HHEconomicConstraints
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        householdConstraintsProfileId:
+          type: integer
+          format: int64
+        economicConstraint:
+          $ref: '#/components/schemas/RefData'
+    VillageLandResourceProfile:
+      title: VillageLandResourceProfile
+      type: object
+      properties:
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        villageCroppingIntensity:
+          $ref: '#/components/schemas/UoMValue'
+        villageSoilFertilityLevel:
+          type: string
+        villageWastelandShare:
+          $ref: '#/components/schemas/UoMValue'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        villageFallowLandShare:
+          $ref: '#/components/schemas/UoMValue'
+        villageIrrigatedLandShare:
+          $ref: '#/components/schemas/UoMValue'
+        id:
+          type: integer
+          format: int64
+        villageTotalArea:
+          type: string
+        villageForestLandShare:
+          $ref: '#/components/schemas/UoMValue'
+        villageArableLandShare:
+          $ref: '#/components/schemas/UoMValue'
+        villagesoiltypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageSoilType'
+    OtherCommunityGroup:
+      title: OtherCommunityGroup
+      type: object
+      properties:
+        villageSocialStructureProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        otherCommunityGroup:
+          $ref: '#/components/schemas/RefData'
+    OtherIndustryType:
+      title: OtherIndustryType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        otherIndustryType:
+          $ref: '#/components/schemas/RefData'
+        nonAgriculturalMarketActiviesId:
+          type: integer
+          format: int64
+    VillageLivestockProfile:
+      title: VillageLivestockProfile
+      type: object
+      properties:
+        householdsKeepingLivestockShare:
+          $ref: '#/components/schemas/UoMValue'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        mainSaleDestination:
+          type: string
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        isMajorLivestockType:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        livestockType:
+          $ref: '#/components/schemas/RefData'
+        estimatedSurplusPerDayOrMonth:
+          type: number
+          format: double
+        hasSurplus:
+          type: boolean
+        livestockPopulationEstimate:
+          $ref: '#/components/schemas/UoMValue'
+        mainBuyerType:
+          $ref: '#/components/schemas/RefData'
+        productionseasonalityList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductionSeasonality'
+    VillageConsumptionPattern:
+      title: VillageConsumptionPattern
+      type: object
+      properties:
+        demandForToiletriesLevel:
+          $ref: '#/components/schemas/RefData'
+        demandForBasicElectronicsLevel:
+          $ref: '#/components/schemas/RefData'
+        preferenceForLocalProduceLevel:
+          $ref: '#/components/schemas/RefData'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        demandForPackagedFoodsLevel:
+          $ref: '#/components/schemas/RefData'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        isStapleMostlyLocallyProduced:
+          type: boolean
+        commonconsumergoodspurchasedList:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommonConsumerGoodsPurchased'
+        itemsusuallyboughtfromoutsideList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemsUsuallyBoughtFromOutside'
+        staplefoodsconsumedList:
+          type: array
+          items:
+            $ref: '#/components/schemas/StapleFoodsConsumed'
+        itemsusuallyboughtlocallyList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemsUsuallyBoughtLocally'
+    VillageTransportConnectivityIss:
+      title: VillageTransportConnectivityIss
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageInfrastructureConstraintId:
+          type: integer
+          format: int64
+        villageTransportConnectivityIssues:
+          $ref: '#/components/schemas/RefData'
+    VillageInstitutionalResourcePro:
+      title: VillageInstitutionalResourcePro
+      type: object
+      properties:
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        gramPanchayatCountInBlock:
+          $ref: '#/components/schemas/UoMValue'
+        ngoCount:
+          $ref: '#/components/schemas/UoMValue'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        hasBlockPanchayatSamiti:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        gramPanchayatName:
+          type: string
+        phcCountInBlock:
+          $ref: '#/components/schemas/UoMValue'
+        fpoCount:
+          $ref: '#/components/schemas/UoMValue'
+        anganwadiCount:
+          $ref: '#/components/schemas/UoMValue'
+        farmerCooperativeCount:
+          $ref: '#/components/schemas/UoMValue'
+        phcCoveringVillageName:
+          type: string
+        farmerCoopMemberCount:
+          $ref: '#/components/schemas/UoMValue'
+        ngothematicareaList:
+          type: array
+          items:
+            $ref: '#/components/schemas/NGOThematicArea'
+    VillageCommunicationInfrastruct:
+      title: VillageCommunicationInfrastruct
+      type: object
+      properties:
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        internetPenetrationRate:
+          $ref: '#/components/schemas/UoMValue'
+        cscCount:
+          $ref: '#/components/schemas/UoMValue'
+        mobileNetworkQuality:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        areasWithWeakNetworkDescription:
+          type: string
+        postOfficeCount:
+          $ref: '#/components/schemas/UoMValue'
+    HHSocialAspiration:
+      title: HHSocialAspiration
+      type: object
+      properties:
+        socialAspiration:
+          $ref: '#/components/schemas/RefData'
+        householdAspirationsProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    StorageNeededForCrop:
+      title: StorageNeededForCrop
+      type: object
+      properties:
+        storageNeededForCrops:
+          $ref: '#/components/schemas/RefData'
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    VillageCommonFauna:
+      title: VillageCommonFauna
+      type: object
+      properties:
+        villageCommonFauna:
+          $ref: '#/components/schemas/RefData'
+        villageMineralAndBiodiversityPrId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    SeasonalityOfSurplus:
+      title: SeasonalityOfSurplus
+      type: object
+      properties:
+        seasonalityOfSurplus:
+          $ref: '#/components/schemas/RefData'
+        villageSurplusProduceProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    SourceOfRawMaterial:
+      title: SourceOfRawMaterial
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        sourceOfRawMaterial:
+          $ref: '#/components/schemas/RefData'
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+    StapleFoodsConsumed:
+      title: StapleFoodsConsumed
+      type: object
+      properties:
+        stapleFoodConsumed:
+          $ref: '#/components/schemas/RefData'
+        villageConsumptionPatternId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    SchemeImplementationChallenge:
+      title: SchemeImplementationChallenge
+      type: object
+      properties:
+        govtSchemesId:
+          type: integer
+          format: int64
+        schemeImplementationChallenge:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    VillageWaterResourceProfile:
+      title: VillageWaterResourceProfile
+      type: object
+      properties:
+        villageBorewellDependenceLevel:
+          $ref: '#/components/schemas/RefData'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        villageLiftIrrigationCount:
+          $ref: '#/components/schemas/UoMValue'
+        villageAvgAnnualRainfall:
+          type: string
+        villageWaterQualityStatus:
+          type: string
+        villageGroundwaterStressLevel:
+          $ref: '#/components/schemas/RefData'
+        villageTankCount:
+          type: integer
+          format: int64
+        villageHasFluorideIssue:
+          type: boolean
+        villageHasRiver:
+          type: boolean
+        villageRainfallVariability:
+          $ref: '#/components/schemas/RefData'
+        villageRiverNames:
+          type: string
+        id:
+          type: integer
+          format: int64
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        villageGroundwaterDepthRange:
+          type: string
+        villageirrigationsystemtypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageIrrigationSystemType'
+    BlockVillageDemographicsProfile:
+      title: BlockVillageDemographicsProfile
+      type: object
+      properties:
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        villageLiteracyRateMale:
+          $ref: '#/components/schemas/UoMValue'
+        villageAgeDistribution0to14:
+          $ref: '#/components/schemas/UoMValue'
+        villageLiteracyRateFemale:
+          $ref: '#/components/schemas/UoMValue'
+        id:
+          type: integer
+          format: int64
+        villagePopulation:
+          $ref: '#/components/schemas/UoMValue'
+        villageAgeDistribution60plus:
+          $ref: '#/components/schemas/UoMValue'
+        villageAgeDistribution15to59:
+          $ref: '#/components/schemas/UoMValue'
+        villagePopulationDensity:
+          $ref: '#/components/schemas/UoMValue'
+        villageLiteracyRateOverall:
+          $ref: '#/components/schemas/UoMValue'
+        villageGenderRatio:
+          $ref: '#/components/schemas/UoMValue'
+    WherePeopleGoForCommonIllness:
+      title: WherePeopleGoForCommonIllness
+      type: object
+      properties:
+        wherePeopleGoForCommonIllness:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        villageServiceDemandProfileId:
+          type: integer
+          format: int64
+    MainCreditSource:
+      title: MainCreditSource
+      type: object
+      properties:
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        mainCreditSource:
+          $ref: '#/components/schemas/RefData'
+    FertilizersInDemand:
+      title: FertilizersInDemand
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+        fertilizerInDemand:
+          $ref: '#/components/schemas/RefData'
+    HouseholdConstraintsProfile:
+      title: HouseholdConstraintsProfile
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        household:
+          $ref: '#/components/schemas/LinkedCode'
+        hhHasIncumbentInfluence:
+          type: boolean
+        hhIncumbentInfluenceDescription:
+          type: string
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        hhsocialconstraintsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHSocialConstraints'
+        hheconomicconstraintsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHEconomicConstraints'
+    KeyConstraintsForSurplusExport:
+      title: KeyConstraintsForSurplusExport
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageSurplusProduceProfileId:
+          type: integer
+          format: int64
+        keyConstraintsForSurplusExport:
+          $ref: '#/components/schemas/RefData'
+    MainNicheMarket:
+      title: MainNicheMarket
+      type: object
+      properties:
+        villageNicheProductProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        mainNicheMarkets:
+          $ref: '#/components/schemas/RefData'
+    NGOThematicArea:
+      title: NGOThematicArea
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageInstitutionalResourceProId:
+          type: integer
+          format: int64
+        ngoThematicArea:
+          $ref: '#/components/schemas/RefData'
+    ItemsUsuallyBoughtLocally:
+      title: ItemsUsuallyBoughtLocally
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageConsumptionPatternId:
+          type: integer
+          format: int64
+        itemUsuallyBoughtLocally:
+          $ref: '#/components/schemas/RefData'
+    VillageHorticultureProfile:
+      title: VillageHorticultureProfile
+      type: object
+      properties:
+        mainSaleDestination:
+          type: string
+        estimatedSurplusShare:
+          $ref: '#/components/schemas/UoMValue'
+        hasSurplus:
+          type: boolean
+        isPerishable:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        isMajorHorticultureProduct:
+          type: boolean
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        mainBuyerType:
+          $ref: '#/components/schemas/RefData'
+        requiresColdChain:
+          type: boolean
+        productionseasonList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductionSeason'
+        horticultureproductList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HorticultureProduct'
+    HHSkilledWorkerType:
+      title: HHSkilledWorkerType
+      type: object
+      properties:
+        skilledWorkerType:
+          $ref: '#/components/schemas/RefData'
+        villageHumanResourceProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    ArtisanType:
+      title: ArtisanType
+      type: object
+      properties:
+        villageHumanResourceProfileId:
+          type: integer
+          format: int64
+        artisanType:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    HouseholdAspirationsProfile:
+      title: HouseholdAspirationsProfile
+      type: object
+      properties:
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        household:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        hheconomicaspirationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHEconomicAspiration'
+        hhsocialaspirationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHSocialAspiration'
+        hhgovernanceaspirationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHGovernanceAspiration'
+    VillageInfrastructureConstraint:
+      title: VillageInfrastructureConstraint
+      type: object
+      properties:
+        villageInternalRoadQuality:
+          type: string
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        villagePowerSupplyReliability:
+          type: string
+        villagetopinfrastructureneedList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageTopInfrastructureNeed'
+        villagewatersupplygapList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageWaterSupplyGap'
+        villagetransportconnectivityissList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageTransportConnectivityIss'
+    ItemsUsuallyBoughtFromOutside:
+      title: ItemsUsuallyBoughtFromOutside
+      type: object
+      properties:
+        villageConsumptionPatternId:
+          type: integer
+          format: int64
+        itemUsuallyBoughtFromOutside:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    ExportPotentialSurplusProduceTy:
+      title: ExportPotentialSurplusProduceTy
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        surplusProduceType:
+          $ref: '#/components/schemas/RefData'
+    MainSkilledTradesPresent:
+      title: MainSkilledTradesPresent
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        mainSkilledTradePresent:
+          $ref: '#/components/schemas/RefData'
+        villageHumanResourceProfileId:
+          type: integer
+          format: int64
+    EmergingEnterpriseType:
+      title: EmergingEnterpriseType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageHumanResourceProfileId:
+          type: integer
+          format: int64
+        emergingEnterpriseType:
+          $ref: '#/components/schemas/RefData'
+    VillageYouthAspirations:
+      title: VillageYouthAspirations
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageYouthAspirations:
+          $ref: '#/components/schemas/RefData'
+        villageHumanCapitalProfileId:
+          type: integer
+          format: int64
+    VillageDigitalConnectivityProfi:
+      title: VillageDigitalConnectivityProfi
+      type: object
+      properties:
+        hasDigitalMarketAwareness:
+          type: boolean
+        farmersUseInternetForPrices:
+          type: boolean
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        internetPenetrationRate:
+          $ref: '#/components/schemas/UoMValue'
+        youthUseInternetForEducation:
+          type: boolean
+        mobileNetworkQuality:
+          $ref: '#/components/schemas/RefData'
+    MainSurplusDestination:
+      title: MainSurplusDestination
+      type: object
+      properties:
+        villageSurplusProduceProfileId:
+          type: integer
+          format: int64
+        mainSurplusDestinations:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    ExistingStorageIssue:
+      title: ExistingStorageIssue
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+        existingStorageIssue:
+          $ref: '#/components/schemas/RefData'
+    CommonConsumerGoodsPurchased:
+      title: CommonConsumerGoodsPurchased
+      type: object
+      properties:
+        villageConsumptionPatternId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        commonConsumerGoodsPurchased:
+          $ref: '#/components/schemas/RefData'
+    VillageSocialStructureProfile:
+      title: VillageSocialStructureProfile
+      type: object
+      properties:
+        socialHarmonyLevel:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        shgCount:
+          $ref: '#/components/schemas/UoMValue'
+        gramSabhaMeetingFrequency:
+          $ref: '#/components/schemas/RefData'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        recentConflictsReported:
+          type: boolean
+        womenLedShgShare:
+          $ref: '#/components/schemas/UoMValue'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        othercommunitygroupList:
+          type: array
+          items:
+            $ref: '#/components/schemas/OtherCommunityGroup'
+    VillageCommonWildlife:
+      title: VillageCommonWildlife
+      type: object
+      properties:
+        villageForestResourceProfileId:
+          type: integer
+          format: int64
+        villageCommonWildlife:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    VillageWaterSanitationProfile:
+      title: VillageWaterSanitationProfile
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        has100pctToiletCoverageOfficial:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        shareHhOpenWell:
+          $ref: '#/components/schemas/UoMValue'
+        hasLiquidWasteSystem:
+          $ref: '#/components/schemas/RefData'
+        shareHhPipedWater:
+          $ref: '#/components/schemas/UoMValue'
+        estimatedFunctionalToiletRate:
+          $ref: '#/components/schemas/UoMValue'
+        hasSolidWasteSystem:
+          type: boolean
+        shareHhBorewellHandpump:
+          $ref: '#/components/schemas/UoMValue'
+    LocalFestival:
+      title: LocalFestival
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageCulturalResourceProfileId:
+          type: integer
+          format: int64
+        localFestival:
+          $ref: '#/components/schemas/RefData'
+    ProductionSeason:
+      title: ProductionSeason
+      type: object
+      properties:
+        productionSeason:
+          $ref: '#/components/schemas/RefData'
+        villageHorticultureProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        villageFisheriesProfileId:
+          type: integer
+          format: int64
+    CroppingSeason:
+      title: CroppingSeason
+      type: object
+      properties:
+        villageCropProfileId:
+          type: integer
+          format: int64
+        croppingSeason:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    PurposeOfCredit:
+      title: PurposeOfCredit
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        purposeOfCredit:
+          $ref: '#/components/schemas/RefData'
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+    HouseholdHumanResourceProfile:
+      title: HouseholdHumanResourceProfile
+      type: object
+      properties:
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        hhHasArtisanOccupation:
+          type: boolean
+        hhHasEntrepreneur:
+          type: boolean
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        hhHasSkilledWorker:
+          type: boolean
+        hhenterprisetypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHEnterpriseType'
+        hhemploymenttypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHEmploymentType'
+        hhartisantypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHArtisanType'
+    MainSurplusMarketsOutsideBlock:
+      title: MainSurplusMarketsOutsideBlock
+      type: object
+      properties:
+        villageExportPotentialProfileId:
+          type: integer
+          format: int64
+        mainSurplusMarketOutsideBlock:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    VillageTopInfrastructureNeed:
+      title: VillageTopInfrastructureNeed
+      type: object
+      properties:
+        villageTopInfrastructureNeed:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        villageInfrastructureConstraintId:
+          type: integer
+          format: int64
+    HouseholdLivelihoodProfile:
+      title: HouseholdLivelihoodProfile
+      type: object
+      properties:
+        hhPrimaryOccupation:
+          type: string
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        hhMigrationDestination:
+          type: string
+        id:
+          type: integer
+          format: int64
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        hhSecondaryOccupation:
+          type: string
+        hhHasSeasonalMigration:
+          type: boolean
+        hhmigrationmonthList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHMigrationMonth'
+    VillageForestProduceType:
+      title: VillageForestProduceType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageForestResourceProfileId:
+          type: integer
+          format: int64
+        villageForestProduceType:
+          $ref: '#/components/schemas/RefData'
+    OperatingDay:
+      title: OperatingDay
+      type: object
+      properties:
+        operatingDay:
+          $ref: '#/components/schemas/RefData'
+        villageMarketProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    VillageMarketProfile:
+      title: VillageMarketProfile
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        isRegulated:
+          type: boolean
+        distanceToApmcKm:
+          type: number
+          format: double
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        isPrimaryMarketForVillage:
+          type: boolean
+        hasElectronicWeighingScale:
+          type: boolean
+        nearestInformalMarketName:
+          type: string
+        hasColdStorage:
+          type: boolean
+        distanceToInformalMarketKm:
+          type: number
+          format: double
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        marketType:
+          $ref: '#/components/schemas/RefData'
+        hasSheds:
+          type: boolean
+        hasShopsOrStalls:
+          type: boolean
+        coldStorageCapacity:
+          $ref: '#/components/schemas/UoMValue'
+        frequency:
+          $ref: '#/components/schemas/UoMValue'
+        nearestApmcMarket:
+          type: string
+        hasWeighingScale:
+          type: boolean
+        operatingdayList:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperatingDay'
+    VillageRoadConnectivityProfile:
+      title: VillageRoadConnectivityProfile
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        hasPublicBusService:
+          type: boolean
+        internalRoadCondition:
+          $ref: '#/components/schemas/RefData'
+        busFrequency:
+          $ref: '#/components/schemas/UoMValue'
+        mainRoadTypeConnection:
+          $ref: '#/components/schemas/RefData'
+        roadUsabilityInMonsoon:
+          $ref: '#/components/schemas/RefData'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        hasAllWeatherRoad:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        hasPrivateVans:
+          type: boolean
+        distanceToDistrictHQKm:
+          type: number
+          format: double
+    PowerCutSeason:
+      title: PowerCutSeason
+      type: object
+      properties:
+        villageElectricityInfrastructurId:
+          type: integer
+          format: int64
+        powerCutSeasons:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    HHEconomicAspiration:
+      title: HHEconomicAspiration
+      type: object
+      properties:
+        economicAspiration:
+          $ref: '#/components/schemas/RefData'
+        householdAspirationsProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    VillageEducationInfrastructure:
+      title: VillageEducationInfrastructure
+      type: object
+      properties:
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        preUniversityCollegeCount:
+          $ref: '#/components/schemas/UoMValue'
+        highSchoolCount:
+          $ref: '#/components/schemas/UoMValue'
+        teacherVacancyLevel:
+          $ref: '#/components/schemas/RefData'
+        vocationalTrainingEnrolmentLastYear:
+          $ref: '#/components/schemas/UoMValue'
+        vocationalTrainingAvailable:
+          type: boolean
+        primarySchoolCount:
+          $ref: '#/components/schemas/UoMValue'
+        avgStudentTeacherRatio:
+          $ref: '#/components/schemas/UoMValue'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        middleSchoolCount:
+          $ref: '#/components/schemas/UoMValue'
+        higherEducationAccessLocation:
+          type: string
+        issuesinhighereducationaccessList:
+          type: array
+          items:
+            $ref: '#/components/schemas/IssuesInHigherEducationAccess'
+    Consumption:
+      title: Consumption
+      type: object
+      properties:
+        actualUnit:
+          $ref: '#/components/schemas/UoMValue'
+        id:
+          type: integer
+          format: int64
+        requiredUnit:
+          $ref: '#/components/schemas/UoMValue'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        frequency:
+          $ref: '#/components/schemas/UoMValue'
+        itemCode:
+          $ref: '#/components/schemas/RefData'
+    NicheProductsAvailability:
+      title: NicheProductsAvailability
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageNicheProductProfileId:
+          type: integer
+          format: int64
+        nicheProductsAvailable:
+          $ref: '#/components/schemas/RefData'
+        villageExportPotentialProfileId:
+          type: integer
+          format: int64
+    RawMaterialsNeededForIndustry:
+      title: RawMaterialsNeededForIndustry
+      type: object
+      properties:
+        rawMaterialNeededForIndustry:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+    VillageHumanCapitalProfile:
+      title: VillageHumanCapitalProfile
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        villageVocationalTrainingAccess:
+          $ref: '#/components/schemas/RefData'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        villageEntrepreneurshipLevel:
+          $ref: '#/components/schemas/RefData'
+        villageYouthMigrationLevel:
+          $ref: '#/components/schemas/RefData'
+        villageskillshortagetypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageSkillShortageType'
+        villageyouthaspirationsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VillageYouthAspirations'
+    VillageFinancialInstitutionProf:
+      title: VillageFinancialInstitutionProf
+      type: object
+      properties:
+        bankNames:
+          type: string
+        mfiNames:
+          type: string
+        id:
+          type: integer
+          format: int64
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        bankCount:
+          $ref: '#/components/schemas/UoMValue'
+        shgMovementStrength:
+          $ref: '#/components/schemas/RefData'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        cooperativeCount:
+          $ref: '#/components/schemas/UoMValue'
+        cooperativeMemberCount:
+          $ref: '#/components/schemas/UoMValue'
+        hasMfiPresence:
+          type: boolean
+    RenewableInfraType:
+      title: RenewableInfraType
+      type: object
+      properties:
+        renewableInfraType:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        villageElectricityInfrastructurId:
+          type: integer
+          format: int64
+    HHInfrastructureAspiration:
+      title: HHInfrastructureAspiration
+      type: object
+      properties:
+        infrastructureAspiration:
+          $ref: '#/components/schemas/RefData'
+        hHInfrastructureAspirationId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        hhinfrastructureaspirationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHInfrastructureAspiration'
+    Household:
+      title: Household
+      type: object
+      properties:
+        geoCode:
+          $ref: '#/components/schemas/RefData'
+        ownerName:
+          type: string
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        size:
+          $ref: '#/components/schemas/UoMValue'
+        type:
+          $ref: '#/components/schemas/RefData'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        hhloansourceList:
+          type: array
+          items:
+            $ref: '#/components/schemas/HHLoanSource'
+    WhereFarmersBuyInput:
+      title: WhereFarmersBuyInput
+      type: object
+      properties:
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        whereFarmersBuyInput:
+          $ref: '#/components/schemas/RefData'
+    VillageWaterSupplyGap:
+      title: VillageWaterSupplyGap
+      type: object
+      properties:
+        villageWaterSupplyGap:
+          $ref: '#/components/schemas/RefData'
+        villageInfrastructureConstraintId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    VillageExportPotentialProfile:
+      title: VillageExportPotentialProfile
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        village:
+          $ref: '#/components/schemas/LinkedCode'
+        areNicheProductsSoldOutside:
+          type: boolean
+        surplusExportLevel:
+          $ref: '#/components/schemas/RefData'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        surplusproducetypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SurplusProduceType'
+        mainsurplusmarketsoutsideblockList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MainSurplusMarketsOutsideBlock'
+        nicheproductbuyertypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/NicheProductBuyerType'
+        nicheproductsavailabilityList:
+          type: array
+          items:
+            $ref: '#/components/schemas/NicheProductsAvailability'
+    LocalArtFormType:
+      title: LocalArtFormType
+      type: object
+      properties:
+        localArtFormType:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        villageCulturalResourceProfileId:
+          type: integer
+          format: int64
+    GovtSchemes:
+      title: GovtSchemes
+      type: object
+      properties:
+        centralSchemeImpact:
+          type: string
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        stateAgriSchemeCoverage:
+          type: string
+        centralSchemeReach:
+          type: number
+          format: double
+        stateSkillDevCoverage:
+          type: string
+        schemeImplementationReach:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        stateSocialWelfareCoverage:
+          type: string
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        schemeImplementationImpact:
+          type: string
+        centralschemelistList:
+          type: array
+          items:
+            $ref: '#/components/schemas/CentralSchemeList'
+        schemeimplementationchallengeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemeImplementationChallenge'
+    HHEmploymentType:
+      title: HHEmploymentType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        employmentType:
+          $ref: '#/components/schemas/RefData'
+        householdHumanResourceProfileId:
+          type: integer
+          format: int64
+    CommonHealthIssue:
+      title: CommonHealthIssue
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageHealthInfrastructureId:
+          type: integer
+          format: int64
+        CommonHealthIssue:
+          $ref: '#/components/schemas/RefData'
+    VillageCommonFlora:
+      title: VillageCommonFlora
+      type: object
+      properties:
+        villageCommonFlora:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        villageMineralAndBiodiversityPrId:
+          type: integer
+          format: int64
+    SurplusMovedThrough:
+      title: SurplusMovedThrough
+      type: object
+      properties:
+        villageSurplusProduceProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        surplusMovedThrough:
+          $ref: '#/components/schemas/RefData'
+    VillageElectricityInfrastructur:
+      title: VillageElectricityInfrastructur
+      type: object
+      properties:
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        solarStreetLightCount:
+          $ref: '#/components/schemas/UoMValue'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        agriPumpElectrificationRate:
+          $ref: '#/components/schemas/UoMValue'
+        id:
+          type: integer
+          format: int64
+        avgDailyPowerSupplyHours:
+          $ref: '#/components/schemas/RefData'
+        householdElectrificationRate:
+          $ref: '#/components/schemas/UoMValue'
+        hasBiogasPlant:
+          type: boolean
+        powercutseasonList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PowerCutSeason'
+        renewableinfratypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/RenewableInfraType'
+    VillageFisheriesProfile:
+      title: VillageFisheriesProfile
+      type: object
+      properties:
+        fishType:
+          $ref: '#/components/schemas/RefData'
+        pondOrTankCount:
+          type: integer
+          format: int32
+        estimatedSurplusKgPerMonth:
+          type: number
+          format: double
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        mainSaleDestination:
+          type: string
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        isSeasonal:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        dependsOnMonsoon:
+          type: boolean
+        isMajorFishType:
+          type: boolean
+        hasSurplus:
+          type: boolean
+        mainBuyerType:
+          $ref: '#/components/schemas/RefData'
+        productionseasonList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductionSeason'
+    VillageServiceDemandProfile:
+      title: VillageServiceDemandProfile
+      type: object
+      properties:
+        educationDemandLevel:
+          $ref: '#/components/schemas/RefData'
+        useOfDigitalPaymentsLevel:
+          $ref: '#/components/schemas/RefData'
+        demandForTuitionsOrDigitalClasses:
+          type: boolean
+        demandForRepairServicesLevel:
+          $ref: '#/components/schemas/RefData'
+        healthcareDemandLevel:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        financialServiceDemandLevel:
+          $ref: '#/components/schemas/RefData'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        childrenStudyLocallyShare:
+          $ref: '#/components/schemas/UoMValue'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        needForCloserBankOrAtm:
+          type: boolean
+        isLocalHealthFacilitySufficient:
+          type: boolean
+        wherepeoplegoforcommonillnessList:
+          type: array
+          items:
+            $ref: '#/components/schemas/WherePeopleGoForCommonIllness'
+        commonrepairneedList:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommonRepairNeed'
+        wherepeoplegoforrepairsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/WherePeopleGoForRepairs'
+    VillageCulturalResourceProfile:
+      title: VillageCulturalResourceProfile
+      type: object
+      properties:
+        hasLocalArtForms:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        usesTraditionalMedicinalPlants:
+          type: boolean
+        hasHistoricalSite:
+          type: boolean
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        folkKnowledgeDescription:
+          type: string
+        historicalSiteDescription:
+          type: string
+        id:
+          type: integer
+          format: int64
+        localartformtypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalArtFormType'
+        mainreligiousplaceList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MainReligiousPlace'
+        majorfestivalList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MajorFestival'
+        localfestivalList:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalFestival'
+    Crop:
+      title: Crop
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cropCode:
+          $ref: '#/components/schemas/RefData'
+        villageCropProfileId:
+          type: integer
+          format: int64
+    HHSavingsMode:
+      title: HHSavingsMode
+      type: object
+      properties:
+        householdFinancialBehaviourId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        savingsMode:
+          $ref: '#/components/schemas/RefData'
+    VillageOtherInfrastructure:
+      title: VillageOtherInfrastructure
+      type: object
+      properties:
+        atmCount:
+          $ref: '#/components/schemas/UoMValue'
+        bankBranchCount:
+          $ref: '#/components/schemas/UoMValue'
+        warehouseCount:
+          $ref: '#/components/schemas/UoMValue'
+        hasBusStand:
+          type: boolean
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        atmFunctionalityReliability:
+          $ref: '#/components/schemas/RefData'
+        fpoGodownCapacityMt:
+          $ref: '#/components/schemas/UoMValue'
+        publicBusServiceFrequency:
+          $ref: '#/components/schemas/RefData'
+        publicColdStorageAvailable:
+          type: boolean
+    MajorFestival:
+      title: MajorFestival
+      type: object
+      properties:
+        majorFestival:
+          $ref: '#/components/schemas/RefData'
+        villageCulturalResourceProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+    VillageSkillShortageType:
+      title: VillageSkillShortageType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageHumanCapitalProfileId:
+          type: integer
+          format: int64
+        villageSkillShortageType:
+          $ref: '#/components/schemas/RefData'
+    NicheProductBuyerType:
+      title: NicheProductBuyerType
+      type: object
+      properties:
+        villageNicheProductProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        nicheproductBuyerType:
+          $ref: '#/components/schemas/RefData'
+        villageExportPotentialProfileId:
+          type: integer
+          format: int64
+    VillageIrrigationInfrastructure:
+      title: VillageIrrigationInfrastructure
+      type: object
+      properties:
+        irrigatedAreaShare:
+          $ref: '#/components/schemas/UoMValue'
+        majorIrrigationProjects:
+          type: string
+        liftIrrigationProjectCount:
+          $ref: '#/components/schemas/UoMValue'
+        id:
+          type: integer
+          format: int64
+        borewellCount:
+          $ref: '#/components/schemas/UoMValue'
+        checkDamCount:
+          $ref: '#/components/schemas/UoMValue'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+    PesticidesInDemand:
+      title: PesticidesInDemand
+      type: object
+      properties:
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+        pesticidesInDemand:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    SupportNeededForNicheGrowth:
+      title: SupportNeededForNicheGrowth
+      type: object
+      properties:
+        villageNicheProductProfileId:
+          type: integer
+          format: int64
+        supportNeededForNicheGrowth:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    MachinesInDemand:
+      title: MachinesInDemand
+      type: object
+      properties:
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        machineInDemand:
+          $ref: '#/components/schemas/RefData'
+    CurrentStorageMethod:
+      title: CurrentStorageMethod
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageAgriInputDemandProfileId:
+          type: integer
+          format: int64
+        currentStorageMethod:
+          $ref: '#/components/schemas/RefData'
+    ExportPotentialNicheProductBuye:
+      title: ExportPotentialNicheProductBuye
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        nicheProductBuyerType:
+          $ref: '#/components/schemas/RefData'
+    VillageEducationalInfrastructur:
+      title: VillageEducationalInfrastructur
+      type: object
+      properties:
+        primarySchoolCount:
+          $ref: '#/components/schemas/UoMValue'
+        schoolsWithLibraryCount:
+          $ref: '#/components/schemas/UoMValue'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        highSchoolCount:
+          $ref: '#/components/schemas/UoMValue'
+        middleSchoolCount:
+          $ref: '#/components/schemas/UoMValue'
+        schoolsNeedingRepairCount:
+          $ref: '#/components/schemas/UoMValue'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        schoolsWithLabCount:
+          $ref: '#/components/schemas/UoMValue'
+        schoolsWithDigitalAidsCount:
+          $ref: '#/components/schemas/UoMValue'
+    MainReligiousPlace:
+      title: MainReligiousPlace
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        mainReligiousPlace:
+          $ref: '#/components/schemas/RefData'
+        villageCulturalResourceProfileId:
+          type: integer
+          format: int64
+    WherePeopleGoForRepairs:
+      title: WherePeopleGoForRepairs
+      type: object
+      properties:
+        villageServiceDemandProfileId:
+          type: integer
+          format: int64
+        wherePeopleGoForRepairs:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+    SurplusProduceType:
+      title: SurplusProduceType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        surplusProduceType:
+          $ref: '#/components/schemas/RefData'
+        villageExportPotentialProfileId:
+          type: integer
+          format: int64
+        villageSurplusProduceProfileId:
+          type: integer
+          format: int64
+    Village:
+      title: Village
+      type: object
+      properties:
+        village:
+          $ref: '#/components/schemas/RefData'
+        district:
+          $ref: '#/components/schemas/RefData'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        id:
+          type: integer
+          format: int64
+        description:
+          type: string
+        state:
+          $ref: '#/components/schemas/RefData'
+    VillageSurplusProduceProfile:
+      title: VillageSurplusProduceProfile
+      type: object
+      properties:
+        surplusExportLevel:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        surplusproducetypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SurplusProduceType'
+        mainsurplusdestinationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MainSurplusDestination'
+        seasonalityofsurplusList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeasonalityOfSurplus'
+        keyconstraintsforsurplusexportList:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyConstraintsForSurplusExport'
+        surplusmovedthroughList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SurplusMovedThrough'
+    HouseholdDemographics:
+      title: HouseholdDemographics
+      type: object
+      properties:
+        hhLiteracyMembersShare:
+          $ref: '#/components/schemas/UoMValue'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        hhAgeGroup6to14:
+          $ref: '#/components/schemas/UoMValue'
+        hhAgeGroup60plus:
+          $ref: '#/components/schemas/UoMValue'
+        hhCasteCategory:
+          type: string
+        hhFemaleCount:
+          $ref: '#/components/schemas/UoMValue'
+        hhSize:
+          $ref: '#/components/schemas/UoMValue'
+        id:
+          type: integer
+          format: int64
+        hhMaleCount:
+          $ref: '#/components/schemas/UoMValue'
+        hhAgeGroup15to59:
+          $ref: '#/components/schemas/UoMValue'
+        hhAgeGroup0to5:
+          $ref: '#/components/schemas/UoMValue'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+    HyperLocalMarketProfile:
+      title: HyperLocalMarketProfile
+      type: object
+      properties:
+        hasVegFruitVendors:
+          type: boolean
+        hasDailyNeedsShops:
+          type: boolean
+        hasAgriInputShop:
+          type: boolean
+        hasPharmacy:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        hasGroceryShops:
+          type: boolean
+    VillageCropProfile:
+      title: VillageCropProfile
+      type: object
+      properties:
+        hasSurplus:
+          type: boolean
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        harvestMonth:
+          $ref: '#/components/schemas/RefData'
+        isMajorCrop:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        mainBuyerType:
+          $ref: '#/components/schemas/RefData'
+        sowingMonth:
+          $ref: '#/components/schemas/RefData'
+        irrigationDependence:
+          $ref: '#/components/schemas/RefData'
+        distanceToMainMarket:
+          $ref: '#/components/schemas/UoMValue'
+        mainSaleDestination:
+          type: string
+        cropList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Crop'
+        croppingseasonList:
+          type: array
+          items:
+            $ref: '#/components/schemas/CroppingSeason'
+    VillageCasteComposition:
+      title: VillageCasteComposition
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        villageCasteComposition:
+          $ref: '#/components/schemas/RefData'
+    VillageAgriInputDemandProfile:
+      title: VillageAgriInputDemandProfile
+      type: object
+      properties:
+        willingnessToPayForStorage:
+          type: boolean
+        creditConstraintLevel:
+          $ref: '#/components/schemas/RefData'
+        storageCapacityShortageLevel:
+          $ref: '#/components/schemas/RefData'
+        nearestMachineryProviderLocation:
+          type: string
+        linkedContext:
+          $ref: '#/components/schemas/LinkedCode'
+        linkedActor:
+          $ref: '#/components/schemas/LinkedCode'
+        easeOfAccessToMachinery:
+          $ref: '#/components/schemas/RefData'
+        hasCreditDemand:
+          type: boolean
+        rawMaterialShortageLevel:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        isMachineRentalCommon:
+          type: boolean
+        currentstoragemethodList:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrentStorageMethod'
+        purposeofcreditList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurposeOfCredit'
+        storageneededforcropList:
+          type: array
+          items:
+            $ref: '#/components/schemas/StorageNeededForCrop'
+        rawmaterialsneededforindustryList:
+          type: array
+          items:
+            $ref: '#/components/schemas/RawMaterialsNeededForIndustry'
+        maincreditsourceList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MainCreditSource'
+        seedsindemandList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeedsInDemand'
+        fertilizersindemandList:
+          type: array
+          items:
+            $ref: '#/components/schemas/FertilizersInDemand'
+        machinesindemandList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MachinesInDemand'
+        sourceofrawmaterialList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SourceOfRawMaterial'
+        existingstorageissueList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExistingStorageIssue'
+        pesticidesindemandList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PesticidesInDemand'
+        wherefarmersbuyinputList:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhereFarmersBuyInput'
+    VillageIrrigationSystemType:
+      title: VillageIrrigationSystemType
+      type: object
+      properties:
+        villageIrrigationSystemType:
+          $ref: '#/components/schemas/RefData'
+        id:
+          type: integer
+          format: int64
+        villageWaterResourceProfileId:
+          type: integer
+          format: int64

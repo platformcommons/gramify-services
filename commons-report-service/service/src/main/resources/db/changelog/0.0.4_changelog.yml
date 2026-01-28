@@ -1,0 +1,12 @@
+databaseChangeLog:
+- changeSet:
+    id: 1705061605291-1
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: is_exposed
+            type: bit
+        tableName: dataset
+

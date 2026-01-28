@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1750353418594-8
+      author: dibyajit (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: status
+                  type: varchar(255)
+            tableName: attachment

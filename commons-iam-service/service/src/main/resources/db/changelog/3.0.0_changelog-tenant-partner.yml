@@ -1,0 +1,224 @@
+databaseChangeLog:
+- changeSet:
+    id: 1736931263612-4
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tenant_partnerPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: status
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: parent_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant
+            type: BIGINT
+        tableName: tenant_partner
+- changeSet:
+    id: 1736931263612-5
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: tenant_partner_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: extra_attributes_id
+            type: BIGINT
+        tableName: tenant_partner_extra_attributes
+- changeSet:
+    id: 1736931263612-6
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_mapPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: status
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: source_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: target_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_partner
+            type: BIGINT
+        tableName: user_map
+
+- changeSet:
+    id: 1736931263612-8
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: parent_tenant, tenant
+        constraintName: UK95qtxx6v2kpvjt0wph0ipl85
+        tableName: tenant_partner
+
+- changeSet:
+    id: 1736931263612-10
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: extra_attributes_id
+        constraintName: UK_79wjo1im38j0uy4dnc63pn1d2
+        tableName: tenant_partner_extra_attributes
+- changeSet:
+    id: 1736931263612-11
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: source_user
+        baseTableName: user_map
+        constraintName: FK6mn94isccojl31p3f7nl56cgc
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+    id: 1736931263612-12
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tenant_partner
+        baseTableName: user_map
+        constraintName: FK87ah2hl2ue3idiiifw7g6r6q3
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant_partner
+        validate: true
+- changeSet:
+    id: 1736931263612-13
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent_tenant
+        baseTableName: tenant_partner
+        constraintName: FKayejpraanduw50c6ydjunndo6
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant
+        validate: true
+- changeSet:
+    id: 1736931263612-14
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: target_user
+        baseTableName: user_map
+        constraintName: FKbn6xehu8821o8t7n227ohal7d
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+    id: 1736931263612-15
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tenant
+        baseTableName: tenant_partner
+        constraintName: FKfkuluifxs2mqfo7c72icr42ic
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant
+        validate: true
+- changeSet:
+    id: 1736931263612-16
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tenant_partner_id
+        baseTableName: tenant_partner_extra_attributes
+        constraintName: FKjlhju0twmox7gko0g8c1070s2
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant_partner
+        validate: true
+- changeSet:
+    id: 1736931263612-17
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: extra_attributes_id
+        baseTableName: tenant_partner_extra_attributes
+        constraintName: FKqyd0i5fxmx1s722vqv4iihxxx
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: extra_attribute
+        validate: true
+- changeSet:
+      id: 1736950840113-4
+      author: aadarsh (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: is_primary
+                          type: bit
+                tableName: tenant_partner

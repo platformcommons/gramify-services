@@ -1,0 +1,46 @@
+databaseChangeLog:
+- changeSet:
+    id: 1761198315047-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: assessment_option_response_hierarchy_summaryPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: actor_type
+            type: VARCHAR(255)
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_id
+            type: BIGINT
+        - column:
+            name: default_option_id
+            type: BIGINT
+        - column:
+            name: hierarchy_level
+            type: BIGINT
+        - column:
+            name: option_id
+            type: BIGINT
+        - column:
+            name: resolved_hierarchy_value
+            type: VARCHAR(255)
+        - column:
+            name: response_count
+            type: BIGINT
+        tableName: assessment_option_response_hierarchy_summary
+

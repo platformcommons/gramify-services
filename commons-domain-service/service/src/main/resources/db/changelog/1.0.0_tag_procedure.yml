@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: tag_procedures_1573022228406
+      author: jitendra
+      changes:
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path: db/procedures/03_addTagHierarchy.sql

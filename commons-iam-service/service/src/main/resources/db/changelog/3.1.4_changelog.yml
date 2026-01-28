@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+        id: 1759990358036-1
+        author: manish
+        changes:
+          - modifyDataType:
+              tableName: tenant_meta_additional_properties_attributes
+              columnName: attribute_value
+              newDataType: LONGTEXT

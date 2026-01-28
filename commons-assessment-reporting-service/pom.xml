@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-service-base</artifactId>
+        <version>0.6.6</version>
+    </parent>
+
+    <artifactId>commons-assessment-reporting-service-base</artifactId>
+    <version>${revision}${changelist}</version>
+    <packaging>pom</packaging>
+
+    <name>commons-assessment-reporting-service-base</name>
+
+    <properties>
+        <revision>0.0.20</revision>
+
+        <changelist/>
+        <commons-assessment-dto.version>1.0.1</commons-assessment-dto.version>
+        <apache.poi.version>5.0.0</apache.poi.version>
+        <resilience4j-retry.version>1.7.1</resilience4j-retry.version>
+    </properties>
+    <modules>
+        <module>avro</module>
+        <module>dto</module>
+        <module>client</module>
+        <module>service</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-service-pack</artifactId>
+            <version>0.6.6</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-assessment-reporting-service-avro</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-assessment-reporting-service-dto</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-assessment-reporting-service-client</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.platformcommons</groupId>
+                    <artifactId>commons-api-generator-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <configuration>
+                                <serviceName>sample-service</serviceName>
+                                <clientPackage>com.platformcommons.platform.service.assessment.reporting.client</clientPackage>
+                                <dtoPackage>com.platformcommons.platform.service.assessment.reporting.dto</dtoPackage>
+                                <inputSpec>${project.basedir}/../service/src/main/resources/specs/master.yml</inputSpec>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

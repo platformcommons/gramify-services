@@ -1,0 +1,842 @@
+databaseChangeLog:
+- changeSet:
+    id: 1701349600851-1
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: assetPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: asset_code
+            type: VARCHAR(255)
+        - column:
+            name: date_of_purchase
+            type: date
+        - column:
+            name: is_authenticated
+            type: BIT
+        - column:
+            name: owning_entity_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: asset_category_code
+            type: VARCHAR(255)
+        - column:
+            name: asset_functionality_code
+            type: VARCHAR(255)
+        - column:
+            name: asset_sub_category_code
+            type: VARCHAR(255)
+        - column:
+            name: current_asset_value_id
+            type: BIGINT
+        - column:
+            name: owner_entity_type_code
+            type: VARCHAR(255)
+        - column:
+            name: purchase_asset_value_id
+            type: BIGINT
+        - column:
+            name: quality_code
+            type: VARCHAR(255)
+        - column:
+            name: total_quantity_id
+            type: BIGINT
+        - column:
+            name: usable_quantity_id
+            type: BIGINT
+        tableName: asset
+- changeSet:
+    id: 1701349600851-2
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: asset_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: description_list_id
+            type: BIGINT
+        tableName: asset_description_list
+- changeSet:
+    id: 1701349600851-3
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: asset_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: name_list_id
+            type: BIGINT
+        tableName: asset_name_list
+- changeSet:
+    id: 1701349600851-4
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: asset_specsPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: spec_name
+            type: VARCHAR(255)
+        - column:
+            name: spec_value
+            type: VARCHAR(255)
+        - column:
+            name: spec_type_code
+            type: VARCHAR(255)
+        - column:
+            name: asset_specs
+            type: BIGINT
+        tableName: asset_specs
+- changeSet:
+    id: 1701349600851-5
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: endorsementPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: district_name
+            type: VARCHAR(255)
+        - column:
+            name: endorsed_by
+            type: VARCHAR(255)
+        - column:
+            name: endorsed_user_id
+            type: BIGINT
+        - column:
+            name: endorsement_type
+            type: VARCHAR(255)
+        - column:
+            name: entity_code
+            type: VARCHAR(255)
+        - column:
+            name: entity_id
+            type: VARCHAR(255)
+        - column:
+            name: entity_type
+            type: VARCHAR(255)
+        - column:
+            name: has_npm_shop
+            type: BIT
+        - column:
+            name: mandal_code
+            type: VARCHAR(255)
+        - column:
+            name: mandal_name
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: review_by_user_id
+            type: BIGINT
+        - column:
+            name: reviewd_by
+            type: VARCHAR(255)
+        - column:
+            name: shg_code
+            type: VARCHAR(255)
+        - column:
+            name: shg_name
+            type: VARCHAR(255)
+        - column:
+            name: status
+            type: VARCHAR(255)
+        - column:
+            name: unit_name
+            type: VARCHAR(255)
+        - column:
+            name: vo_code
+            type: VARCHAR(255)
+        - column:
+            name: vo_name
+            type: VARCHAR(255)
+        - column:
+            name: year_month_endorsement
+            type: VARCHAR(255)
+        tableName: endorsement
+- changeSet:
+    id: 1701349600851-6
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: endorsement_attachmentPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: attachment_date_time
+            type: datetime
+        - column:
+            name: attachment_kind
+            type: VARCHAR(255)
+        - column:
+            name: attachment_kind_identifier
+            type: BIGINT
+        - column:
+            name: attachment_kind_meta
+            type: VARCHAR(255)
+        - column:
+            name: attachment_uuid
+            type: VARCHAR(255)
+        - column:
+            name: endorsement_id
+            type: BIGINT
+        tableName: endorsement_attachment
+- changeSet:
+    id: 1701349600851-7
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: endorsement_commentPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: entity_code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: entity_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: entity_type
+            type: VARCHAR(255)
+        - column:
+            name: posted_by
+            type: VARCHAR(255)
+        - column:
+            name: time_stamp
+            type: BIGINT
+        tableName: endorsement_comment
+- changeSet:
+    id: 1701349600851-8
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ASSETUNIQUE_IDENTIFIER_COL
+        tableName: asset
+- changeSet:
+    id: 1701349600851-9
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ASSET_SPECSUNIQUE_IDENTIFIER_COL
+        tableName: asset_specs
+- changeSet:
+    id: 1701349600851-10
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ENDORSEMENTUNIQUE_IDENTIFIER_COL
+        tableName: endorsement
+- changeSet:
+    id: 1701349600851-11
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ENDORSEMENT_ATTACHMENTUNIQUE_IDENTIFIER_COL
+        tableName: endorsement_attachment
+- changeSet:
+    id: 1701349600851-12
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ENDORSEMENT_COMMENTUNIQUE_IDENTIFIER_COL
+        tableName: endorsement_comment
+- changeSet:
+    id: 1701349600851-13
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: entity_type, entity_id, year_month_endorsement
+        constraintName: UK3at0nclsjyllgir9glw0bed58
+        tableName: endorsement
+- changeSet:
+    id: 1701349600851-14
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: description_list_id
+        constraintName: UK_d9dwacdyltnuu6ak2arqc3dgi
+        tableName: asset_description_list
+- changeSet:
+    id: 1701349600851-15
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name_list_id
+        constraintName: UK_ilirdk9b8k8new3ex5g3rp3sd
+        tableName: asset_name_list
+- changeSet:
+    id: 1701349600851-16
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: quality_code
+        baseTableName: asset
+        constraintName: FK5hajps60fgmbycgu9qqolrcxh
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1701349600851-17
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_specs
+        baseTableName: asset_specs
+        constraintName: FK77jlgpsj1x71qlk3gwoyb6xyr
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: asset
+        validate: true
+- changeSet:
+    id: 1701349600851-18
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: name_list_id
+        baseTableName: asset_name_list
+        constraintName: FK80lef8ml5ocy846he5t83s8go
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1701349600851-19
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: spec_type_code
+        baseTableName: asset_specs
+        constraintName: FK8g2qc9crg0t9514rew8s0ssig
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1701349600851-20
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: owner_entity_type_code
+        baseTableName: asset
+        constraintName: FKc5gcsp5p2ewgku3iqcldsux3j
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1701349600851-21
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_functionality_code
+        baseTableName: asset
+        constraintName: FKdv8qcic60nphllnqrlai9d5wb
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1701349600851-22
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_category_code
+        baseTableName: asset
+        constraintName: FKdw484tii0kyd5iudldow4p8ik
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1701349600851-23
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_id
+        baseTableName: asset_name_list
+        constraintName: FKh6rjnwivftrwoho1pix10kx53
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: asset
+        validate: true
+- changeSet:
+    id: 1701349600851-24
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_sub_category_code
+        baseTableName: asset
+        constraintName: FKhrn878xdexjdn2cswuydbhe7p
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1701349600851-25
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_id
+        baseTableName: asset_description_list
+        constraintName: FKiqc066xt90h4c2n7k4r7hde0y
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: asset
+        validate: true
+- changeSet:
+    id: 1701349600851-26
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: purchase_asset_value_id
+        baseTableName: asset
+        constraintName: FKkjd6viub7i1amaqy5274h3cha
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: currency_value
+        validate: true
+- changeSet:
+    id: 1701349600851-27
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: total_quantity_id
+        baseTableName: asset
+        constraintName: FKoafdm1vea33jjkmlaltommqk5
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1701349600851-28
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: description_list_id
+        baseTableName: asset_description_list
+        constraintName: FKop7kwhbax8h1hxje6tgf9riwb
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1701349600851-29
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: current_asset_value_id
+        baseTableName: asset
+        constraintName: FKs99ggu2vjkngps0qlkwj00716
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: currency_value
+        validate: true
+- changeSet:
+    id: 1701349600851-30
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usable_quantity_id
+        baseTableName: asset
+        constraintName: FKv0v5885egt6r32sl100mwave
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+

@@ -1,0 +1,3603 @@
+openapi: 3.0.0
+
+info:
+  version: 0.0.1
+  title: Commons Profile Service
+
+
+tags:
+  - name: Address
+  - name: Contact
+  - name: OrganizationFinance
+  - name: Person
+  - name: PersonBankDetail
+  - name: PersonEducation
+  - name: PersonFamily
+  - name: PersonIdentifier
+  - name: PersonInsurance
+  - name: PersonInterest
+  - name: PersonLanguage
+  - name: PersonOrganization
+  - name: PersonPoc
+  - name: PersonProfession
+  - name: PersonProfile
+  - name: PersonSkill
+  - name: PersonSocialMedia
+  - name: Ie
+  - name: IEIdCardTemplate
+  - name: CostSpecificationMaster
+  - name: CostSpecification
+  - name: CostSpecificationLineItem
+
+paths:
+  /api/v1/address/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Address
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Address'
+      operationId: get-address-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/address:
+    get:
+      summary: Get By Id
+      tags:
+        - Address
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+      operationId: get-address
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-address
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      tags:
+        - Address
+    put:
+      summary: ''
+      operationId: put-address
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      tags:
+        - Address
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-address
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Address
+  /api/v1/contact/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Contact
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contact'
+      operationId: get-contact-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/contact:
+    get:
+      summary: Get By Id
+      tags:
+        - Contact
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+      operationId: get-contact
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-contact
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      tags:
+        - Contact
+    put:
+      summary: ''
+      operationId: put-contact
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      tags:
+        - Contact
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-contact
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Contact
+  /api/v1/organization-finance/page:
+    get:
+      summary: Get By Page
+      tags:
+        - OrganizationFinance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrganizationFinance'
+      operationId: get-organization-finance-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/organization-finance:
+    get:
+      summary: Get By Id
+      tags:
+        - OrganizationFinance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationFinance'
+      operationId: get-organization-finance
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-organization-finance
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationFinance'
+      tags:
+        - OrganizationFinance
+    put:
+      summary: ''
+      operationId: put-organization-finance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationFinance'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationFinance'
+      tags:
+        - OrganizationFinance
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-organization-finance
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - OrganizationFinance
+  /api/v1/person/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Person
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+      operationId: get-person-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person:
+    get:
+      summary: Get By Id
+      tags:
+        - Person
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+      operationId: get-person
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+      tags:
+        - Person
+    put:
+      summary: ''
+      operationId: put-person
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+      tags:
+        - Person
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Person
+  '/api/v1/persons/{personId}/address':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - Address
+      operationId: addAddressToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Address'
+    get:
+      tags:
+        - Address
+      operationId: getAddressToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Address'
+
+  '/api/v1/persons/{personId}/contact':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - Contact
+      operationId: addContactToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Contact'
+    get:
+      tags:
+        - Contact
+      operationId: getContactToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contact'
+
+  '/api/v1/persons/{personId}/person-bank-detail':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonBankDetail
+      operationId: addPersonBankDetailToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonBankDetail'
+    get:
+      tags:
+        - PersonBankDetail
+      operationId: getPersonBankDetailToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonBankDetail'
+
+  '/api/v1/persons/{personId}/person-education':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonEducation
+      operationId: addPersonEducationToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonEducation'
+    get:
+      tags:
+        - PersonEducation
+      operationId: getPersonEducationToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonEducation'
+
+  '/api/v1/persons/{personId}/person-family':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonFamily
+      operationId: addPersonFamilyToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonFamily'
+    get:
+      tags:
+        - PersonFamily
+      operationId: getPersonFamilyToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonFamily'
+
+  '/api/v1/persons/{personId}/person-identifier':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonIdentifier
+      operationId: addPersonIdentifierToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonIdentifier'
+    get:
+      tags:
+        - PersonIdentifier
+      operationId: getPersonIdentifierToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonIdentifier'
+
+  '/api/v1/persons/{personId}/person-insurance':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonInsurance
+      operationId: addPersonInsuranceToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonInsurance'
+    get:
+      tags:
+        - PersonInsurance
+      operationId: getPersonInsuranceToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonInsurance'
+
+  '/api/v1/persons/{personId}/person-interest':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonInterest
+      operationId: addPersonInterestToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonInterest'
+    get:
+      tags:
+        - PersonInterest
+      operationId: getPersonInterestToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonInterest'
+
+  '/api/v1/persons/{personId}/person-language':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonLanguage
+      operationId: addPersonLanguageToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonLanguage'
+    get:
+      tags:
+        - PersonLanguage
+      operationId: getPersonLanguageToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonLanguage'
+
+  '/api/v1/persons/{personId}/person-organization':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonOrganization
+      operationId: addPersonOrganizationToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonOrganization'
+    get:
+      tags:
+        - PersonOrganization
+      operationId: getPersonOrganizationToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonOrganization'
+
+  '/api/v1/persons/{personId}/person-poc':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonPoc
+      operationId: addPersonPocToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonPoc'
+    get:
+      tags:
+        - PersonPoc
+      operationId: getPersonPocToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonPoc'
+
+  '/api/v1/persons/{personId}/person-profession':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonProfession
+      operationId: addPersonProfessionToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonProfession'
+    get:
+      tags:
+        - PersonProfession
+      operationId: getPersonProfessionToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonProfession'
+
+  '/api/v1/persons/{personId}/person-skill':
+    parameters:
+      - schema:
+          type: string
+        name: personId
+        in: path
+        required: true
+    post:
+      tags:
+        - PersonSkill
+      operationId: addPersonSkillToPerson
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PersonSkill'
+    get:
+      tags:
+        - PersonSkill
+      operationId: getPersonSkillToPerson
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonSkill'
+
+  /api/v1/person-bank-detail/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonBankDetail
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonBankDetail'
+      operationId: get-person-bank-detail-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-bank-detail:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonBankDetail
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonBankDetail'
+      operationId: get-person-bank-detail
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-bank-detail
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonBankDetail'
+      tags:
+        - PersonBankDetail
+    put:
+      summary: ''
+      operationId: put-person-bank-detail
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonBankDetail'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonBankDetail'
+      tags:
+        - PersonBankDetail
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-bank-detail
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonBankDetail
+  /api/v1/person-education/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonEducation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonEducation'
+      operationId: get-person-education-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-education:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonEducation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonEducation'
+      operationId: get-person-education
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-education
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonEducation'
+      tags:
+        - PersonEducation
+    put:
+      summary: ''
+      operationId: put-person-education
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonEducation'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonEducation'
+      tags:
+        - PersonEducation
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-education
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonEducation
+  /api/v1/person-family/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonFamily
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonFamily'
+      operationId: get-person-family-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-family:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonFamily
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonFamily'
+      operationId: get-person-family
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-family
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonFamily'
+      tags:
+        - PersonFamily
+    put:
+      summary: ''
+      operationId: put-person-family
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonFamily'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonFamily'
+      tags:
+        - PersonFamily
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-family
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonFamily
+  /api/v1/person-identifier/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonIdentifier
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonIdentifier'
+      operationId: get-person-identifier-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-identifier:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonIdentifier
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonIdentifier'
+      operationId: get-person-identifier
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-identifier
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonIdentifier'
+      tags:
+        - PersonIdentifier
+    put:
+      summary: ''
+      operationId: put-person-identifier
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonIdentifier'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonIdentifier'
+      tags:
+        - PersonIdentifier
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-identifier
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonIdentifier
+  /api/v1/person-insurance/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonInsurance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonInsurance'
+      operationId: get-person-insurance-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-insurance:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonInsurance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonInsurance'
+      operationId: get-person-insurance
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-insurance
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonInsurance'
+      tags:
+        - PersonInsurance
+    put:
+      summary: ''
+      operationId: put-person-insurance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonInsurance'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonInsurance'
+      tags:
+        - PersonInsurance
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-insurance
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonInsurance
+  /api/v1/person-interest/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonInterest
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonInterest'
+      operationId: get-person-interest-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-interest:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonInterest
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonInterest'
+      operationId: get-person-interest
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-interest
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonInterest'
+      tags:
+        - PersonInterest
+    put:
+      summary: ''
+      operationId: put-person-interest
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonInterest'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonInterest'
+      tags:
+        - PersonInterest
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-interest
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonInterest
+  /api/v1/person-language/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonLanguage
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonLanguage'
+      operationId: get-person-language-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-language:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonLanguage
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonLanguage'
+      operationId: get-person-language
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-language
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonLanguage'
+      tags:
+        - PersonLanguage
+    put:
+      summary: ''
+      operationId: put-person-language
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonLanguage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonLanguage'
+      tags:
+        - PersonLanguage
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-language
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonLanguage
+  /api/v1/person-organization/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonOrganization
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonOrganization'
+      operationId: get-person-organization-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-organization:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonOrganization
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonOrganization'
+      operationId: get-person-organization
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-organization
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonOrganization'
+      tags:
+        - PersonOrganization
+    put:
+      summary: ''
+      operationId: put-person-organization
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonOrganization'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonOrganization'
+      tags:
+        - PersonOrganization
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-organization
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonOrganization
+  /api/v1/person-poc/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonPoc
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonPoc'
+      operationId: get-person-poc-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-poc:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonPoc
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonPoc'
+      operationId: get-person-poc
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-poc
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonPoc'
+      tags:
+        - PersonPoc
+    put:
+      summary: ''
+      operationId: put-person-poc
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonPoc'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonPoc'
+      tags:
+        - PersonPoc
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-poc
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonPoc
+  /api/v1/person-profession/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonProfession
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonProfession'
+      operationId: get-person-profession-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-profession:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonProfession
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonProfession'
+      operationId: get-person-profession
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-profession
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonProfession'
+      tags:
+        - PersonProfession
+    put:
+      summary: ''
+      operationId: put-person-profession
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonProfession'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonProfession'
+      tags:
+        - PersonProfession
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-profession
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonProfession
+  /api/v1/person-profile/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonProfile
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonProfile'
+      operationId: get-person-profile-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-profile:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonProfile
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonProfile'
+      operationId: get-person-profile
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-profile
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonProfile'
+      tags:
+        - PersonProfile
+    put:
+      summary: ''
+      operationId: put-person-profile
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonProfile'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonProfile'
+      tags:
+        - PersonProfile
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-profile
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonProfile
+  /api/v1/person-skill/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonSkill
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonSkill'
+      operationId: get-person-skill-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-skill:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonSkill
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSkill'
+      operationId: get-person-skill
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-skill
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonSkill'
+      tags:
+        - PersonSkill
+    put:
+      summary: ''
+      operationId: put-person-skill
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSkill'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonSkill'
+      tags:
+        - PersonSkill
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-skill
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonSkill
+  /api/v1/person-social-media/page:
+    get:
+      summary: Get By Page
+      tags:
+        - PersonSocialMedia
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonSocialMedia'
+      operationId: get-person-social-media-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/person-social-media:
+    get:
+      summary: Get By Id
+      tags:
+        - PersonSocialMedia
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSocialMedia'
+      operationId: get-person-social-media
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-person-social-media
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonSocialMedia'
+      tags:
+        - PersonSocialMedia
+    put:
+      summary: ''
+      operationId: put-person-social-media
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSocialMedia'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonSocialMedia'
+      tags:
+        - PersonSocialMedia
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-person-social-media
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - PersonSocialMedia
+
+  /api/v1/ie/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Ie
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ie'
+      operationId: get-ie-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/ie:
+    get:
+      summary: Get By Id
+      tags:
+        - Ie
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ie'
+      operationId: get-ie
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-ie
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ie'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ie'
+      tags:
+        - Ie
+    put:
+      summary: ''
+      operationId: put-ie
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ie'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ie'
+      tags:
+        - Ie
+      description: ''
+    patch:
+      summary: ''
+      operationId: patch-ie
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ie'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ie'
+      tags:
+        - Ie
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-ie
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Ie
+  /api/v1/cost-specification-master/page:
+    get:
+      summary: Get CostSpecificationMasters by Page
+      tags:
+        - CostSpecificationMaster
+      operationId: get-cost-specification-master-page
+      parameters:
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostSpecificationMaster'
+
+  /api/v1/cost-specification-master:
+    get:
+      summary: Get CostSpecificationMaster by ID
+      tags:
+        - CostSpecificationMaster
+      operationId: get-cost-specification-master
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostSpecificationMaster'
+    post:
+      summary: Create CostSpecificationMaster
+      operationId: post-cost-specification-master
+      tags:
+        - CostSpecificationMaster
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostSpecificationMaster'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+    put:
+      summary: Update CostSpecificationMaster
+      operationId: put-cost-specification-master
+      tags:
+        - CostSpecificationMaster
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostSpecificationMaster'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostSpecificationMaster'
+    delete:
+      summary: Delete CostSpecificationMaster
+      operationId: delete-cost-specification-master
+      tags:
+        - CostSpecificationMaster
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: reason
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+
+  /api/v1/cost-specification/page:
+    get:
+      summary: Get CostSpecifications by Page
+      tags:
+        - CostSpecification
+      operationId: get-cost-specification-page
+      parameters:
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostSpecification'
+
+  /api/v1/cost-specification:
+    get:
+      summary: Get CostSpecification by ID
+      tags:
+        - CostSpecification
+      operationId: get-cost-specification
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostSpecification'
+    post:
+      summary: Create CostSpecification
+      operationId: post-cost-specification
+      tags:
+        - CostSpecification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostSpecification'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostSpecification'
+    put:
+      summary: Update CostSpecification
+      operationId: put-cost-specification
+      tags:
+        - CostSpecification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostSpecification'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostSpecification'
+    delete:
+      summary: Delete CostSpecification
+      operationId: delete-cost-specification
+      tags:
+        - CostSpecification
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: reason
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+
+  /api/v1/cost-specification-line-item/page:
+    get:
+      summary: Get CostSpecificationLineItems by Page
+      tags:
+        - CostSpecificationLineItem
+      operationId: get-cost-specification-line-item-page
+      parameters:
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostSpecificationLineItem'
+
+  /api/v1/cost-specification-line-item:
+    get:
+      summary: Get CostSpecificationLineItem by ID
+      tags:
+        - CostSpecificationLineItem
+      operationId: get-cost-specification-line-item
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostSpecificationLineItem'
+    put:
+      summary: Update CostSpecificationLineItem
+      operationId: put-cost-specification-line-item
+      tags:
+        - CostSpecificationLineItem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostSpecificationLineItem'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostSpecificationLineItem'
+    delete:
+      summary: Delete CostSpecificationLineItem
+      operationId: delete-cost-specification-line-item
+      tags:
+        - CostSpecificationLineItem
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: reason
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+components:
+  schemas:
+    Address:
+      title: Address
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        addressType:
+          type: string
+        mandal:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        landmark:
+          type: string
+        village:
+          type: string
+        taluk:
+          type: string
+        panchayat:
+          type: string
+        block:
+          type: string
+        town:
+          type: string
+        district:
+          type: string
+        state:
+          type: string
+        pinCode:
+          type: string
+        verified:
+          type: boolean
+        verifiedBy:
+          type: integer
+          format: int64
+        verifiedDateTime:
+          type: string
+          format: date-time
+        addressValidity:
+          type: boolean
+        geoUrl:
+          type: string
+        isPrimary:
+          type: boolean
+    Contact:
+      title: Contact
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        contactType:
+          type: string
+        contactValue:
+          type: string
+        isVerified:
+          type: boolean
+    OrganizationFinance:
+      title: OrganizationFinance
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personOrganizationId:
+#          type: integer
+#          format: int64
+        gstNumber:
+          type: string
+        cin:
+          type: string
+        tan:
+          type: string
+        pan:
+          type: string
+    Person:
+      title: Person
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        entityType:
+          type: string
+        entityId:
+          type: integer
+          format: int64
+        hasOrganization:
+          type: boolean
+        addressList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        contactList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        personBankDetailList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonBankDetail'
+        personEducationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonEducation'
+        personFamilyList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonFamily'
+        personIdentifierList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonIdentifier'
+        personInsuranceList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonInsurance'
+        personInterestList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonInterest'
+        personLanguageList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonLanguage'
+        personOrganizationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonOrganization'
+        personPocList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonPoc'
+        personProfessionList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonProfession'
+        personProfile:
+          $ref: '#/components/schemas/PersonProfile'
+        personSkillList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonSkill'
+        personSocialMedia:
+          $ref: '#/components/schemas/PersonSocialMedia'
+    PersonBankDetail:
+      title: PersonBankDetail
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        bankName:
+          type: string
+        accountNumber:
+          type: string
+        branchName:
+          type: string
+        branchCode:
+          type: string
+        micr:
+          type: string
+        accountType:
+          type: string
+        isPrimary:
+          type: boolean
+    PersonEducation:
+      title: PersonEducation
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        personId:
+#          type: integer
+#          format: int64
+        institute:
+          type: string
+        yearOfJoining:
+          type: string
+          format: date-time
+        yearOfPassing:
+          type: string
+          format: date-time
+        stream:
+          type: string
+        subject:
+          type: string
+        educationCategory:
+          type: string
+        dropOutStatus:
+          type: string
+        dropOutReason:
+          type: string
+        educationType:
+          type: string
+        educationBoard:
+          type: string
+        remarks:
+          type: string
+    PersonFamily:
+      title: PersonFamily
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        memberName:
+          type: string
+        dateOfBirth:
+          type: string
+          format: date-time
+        relationship:
+          type: string
+        primaryContactNumber:
+          type: string
+        primaryMail:
+          type: string
+        gender:
+          type: string
+        educationLevel:
+          type: string
+        occupation:
+          type: string
+        linkedPersonId:
+          type: string
+    PersonIdentifier:
+      title: PersonIdentifier
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        identifierType:
+          type: string
+        identifier:
+          type: string
+        isVerified:
+          type: string
+        status:
+          type: string
+        identifierAttachmentUrl:
+          type: string
+    PersonInsurance:
+      title: PersonInsurance
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        type:
+          type: string
+        policyNumber:
+          type: string
+        status:
+          type: string
+        name:
+          type: string
+    PersonInterest:
+      title: PersonInterest
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        interestCode:
+          type: string
+        interestType:
+          type: string
+    PersonLanguage:
+      title: PersonLanguage
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        languageCode:
+          type: string
+        canSpeak:
+          type: boolean
+        canWrite:
+          type: boolean
+        canRead:
+          type: boolean
+    PersonOrganization:
+      title: PersonOrganization
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        organization:
+          type: string
+        orgTypeCode:
+          type: string
+        entityName:
+          type: string
+        entityTypeCode:
+          type: string
+        gstAvailability:
+          type: boolean
+        isMsme:
+          type: boolean
+        msmeTypeCode:
+          type: string
+        msmeUamNumber:
+          type: string
+        hasGst:
+          type: boolean
+        has12a:
+          type: boolean
+        has80g:
+          type: boolean
+        hasExportExperience:
+          type: boolean
+        hasFcra:
+          type: boolean
+        yearOfRegistration:
+          type: integer
+          format: int64
+        shippingInfo:
+          type: string
+        licence:
+          type: string
+    PersonPoc:
+      title: PersonPoc
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        name:
+          type: string
+        designation:
+          type: string
+        mobile:
+          type: string
+        email:
+          type: string
+        department:
+          type: string
+        linkedPersonId:
+          type: integer
+          format: int64
+    PersonProfession:
+      title: PersonProfession
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        workType:
+          type: string
+        workDetails:
+          type: string
+        designation:
+          type: string
+        fromDate:
+          type: string
+          format: date-time
+        toDate:
+          type: string
+          format: date-time
+        employeeId:
+          type: string
+        employerDetails:
+          type: string
+        employerType:
+          type: string
+        employerName:
+          type: string
+        jobSector:
+          type: string
+        reasonForLeaving:
+          type: string
+    PersonProfile:
+      title: PersonProfile
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        firstName:
+          type: string
+        middleName:
+          type: string
+        displayName:
+          type: string
+        spouseName:
+          type: string
+        lastName:
+          type: string
+        age:
+          type: integer
+          format: int64
+        ageAsOnDate:
+          type: string
+          format: date-time
+        bloodGroup:
+          type: string
+        dateOfBirth:
+          type: string
+          format: date-time
+        maritalStatus:
+          type: string
+        gender:
+          type: string
+        religion:
+          type: string
+        occupation:
+          type: string
+        totalWorkExperience:
+          type: integer
+          format: int64
+        category:
+          type: string
+        motherTongue:
+          type: string
+        caste:
+          type: string
+        salutation:
+          type: string
+        disabilityStatus:
+          type: string
+        disabilityDetails:
+          type: string
+        lifeStatus:
+          type: string
+        iconPicUrl:
+          type: string
+        coverPicUrl:
+          type: string
+        introVideoUrl:
+          type: string
+        headline:
+          type: string
+        notes:
+          type: string
+        hobby:
+          type: string
+        metaDataList:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetaData'
+    PersonSkill:
+      title: PersonSkill
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        skillCode:
+          type: string
+        proficiencyLevel:
+          type: string
+        skillType:
+          type: string
+    PersonSocialMedia:
+      title: PersonSocialMedia
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+#        personId:
+#          type: integer
+#          format: int64
+        facebook:
+          type: string
+        linkedin:
+          type: string
+        twitter:
+          type: string
+        instagram:
+          type: string
+        youtube:
+          type: string
+        website:
+          type: string
+    Ie:
+      title: Ie
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        person:
+          $ref: '#/components/schemas/Person'
+        careTakerTenantId:
+          type: integer
+          format: int64
+        onBoardedTenantId:
+          type: integer
+          format: int64
+        ieStatus:
+          type: string
+        creationMode:
+          type: string
+        onBoardedUserId:
+          type: integer
+          format: int64
+        onBoardedIeId:
+          type: integer
+          format: int64
+        ieType:
+          type: string
+        ieSubType:
+          type: string
+        onBoardDateTime:
+          type: string
+          format: date-time
+        updatedVenture:
+          type: integer
+          format: int64
+        notes:
+          type: string
+        loginName:
+          type: string
+        interestedInTrade:
+          type: boolean
+        aliasId:
+          type: string
+        iconPic:
+          type: string
+        createdVenture:
+          type: integer
+          format: int64
+        onTraderCenterId:
+          type: integer
+          format: int64
+        taggedToWorknodeId:
+          type: integer
+          format: int64
+        taggedToWorkforceId:
+          type: integer
+          format: int64
+        qrCodeAttachmentPath:
+          type: string
+        idCardAttachmentPath:
+          type: string
+        taggedToServiceAreaType:
+          type: string
+        ieUniqueIdentifier:
+          type: string
+        taggedToServiceAreaCode:
+          type: string
+        linkedIeId:
+          type: integer
+          format: int64
+        deliveryModeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryMode'
+        ieSubTypeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/IeSubType'
+    DeliveryMode:
+      title: DeliveryMode
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        type:
+          type: string
+    IeSubType:
+      title: IeSubType
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        type:
+          type: string
+    IEIdCardTemplate:
+      title: IEIdCardTemplate
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        templateData:
+          type: string
+        templateType:
+          type: string
+    MetaData:
+      title: MetaData
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        metaKey:
+          type: string
+        metaValue:
+          type: string
+    CostSpecificationMaster:
+      title: CostSpecificationMaster
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        label:
+          type: array
+          items:
+            $ref: '#/components/schemas/MLText'
+        inputType:
+          type: string
+          enum:
+            - CURRENCY_VALUE
+            - UOM_VALUE
+        code:
+          type: string
+        formula:
+          type: string
+        fieldType:
+          type: string
+          enum:
+            - DERIVED
+            - USER_INPUT
+        forEntityType:
+          type: string
+        forEntityId:
+          type: string
+        purpose:
+          type: string
+        context:
+          type: string
+        contextId:
+          type: string
+        sequence:
+          type: integer
+          format: int64
+        inputTypeLabel:
+          type: string
+        groupingCode:
+          type: string
+
+    CostSpecification:
+      title: CostSpecification
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        forEntityId:
+          type: string
+        forEntityType:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        taggedToEntityId:
+          type: string
+        taggedToEntityType:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        subType:
+          type: string
+        remarks:
+          type: string
+          description: Free-text field for additional remarks
+        quantity:
+            $ref: '#/components/schemas/UoMValue'
+        costSpecificationLineItemsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/CostSpecificationLineItem'
+        specificationsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Specification'
+
+
+    CostSpecificationLineItem:
+      title: CostSpecificationLineItem
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        costSpecificationId:
+          type: integer
+          format: int64
+        code:
+          type: string
+        currencyOrUoMCode:
+          type: string
+        value:
+          type: number
+          format: double
+        dateOfEntry:
+          type: string
+          format: date-time
+
+    Specification:
+      title: Specification
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        value:
+          type: string

@@ -1,0 +1,123 @@
+databaseChangeLog:
+- changeSet:
+    id: 1671094988035-1
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: attachmentPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: complete_url
+            type: VARCHAR(255)
+        - column:
+            name: entity_id
+            type: BIGINT
+        - column:
+            name: entity_meta
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: entity_type
+            type: VARCHAR(255)
+        - column:
+            name: file_name
+            type: VARCHAR(255)
+        - column:
+            name: file_size_in_bytes
+            type: BIGINT
+        - column:
+            name: is_public
+            type: BIT
+        - column:
+            name: is_url_upload
+            type: BIT
+        - column:
+            name: mime_type
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: path
+            type: VARCHAR(255)
+        tableName: attachment
+- changeSet:
+    id: 1671094988035-2
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ATTACHMENTUNIQUE_IDENTIFIER_COL
+        tableName: attachment
+

@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-service-base</artifactId>
+        <version>0.6.6</version>
+    </parent>
+
+    <artifactId>commons-assessment-service-base</artifactId>
+    <version>${revision}${changelist}</version>
+    <packaging>pom</packaging>
+
+    <name>commons-assessment-service-base</name>
+
+    <properties>
+        <revision>1.1.3</revision>
+        <changelist/>
+        <retrofit.version>2.9.0</retrofit.version>
+        <commons.bulk-upload.sdk.version>1.2.1</commons.bulk-upload.sdk.version>
+        <commons-service-base.version>0.6.6</commons-service-base.version>
+        <hibernate-search-mapper.version>6.1.8.Final</hibernate-search-mapper.version>
+        <commons-notification-service.version>0.0.10</commons-notification-service.version>
+    </properties>
+    <modules>
+        <module>avro</module>
+        <module>dto</module>
+        <module>client</module>
+        <module>service</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-service-pack</artifactId>
+            <version>${commons-service-base.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.javacrumbs.shedlock</groupId>
+            <artifactId>shedlock-spring</artifactId>
+            <version>4.40.0</version>
+        </dependency>
+
+        <!-- ShedLock JDBC Template provider -->
+        <dependency>
+            <groupId>net.javacrumbs.shedlock</groupId>
+            <artifactId>shedlock-provider-jdbc-template</artifactId>
+            <version>4.40.0</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-assessment-service-avro</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-assessment-service-dto</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-assessment-service-client</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-bulk-upload</artifactId>
+                <version>${commons.bulk-upload.sdk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate.search</groupId>
+                <artifactId>hibernate-search-mapper-pojo-base</artifactId>
+                <version>${hibernate-search-mapper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.search</groupId>
+                <artifactId>hibernate-search-backend-lucene</artifactId>
+                <version>${hibernate-search-mapper.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-notification-service-client</artifactId>
+                <version>${commons-notification-service.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.platformcommons</groupId>
+                    <artifactId>commons-api-generator-maven-plugin</artifactId>
+                    <version>0.1.8</version>
+                    <executions>
+                        <execution>
+                            <configuration>
+                                <serviceName>commons-assessment-service</serviceName>
+                                <clientPackage>com.platformcommons.platform.service.assessment.client</clientPackage>
+                                <dtoPackage>com.platformcommons.platform.service.assessment.dto</dtoPackage>
+                                <inputSpec>${project.basedir}/../service/src/main/resources/specs/master.yml</inputSpec>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

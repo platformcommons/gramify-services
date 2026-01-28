@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial_stored_procedure
+      author: sandeep-sharma
+      changes:
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/stored_procedure/01_get_latest_n_response.sql

@@ -1,0 +1,122 @@
+def repositoryUrl = scm.userRemoteConfigs[0].url
+repositoryUrl = repositoryUrl.replace('https://', '')
+
+pipeline {
+       agent any
+
+       options {
+    	buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '2'))
+  	}
+    environment {
+        def pom = readMavenPom file: "pom.xml"
+        NAME = "${pom.artifactId}"
+        VERSION = "${pom.properties.revision}"
+        def pomActual  = readMavenPom file: "service/pom.xml"
+        NAME_ACTUAL = "${pomActual.artifactId}"
+        ARTIFACT = "${NAME_ACTUAL}-${VERSION}"
+		NEXUS = credentials('PCF_NEXUS_DEV')
+
+    }
+
+    stages {
+
+
+        stage('Build') {
+            steps {
+                script {
+                    if (env.BRANCH_NAME == 'review' || env.BRANCH_NAME == 'release/*') {
+                       withMaven(maven: "M3"){
+				            sh "mvn -U clean install -Dchangelist=-SNAPSHOT -DskipTests"
+				        }
+                    }
+                      else if (env.BRANCH_NAME == 'staging') {
+                        final String response = sh(script: "curl -s -u ${NEXUS_USR}:${NEXUS_PSW} -X GET -H 'Content-Type:application/json' 'https://nexus.platformcommons.org/service/rest/v1/search?repository=pcf-releases&group=com.platformcommons&name=${NAME_ACTUAL}&version=${VERSION}-RC*'" , returnStdout: true)
+                           def json = new groovy.json.JsonSlurperClassic().parseText(response)
+                           RC_COUNTER = "${json["items"].size() + 1 }"
+                           withMaven(maven: "M3"){
+                    			 sh "mvn -U clean install -Dchangelist=-RC.${RC_COUNTER} -DskipTests"
+                                 sh "mvn -pl service -Dchangelist=-RC.${RC_COUNTER} dockerfile:build"
+                    		}
+                      }
+                   else if (env.BRANCH_NAME == 'master') {
+                       withMaven(maven: "M3"){
+                    		 sh "mvn -U clean install  -DskipTests"
+                    		 sh "mvn -pl service dockerfile:build"
+                    	}
+                   }
+                }
+            }
+        }
+
+
+        stage('Deploy Artifacts') {
+            steps {
+                script {
+                    if (env.BRANCH_NAME == 'review' || env.BRANCH_NAME == 'feature/*') {
+                        sshagent(credentials:['PCF_DEV_WEB']) {
+                            ARTIFACT = "${ARTIFACT}-SNAPSHOT.jar"
+                            sh "echo '${ARTIFACT}' "
+                            sh "ssh -oStrictHostKeyChecking=no  ${env.PCF_DEV_WEB} mkdir -p /commons-platform/binaries/micro-service/${NAME_ACTUAL}"
+                            sh "scp -r service/target/*.jar ${env.PCF_DEV_WEB}:/commons-platform/binaries/micro-service/${NAME_ACTUAL}/${ARTIFACT}"
+                            sh "ssh -oStrictHostKeyChecking=no  ${env.PCF_DEV_WEB} sudo systemctl restart ${NAME_ACTUAL}"
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Publish') {
+                    steps {
+                        script {
+                            if (env.BRANCH_NAME == 'review' || env.BRANCH_NAME == 'release/*') {
+                                withMaven(maven: "M3"){
+        				            sh "mvn deploy -Dchangelist=-SNAPSHOT -DskipTests"
+        				        }
+                            }
+                            else if (env.BRANCH_NAME == 'staging') {
+                                withMaven(maven: "M3"){
+        				            sh "mvn deploy -Dchangelist=-RC.${RC_COUNTER} -DskipTests"
+                                    sh "mvn -pl service -Dchangelist=-RC.${RC_COUNTER} dockerfile:push"
+        				        }
+                            }
+                            else if (env.BRANCH_NAME == 'master') {
+                                 withMaven(maven: "M3"){
+        				            sh "mvn deploy -DskipTests"
+        				            sh "mvn -pl service dockerfile:push"
+        				        }
+                            }
+                        }
+                    }
+                }
+        stage('Create Tag') {
+                    when {
+                        branch 'master'
+                    }
+                    steps {
+                        script {
+                            def pom = readMavenPom file: ".flattened-pom.xml"
+        					tag = "v${pom.version}"
+                            withCredentials([usernamePassword(credentialsId: 'PCF_BITBUCKET_BUILD', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                                sh "git tag ${tag}"
+                                sh "git push http://${GIT_USERNAME}:${GIT_PASSWORD}@${repositoryUrl} ${tag}"
+                            }
+                        }
+                    }
+                }
+    }
+
+    post {
+        failure {
+                    emailext (
+                            subject: "PCF-JENKINS - FAILED !!! - Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                            body: "Last commit resulted in FAILED Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                            recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                            attachLog: true,
+                            to: "aashish@platformcommons.com"
+                    )
+        }
+        cleanup {
+            cleanWs(deleteDirs: true)
+        }
+    }
+}

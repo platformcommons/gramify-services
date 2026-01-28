@@ -1,0 +1,11 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1749055369381-6
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: description
+                              type: TEXT
+                    tableName: app_menu

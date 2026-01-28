@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: commons-report-service
+  profiles:
+    active: ${COMMONS_ENVIRONMENT_PROFILE:dev}
+  config:
+    import: "optional:configserver:${COMMONS_CONFIG_SERVER_URL:https://dev.platformcommons.org/commons-config/}"
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8175/commons-admin-service

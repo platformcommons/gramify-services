@@ -1,0 +1,681 @@
+databaseChangeLog:
+- changeSet:
+    id: 1668582105868-1
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_menuPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: is_enabled
+            type: BIT
+        - column:
+            name: is_root
+            type: BIT
+        - column:
+            constraints:
+              nullable: false
+            name: menu_code
+            type: VARCHAR(255)
+        - column:
+            name: sequence
+            type: BIGINT
+        - column:
+            name: app_rbac
+            type: BIGINT
+        - column:
+            name: parent_menu
+            type: BIGINT
+        tableName: app_menu
+- changeSet:
+    id: 1668582105868-2
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_operationPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: create_operation
+            type: BIT
+        - column:
+            name: delete_operation
+            type: BIT
+        - column:
+            constraints:
+              nullable: false
+            name: entity
+            type: VARCHAR(255)
+        - column:
+            name: group_name
+            type: VARCHAR(255)
+        - column:
+            name: is_direct
+            type: BIT
+        - column:
+            name: linked_menu_code
+            type: VARCHAR(255)
+        - column:
+            name: read_operation
+            type: BIT
+        - column:
+            name: update_operation
+            type: BIT
+        - column:
+            constraints:
+              nullable: false
+            name: app_rbac
+            type: BIGINT
+        tableName: app_operation
+- changeSet:
+    id: 1668582105868-3
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_rbacPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: app_code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: app_role
+            type: VARCHAR(255)
+        - column:
+            name: is_default
+            type: BIT
+        tableName: app_rbac
+- changeSet:
+    id: 1668582105868-4
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: currency_valuePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: currency
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: value
+            type: DOUBLE
+        tableName: currency_value
+- changeSet:
+    id: 1668582105868-5
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_APP_MENUUNIQUE_IDENTIFIER_COL
+        tableName: app_menu
+- changeSet:
+    id: 1668582105868-6
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_APP_OPERATIONUNIQUE_IDENTIFIER_COL
+        tableName: app_operation
+- changeSet:
+    id: 1668582105868-7
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: app_code
+        constraintName: UC_APP_RBACAPP_CODE_COL
+        tableName: app_rbac
+- changeSet:
+    id: 1668582105868-8
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_APP_RBACUNIQUE_IDENTIFIER_COL
+        tableName: app_rbac
+- changeSet:
+    id: 1668582105868-9
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_CURRENCY_VALUEUNIQUE_IDENTIFIER_COL
+        tableName: currency_value
+- changeSet:
+    id: 1668582105868-10
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_rbac
+        baseTableName: app_operation
+        constraintName: FK37v8syhyx5b2c8p5circa0t83
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_rbac
+        validate: true
+- changeSet:
+    id: 1668582105868-11
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_rbac
+        baseTableName: app_menu
+        constraintName: FK8avj03x9vonlclg6yo7u46wwm
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_rbac
+        validate: true
+- changeSet:
+    id: 1668582105868-12
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent_menu
+        baseTableName: app_menu
+        constraintName: FK9es745j0hnjjvbydx5pwg7sfa
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_menu
+        validate: true
+
+- changeSet:
+    id: 1668582744444-1
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: label
+            type: varchar(255)
+        tableName: app_menu
+- changeSet:
+    id: 1668582744444-2
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: route
+            type: varchar(255)
+        tableName: app_menu
+
+- changeSet:
+    id: 1668599587385-1
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: menu_type
+            type: varchar(255)
+        tableName: app_menu
+
+- changeSet:
+    id: 1669961051933-1
+    author: sahadev kale (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: role
+            type: varchar(255)
+        tableName: app_rbac
+- changeSet:
+    id: 1669961051933-2
+    author: sahadev kale (generated)
+    changes:
+    - dropColumn:
+        columnName: app_role
+        tableName: app_rbac
+
+- changeSet:
+    id: 1669963579729-2
+    author: dibyajit (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: UC_APP_RBACAPP_CODE_COL
+        tableName: app_rbac
+
+- changeSet:
+    id: 1669966466022-1
+    author: sahadev kale (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: priority
+            type: integer
+        tableName: app_rbac
+
+
+- changeSet:
+    id: 1670237904187-1
+    author: sahadev kale (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: icon
+            type: varchar(255)
+        tableName: app_menu
+
+- changeSet:
+    id: 1670414548337-1
+    author: sahadev kale (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: download
+            type: bit
+        tableName: app_operation
+
+- changeSet:
+    id: 1670572585103-1
+    author: sahadev kale (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: app_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: instance_id
+            type: BIGINT
+        tableName: app_instances
+- changeSet:
+    id: 1670572585103-2
+    author: sahadev kale (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: instancePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_mill_url
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: base_url
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: code
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: health_uri
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: status
+            type: VARCHAR(255)
+        tableName: instance
+- changeSet:
+    id: 1670572585103-3
+    author: sahadev kale (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: base_url
+        constraintName: UC_INSTANCEBASE_URL_COL
+        tableName: instance
+- changeSet:
+    id: 1670572585103-4
+    author: sahadev kale (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code
+        constraintName: UC_INSTANCECODE_COL
+        tableName: instance
+- changeSet:
+    id: 1670572585103-5
+    author: sahadev kale (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_INSTANCEUNIQUE_IDENTIFIER_COL
+        tableName: instance
+- changeSet:
+    id: 1670572585103-6
+    author: sahadev kale (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_id
+        baseTableName: app_instances
+        constraintName: FKgas32j4q3kkyi4mprl6oipuam
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app
+        validate: true
+- changeSet:
+    id: 1670572585103-7
+    author: sahadev kale (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: instance_id
+        baseTableName: app_instances
+        constraintName: FKgni0au15p59egbatxav7gs1f
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: instance
+        validate: true
+

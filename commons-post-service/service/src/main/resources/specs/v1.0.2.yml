@@ -1,0 +1,939 @@
+openapi: 3.0.0
+info:
+  title: post-service
+  version: '1.0.1'
+tags:
+  - name: Post
+  - name: PostActor
+  - name: Reaction
+  - name: Response
+  - name: Attachment
+
+paths:
+  /api/v1/post/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      operationId: get-post-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/post/timeline:
+    get:
+      summary: Fetch Timeline
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      operationId: fetch-timeline
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: appContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: domainContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: languageContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: locationContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: postType
+          required: false
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: direction
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: taggedToEntityType
+          required: false
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: taggedToEntityId
+        - schema:
+            type: string
+          in: query
+          name: category
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: subCategory
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: status
+          required: false
+  /api/v1/post:
+    get:
+      summary: Get By Id
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      operationId: get-post
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: Publish Post
+      operationId: post-post
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+    put:
+      summary: Update Post
+      operationId: put-post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+      description: ''
+    patch:
+      summary: Update Post Using Patch
+      operationId: patch-post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+      description: ''
+    delete:
+      summary: Delete Post
+      operationId: delete-post
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          description: Either postId or identifier required
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: identifier
+          description: Either postId or identifier required
+          required: false
+      description: This API deletes existing post
+      tags:
+        - Post
+  /api/v1/reaction/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Reaction
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reaction'
+      operationId: get-reaction-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+
+  /api/v1/reaction:
+    get:
+      summary: Get By Id
+      tags:
+        - Reaction
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reaction'
+      operationId: get-reaction
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-reaction
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reaction'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: Either postId or postIdentifier required
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: postIdentifier
+          required: false
+          description: Either postId or postIdentifier required
+      tags:
+        - Reaction
+    put:
+      summary: ''
+      operationId: put-reaction
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reaction'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reaction'
+      tags:
+        - Reaction
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-reaction
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: reactionIdentifier
+          required: false
+          description: Either reactionId or reactionIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Reaction
+  /api/v1/response/page:
+    get:
+      summary: Get Response for Response
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Response'
+      operationId: get-response-page-for-response
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: responseId
+          description: Either responseId or responseIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: responseIdentifier
+          description: Either responseId or responseIdentifier required
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+        - schema:
+            type: string
+          in: query
+          name: direction
+  /api/v1/response/posts/page:
+    get:
+      summary: Get Response for Post
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Response'
+      operationId: get-response-page-for-post
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: Either postId or postIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: postIdentifier
+          description: Either postId or postIdentifier required
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+        - schema:
+            type: string
+          in: query
+          name: direction
+  /api/v1/response:
+    get:
+      summary: Get By Id
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      operationId: get-response
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-response-for-response
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: responseId
+          description: Either responseId or responseIdentifier required
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: responseIdentifier
+          required: false
+          description: Either responseId or responseIdentifier required
+      tags:
+        - Response
+      description: This API allows to create a Response for Response.
+    put:
+      summary: ''
+      operationId: put-response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      tags:
+        - Response
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-response
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: responseId
+          required: false
+          description: Either responseId or responseIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: responseIdentifier
+          required: false
+          description: Either responseId or responseIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: reason
+          description: reason for deleting response
+          required: true
+      tags:
+        - Response
+  /api/v1/response/posts:
+    post:
+      summary: ''
+      operationId: post-response-for-post
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: Either postId or postIdentifier required
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: postIdentifier
+          required: false
+          description: Either postId or postIdentifier required
+      tags:
+        - Response
+      description: This API allows to create a Response for Post.
+  /api/v2/post/timeline:
+    get:
+      summary: Fetch Public Timeline
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      operationId: fetch-public-timeline
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: appContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: domainContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: languageContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: locationContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: postType
+          required: false
+        - schema:
+            type: array
+            items:
+              type: string
+          in: query
+          name: postSubTypes
+          required: false
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: direction
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: taggedToEntityType
+          required: false
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: taggedToEntityId
+        - schema:
+            type: string
+          in: query
+          name: tenantLogin
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: category
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: subCategory
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: status
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: actorType
+          required: false
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: actorId
+          required: false
+
+  /api/v1/posts/user-read-event-logs/me:
+    post:
+      summary: ''
+      operationId: create-user-read-event-for-post
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: PostId is required
+          required: true
+      tags:
+        - Post
+      description: This API allows to create user-read-event-logs for Post by CurrentUser
+  /api/v1/attachments:
+    delete:
+      summary: Delete attachment
+      operationId: delete-attachment
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: entityId
+          description: EntityId is required
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: entityType
+          required: EntityType is required
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: attachmentId
+          description: AttachmentId is required
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          description: Reason is Required
+          required: true
+      description: This API deletes existing attachment
+      tags:
+        - Attachment
+  /api/v1/posts/status:
+    patch:
+      summary: Patch Post Status
+      operationId: patch-post-status
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+      description: 'This API Updated the Post Status'
+
+components:
+  schemas:
+    Post:
+      title: Post
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        postedBy:
+          $ref: '#/components/schemas/PostActor'
+        payload:
+          type: string
+        commentCount:
+          type: integer
+          format: int64
+        reactCount:
+          type: integer
+          format: int64
+        emotion:
+          type: string
+        expertRank:
+          type: integer
+          format: int64
+        isPinnedPost:
+          type: boolean
+        postTime:
+          type: string
+          format: date-time
+        postType:
+          type: string
+        visibility:
+          type: string
+        attachmentUrl:
+          type: string
+        locationContext:
+          type: string
+        appContext:
+          type: string
+        languageContext:
+          type: string
+        domainContext:
+          type: string
+        isPublic:
+          type: boolean
+        isSensitive:
+          type: boolean
+        isModified:
+          type: boolean
+        isModerated:
+          type: boolean
+        hasAttachment:
+          type: boolean
+        taggedToEntityType:
+          type: string
+        taggedToEntityId:
+          type: integer
+          format: int64
+        content:
+          type: string
+        readCount:
+          type: integer
+          format: int64
+        readTimeEstimate:
+          type: string
+          format: time
+        contentType:
+          type: string
+        category:
+          type: string
+        subCategory:
+          type: string
+        status:
+          type: string
+        statusUpdatedDate:
+          type: string
+          format: date-time
+        postSubType:
+          type: string
+        effort:
+          $ref: '#/components/schemas/UoMValue'
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        address:
+          type: string
+        postImpacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostImpact'
+        title:
+          type: string
+
+
+    PostActor:
+      title: PostActor
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        actorId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        iconpic:
+          type: string
+        actorType:
+          type: string
+
+    Reaction:
+      title: Reaction
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        reactedBy:
+          $ref: '#/components/schemas/PostActor'
+        reactedDateTime:
+          type: string
+          format: date-time
+        reactedOnEntityId:
+          type: integer
+          format: int64
+        reactedOnEntityType:
+          type: string
+        reactionType:
+          type: string
+    Response:
+      title: Response
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        responseBy:
+          $ref: '#/components/schemas/PostActor'
+        payload:
+          type: string
+        responseType:
+          type: string
+        responseDateTime:
+          type: string
+          format: date-time
+
+    PostImpact:
+      title: PostImpact
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        postId:
+          type: integer
+          format: int64
+        beneficiaryType:
+          type: string
+        label:
+          type: string
+        actualImpact:
+          $ref: '#/components/schemas/UoMValue'
+
+

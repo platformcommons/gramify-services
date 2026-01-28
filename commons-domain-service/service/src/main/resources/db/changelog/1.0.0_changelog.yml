@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 1737546651778-25
+    author: manish (generated)
+    changes:
+        - addColumn:
+            columns:
+            - column:
+                name: type
+                type: varchar(255)
+            tableName: domain

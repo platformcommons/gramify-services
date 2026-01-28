@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: commons-post-service
+  profiles:
+    active: ${COMMONS_ENVIRONMENT_PROFILE:dev}
+  config:
+    import: "optional:configserver:${COMMONS_CONFIG_SERVER_URL:https://dev.platformcommons.org/commons-config/}"
+
+  jpa:
+    properties:
+      hibernate:
+        search:
+          backend:
+            analysis:
+              configurer: class:com.platformcommons.platform.service.post.application.utility.PostAnalysisConfigurer

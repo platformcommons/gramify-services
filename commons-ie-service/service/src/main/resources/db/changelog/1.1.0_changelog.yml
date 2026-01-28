@@ -1,0 +1,94 @@
+databaseChangeLog:
+- changeSet:
+    id: 1732869649073-1
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: currency_value_rangePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: currency
+            type: VARCHAR(255)
+        - column:
+            name: maximum_value
+            type: DOUBLE
+        - column:
+            name: minimum_value
+            type: DOUBLE
+        - column:
+            name: value
+            type: DOUBLE
+        tableName: currency_value_range
+- changeSet:
+    id: 1732869649073-2
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: preferred_uom
+            type: varchar(255)
+        tableName: uomvalue
+- changeSet:
+    id: 1732869649073-3
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: preferred_value
+            type: double precision
+        tableName: uomvalue
+- changeSet:
+    id: 1732869649073-4
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_CURRENCY_VALUE_RANGEUNIQUE_IDENTIFIER_COL
+        tableName: currency_value_range
+

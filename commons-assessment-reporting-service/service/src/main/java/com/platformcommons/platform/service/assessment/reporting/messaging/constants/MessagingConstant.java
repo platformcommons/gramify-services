@@ -1,0 +1,37 @@
+package com.platformcommons.platform.service.assessment.reporting.messaging.constants;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class MessagingConstant {
+    public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    public static final String ASSESSMENT_CREATED_TOPIC = "ASSESSMENT.CREATED";
+    public static final String ASSESSMENT_UPDATED_TOPIC = "ASSESSMENT.UPDATED";
+
+    public static final String ASSESSMENT_INSTANCE_CREATED_TOPIC = "ASSESSMENT_INSTANCE.CREATED";
+    public static final String ASSESSMENT_INSTANCE_UPDATED_TOPIC = "ASSESSMENT_INSTANCE.UPDATED";
+    public static final String ASSESSMENT_INSTANCE_DELETED_TOPIC = "ASSESSMENT_INSTANCE.DELETED";
+
+    public static final String ASSESSMENT_QUESTION_PAPER_CREATED_TOPIC = "ASSESSMENT_QUESTION_PAPER.CREATED";
+    public static final String ASSESSMENT_QUESTION_PAPER_UPDATED_TOPIC = "ASSESSMENT_QUESTION_PAPER.UPDATED";
+
+    public static final String QUESTION_CREATED_TOPIC = "QUESTION.CREATED";
+    public static final String QUESTION_UPDATED_TOPIC = "QUESTION.UPDATED";
+    public static final String ASSESSMENT_INSTANCE_ASSESSE_CREATED_TOPIC = "ASSESSMENT_INSTANCE_ASSESSE.CREATED";
+
+
+
+    public static final String GROUP_ID = "GROUP.COMMONS_REPORT_SERVICE_ASSESSMENT";
+    public static final String GROUP_ID_ASSESSE_HIERARCHY_OVERALL = "GROUP.COMMONS_REPORT_SERVICE_ASSESSMENT.ASSESSE_HIERARCHY_OVERALL";
+    public static final String GROUP_ID_ASSESSE_HIERARCHY_TIMELINE = "GROUP.COMMONS_REPORT_SERVICE_ASSESSMENT.ASSESSE_HIERARCHY_TIMELINE";
+
+
+    public static final String JSON_CONTAINER_FACTORY = "jsonKafkaListenerContainerFactory";
+
+    public static final String KAFKA_STRING_LISTENER_FACTORY = "stringKafkaListenerContainerFactory";
+    public static final String ASSESSMENT_INSTANCE_ASSESSE_UPDATE_TOPIC = "ASSESSMENT_INSTANCE_ASSESSE.UPDATED";
+    public static final String ASSESSMENT_INSTANCE_ASSESSE_SYNCED_TOPIC = "ASSESSMENT_INSTANCE_ASSESSE.REPORT.SYNCED.SUCCESS";
+    public static final String ASSESSMENT_INSTANCE_ASSESSE_HIERARCHY_SYNCED_TOPIC = "ASSESSMENT_INSTANCE_ASSESSE.REPORT.SYNCED_HIERARCHY.SUCCESS";
+    public static final String GROUP_ID_ASSESSE_OPTION_HIERARCHY_OVERALL = "GROUP.COMMONS_REPORT_SERVICE_ASSESSMENT.ASSESSE_OPTION_HIERARCHY_OVERALL";
+    public static final String GROUP_ID_ASSESSE_OPTION_HIERARCHY_TIMELINE = "GROUP.COMMONS_REPORT_SERVICE_ASSESSMENT.ASSESSE_OPTION_HIERARCHY_TIMELINE";
+}

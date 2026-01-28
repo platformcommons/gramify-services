@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-service-base</artifactId>
+        <version>0.4.7</version>
+    </parent>
+
+    <artifactId>commons-post-service-base</artifactId>
+    <version>${revision}${changelist}</version>
+    <packaging>pom</packaging>
+
+    <name>commons-post-service-base</name>
+
+    <properties>
+        <revision>1.4.0</revision>
+        <service-base-pack.version>0.4.7</service-base-pack.version>
+        <BRBASE-generated-dto.version>9.0.9</BRBASE-generated-dto.version>
+        <net.imagej.version>1.53v</net.imagej.version>
+        <commons-iam-service.version>3.2.2</commons-iam-service.version>
+        <commons-domain-service.version>1.0.0</commons-domain-service.version>
+        <changelist/>
+    </properties>
+    <modules>
+        <module>avro</module>
+        <module>dto</module>
+        <module>client</module>
+        <module>service</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-service-pack</artifactId>
+            <version>${service-base-pack.version}</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-post-service-avro</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-post-service-dto</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-post-service-client</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.imagej</groupId>
+                <artifactId>ij</artifactId>
+                <version>${net.imagej.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-domain-service-client</artifactId>
+                <version>${commons-domain-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-domain-service-dto</artifactId>
+                <version>${commons-domain-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-iam-dto</artifactId>
+                <version>${commons-iam-service.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.platformcommons</groupId>
+                    <artifactId>commons-api-generator-maven-plugin</artifactId>
+                    <version>0.1.6</version>
+                    <executions>
+                        <execution>
+                            <configuration>
+                                <serviceName>commons-post-service</serviceName>
+                                <clientPackage>com.platformcommons.platform.service.post.client</clientPackage>
+                                <dtoPackage>com.platformcommons.platform.service.post.dto</dtoPackage>
+                                <inputSpec>${project.basedir}/../service/src/main/resources/specs/master.yml</inputSpec>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

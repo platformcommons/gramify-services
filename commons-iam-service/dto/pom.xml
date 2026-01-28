@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-iam-base</artifactId>
+        <version>${revision}${changelist}</version>
+    </parent>
+
+    <artifactId>commons-iam-dto</artifactId>
+    <packaging>jar</packaging>
+
+    <name>commons-iam-dto</name>
+    <dependencies>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-person-sdk-dto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mindtree.bridge.platform</groupId>
+            <artifactId>BRBASE-generated-dto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-market-service-dto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-worknode-service-dto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-report-service-dto</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

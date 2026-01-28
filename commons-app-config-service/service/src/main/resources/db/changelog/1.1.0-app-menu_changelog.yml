@@ -1,0 +1,12 @@
+databaseChangeLog:
+- changeSet:
+    id: 1714113231020-1
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: active_icon
+            type: varchar(255)
+        tableName: app_menu
+

@@ -1,0 +1,576 @@
+databaseChangeLog:
+- changeSet:
+    id: 1701148104804-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: dataset_change_logPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: dataset_type
+            type: VARCHAR(255)
+        - column:
+            name: default_param_map
+            type: VARCHAR(255)
+        - column:
+            name: is_cron_enabled
+            type: BIT
+        - column:
+            name: is_raw_input_upload
+            type: BIGINT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: query_text
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: dataset_id
+            type: BIGINT
+        tableName: dataset_change_log
+- changeSet:
+    id: 1701148104804-2
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_DATASET_CHANGE_LOGUNIQUE_IDENTIFIER_COL
+        tableName: dataset_change_log
+- changeSet:
+    id: 1701148104804-3
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dataset_id
+        baseTableName: dataset_change_log
+        constraintName: FKdt0u4mm3y40y4e442smuaf39b
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: dataset
+        validate: true
+- changeSet:
+    id: 1714391815414-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: attachmentPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: attachment_kind
+            type: VARCHAR(255)
+        - column:
+            name: attachment_kind_identifier
+            type: VARCHAR(255)
+        - column:
+            name: attachment_kind_meta
+            type: VARCHAR(255)
+        - column:
+            name: complete_url
+            type: VARCHAR(255)
+        - column:
+            name: entity_id
+            type: BIGINT
+        - column:
+            name: entity_meta
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: entity_type
+            type: VARCHAR(255)
+        - column:
+            name: file_name
+            type: VARCHAR(255)
+        - column:
+            name: file_size_in_bytes
+            type: BIGINT
+        - column:
+            name: is_public
+            type: BIT
+        - column:
+            name: is_url_upload
+            type: BIT
+        - column:
+            name: mime_type
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: path
+            type: VARCHAR(255)
+        - column:
+            name: sequence
+            type: BIGINT
+        tableName: attachment
+- changeSet:
+    id: 1714391815414-2
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: dataset_cron_metaPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: cron_expression
+            type: VARCHAR(255)
+        - column:
+            name: end_time
+            type: datetime
+        - column:
+            name: method
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: start_time
+            type: datetime
+        - column:
+            name: time_zone
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: dataset_id
+            type: BIGINT
+        tableName: dataset_cron_meta
+- changeSet:
+    id: 1714391815414-3
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: dataset_cron_meta_id
+            type: BIGINT
+        - column:
+            name: data_set_cron_data
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: data_set_cron_data_key
+            type: VARCHAR(255)
+        tableName: dataset_cron_meta_data_set_cron_data
+- changeSet:
+    id: 1714391815414-4
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_data_shared_contextPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: context
+            type: VARCHAR(255)
+        - column:
+            name: context_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: ref_data_code
+            type: VARCHAR(255)
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1714391815414-5
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: media_url
+            type: varchar(255)
+        tableName: ref_data
+- changeSet:
+    id: 1714391815414-6
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sequence
+            type: integer
+        tableName: ref_data
+- changeSet:
+    id: 1714391815414-7
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ATTACHMENTUNIQUE_IDENTIFIER_COL
+        tableName: attachment
+- changeSet:
+    id: 1714391815414-8
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_DATASET_CRON_METAUNIQUE_IDENTIFIER_COL
+        tableName: dataset_cron_meta
+- changeSet:
+    id: 1714391815414-9
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_DATA_SHARED_CONTEXTUNIQUE_IDENTIFIER_COL
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1714391815414-10
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: context, context_id, ref_data_code, is_active
+        constraintName: idx_ref_data_uniqueness_with_context
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1714391815414-11
+    author: jitendra (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: context
+        indexName: idx_context
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1714391815414-12
+    author: jitendra (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: context_id
+        indexName: idx_contextId
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1714391815414-13
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ref_data_code
+        baseTableName: ref_data_shared_context
+        constraintName: FK3m5etvn9v2a2o53na4iv4n46n
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1714391815414-14
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dataset_id
+        baseTableName: dataset_cron_meta
+        constraintName: FKk5x5amti9k1ujjbnca5qhtp3v
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: dataset
+        validate: true
+- changeSet:
+    id: 1714391815414-15
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dataset_cron_meta_id
+        baseTableName: dataset_cron_meta_data_set_cron_data
+        constraintName: FKkp92xaehhdxibbfu118ieu0ks
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: dataset_cron_meta
+        validate: true
+

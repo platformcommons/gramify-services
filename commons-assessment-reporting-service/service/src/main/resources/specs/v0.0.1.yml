@@ -1,0 +1,283 @@
+openapi: 3.0.0
+
+info:
+  version: 0.0.1
+  title: <> Commons-Assessment-Service
+tags:
+  - name: "AssessmentInstanceDim"
+  - name: "SectionQuestionDim"
+  - name: "QuestionDim"
+  - name: "OptionsDim"
+  - name: "AssessmentReportController"
+paths:
+  /assessmentInstanceDim:
+    get:
+      operationId: getAssessmentInstanceDim
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentInstanceDim'
+components:
+  schemas:
+    AssessmentInstanceDim:
+      type: object
+      properties:
+        id:
+          type:  integer
+          format: int64
+        assessmentInstanceId:
+          type: integer
+          format: int64
+        assessmentId:
+          type: integer
+          format: int64
+        questionPaperId:
+          type: integer
+          format: int64
+        assessmentCreatedAt:
+          type: integer
+          format: int64
+        assessmentInstanceCreatedAt:
+          type: integer
+          format: int64
+        questionPaperIdCreatedAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        inActiveAt:
+          type: integer
+          format: int64
+        inActiveReason:
+          type: string
+        isActive:
+          type: boolean
+        assessmentCode:
+          type: string
+        context:
+          type: string
+        domain:
+          type: string
+        assessmentName:
+          type: string
+        assessmentDesc:
+          type: string
+        subDomain:
+          type: string
+        assessmentMode:
+          type: string
+        assessmentType:
+          type: string
+        assessmentSubtype:
+          type: string
+        baseLanguage:
+          type: string
+        duplicatedCount:
+          type: integer
+          format: int64
+        duplicatedFrom:
+          type: integer
+          format: int64
+        scheduleStatus:
+          type: string
+        assessmentInstanceEndDate:
+          type: string
+          format: date
+        assessmentInstanceStartDate:
+          type: string
+          format: date
+        isPublic:
+          type: boolean
+        isSpecificVisibility:
+          type: boolean
+        moniteredByActorId:
+          type: string
+        moniteredByActorType:
+          type: string
+        conductedByActorId:
+          type: string
+        conductedByActorType:
+          type: string
+        forEntityId:
+          type: string
+        forEntityType:
+          type: string
+        assessmentInstanceName:
+          type: string
+        questionPaperCode:
+          type: string
+        questionPaperName:
+          type: string
+        questionPaperDescription:
+          type: string
+        totalWeight:
+          type: number
+          format: double
+        responseCount:
+          type: integer
+          format: int64
+        totalQuestion:
+          type: integer
+          format: int64
+        language:
+          type: string
+        tenantId:
+          type: integer
+          format: int64
+        dimType:
+          type: string
+      required:
+        - id
+    SectionQuestionDim:
+      type: object
+      properties:
+        sectionQuestionId:
+          type: integer
+          format: int64
+        questionId:
+          type: integer
+          format: int64
+        questionPaperId:
+          type: integer
+          format: int64
+        questionPaperSectionId:
+          type: integer
+          format: int64
+        assessmentId:
+          type: integer
+          format: int64
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64
+        sequence:
+          type: integer
+          format: int64
+        description:
+          type: string
+        totalWeight:
+          type: number
+          format: double
+        totalQuestions:
+          type: integer
+          format: int64
+        mandatoryQuestion:
+          type: boolean
+        language:
+          type: string
+        tenantId:
+          type: integer
+          format: int64
+        dimType:
+          type: string
+    QuestionDim:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        childDefaultOptionId:
+          type: integer
+          format: int64
+        parentQuestionId:
+          type: integer
+          format: int64
+        createAt:
+          type: integer
+          format: int64
+        createBy:
+          type: integer
+          format: int64
+        questionId:
+          type: integer
+          format: int64
+        skillIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        questionCode:
+          type: string
+        questionDomain:
+          type: string
+        questionSubDomain:
+          type: string
+        questionType:
+          type: string
+        questionSubtype:
+          type: string
+        questionText:
+          type: string
+        questionWeight:
+          type: number
+          format: double
+        options:
+          type: integer
+          format: int64
+        correctOptions:
+          type: integer
+          format: int64
+        language:
+          type: string
+        tenantId:
+          type: integer
+          format: int64
+        dimType:
+          type: string
+    OptionsDim:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        mtfOptionId:
+          type: integer
+          format: int64
+        parentQuestionId:
+          type: integer
+          format: int64
+        childDefaultOptionId:
+          type: integer
+          format: int64
+        childQuestion:
+          type: string
+        defaultOptionId:
+          type: integer
+          format: int64
+        isCorrect:
+          type: boolean
+        optionCode:
+          type: string
+        optionText:
+          type: string
+        optionWeight:
+          type: number
+          format: double
+        optionsId:
+          type: integer
+          format: int64
+        questionId:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+        language:
+          type: string
+        responseCount:
+          type: integer
+          format: int64
+        dimType:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+        createdBy:
+          type: integer
+          format: int64

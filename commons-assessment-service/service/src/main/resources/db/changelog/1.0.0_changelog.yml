@@ -1,0 +1,62 @@
+databaseChangeLog:
+- changeSet:
+    id: 1734690695859-3
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: default_param_for_option_source
+            type: varchar(255)
+        tableName: question
+- changeSet:
+    id: 1734690695859-4
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: option_source_type
+            type: varchar(255)
+        tableName: question
+- changeSet:
+    id: 1734690695859-5
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: option_source_value
+            type: varchar(255)
+        tableName: question
+- changeSet:
+    id: 1736358415493-6
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: question_code
+            type: varchar(255)
+        tableName: section_questions
+
+- changeSet:
+    id: 1750129444465-3
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: skill_code
+            type: varchar(255)
+        tableName: question
+- changeSet:
+    id: 1750129444465-4
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sub_skill_code
+            type: varchar(255)
+        tableName: question

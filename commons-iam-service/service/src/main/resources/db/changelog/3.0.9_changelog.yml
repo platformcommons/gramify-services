@@ -1,0 +1,324 @@
+databaseChangeLog:
+- changeSet:
+    id: 1750240862224-322
+    author: dines (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tenant_point_of_contactPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: contact_number
+            type: VARCHAR(255)
+        - column:
+            name: contact_number_country_code
+            type: VARCHAR(255)
+        - column:
+            name: designation
+            type: VARCHAR(255)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: tenant_profile_id
+            type: BIGINT
+        tableName: tenant_point_of_contact
+- changeSet:
+    id: 1750240862224-323
+    author: dines (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: legal_name
+            type: varchar(255)
+        tableName: tenant_profile
+- changeSet:
+    id: 1750240862224-324
+    author: dines (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: pan_number
+            type: varchar(255)
+        tableName: tenant_profile
+- changeSet:
+    id: 1750240862224-325
+    author: dines (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: registration_number
+            type: varchar(255)
+        tableName: tenant_profile
+- changeSet:
+    id: 1750240862224-326
+    author: dines (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_TENANT_POINT_OF_CONTACTUNIQUE_IDENTIFIER_COL
+        tableName: tenant_point_of_contact
+
+- changeSet:
+    id: 1750240862224-328
+    author: dines (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tenant_profile_id
+        baseTableName: tenant_point_of_contact
+        constraintName: FK4w3qr6n4gk4yt9x24kvixor8n
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant_profile
+        validate: true
+
+- changeSet:
+      id: 1750768672008-3
+      author: sandeep (generated)
+      changes:
+          - createTable:
+                columns:
+                    - column:
+                          autoIncrement: true
+                          constraints:
+                              nullable: false
+                              primaryKey: true
+                              primaryKeyName: tenant_finance_detailPK
+                          name: id
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_by_tenant
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_by_user
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_by_tenant
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_by_user
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: unique_identifier
+                          type: VARCHAR(255)
+                    - column:
+                          name: app_created_timestamp
+                          type: BIGINT
+                    - column:
+                          name: app_last_modified_timestamp
+                          type: BIGINT
+                    - column:
+                          name: created_by_app_version
+                          type: BIGINT
+                    - column:
+                          name: inactive_reason
+                          type: VARCHAR(255)
+                    - column:
+                          name: inactive_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: is_active
+                          type: BIT
+                    - column:
+                          name: last_modified_by_app_version
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: tenant_id
+                          type: BIGINT
+                    - column:
+                          name: account_holder_name
+                          type: VARCHAR(255)
+                    - column:
+                          name: account_number
+                          type: VARCHAR(255)
+                    - column:
+                          name: bank_account_type
+                          type: VARCHAR(255)
+                    - column:
+                          name: bank_name
+                          type: VARCHAR(255)
+                    - column:
+                          name: ifsc_code
+                          type: VARCHAR(255)
+                    - column:
+                          name: is_verified
+                          type: BIT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: tenant_profile_id
+                          type: BIGINT
+                tableName: tenant_finance_detail
+- changeSet:
+      id: 1750768672008-4
+      author: sandeep (generated)
+      changes:
+          - createTable:
+                columns:
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: tenant_finance_detail_id
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: attachment_id
+                          type: BIGINT
+                tableName: tenant_finance_detail_attachments
+- changeSet:
+      id: 1750768672008-10
+      author: sandeep (generated)
+      changes:
+          - addUniqueConstraint:
+                columnNames: unique_identifier
+                constraintName: UC_TENANT_FINANCE_DETAILUNIQUE_IDENTIFIER_COL
+                tableName: tenant_finance_detail
+- changeSet:
+      id: 1750768672008-13
+      author: sandeep (generated)
+      changes:
+          - addUniqueConstraint:
+                columnNames: attachment_id
+                constraintName: UK_ilwof8ktvgg6idf17j71yl2i
+                tableName: tenant_finance_detail_attachments
+- changeSet:
+      id: 1750768672008-15
+      author: sandeep (generated)
+      changes:
+          - addForeignKeyConstraint:
+                baseColumnNames: tenant_profile_id
+                baseTableName: tenant_finance_detail
+                constraintName: FK6586j822xik6pdbvdbfw2plkr
+                deferrable: false
+                initiallyDeferred: false
+                referencedColumnNames: id
+                referencedTableName: tenant_profile
+                validate: true
+- changeSet:
+      id: 1750768672008-16
+      author: sandeep (generated)
+      changes:
+          - addForeignKeyConstraint:
+                baseColumnNames: tenant_finance_detail_id
+                baseTableName: tenant_finance_detail_attachments
+                constraintName: FK941wpqbfyt9u9gsmw4to5facj
+                deferrable: false
+                initiallyDeferred: false
+                referencedColumnNames: id
+                referencedTableName: tenant_finance_detail
+                validate: true
+- changeSet:
+      id: 1750768672008-19
+      author: sandeep (generated)
+      changes:
+          - addForeignKeyConstraint:
+                baseColumnNames: attachment_id
+                baseTableName: tenant_finance_detail_attachments
+                constraintName: FKlb589hehkinpn11t6lnkpkksu
+                deferrable: false
+                initiallyDeferred: false
+                referencedColumnNames: id
+                referencedTableName: attachment
+                validate: true
+

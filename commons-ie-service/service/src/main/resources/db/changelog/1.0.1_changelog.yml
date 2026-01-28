@@ -1,0 +1,280 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1713453822210-1
+      author: dibyajit (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: ref_data_shared_contextPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: context
+                  type: VARCHAR(255)
+              - column:
+                  name: context_id
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ref_data_code
+                  type: VARCHAR(255)
+            tableName: ref_data_shared_context
+  - changeSet:
+      id: 1713453822210-2
+      author: dibyajit (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_REF_DATA_SHARED_CONTEXTUNIQUE_IDENTIFIER_COL
+            tableName: ref_data_shared_context
+  - changeSet:
+      id: 1713453822210-3
+      author: dibyajit (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: context, context_id, ref_data_code, is_active
+            constraintName: idx_ref_data_uniqueness_with_context
+            tableName: ref_data_shared_context
+  - changeSet:
+      id: 1713453822210-4
+      author: dibyajit (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: context
+            indexName: idx_context
+            tableName: ref_data_shared_context
+  - changeSet:
+      id: 1713453822210-5
+      author: dibyajit (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: context_id
+            indexName: idx_contextId
+            tableName: ref_data_shared_context
+  - changeSet:
+      id: 1713453822210-6
+      author: dibyajit (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: ref_data_code
+            baseTableName: ref_data_shared_context
+            constraintName: FK3m5etvn9v2a2o53na4iv4n46n
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: code
+            referencedTableName: ref_data
+            validate: true
+  - changeSet:
+      id: 1714464796710-1
+      author: Nirakar Sahoo (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: qr_code_attachment_path
+                  type: varchar(255)
+            tableName: ie
+
+  - changeSet:
+      id: 1717476098443-1
+      author: DELL (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: id_card_attachment_path
+                  type: varchar(255)
+            tableName: ie
+
+  - changeSet:
+      id: 1715344329309-1
+      author: dibyajit (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: linked_ie_id
+                  type: bigint
+            tableName: ie
+
+  - changeSet:
+      id: 1715937624413-1
+      author: lenovo (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: block
+                  type: varchar(255)
+            tableName: address
+
+  - changeSet:
+        id: 1716988330286-15
+        author: DELL (generated)
+        changes:
+            - createTable:
+                  columns:
+                      - column:
+                            autoIncrement: true
+                            constraints:
+                                nullable: false
+                                primaryKey: true
+                                primaryKeyName: ie_id_card_templatePK
+                            name: id
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: created_by_tenant
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: created_by_user
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: created_timestamp
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: last_modified_by_tenant
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: last_modified_by_user
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: last_modified_timestamp
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: unique_identifier
+                            type: VARCHAR(255)
+                      - column:
+                            name: app_created_timestamp
+                            type: BIGINT
+                      - column:
+                            name: app_last_modified_timestamp
+                            type: BIGINT
+                      - column:
+                            name: created_by_app_version
+                            type: BIGINT
+                      - column:
+                            name: inactive_reason
+                            type: VARCHAR(255)
+                      - column:
+                            name: inactive_timestamp
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: is_active
+                            type: BIT
+                      - column:
+                            name: last_modified_by_app_version
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: tenant_id
+                            type: BIGINT
+                      - column:
+                            constraints:
+                                nullable: false
+                            name: template_data
+                            type: LONGTEXT
+                      - column:
+                            name: template_type
+                            type: VARCHAR(255)
+                  tableName: ie_id_card_template
+  - changeSet:
+        id: 1716988330286-63
+        author: DELL (generated)
+        changes:
+            - addUniqueConstraint:
+                  columnNames: unique_identifier
+                  constraintName: UC_IE_ID_CARD_TEMPLATEUNIQUE_IDENTIFIER_COL
+                  tableName: ie_id_card_template
+
+
+

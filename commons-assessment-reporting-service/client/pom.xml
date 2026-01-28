@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-assessment-reporting-service-base</artifactId>
+        <version>${revision}${changelist}</version>
+    </parent>
+
+    <artifactId>commons-assessment-reporting-service-client</artifactId>
+    <packaging>jar</packaging>
+
+    <name>commons-assessment-reporting-service-client</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-assessment-reporting-service-dto</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-api-generator-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <language>com.platformcommons.platform.dev.CommonsServiceClientGenerator</language>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

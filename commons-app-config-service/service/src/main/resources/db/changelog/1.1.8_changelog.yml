@@ -1,0 +1,273 @@
+databaseChangeLog:
+- changeSet:
+    id: 1748201430189-1
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: column_preferencePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: entity_id
+            type: VARCHAR(255)
+        - column:
+            name: entity_type
+            type: VARCHAR(255)
+        - column:
+            name: owner_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: owner_type
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: schema_code
+            type: VARCHAR(255)
+        tableName: column_preference
+- changeSet:
+    id: 1748201430189-2
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: column_settingPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+            name: label
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: sequence
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: visibility
+            type: BIT
+        - column:
+            constraints:
+              nullable: false
+            name: column_preference_id
+            type: BIGINT
+        tableName: column_setting
+- changeSet:
+    id: 1748201430189-3
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_COLUMN_PREFERENCEUNIQUE_IDENTIFIER_COL
+        tableName: column_preference
+- changeSet:
+    id: 1748201430189-4
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_COLUMN_SETTINGUNIQUE_IDENTIFIER_COL
+        tableName: column_setting
+- changeSet:
+    id: 1748201430189-5
+    author: sandeep (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: code
+        indexName: idx_code
+        tableName: column_setting
+- changeSet:
+    id: 1748201430189-6
+    author: sandeep (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: schema_code
+        indexName: idx_schema_code
+        tableName: column_preference
+- changeSet:
+    id: 1748201430189-7
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: column_preference_id
+        baseTableName: column_setting
+        constraintName: FKsavm1tbnsvcfahn6pdfv91rvc
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: column_preference
+        validate: true
+- changeSet:
+    id: 1749055369381-3
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: parent_column_preference_id
+            type: bigint
+        tableName: column_preference
+- changeSet:
+    id: 1749055369381-5
+    author: sandeep (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: column_preference_id
+        - column:
+            name: code
+        indexName: unique_code_column_preference_id
+        tableName: column_setting
+
+

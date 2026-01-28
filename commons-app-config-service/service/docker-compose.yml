@@ -1,0 +1,27 @@
+version: "3.4"
+services:
+  services:
+    image: commons-app-config-service:latest
+    environment:
+      - SERVER_PORT=9102
+      - COMMONS_DB_PASSWORD=root
+      - COMMONS_DB_USERNAME=root
+      - COMMONS_TLD_BASE_URL=https://dev.platformcommons.org/
+      - COMMONS_IAM_BASE_URL=http://localhost:9102/commons-iam-service/
+      - COMMONS_DB_URL=127.0.0.1
+
+    user: root
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 900M
+      restart_policy:
+        condition: on-failure
+    networks:
+      - host
+
+networks:
+  host:
+    external:
+      name: host

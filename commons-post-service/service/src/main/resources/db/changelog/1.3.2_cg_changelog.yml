@@ -1,0 +1,376 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1745482707966-6
+      author: dibyajit (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: post_contentPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: content_data
+                  type: LONGTEXT
+              - column:
+                  name: content_mime_type
+                  type: VARCHAR(255)
+              - column:
+                  name: content_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: post_id
+                  type: BIGINT
+            tableName: post_content
+  - changeSet:
+      id: 1745482707966-7
+      author: dibyajit (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: proposalPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: problem_statement
+                  type: LONGTEXT
+              - column:
+                  name: proposed_solution
+                  type: LONGTEXT
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+            tableName: proposal
+  - changeSet:
+      id: 1745482707966-8
+      author: dibyajit (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: proposal_tagPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tag_code
+                  type: VARCHAR(255)
+              - column:
+                  name: tag_purpose
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: proposal_id
+                  type: BIGINT
+            tableName: proposal_tag
+  - changeSet:
+      id: 1745482707966-9
+      author: dibyajit (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: tag_purpose
+                  type: varchar(255)
+            tableName: post_tag
+  - changeSet:
+      id: 1745482707966-10
+      author: dibyajit (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_POST_CONTENTUNIQUE_IDENTIFIER_COL
+            tableName: post_content
+  - changeSet:
+      id: 1745482707966-11
+      author: dibyajit (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PROPOSALUNIQUE_IDENTIFIER_COL
+            tableName: proposal
+  - changeSet:
+      id: 1745482707966-12
+      author: dibyajit (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PROPOSAL_TAGUNIQUE_IDENTIFIER_COL
+            tableName: proposal_tag
+  - changeSet:
+      id: 1745482707966-13
+      author: dibyajit (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: proposal_id
+            baseTableName: proposal_tag
+            constraintName: FKcfb3vfrnvtyij83e94roenp2w
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: proposal
+            validate: true
+  - changeSet:
+      id: 1745482707966-14
+      author: dibyajit (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: post_content
+            constraintName: FKroisp6b2iy5wwf37c60ikdjuq
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: post
+            validate: true
+#  - changeSet:
+#      id: 1745482707966-1
+#      author: dibyajit (generated)
+#      changes:
+#        - addNotNullConstraint:
+#            columnDataType: clob
+#            columnName: payload
+#            tableName: post
+#            validate: true
+#  - changeSet:
+#      id: 1745482707966-2
+#      author: dibyajit (generated)
+#      changes:
+#        - dropUniqueConstraint:
+#            constraintName: UniqueTenantId
+#            tableName: post_tenant_config
+#  - changeSet:
+#      id: 1745482707966-3
+#      author: dibyajit (generated)
+#      changes:
+#        - addUniqueConstraint:
+#            columnNames: tenant_id
+#            constraintName: UniqueTenantId
+#            tableName: post_tenant_config
+#  - changeSet:
+#      id: 1745482707966-4
+#      author: dibyajit (generated)
+#      changes:
+#        - dropUniqueConstraint:
+#            constraintName: UniqueTenantLogin
+#            tableName: post_tenant_config
+#  - changeSet:
+#      id: 1745482707966-5
+#      author: dibyajit (generated)
+#      changes:
+#        - addUniqueConstraint:
+#            columnNames: tenant_login
+#            constraintName: UniqueTenantLogin
+#            tableName: post_tenant_config
+

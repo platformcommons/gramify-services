@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-service-base</artifactId>
+        <version>0.6.9</version>
+    </parent>
+    <artifactId>commons-blocks-profiles-service-base</artifactId>
+
+    <version>${revision}${changelist}</version>
+    <packaging>pom</packaging>
+    <name>commons-blocks-profiles-service-base</name>
+
+    <properties>
+        <!-- CI-friendly version placeholders -->
+        <revision>3</revision>
+        <changelist>-SNAPSHOT</changelist>
+
+        <springdoc.version>2.5.0</springdoc.version>
+        <jackson.databind.nullable.version>0.2.6</jackson.databind.nullable.version>
+        <commons.service.base.version>0.6.9</commons.service.base.version>
+        <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+        <lombok.version>1.18.30</lombok.version>
+       <!-- <java.version>17</java.version>-->
+    </properties>
+
+    <modules>
+        <module>commons-blocks-profiles-service-application-contract</module>
+        <module>commons-blocks-profiles-service-client</module>
+        <module>commons-blocks-profiles-service-application</module>
+        <module>commons-blocks-profiles-service-pack</module>
+
+    </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-blocks-profiles-service-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-blocks-profiles-service-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-blocks-profiles-service-application-contract</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-blocks-profiles-service-pack</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openapitools</groupId>
+                <artifactId>jackson-databind-nullable</artifactId>
+                <version>${jackson.databind.nullable.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-service-dto</artifactId>
+                <version>${commons.service.base.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-service-pack</artifactId>
+                <version>${commons.service.base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+        </dependencies>
+
+
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

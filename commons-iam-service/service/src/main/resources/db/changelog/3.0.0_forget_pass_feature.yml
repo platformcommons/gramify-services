@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1738128359492-1
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: otp_generate_at
+                  type: bigint
+            tableName: user_security
+  - changeSet:
+      id: 1738128359492-4
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: failed_otp_verification
+                  type: int
+            tableName: user_security
+  - changeSet:
+      id: 1738128359492-2
+      author: jitendra (manual)
+      changes:
+        - modifyDataType:
+            columnName: otp
+            newDataType: varchar(255)
+            tableName: user_security

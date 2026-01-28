@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: untracked_01
+      author: jitendra (manually)
+      changes:
+        - sql:
+            sql: 'ALTER TABLE assesse_response_fact MODIFY COLUMN assessee_actor_id TEXT;'
+        - sql:
+            sql: 'ALTER TABLE assesse_response_fact MODIFY COLUMN assessee_actor_name TEXT;'
+        - sql:
+            sql: 'ALTER TABLE assesse_response_fact MODIFY COLUMN assessee_actor_type TEXT;'
+        - sql:
+            sql: "ALTER TABLE assesse_dim MODIFY COLUMN assessee_actor_id TEXT;"
+        - sql:
+            sql: "ALTER TABLE assesse_dim MODIFY COLUMN assessee_actor_type TEXT;"

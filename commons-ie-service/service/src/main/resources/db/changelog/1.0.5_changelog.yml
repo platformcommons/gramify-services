@@ -1,0 +1,159 @@
+databaseChangeLog:
+- changeSet:
+    id: 1726233818819-1
+    author: raush (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: meta_dataPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: meta_key
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: meta_value
+            type: VARCHAR(255)
+        tableName: meta_data
+- changeSet:
+    id: 1726233818819-2
+    author: raush (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: person_profile_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: meta_data_id
+            type: BIGINT
+        tableName: person_profile_meta_data
+- changeSet:
+    id: 1726233818819-3
+    author: raush (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_META_DATAUNIQUE_IDENTIFIER_COL
+        tableName: meta_data
+- changeSet:
+    id: 1726233818819-4
+    author: raush (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: meta_data_id
+        constraintName: UK_3xo63s7dmxh119742ibos0vpg
+        tableName: person_profile_meta_data
+- changeSet:
+    id: 1726233818819-5
+    author: raush (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: meta_data_id
+        baseTableName: person_profile_meta_data
+        constraintName: FK2y3t2g3kkwglspomwar5wd5pk
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: meta_data
+        validate: true
+- changeSet:
+    id: 1726233818819-6
+    author: raush (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: person_profile_id
+        baseTableName: person_profile_meta_data
+        constraintName: FK3flv4t8wehx59svav5k2t4cxj
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: person_profile
+        validate: true
+- changeSet:
+      id: 1726567224737-1
+      author: raush (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: ie_sub_type
+                          type: varchar(255)
+                tableName: ie
+

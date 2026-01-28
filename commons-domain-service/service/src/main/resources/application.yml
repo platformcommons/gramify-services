@@ -1,0 +1,11 @@
+server:
+  port : 9919
+
+spring:
+  application:
+    name: commons-domain-service
+  profiles:
+    active: ${COMMONS_ENVIRONMENT_PROFILE:dev}
+  config:
+    import: "optional:configserver:${COMMONS_CONFIG_SERVER_URL:https://dev.platformcommons.org/commons-config}"
+

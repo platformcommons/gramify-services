@@ -1,0 +1,41 @@
+databaseChangeLog:
+- changeSet:
+    id: 1710909197911-3
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: support_user_password
+            type: varchar(255)
+        tableName: app_detail
+- changeSet:
+    id: 1710909197911-4
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: support_user_login
+            type: varchar(255)
+        tableName: app_detail
+- changeSet:
+    id: 1710909197911-5
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: tenant_login
+            type: varchar(255)
+        tableName: app_detail
+- changeSet:
+    id: 1710909197911-6
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: type
+            type: varchar(255)
+        tableName: app_detail

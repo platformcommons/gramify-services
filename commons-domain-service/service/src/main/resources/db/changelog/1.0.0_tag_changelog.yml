@@ -1,0 +1,240 @@
+databaseChangeLog:
+- changeSet:
+    id: 1740736994459-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: currency_value_rangePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: currency
+            type: VARCHAR(255)
+        - column:
+            name: maximum_value
+            type: DOUBLE
+        - column:
+            name: minimum_value
+            type: DOUBLE
+        - column:
+            name: value
+            type: DOUBLE
+        tableName: currency_value_range
+- changeSet:
+    id: 1740736994459-2
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tag_hierarchyPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: depth
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: parent_tag
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tag
+            type: BIGINT
+        tableName: tag_hierarchy
+- changeSet:
+    id: 1740736994459-3
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: preferred_uom
+            type: varchar(255)
+        tableName: uomvalue
+- changeSet:
+    id: 1740736994459-4
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: preferred_value
+            type: double precision
+        tableName: uomvalue
+- changeSet:
+    id: 1740736994459-5
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_CURRENCY_VALUE_RANGEUNIQUE_IDENTIFIER_COL
+        tableName: currency_value_range
+- changeSet:
+    id: 1740736994459-6
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_TAG_HIERARCHYUNIQUE_IDENTIFIER_COL
+        tableName: tag_hierarchy
+- changeSet:
+    id: 1740736994459-7
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent_tag
+        baseTableName: tag_hierarchy
+        constraintName: FKeki2qj78736lv3fu1mql2bv7s
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tag
+        validate: true
+- changeSet:
+    id: 1740736994459-8
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tag
+        baseTableName: tag_hierarchy
+        constraintName: FKixpndadiusu65fihr6uurbocp
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tag
+        validate: true
+- changeSet:
+      id: 1740736994459-9
+      author: jitendra (generated)
+      changes:
+          - addColumn:
+                tableName: tag
+                columns:
+                    - column:
+                          name: is_root
+                          type: BIT
+
+
+#- changeSet:
+#    id: 1740736994459-9
+#    author: jitendra (generated)
+#    changes:
+#    - dropColumn:
+#        columnName: type
+#        tableName: domain
+

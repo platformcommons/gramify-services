@@ -1,0 +1,1993 @@
+openapi: 3.0.0
+info:
+  title: test
+  version: '1.0'
+tags:
+ - name: App
+ - name: AppHasDomain
+ - name: AppHasTag
+ - name: AppHasUseCase
+ - name: Attachment
+ - name: Author
+ - name: Benefit
+ - name: Domain
+ - name: DomainHierarchy
+ - name: Feature
+ - name: Platform
+ - name: Tag
+ - name: Testimonial
+ - name: UseCase
+ - name: UseCaseHasDomain
+ - name: UseCaseHasTag
+
+paths:
+  /api/v1/app/page:
+    get:
+      summary: Get By Page
+      tags:
+        - App
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/App'
+      operationId: get-app-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app:
+    get:
+      summary: Get By Id
+      tags:
+        - App
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+      operationId: get-app
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-app
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/App'
+      tags:
+        - App
+    put:
+      summary: ''
+      operationId: put-app
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/App'
+      tags:
+        - App
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-app
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - App
+  /api/v1/app-has-domain/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppHasDomain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppHasDomain'
+      operationId: get-app-has-domain-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-has-domain:
+    get:
+      summary: Get By Id
+      tags:
+        - AppHasDomain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppHasDomain'
+      operationId: get-app-has-domain
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-app-has-domain
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppHasDomain'
+      tags:
+        - AppHasDomain
+    put:
+      summary: ''
+      operationId: put-app-has-domain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppHasDomain'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppHasDomain'
+      tags:
+        - AppHasDomain
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-app-has-domain
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppHasDomain
+  /api/v1/app-has-tag/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppHasTag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppHasTag'
+      operationId: get-app-has-tag-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-has-tag:
+    get:
+      summary: Get By Id
+      tags:
+        - AppHasTag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppHasTag'
+      operationId: get-app-has-tag
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-app-has-tag
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppHasTag'
+      tags:
+        - AppHasTag
+    put:
+      summary: ''
+      operationId: put-app-has-tag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppHasTag'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppHasTag'
+      tags:
+        - AppHasTag
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-app-has-tag
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppHasTag
+  /api/v1/app-has-use-case/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppHasUseCase
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppHasUseCase'
+      operationId: get-app-has-use-case-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-has-use-case:
+    get:
+      summary: Get By Id
+      tags:
+        - AppHasUseCase
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppHasUseCase'
+      operationId: get-app-has-use-case
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-app-has-use-case
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppHasUseCase'
+      tags:
+        - AppHasUseCase
+    put:
+      summary: ''
+      operationId: put-app-has-use-case
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppHasUseCase'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppHasUseCase'
+      tags:
+        - AppHasUseCase
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-app-has-use-case
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppHasUseCase
+  /api/v1/attachment/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Attachment
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Attachment'
+      operationId: get-attachment-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/attachment:
+    get:
+      summary: Get By Id
+      tags:
+        - Attachment
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attachment'
+      operationId: get-attachment
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-attachment
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attachment'
+      tags:
+        - Attachment
+    put:
+      summary: ''
+      operationId: put-attachment
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attachment'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attachment'
+      tags:
+        - Attachment
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-attachment
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Attachment
+  /api/v1/author/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Author
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Author'
+      operationId: get-author-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/author:
+    get:
+      summary: Get By Id
+      tags:
+        - Author
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+      operationId: get-author
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-author
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Author'
+      tags:
+        - Author
+    put:
+      summary: ''
+      operationId: put-author
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Author'
+      tags:
+        - Author
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-author
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Author
+  /api/v1/benefit/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Benefit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Benefit'
+      operationId: get-benefit-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/benefit:
+    get:
+      summary: Get By Id
+      tags:
+        - Benefit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Benefit'
+      operationId: get-benefit
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-benefit
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Benefit'
+      tags:
+        - Benefit
+    put:
+      summary: ''
+      operationId: put-benefit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Benefit'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Benefit'
+      tags:
+        - Benefit
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-benefit
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Benefit
+  /api/v1/domain/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Domain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Domain'
+      operationId: get-domain-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/domain:
+    get:
+      summary: Get By Id
+      tags:
+        - Domain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domain'
+      operationId: get-domain
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-domain
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Domain'
+      tags:
+        - Domain
+    put:
+      summary: ''
+      operationId: put-domain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domain'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Domain'
+      tags:
+        - Domain
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-domain
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Domain
+  /api/v1/domain-hierarchy/page:
+    get:
+      summary: Get By Page
+      tags:
+        - DomainHierarchy
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DomainHierarchy'
+      operationId: get-domain-hierarchy-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/domain-hierarchy:
+    get:
+      summary: Get By Id
+      tags:
+        - DomainHierarchy
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainHierarchy'
+      operationId: get-domain-hierarchy
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-domain-hierarchy
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomainHierarchy'
+      tags:
+        - DomainHierarchy
+    put:
+      summary: ''
+      operationId: put-domain-hierarchy
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainHierarchy'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomainHierarchy'
+      tags:
+        - DomainHierarchy
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-domain-hierarchy
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - DomainHierarchy
+  /api/v1/feature/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Feature
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Feature'
+      operationId: get-feature-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/feature:
+    get:
+      summary: Get By Id
+      tags:
+        - Feature
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+      operationId: get-feature
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-feature
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Feature'
+      tags:
+        - Feature
+    put:
+      summary: ''
+      operationId: put-feature
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Feature'
+      tags:
+        - Feature
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-feature
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Feature
+  /api/v1/platform/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Platform
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Platform'
+      operationId: get-platform-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/platform:
+    get:
+      summary: Get By Id
+      tags:
+        - Platform
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Platform'
+      operationId: get-platform
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-platform
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Platform'
+      tags:
+        - Platform
+    put:
+      summary: ''
+      operationId: put-platform
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Platform'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Platform'
+      tags:
+        - Platform
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-platform
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Platform
+  /api/v1/tag/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Tag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+      operationId: get-tag-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/tag:
+    get:
+      summary: Get By Id
+      tags:
+        - Tag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+      operationId: get-tag
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-tag
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      tags:
+        - Tag
+    put:
+      summary: ''
+      operationId: put-tag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      tags:
+        - Tag
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-tag
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Tag
+  /api/v1/testimonial/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Testimonial
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Testimonial'
+      operationId: get-testimonial-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/testimonial:
+    get:
+      summary: Get By Id
+      tags:
+        - Testimonial
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Testimonial'
+      operationId: get-testimonial
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-testimonial
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Testimonial'
+      tags:
+        - Testimonial
+    put:
+      summary: ''
+      operationId: put-testimonial
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Testimonial'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Testimonial'
+      tags:
+        - Testimonial
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-testimonial
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Testimonial
+  /api/v1/use-case/page:
+    get:
+      summary: Get By Page
+      tags:
+        - UseCase
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UseCase'
+      operationId: get-use-case-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/use-case:
+    get:
+      summary: Get By Id
+      tags:
+        - UseCase
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UseCase'
+      operationId: get-use-case
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-use-case
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UseCase'
+      tags:
+        - UseCase
+    put:
+      summary: ''
+      operationId: put-use-case
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UseCase'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UseCase'
+      tags:
+        - UseCase
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-use-case
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - UseCase
+  /api/v1/use-case-has-domain/page:
+    get:
+      summary: Get By Page
+      tags:
+        - UseCaseHasDomain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UseCaseHasDomain'
+      operationId: get-use-case-has-domain-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/use-case-has-domain:
+    get:
+      summary: Get By Id
+      tags:
+        - UseCaseHasDomain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UseCaseHasDomain'
+      operationId: get-use-case-has-domain
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-use-case-has-domain
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UseCaseHasDomain'
+      tags:
+        - UseCaseHasDomain
+    put:
+      summary: ''
+      operationId: put-use-case-has-domain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UseCaseHasDomain'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UseCaseHasDomain'
+      tags:
+        - UseCaseHasDomain
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-use-case-has-domain
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - UseCaseHasDomain
+  /api/v1/use-case-has-tag/page:
+    get:
+      summary: Get By Page
+      tags:
+        - UseCaseHasTag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UseCaseHasTag'
+      operationId: get-use-case-has-tag-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/use-case-has-tag:
+    get:
+      summary: Get By Id
+      tags:
+        - UseCaseHasTag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UseCaseHasTag'
+      operationId: get-use-case-has-tag
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-use-case-has-tag
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UseCaseHasTag'
+      tags:
+        - UseCaseHasTag
+    put:
+      summary: ''
+      operationId: put-use-case-has-tag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UseCaseHasTag'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UseCaseHasTag'
+      tags:
+        - UseCaseHasTag
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-use-case-has-tag
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - UseCaseHasTag
+
+components:
+  schemas:
+    App:
+      title: App
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        authorId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        logo:
+          type: string
+        website:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        downloadCount:
+          type: integer
+          format: int64
+        currentVersion:
+          type: string
+        avarageRating:
+          type: string
+        domainList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Domain'
+        tagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        useCaseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/UseCase'
+        attachmentList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        benefitList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Benefit'
+        featureList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        platformList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Platform'
+        testimonialList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Testimonial'
+    Attachment:
+      title: Attachment
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        appId:
+          type: integer
+          format: int64
+        useCaseId:
+          type: integer
+          format: int64
+        url:
+          type: string
+        type:
+          type: string
+    Author:
+      title: Author
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tenant:
+          type: integer
+          format: int64
+        website:
+          type: string
+        primaryContact:
+          type: string
+        secondaryContact:
+          type: string
+        primaryEmail:
+          type: string
+        secondaryEmail:
+          type: string
+        type:
+          type: string
+        appList:
+          type: array
+          items:
+            $ref: '#/components/schemas/App'
+        useCaseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/UseCase'
+    Benefit:
+      title: Benefit
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        appId:
+          type: integer
+          format: int64
+        text:
+          type: string
+    Domain:
+      title: Domain
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        isRoot:
+          type: string
+        appList:
+          type: array
+          items:
+            $ref: '#/components/schemas/App'
+        useCaseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/UseCase'
+        domainHierarchyList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainHierarchy'
+        tagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    DomainHierarchy:
+      title: DomainHierarchy
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        domain:
+          type: integer
+          format: int64
+        parentDomain:
+          type: integer
+          format: int64
+        depth:
+          type: integer
+          format: int64
+    Feature:
+      title: Feature
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        appId:
+          type: integer
+          format: int64
+        useCaseId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        code:
+          type: string
+        value:
+          type: string
+        onAppVersion:
+          type: string
+    Platform:
+      title: Platform
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        appId:
+          type: integer
+          format: int64
+        useCaseId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        code:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+    Tag:
+      title: Tag
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        domainId:
+          type: integer
+          format: int64
+        code:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        appList:
+          type: array
+          items:
+            $ref: '#/components/schemas/App'
+        useCaseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/UseCase'
+    Testimonial:
+      title: Testimonial
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        appId:
+          type: integer
+          format: int64
+        text:
+          type: string
+        rating:
+          type: number
+          format: double
+        byUser:
+          type: integer
+          format: int64
+        byUserName:
+          type: string
+    UseCase:
+      title: UseCase
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        authorId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        logo:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        website:
+          type: string
+        appList:
+          type: array
+          items:
+            $ref: '#/components/schemas/App'
+        domainList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Domain'
+        tagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        attachmentList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        featureList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        platformList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Platform'

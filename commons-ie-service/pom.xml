@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-service-base</artifactId>
+        <version>0.5.2</version>
+    </parent>
+
+    <artifactId>commons-ie-service-base</artifactId>
+    <version>${revision}${changelist}</version>
+    <packaging>pom</packaging>
+
+    <name>commons-ie-service-base</name>
+
+    <properties>
+        <revision>1.3.5</revision>
+        <service-base.version>0.5.2</service-base.version>
+        <commons-asset-sdk.version>1.0.5</commons-asset-sdk.version>
+        <commons-portfolio-sdk.version>0.0.5</commons-portfolio-sdk.version>
+        <com.google.zxing.version>3.5.3</com.google.zxing.version>
+        <commons-market-service.version>1.3.5</commons-market-service.version>
+        <commons.bulk-upload.sdk.version>1.0.4</commons.bulk-upload.sdk.version>
+        <changelist/>
+    </properties>
+    <modules>
+        <module>avro</module>
+        <module>dto</module>
+        <module>client</module>
+        <module>service</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-service-pack</artifactId>
+            <version>${service-base.version}</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-ie-service-avro</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-ie-service-dto</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-ie-service-client</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-asset-sdk</artifactId>
+                <version>${commons-asset-sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-portfolio-sdk</artifactId>
+                <version>${commons-portfolio-sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-market-service-client</artifactId>
+                <version>${commons-market-service.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-market-service-dto</artifactId>
+                <version>${commons-market-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${com.google.zxing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${com.google.zxing.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.platformcommons</groupId>
+                    <artifactId>commons-api-generator-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <configuration>
+                                <serviceName>person-service</serviceName>
+                                <clientPackage>com.platformcommons.platform.service.profile.client</clientPackage>
+                                <dtoPackage>com.platformcommons.platform.service.profile.dto</dtoPackage>
+                                <inputSpec>${project.basedir}/../service/src/main/resources/specs/master.yml</inputSpec>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

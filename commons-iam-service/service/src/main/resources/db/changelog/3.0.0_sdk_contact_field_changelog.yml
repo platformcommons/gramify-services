@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1739184962115-4
+      author: jitendra (manual)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: country_code
+                  type: varchar(255)
+            tableName: sdk_contact

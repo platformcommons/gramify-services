@@ -1,0 +1,336 @@
+databaseChangeLog:
+- changeSet:
+    id: 1756126170802-1
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_feature_configurationPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: for_entity_type
+            type: VARCHAR(255)
+        - column:
+            name: owner_entity_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: owner_entity_type
+            type: VARCHAR(255)
+        tableName: app_feature_configuration
+- changeSet:
+    id: 1756126170802-2
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: app_feature_configuration_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: component_config_id
+            type: BIGINT
+        tableName: app_feature_configuration_component_config
+- changeSet:
+    id: 1756126170802-3
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: component_configPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: component_code
+            type: VARCHAR(255)
+        - column:
+            name: component_name
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: information
+            type: VARCHAR(255)
+        - column:
+            name: is_editable
+            type: BIT
+        - column:
+            name: is_mandatory
+            type: BIT
+        - column:
+            name: label
+            type: VARCHAR(255)
+        - column:
+            name: sequence
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: type
+            type: VARCHAR(255)
+        - column:
+            name: visibility
+            type: BIT
+        - column:
+            name: parent_component_config_id
+            type: BIGINT
+        tableName: component_config
+- changeSet:
+    id: 1756126170802-4
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: component_config_id
+            type: BIGINT
+        - column:
+            name: attribute
+            type: VARCHAR(255)
+        tableName: component_config_attributes
+- changeSet:
+    id: 1756126170802-5
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: status
+            type: varchar(255)
+        tableName: attachment
+- changeSet:
+    id: 1756126170802-6
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_APP_FEATURE_CONFIGURATIONUNIQUE_IDENTIFIER_COL
+        tableName: app_feature_configuration
+- changeSet:
+    id: 1756126170802-7
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_COMPONENT_CONFIGUNIQUE_IDENTIFIER_COL
+        tableName: component_config
+- changeSet:
+    id: 1756126170802-8
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: component_config_id
+        constraintName: UK_5gi09s8f5fxfv5ii1fjmytjyj
+        tableName: app_feature_configuration_component_config
+- changeSet:
+    id: 1756126170802-9
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: component_config_id
+        baseTableName: app_feature_configuration_component_config
+        constraintName: FK4vkldoajkc2fgr8snkum8m8v5
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: component_config
+        validate: true
+- changeSet:
+    id: 1756126170802-10
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: component_config_id
+        baseTableName: component_config_attributes
+        constraintName: FKhephfsqch3oydeokfg46xfp77
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: component_config
+        validate: true
+- changeSet:
+    id: 1756126170802-11
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_feature_configuration_id
+        baseTableName: app_feature_configuration_component_config
+        constraintName: FKo5eejxcwrk8evt20o8dprxep4
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_feature_configuration
+        validate: true
+- changeSet:
+    id: 1756126170802-12
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent_component_config_id
+        baseTableName: component_config
+        constraintName: FKsxknaf41a2xdnf8r9lmsx9nk3
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: component_config
+        validate: true
+- changeSet:
+    id: 1756126618658-1
+    author: sandeep (generated)
+    changes:
+      - addColumn:
+          columns:
+            - column:
+                name: place_holder
+                type: varchar(255)
+          tableName: component_config
+

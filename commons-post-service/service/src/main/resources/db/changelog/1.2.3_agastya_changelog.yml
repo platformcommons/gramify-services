@@ -1,0 +1,21 @@
+databaseChangeLog:
+- changeSet:
+    id: 1717146620425-6
+    author: humam (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: username
+            type: varchar(255)
+        tableName: post_actor
+- changeSet:
+      id: 1718692761427-6
+      author: sandeep (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: is_response_and_reaction_public
+                          type: bit
+                tableName: post_tenant_config

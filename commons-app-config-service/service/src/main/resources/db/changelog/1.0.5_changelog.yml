@@ -1,0 +1,12 @@
+databaseChangeLog:
+- changeSet:
+    id: 1689077351651-1
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: label
+            type: varchar(255)
+        tableName: app_operation
+

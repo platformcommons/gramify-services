@@ -1,0 +1,397 @@
+databaseChangeLog:
+- changeSet:
+    id: 1686912401645-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: skillPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: context
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: domain_code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: is_root
+            type: BIT
+        - column:
+            constraints:
+              nullable: false
+            name: skill_code
+            type: VARCHAR(255)
+        - column:
+            name: skill_desc
+            type: VARCHAR(255)
+        - column:
+            name: skill_name
+            type: VARCHAR(255)
+        - column:
+            name: skill_type
+            type: VARCHAR(255)
+        tableName: skill
+- changeSet:
+    id: 1686912401645-2
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: skill_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: description_id
+            type: BIGINT
+        tableName: skill_description
+- changeSet:
+    id: 1686912401645-3
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: skill_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tag_id
+            type: BIGINT
+        tableName: skill_has_tags
+- changeSet:
+    id: 1686912401645-4
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: skill_hierarchyPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: depth
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: parent_skill
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: skill
+            type: BIGINT
+        tableName: skill_hierarchy
+- changeSet:
+    id: 1686912401645-5
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: skill_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: name_id
+            type: BIGINT
+        tableName: skill_name
+- changeSet:
+    id: 1686912401645-6
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: skill_code
+        constraintName: UC_SKILLSKILL_CODE_COL
+        tableName: skill
+- changeSet:
+    id: 1686912401645-7
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_SKILLUNIQUE_IDENTIFIER_COL
+        tableName: skill
+- changeSet:
+    id: 1686912401645-8
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_SKILL_HIERARCHYUNIQUE_IDENTIFIER_COL
+        tableName: skill_hierarchy
+- changeSet:
+    id: 1686912401645-9
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name_id
+        constraintName: UK_jjwdm3wuxvxp0t8ucuplxod7u
+        tableName: skill_name
+- changeSet:
+    id: 1686912401645-10
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: description_id
+        constraintName: UK_s5xbmfm0hd87vt8uegw54hnj8
+        tableName: skill_description
+- changeSet:
+    id: 1686912401645-11
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: skill_id
+        baseTableName: skill_has_tags
+        constraintName: FK4kye9pywhupr82m49ygs6ek2i
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: skill
+        validate: true
+- changeSet:
+    id: 1686912401645-12
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: skill
+        baseTableName: skill_hierarchy
+        constraintName: FK7cbt09lkdere7f9netpfgmege
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: skill
+        validate: true
+- changeSet:
+    id: 1686912401645-13
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent_skill
+        baseTableName: skill_hierarchy
+        constraintName: FKb661i89rsu4cd1ey1dse41xvy
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: skill
+        validate: true
+- changeSet:
+    id: 1686912401645-14
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tag_id
+        baseTableName: skill_has_tags
+        constraintName: FKe42q3ah9hevh70bhn84busism
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tag
+        validate: true
+- changeSet:
+    id: 1686912401645-15
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: skill_id
+        baseTableName: skill_name
+        constraintName: FKf0yi1u8q4m90x9gwjsgws734i
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: skill
+        validate: true
+- changeSet:
+    id: 1686912401645-16
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: description_id
+        baseTableName: skill_description
+        constraintName: FKh1j2m11rfq34rhp9mv1yyfdyh
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1686912401645-17
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: skill_id
+        baseTableName: skill_description
+        constraintName: FKl7m0rytgnevda1j9uf3ys3r7e
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: skill
+        validate: true
+- changeSet:
+    id: 1686912401645-18
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: name_id
+        baseTableName: skill_name
+        constraintName: FKmfo2flw7af0apsuoij8lhdsxp
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+

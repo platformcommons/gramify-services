@@ -1,0 +1,32 @@
+databaseChangeLog:
+- changeSet:
+    id: 1709882649191-1
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: can_edit
+            type: bit
+        tableName: app_menu
+- changeSet:
+      id: 1709921606106-1
+      author: sandeep (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: display_app_menu
+                          type: bit
+                tableName: app_menu
+- changeSet:
+      id: 1709921606106-2
+      author: sandeep (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: display_sub_menus
+                          type: bit
+                tableName: app_menu
+

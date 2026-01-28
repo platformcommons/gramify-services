@@ -1,0 +1,980 @@
+databaseChangeLog:
+- changeSet:
+    id: 1658476409451-1
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: appPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: api_key
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        tableName: app
+- changeSet:
+    id: 1658476409451-2
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_configPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: config_key
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: config_type
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: config_value
+            type: VARCHAR(255)
+        - column:
+            name: notes
+            type: VARCHAR(255)
+        - column:
+            name: scope_code
+            type: VARCHAR(255)
+        - column:
+            name: scope_value
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: app_version
+            type: BIGINT
+        tableName: app_config
+- changeSet:
+    id: 1658476409451-3
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: app_config_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: config_valueml_id
+            type: BIGINT
+        tableName: app_config_config_valueml
+- changeSet:
+    id: 1658476409451-4
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_config_scope_masterPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: data_type
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: priority
+            type: BIGINT
+        tableName: app_config_scope_master
+- changeSet:
+    id: 1658476409451-5
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_versionPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: is_deprecated
+            type: INT
+        - column:
+            name: release_date
+            type: datetime
+        - column:
+            name: version
+            type: VARCHAR(255)
+        - column:
+            name: version_sequence
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: app_id
+            type: BIGINT
+        tableName: app_version
+- changeSet:
+    id: 1658476409451-6
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: mltextPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: language_code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: text
+            type: TEXT
+        tableName: mltext
+- changeSet:
+    id: 1658476409451-7
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_classPK
+            name: code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        tableName: ref_class
+- changeSet:
+    id: 1658476409451-8
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_class_hierarchyPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: child
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: parent
+            type: VARCHAR(255)
+        tableName: ref_class_hierarchy
+- changeSet:
+    id: 1658476409451-9
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_dataPK
+            name: code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: class_code
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: LONGTEXT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        tableName: ref_data
+- changeSet:
+    id: 1658476409451-10
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_data_hierarchyPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: child
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: parent
+            type: VARCHAR(255)
+        tableName: ref_data_hierarchy
+- changeSet:
+    id: 1658476409451-11
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: ref_data_code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: labels_id
+            type: BIGINT
+        tableName: ref_data_labels
+- changeSet:
+    id: 1658476409451-12
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: uomvaluePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: max_value
+            type: DOUBLE
+        - column:
+            name: min_value
+            type: DOUBLE
+        - column:
+            constraints:
+              nullable: false
+            name: uom
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: value
+            type: DOUBLE
+        tableName: uomvalue
+- changeSet:
+    id: 1658476409451-13
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: api_key
+        constraintName: UC_APPAPI_KEY_COL
+        tableName: app
+- changeSet:
+    id: 1658476409451-14
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code
+        constraintName: UC_APPCODE_COL
+        tableName: app
+- changeSet:
+    id: 1658476409451-15
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_APPUNIQUE_IDENTIFIER_COL
+        tableName: app
+- changeSet:
+    id: 1658476409451-16
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_APP_CONFIGUNIQUE_IDENTIFIER_COL
+        tableName: app_config
+- changeSet:
+    id: 1658476409451-17
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code
+        constraintName: UC_APP_CONFIG_SCOPE_MASTERCODE_COL
+        tableName: app_config_scope_master
+- changeSet:
+    id: 1658476409451-18
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: priority
+        constraintName: UC_APP_CONFIG_SCOPE_MASTERPRIORITY_COL
+        tableName: app_config_scope_master
+- changeSet:
+    id: 1658476409451-19
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_APP_CONFIG_SCOPE_MASTERUNIQUE_IDENTIFIER_COL
+        tableName: app_config_scope_master
+- changeSet:
+    id: 1658476409451-20
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_APP_VERSIONUNIQUE_IDENTIFIER_COL
+        tableName: app_version
+- changeSet:
+    id: 1658476409451-21
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_MLTEXTUNIQUE_IDENTIFIER_COL
+        tableName: mltext
+- changeSet:
+    id: 1658476409451-22
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code
+        constraintName: UC_REF_CLASSCODE_COL
+        tableName: ref_class
+- changeSet:
+    id: 1658476409451-23
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_CLASSUNIQUE_IDENTIFIER_COL
+        tableName: ref_class
+- changeSet:
+    id: 1658476409451-24
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_CLASS_HIERARCHYUNIQUE_IDENTIFIER_COL
+        tableName: ref_class_hierarchy
+- changeSet:
+    id: 1658476409451-25
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code
+        constraintName: UC_REF_DATACODE_COL
+        tableName: ref_data
+- changeSet:
+    id: 1658476409451-26
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_DATAUNIQUE_IDENTIFIER_COL
+        tableName: ref_data
+- changeSet:
+    id: 1658476409451-27
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_DATA_HIERARCHYUNIQUE_IDENTIFIER_COL
+        tableName: ref_data_hierarchy
+- changeSet:
+    id: 1658476409451-28
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_UOMVALUEUNIQUE_IDENTIFIER_COL
+        tableName: uomvalue
+- changeSet:
+    id: 1658476409451-29
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: config_valueml_id
+        constraintName: UK_gwl3qybjbcgpuyn1hxjasecr4
+        tableName: app_config_config_valueml
+- changeSet:
+    id: 1658476409451-30
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: labels_id
+        constraintName: UK_piceb2tue6rm9k0o3445fmw3l
+        tableName: ref_data_labels
+- changeSet:
+    id: 1658476409451-31
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: child, parent
+        constraintName: idx_ref_class_hierarchy_uniqueness
+        tableName: ref_class_hierarchy
+- changeSet:
+    id: 1658476409451-32
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: child, parent
+        constraintName: idx_ref_data_hierarchy_uniqueness
+        tableName: ref_data_hierarchy
+- changeSet:
+    id: 1658476409451-33
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code, class_code
+        constraintName: idx_ref_data_uniqueness
+        tableName: ref_data
+- changeSet:
+    id: 1658476409451-34
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: config_valueml_id
+        baseTableName: app_config_config_valueml
+        constraintName: FK53i6sw4xjowgjj1vcy9hp9hn7
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1658476409451-35
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent
+        baseTableName: ref_class_hierarchy
+        constraintName: FK6xyymgvhidwp5087quqnmyrck
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_class
+        validate: true
+- changeSet:
+    id: 1658476409451-36
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: labels_id
+        baseTableName: ref_data_labels
+        constraintName: FK7c0r78us1n0b6q5kugwq2uwry
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1658476409451-37
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: child
+        baseTableName: ref_class_hierarchy
+        constraintName: FK7ljxoxieetbim2fyq3mi232vq
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_class
+        validate: true
+- changeSet:
+    id: 1658476409451-38
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent
+        baseTableName: ref_data_hierarchy
+        constraintName: FK9m7md3hxns5sq00rw0o6m49h4
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1658476409451-39
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: child
+        baseTableName: ref_data_hierarchy
+        constraintName: FKcl7fa4jve0cdqewpdu4dwt3h1
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1658476409451-40
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_id
+        baseTableName: app_version
+        constraintName: FKmh0w4o1dahj2f9xabqpbusn2p
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app
+        validate: true
+- changeSet:
+    id: 1658476409451-41
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_version
+        baseTableName: app_config
+        constraintName: FKn87efty6oucmmlx9twiulwe5
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_version
+        validate: true
+- changeSet:
+    id: 1658476409451-42
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_config_id
+        baseTableName: app_config_config_valueml
+        constraintName: FKnyukre9t1h4k7ujfceqgsjp8
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_config
+        validate: true
+- changeSet:
+    id: 1658476409451-43
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ref_data_code
+        baseTableName: ref_data_labels
+        constraintName: FKqq6ry2bnqlx4rghglipavpihw
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+

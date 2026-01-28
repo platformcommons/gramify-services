@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 1707330711157-4
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: use_mobile_as_login
+            type: bit
+        tableName: lead

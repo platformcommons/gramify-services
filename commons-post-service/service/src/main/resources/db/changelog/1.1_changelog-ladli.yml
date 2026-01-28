@@ -1,0 +1,1021 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1694083355261-5
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: post_impactPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: beneficiary_type
+                              type: VARCHAR(255)
+                        - column:
+                              name: label
+                              type: VARCHAR(255)
+                        - column:
+                              name: actual_impact
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: post_id
+                              type: BIGINT
+                    tableName: post_impact
+    - changeSet:
+          id: 1694083355261-6
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: address
+                              type: TEXT
+                    tableName: post
+    - changeSet:
+          id: 1694083355261-7
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: effort
+                              type: bigint
+                    tableName: post
+    - changeSet:
+          id: 1694083355261-8
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: latitude
+                              type: double precision
+                    tableName: post
+    - changeSet:
+          id: 1694083355261-9
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: longitude
+                              type: double precision
+                    tableName: post
+    - changeSet:
+          id: 1694083355261-10
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: post_sub_type
+                              type: varchar(255)
+                    tableName: post
+    - changeSet:
+          id: 1694083355261-12
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_POST_IMPACTUNIQUE_IDENTIFIER_COL
+                    tableName: post_impact
+    - changeSet:
+          id: 1694083355261-13
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: post_id, beneficiary_type, is_active
+                    constraintName: UNIQUE_POST_ID_BENEFICIARY_TYPE
+                    tableName: post_impact
+    - changeSet:
+          id: 1694083355261-14
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: post_id
+                    baseTableName: post_impact
+                    constraintName: FKc79c81pdo2p5np860qju5tbgp
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: post
+                    validate: true
+    - changeSet:
+          id: 1694083355261-15
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: actual_impact
+                    baseTableName: post_impact
+                    constraintName: FKs72fvv2fqxm2uw66sunayrcj3
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: uomvalue
+                    validate: true
+    - changeSet:
+          id: 1694083355261-16
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: effort
+                    baseTableName: post
+                    constraintName: FKsc9eyph6a8kdt1ssdxb8pwbqw
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: uomvalue
+                    validate: true
+    -  changeSet:
+           id:  set_payload_to_longtext
+           author:  sandeepsharma
+           changes:
+               -  modifyDataType:
+                      columnName: payload
+                      newDataType: LONGTEXT
+                      tableName: post
+
+    - changeSet:
+          id: 1694430021672-6
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: post_actor_certificatePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: awarded_by
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: certificate_template_code
+                              type: VARCHAR(255)
+                        - column:
+                              name: is_public
+                              type: BIT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: issued_date
+                              type: datetime
+                        - column:
+                              name: title
+                              type: VARCHAR(255)
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: url
+                              type: VARCHAR(255)
+                        - column:
+                              name: valid_till_date
+                              type: datetime
+                        - column:
+                              name: post_id
+                              type: BIGINT
+                        - column:
+                              name: post_actor_id
+                              type: BIGINT
+                    tableName: post_actor_certificate
+    - changeSet:
+          id: 1694430021672-7
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: tenant_certificate_templatePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: cause
+                              type: VARCHAR(255)
+                        - column:
+                              name: certificate_uuid_format
+                              type: VARCHAR(255)
+                        - column:
+                              name: code
+                              type: VARCHAR(255)
+                        - column:
+                              name: json_data_for_position
+                              type: LONGTEXT
+                        - column:
+                              name: template_url
+                              type: VARCHAR(255)
+                        - column:
+                              name: title
+                              type: VARCHAR(255)
+                    tableName: tenant_certificate_template
+    - changeSet:
+          id: 1694430021672-8
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: approved_effort
+                              type: bigint
+                    tableName: post
+    - changeSet:
+          id: 1694430021672-9
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: approved_impact
+                              type: bigint
+                    tableName: post_impact
+    - changeSet:
+          id: 1694430021672-10
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_POST_ACTOR_CERTIFICATEUNIQUE_IDENTIFIER_COL
+                    tableName: post_actor_certificate
+    - changeSet:
+          id: 1694430021672-11
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_TENANT_CERTIFICATE_TEMPLATEUNIQUE_IDENTIFIER_COL
+                    tableName: tenant_certificate_template
+    - changeSet:
+          id: 1694430021672-12
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: cause, tenant_id, is_active
+                    constraintName: UNIQUE_CAUSE
+                    tableName: tenant_certificate_template
+    - changeSet:
+          id: 1694430021672-13
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: code, is_active
+                    constraintName: UNIQUE_CODE
+                    tableName: tenant_certificate_template
+    - changeSet:
+          id: 1694430021672-14
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: approved_effort
+                    baseTableName: post
+                    constraintName: FK29p7yvfjo8qllgb4fbh5un0pj
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: uomvalue
+                    validate: true
+    - changeSet:
+          id: 1694430021672-15
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: approved_impact
+                    baseTableName: post_impact
+                    constraintName: FK5x9g02pb0naic1kr48y05pu3r
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: uomvalue
+                    validate: true
+    - changeSet:
+          id: 1694430021672-16
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: post_actor_id
+                    baseTableName: post_actor_certificate
+                    constraintName: FKflxoiw6ek0dwh9fd59fx34tlv
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: post_actor
+                    validate: true
+    - changeSet:
+          id: 1694430021672-17
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: post_id
+                    baseTableName: post_actor_certificate
+                    constraintName: FKordcrcfhdt7pyre1g42wiv9pe
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: post
+                    validate: true
+
+    - changeSet:
+          id: 1694439195444-6
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: evaluation_remarks
+                              type: varchar(255)
+                    tableName: post
+
+    - changeSet:
+          id: 1694682422150-6
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: post_id
+                              type: BIGINT
+                        - column:
+                              name: cause
+                              type: VARCHAR(255)
+                    tableName: post_causes
+    - changeSet:
+          id: 1694682422150-7
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: post_id
+                    baseTableName: post_causes
+                    constraintName: FK79w1r332o6ltcab7ikjeldbd
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: post
+                    validate: true
+
+
+    - changeSet:
+          id: 1695628226435-6
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: email_address
+                              type: varchar(255)
+                    tableName: post_actor
+    - changeSet:
+          id: 1695628226435-7
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: mail_sent
+                              type: bit
+                    tableName: post_actor_certificate
+    - changeSet:
+          id: 1695628226435-8
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: mail_sent_date
+                              type: datetime
+                    tableName: post_actor_certificate
+
+    - changeSet:
+          id: 1695639213556-6
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: count_of_post_type_difference_click
+                              type: integer
+                    tableName: post_actor
+    - changeSet:
+          id: 1695639213556-8
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: count_of_post_type_difference_shown
+                              type: integer
+                    tableName: post_tenant_config
+
+    - changeSet:
+          id: 1695712828284-6
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: certificate_text_detailsPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: color_code
+                              type: VARCHAR(255)
+                        - column:
+                              name: font_name
+                              type: VARCHAR(255)
+                        - column:
+                              name: font_size
+                              type: INT
+                        - column:
+                              name: font_style
+                              type: INT
+                        - column:
+                              name: justification
+                              type: INT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: text_code
+                              type: VARCHAR(255)
+                        - column:
+                              name: point_x
+                              type: INT
+                        - column:
+                              name: point_y
+                              type: INT
+                        - column:
+                              name: tenant_certificate_template_id
+                              type: BIGINT
+                    tableName: certificate_text_details
+    - changeSet:
+          id: 1695712828284-7
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_CERTIFICATE_TEXT_DETAILSUNIQUE_IDENTIFIER_COL
+                    tableName: certificate_text_details
+    - changeSet:
+          id: 1695712828284-8
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: tenant_certificate_template_id
+                    baseTableName: certificate_text_details
+                    constraintName: FKlwu75882h8erwk50cbone7kpt
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: tenant_certificate_template
+                    validate: true
+
+    - changeSet:
+          id: 1695982517089-6
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: is_user_profile_public
+                              type: bit
+                    tableName: post_tenant_config
+
+    - changeSet:
+          id: 1696492625248-9
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: is_user_feed_public
+                              type: bit
+                    tableName: post_tenant_config
+
+    - changeSet:
+          id: 1697440828573-15
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: tenant_logo_url
+                              type: varchar(255)
+                    tableName: post_tenant_config
+
+
+    - changeSet:
+          id: 1697465571799-6
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: notification_event_configPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: notification_code
+                              type: VARCHAR(255)
+                        - column:
+                              name: post_status
+                              type: VARCHAR(255)
+                        - column:
+                              name: post_sub_type
+                              type: VARCHAR(255)
+                        - column:
+                              name: post_type
+                              type: VARCHAR(255)
+                        - column:
+                              name: subject_line_format
+                              type: VARCHAR(255)
+                        - column:
+                              name: post_notification_template_id
+                              type: BIGINT
+                    tableName: notification_event_config
+    - changeSet:
+          id: 1697465571799-7
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: post_notification_templatePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: is_default
+                              constraints:
+                                  nullable: false
+                              type: BIT
+                    tableName: post_notification_template
+    - changeSet:
+          id: 1697465571799-14
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_NOTIFICATION_EVENT_CONFIGUNIQUE_IDENTIFIER_COL
+                    tableName: notification_event_config
+    - changeSet:
+          id: 1697465571799-15
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_POST_NOTIFICATION_TEMPLATEUNIQUE_IDENTIFIER_COL
+                    tableName: post_notification_template
+    - changeSet:
+          id: 1697465571799-16
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: post_notification_template_id, is_active, post_type, post_sub_type,
+                        post_status
+                    constraintName: UNIQUE_EVENT_TENANT
+                    tableName: notification_event_config
+    - changeSet:
+          id: 1697465571799-17
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: tenant_id, is_active
+                    constraintName: UNIQUE_TENANT_ID
+                    tableName: post_notification_template
+    - changeSet:
+          id: 1697465571799-18
+          author: sandeep (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: post_notification_template_id
+                    baseTableName: notification_event_config
+                    constraintName: FKn5n7yk5cm1m0f2ufq7808tlck
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: post_notification_template
+                    validate: true
+    - changeSet:
+          id: 1697542222449-7
+          author: sandeep (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: event_code
+                              type: varchar(255)
+                    tableName: notification_event_config
+
+    - changeSet:
+        id: 1697695079297-6
+        author: sandeep (generated)
+        changes:
+          - addColumn:
+              columns:
+                - column:
+                    name: is_logged_in_feed_allowed
+                    type: bit
+              tableName: post_tenant_config

@@ -1,0 +1,139 @@
+databaseChangeLog:
+- changeSet:
+    id: 1712061688959-2
+    author: vishal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: tag_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: descriptionml_id
+            type: BIGINT
+        tableName: tag_descriptionml
+- changeSet:
+    id: 1712061688959-3
+    author: vishal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: tag_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: nameml_id
+            type: BIGINT
+        tableName: tag_nameml
+- changeSet:
+    id: 1712061688959-4
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: category_code
+            type: varchar(255)
+        tableName: tag
+- changeSet:
+    id: 1712061688959-5
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: context
+            type: varchar(255)
+        tableName: tag
+- changeSet:
+    id: 1712061688959-6
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sub_category_code
+            type: varchar(255)
+        tableName: tag
+- changeSet:
+    id: 1712061688959-9
+    author: vishal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: nameml_id
+        constraintName: UK_ejprhunsf9tj50lp5xn3whhu0
+        tableName: tag_nameml
+- changeSet:
+    id: 1712061688959-10
+    author: vishal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: descriptionml_id
+        constraintName: UK_hnbt8ja7ge0pcoyjdjyead3nj
+        tableName: tag_descriptionml
+- changeSet:
+    id: 1712061688959-15
+    author: vishal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tag_id
+        baseTableName: tag_nameml
+        constraintName: FK8uva56gkwm4qtiwgy3l85agv7
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tag
+        validate: true
+- changeSet:
+    id: 1712061688959-16
+    author: vishal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: descriptionml_id
+        baseTableName: tag_descriptionml
+        constraintName: FKg0acjhxg0ad6b6qwy28uhovao
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1712061688959-17
+    author: vishal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: nameml_id
+        baseTableName: tag_nameml
+        constraintName: FKmys2rw7q66exx68py96ynspph
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1712061688959-18
+    author: vishal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tag_id
+        baseTableName: tag_descriptionml
+        constraintName: FKrrekaj7yuf16vblpe8dlkxrke
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tag
+        validate: true
+
+

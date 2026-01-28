@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 1753789713250-10
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: referral_code
+            type: varchar(255)
+        tableName: tenant_app_association

@@ -1,0 +1,22 @@
+databaseChangeLog:
+- changeSet:
+    id: 1721292648850-1
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: response_validation
+            type: varchar(255)
+        tableName: question
+- changeSet:
+    id: 1721292648850-2
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: validation_message
+            type: varchar(255)
+        tableName: question
+

@@ -1,0 +1,300 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1753871087417-1
+      author: mnk46 (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: skill_code
+                  type: varchar(255)
+            tableName: question_dim
+  - changeSet:
+      id: 1753871087417-2
+      author: mnk46 (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: sub_skill_code
+                  type: varchar(255)
+            tableName: question_dim
+  - changeSet:
+      id: 1753947161504-6
+      author: mnk46 (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: skill_code
+                  type: varchar(255)
+            tableName: assesse_skill_dim
+
+  - changeSet:
+      id: 1760604769451-1
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: assesse_hierarchy_resolution_configurationPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: entity_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: max_hierarchy_level
+                  type: BIGINT
+            tableName: assesse_hierarchy_resolution_configuration
+  - changeSet:
+      id: 1760604769451-2
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: assessse_hierarchy_resolverPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: dataset_code
+                  type: VARCHAR(255)
+              - column:
+                  name: default_params
+                  type: VARCHAR(255)
+              - column:
+                  name: hierarchy_level
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: configuration_id
+                  type: BIGINT
+            tableName: assessse_hierarchy_resolver
+  - changeSet:
+      id: 1760604769451-3
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: l1
+                  type: varchar(255)
+            tableName: assesse_dim
+  - changeSet:
+      id: 1760604769451-4
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: l2
+                  type: varchar(255)
+            tableName: assesse_dim
+  - changeSet:
+      id: 1760604769451-5
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: l3
+                  type: varchar(255)
+            tableName: assesse_dim
+  - changeSet:
+      id: 1760604769451-6
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: l4
+                  type: varchar(255)
+            tableName: assesse_dim
+  - changeSet:
+      id: 1760604769451-7
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: l5
+                  type: varchar(255)
+            tableName: assesse_dim
+  - changeSet:
+      id: 1760604769451-8
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_ASSESSE_HIERARCHY_RESOLUTION_CONFIGURATIONUNIQUE_IDENTIFIER_
+            tableName: assesse_hierarchy_resolution_configuration
+  - changeSet:
+      id: 1760604769451-9
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: configuration_id
+            baseTableName: assessse_hierarchy_resolver
+            constraintName: FKjjr30r14c3n5n2750j30r7cet
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: assesse_hierarchy_resolution_configuration
+            validate: true
+  - changeSet:
+      id: 1760685411813-1
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: assessment_response_hierarchy_summaryPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: linked_system
+                  type: VARCHAR(255)
+              - column:
+                  name: actor_type
+                  type: VARCHAR(255)
+              - column:
+                  name: assessment_id
+                  type: BIGINT
+              - column:
+                  name: assessment_instance_id
+                  type: BIGINT
+              - column:
+                  name: hierarchy_level
+                  type: BIGINT
+              - column:
+                  name: resolved_hierarchy_value
+                  type: VARCHAR(255)
+              - column:
+                  name: response_count
+                  type: BIGINT
+            tableName: assessment_response_hierarchy_summary
+  - changeSet:
+      id: 1760685411813-2
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: assessment_response_hierarchy_timeline_summaryPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: linked_system
+                  type: VARCHAR(255)
+              - column:
+                  name: actor_type
+                  type: VARCHAR(255)
+              - column:
+                  name: assessment_id
+                  type: BIGINT
+              - column:
+                  name: assessment_instance_id
+                  type: BIGINT
+              - column:
+                  name: hierarchy_level
+                  type: BIGINT
+              - column:
+                  name: hierarchy_resolved_value
+                  type: VARCHAR(255)
+              - column:
+                  name: response_count
+                  type: BIGINT
+              - column:
+                  name: timeline_type
+                  type: VARCHAR(255)
+              - column:
+                  name: timeline_value
+                  type: VARCHAR(255)
+            tableName: assessment_response_hierarchy_timeline_summary

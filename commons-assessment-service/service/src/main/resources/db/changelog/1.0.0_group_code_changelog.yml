@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1740656336284-3
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: assessee_group_code
+                  type: varchar(255)
+            tableName: assessment_instance_assesse
+  - changeSet:
+      id: 1740656336284-4
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: assessor_group_code
+                  type: varchar(255)
+            tableName: assessment_instance_assesse
+  - changeSet:
+      id: 1740656336284-5
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: group_code
+                  type: varchar(255)
+            tableName: assessment_actor

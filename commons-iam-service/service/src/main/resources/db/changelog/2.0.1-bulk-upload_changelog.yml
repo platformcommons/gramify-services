@@ -1,0 +1,346 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1706619608316-1
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: attachmentPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: attachment_kind
+                              type: VARCHAR(255)
+                        - column:
+                              name: attachment_kind_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: attachment_kind_meta
+                              type: VARCHAR(255)
+                        - column:
+                              name: complete_url
+                              type: VARCHAR(255)
+                        - column:
+                              name: entity_id
+                              type: BIGINT
+                        - column:
+                              name: entity_meta
+                              type: VARCHAR(255)
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: entity_type
+                              type: VARCHAR(255)
+                        - column:
+                              name: file_name
+                              type: VARCHAR(255)
+                        - column:
+                              name: file_size_in_bytes
+                              type: BIGINT
+                        - column:
+                              name: is_public
+                              type: BIT
+                        - column:
+                              name: is_url_upload
+                              type: BIT
+                        - column:
+                              name: mime_type
+                              type: VARCHAR(255)
+                        - column:
+                              name: name
+                              type: VARCHAR(255)
+                        - column:
+                              name: path
+                              type: VARCHAR(255)
+                        - column:
+                              name: sequence
+                              type: BIGINT
+                    tableName: attachment
+    - changeSet:
+          id: 1706619608316-2
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: bulk_upload_logPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: bulk_upload_id
+                              type: BIGINT
+                        - column:
+                              name: failure_reason
+                              type: TEXT
+                        - column:
+                              name: identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: row_info
+                              type: LONGTEXT
+                    tableName: bulk_upload_log
+    - changeSet:
+          id: 1706619608316-3
+          author: sandeep (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: bulk_upload_requestPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: created_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_tenant
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_by_user
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: unique_identifier
+                              type: VARCHAR(255)
+                        - column:
+                              name: app_created_timestamp
+                              type: BIGINT
+                        - column:
+                              name: app_last_modified_timestamp
+                              type: BIGINT
+                        - column:
+                              name: created_by_app_version
+                              type: BIGINT
+                        - column:
+                              name: inactive_reason
+                              type: VARCHAR(255)
+                        - column:
+                              name: inactive_timestamp
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: BIT
+                        - column:
+                              name: last_modified_by_app_version
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: tenant_id
+                              type: BIGINT
+                        - column:
+                              name: attachment_id
+                              type: BIGINT
+                        - column:
+                              name: file_name
+                              type: VARCHAR(255)
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: for_entity_type
+                              type: VARCHAR(255)
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: status
+                              type: VARCHAR(255)
+                        - column:
+                              name: total_records
+                              type: BIGINT
+                        - column:
+                              name: total_records_failed
+                              type: BIGINT
+                        - column:
+                              name: total_records_saved
+                              type: BIGINT
+                        - column:
+                              name: uploaded_on
+                              type: VARCHAR(255)
+                    tableName: bulk_upload_request
+    - changeSet:
+          id: 1706619608316-4
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_ATTACHMENTUNIQUE_IDENTIFIER_COL
+                    tableName: attachment
+    - changeSet:
+          id: 1706619608316-5
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_BULK_UPLOAD_LOGUNIQUE_IDENTIFIER_COL
+                    tableName: bulk_upload_log
+    - changeSet:
+          id: 1706619608316-6
+          author: sandeep (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: unique_identifier
+                    constraintName: UC_BULK_UPLOAD_REQUESTUNIQUE_IDENTIFIER_COL
+                    tableName: bulk_upload_request

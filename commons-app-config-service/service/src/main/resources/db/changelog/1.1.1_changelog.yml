@@ -1,0 +1,13 @@
+databaseChangeLog:
+- changeSet:
+    id: 1722190431953-1
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: context
+            type: varchar(255)
+        tableName: app_rbac
+
+

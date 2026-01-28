@@ -1,0 +1,12 @@
+databaseChangeLog:
+- changeSet:
+    id: 1683365036150-1
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sequence
+            type: bigint
+        tableName: use_case
+

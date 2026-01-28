@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-app-config-service-base</artifactId>
+        <version>${revision}${changelist}</version>
+    </parent>
+
+    <artifactId>commons-app-config-service-dto</artifactId>
+    <packaging>jar</packaging>
+
+    <name>commons-app-service-dto</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-service-dto</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-api-generator-maven-plugin</artifactId>
+                <version>0.1.8</version>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <language>com.platformcommons.platform.dev.CommonsServiceDTOGenerator</language>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

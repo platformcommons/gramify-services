@@ -1,0 +1,112 @@
+databaseChangeLog:
+- changeSet:
+    id: 1738837876649-1
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: platform_app_versionPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_code
+            type: VARCHAR(255)
+        - column:
+            name: deprecated_date
+            type: datetime
+        - column:
+            name: identifier
+            type: VARCHAR(255)
+        - column:
+            name: is_deprecated
+            type: BIT
+        - column:
+            constraints:
+              nullable: false
+            name: platform
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: priority
+            type: VARCHAR(255)
+        - column:
+            name: release_date
+            type: datetime
+        - column:
+            name: version_code
+            type: VARCHAR(255)
+        - column:
+            name: version_name
+            type: VARCHAR(255)
+        - column:
+            name: version_sequence
+            type: VARCHAR(255)
+        tableName: platform_app_version
+- changeSet:
+    id: 1738837876649-2
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_PLATFORM_APP_VERSIONUNIQUE_IDENTIFIER_COL
+        tableName: platform_app_version
+- changeSet:
+    id: 1738837876649-3
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: platform, version_code, identifier
+        constraintName: UKqvt3wmyk9xsf7d47sent17p7i
+        tableName: platform_app_version
+- changeSet:
+      id: 1739304390552-1
+      author: Nirakar Sahoo (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: release_note
+                          type: MEDIUMTEXT
+                tableName: platform_app_version
+

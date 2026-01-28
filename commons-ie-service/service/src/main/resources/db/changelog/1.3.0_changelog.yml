@@ -1,0 +1,1266 @@
+databaseChangeLog:
+- changeSet:
+      id: 1734512704004-1
+      author: raush (generated)
+      changes:
+          - createTable:
+                columns:
+                    - column:
+                          autoIncrement: true
+                          constraints:
+                              nullable: false
+                              primaryKey: true
+                              primaryKeyName: cost_specificationPK
+                          name: id
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_by_tenant
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_by_user
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_by_tenant
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_by_user
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: unique_identifier
+                          type: VARCHAR(255)
+                    - column:
+                          name: app_created_timestamp
+                          type: BIGINT
+                    - column:
+                          name: app_last_modified_timestamp
+                          type: BIGINT
+                    - column:
+                          name: created_by_app_version
+                          type: BIGINT
+                    - column:
+                          name: inactive_reason
+                          type: VARCHAR(255)
+                    - column:
+                          name: inactive_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: is_active
+                          type: BIT
+                    - column:
+                          name: last_modified_by_app_version
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: tenant_id
+                          type: BIGINT
+                    - column:
+                          name: end_date
+                          type: datetime
+                    - column:
+                          name: for_entity_id
+                          type: VARCHAR(255)
+                    - column:
+                          name: for_entity_type
+                          type: VARCHAR(255)
+                    - column:
+                          name: start_date
+                          type: datetime
+                    - column:
+                          name: tagged_to_entity_id
+                          type: VARCHAR(255)
+                    - column:
+                          name: tagged_to_entity_type
+                          type: VARCHAR(255)
+                tableName: cost_specification
+- changeSet:
+      id: 1734512704004-2
+      author: raush (generated)
+      changes:
+          - createTable:
+                columns:
+                    - column:
+                          autoIncrement: true
+                          constraints:
+                              nullable: false
+                              primaryKey: true
+                              primaryKeyName: cost_specification_masterPK
+                          name: id
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_by_tenant
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_by_user
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: created_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_by_tenant
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_by_user
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: last_modified_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: unique_identifier
+                          type: VARCHAR(255)
+                    - column:
+                          name: app_created_timestamp
+                          type: BIGINT
+                    - column:
+                          name: app_last_modified_timestamp
+                          type: BIGINT
+                    - column:
+                          name: created_by_app_version
+                          type: BIGINT
+                    - column:
+                          name: inactive_reason
+                          type: VARCHAR(255)
+                    - column:
+                          name: inactive_timestamp
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: is_active
+                          type: BIT
+                    - column:
+                          name: last_modified_by_app_version
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: tenant_id
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: code
+                          type: VARCHAR(255)
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: field_type
+                          type: VARCHAR(255)
+                    - column:
+                          name: for_entity_id
+                          type: VARCHAR(255)
+                    - column:
+                          name: for_entity_type
+                          type: VARCHAR(255)
+                    - column:
+                          name: formula
+                          type: VARCHAR(255)
+                    - column:
+                          constraints:
+                              nullable: false
+                          name: input_type
+                          type: VARCHAR(255)
+                    - column:
+                          name: purpose
+                          type: VARCHAR(255)
+                tableName: cost_specification_master
+- changeSet:
+      id: 1734512704004-3
+      author: raush (generated)
+      changes:
+          - createTable:
+                columns:
+                    - column:
+                          constraints:
+                              nullable: false
+                              primaryKey: true
+                          name: cost_specification_master_id
+                          type: BIGINT
+                    - column:
+                          constraints:
+                              nullable: false
+                              primaryKey: true
+                          name: label_id
+                          type: BIGINT
+                tableName: cost_specification_master_label
+- changeSet:
+    id: 1734512704004-5
+    author: raush (generated)
+    changes:
+      - addUniqueConstraint:
+          columnNames: unique_identifier
+          constraintName: UC_COST_SPECIFICATIONUNIQUE_IDENTIFIER_COL
+          tableName: cost_specification
+- changeSet:
+      id: 1734512704004-6
+      author: raush (generated)
+      changes:
+          - addUniqueConstraint:
+                columnNames: code
+                constraintName: UC_COST_SPECIFICATION_MASTERCODE_COL
+                tableName: cost_specification_master
+- changeSet:
+      id: 1734512704004-7
+      author: raush (generated)
+      changes:
+          - addUniqueConstraint:
+                columnNames: unique_identifier
+                constraintName: UC_COST_SPECIFICATION_MASTERUNIQUE_IDENTIFIER_COL
+                tableName: cost_specification_master
+- changeSet:
+      id: 1734512704004-8
+      author: raush (generated)
+      changes:
+          - addUniqueConstraint:
+                columnNames: label_id
+                constraintName: UK_ieoraywehn2wyg3g9huri3s5a
+                tableName: cost_specification_master_label
+- changeSet:
+      id: 1734512704004-9
+      author: raush (generated)
+      changes:
+          - addForeignKeyConstraint:
+                baseColumnNames: label_id
+                baseTableName: cost_specification_master_label
+                constraintName: FK97r25wncdtca50330mpic57bs
+                deferrable: false
+                initiallyDeferred: false
+                referencedColumnNames: id
+                referencedTableName: mltext
+                validate: true
+- changeSet:
+      id: 1734512704004-10
+      author: raush (generated)
+      changes:
+          - addForeignKeyConstraint:
+                baseColumnNames: cost_specification_master_id
+                baseTableName: cost_specification_master_label
+                constraintName: FKsh681n8i7u8886kuutskfgn1j
+                deferrable: false
+                initiallyDeferred: false
+                referencedColumnNames: id
+                referencedTableName: cost_specification_master
+                validate: true
+- changeSet:
+      id: 1734698828184-1
+      author: raush (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: context
+                          type: varchar(255)
+                tableName: cost_specification_master
+- changeSet:
+      id: 1734698828184-2
+      author: raush (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: context_id
+                          type: varchar(255)
+                tableName: cost_specification_master
+- changeSet:
+      id: 1734698828184-3
+      author: raush (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: sequence
+                          type: bigint
+                tableName: cost_specification_master
+- changeSet:
+    id: 1734698828184-4
+    author: raushan (generated)
+    changes:
+      - modifyDataType:
+          columnName: formula
+          newDataType: TEXT
+          tableName: cost_specification_master
+- changeSet:
+    id: 1736414909205-1
+    author: raush (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: cost_specification_line_itemPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: currency_or_uom_code
+            type: VARCHAR(255)
+        - column:
+            name: date_of_entry
+            type: datetime
+        - column:
+            name: value
+            type: DOUBLE
+        - column:
+            constraints:
+              nullable: false
+            name: cost_specification_id
+            type: BIGINT
+        tableName: cost_specification_line_item
+
+- changeSet:
+    id: 1736414909205-3
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: remarks
+            type: TEXT
+        tableName: cost_specification
+- changeSet:
+    id: 1736414909205-4
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: status
+            type: varchar(255)
+        tableName: cost_specification
+- changeSet:
+    id: 1736414909205-6
+    author: raush (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_COST_SPECIFICATION_LINE_ITEMUNIQUE_IDENTIFIER_COL
+        tableName: cost_specification_line_item
+- changeSet:
+    id: 1736414909205-7
+    author: raush (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: cost_specification_id
+        baseTableName: cost_specification_line_item
+        constraintName: FK33e5gubi7cngh9p691bnp5hx9
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: cost_specification
+        validate: true
+
+- changeSet:
+    id: 1736422496620-1
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: quantity_id
+            type: bigint
+        tableName: cost_specification
+- changeSet:
+    id: 1736422496620-3
+    author: raush (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: quantity_id
+        baseTableName: cost_specification
+        constraintName: FKk7lvhoh6505cvsyax8a52ry2h
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1736428242171-1
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: asset_proportionPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: asset_code
+            type: VARCHAR(255)
+        - column:
+            name: asset_proportion_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: portfolio_line_item_id
+            type: BIGINT
+        tableName: asset_proportion
+- changeSet:
+    id: 1736428242171-2
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: extra_attributePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: attribute_code
+            type: VARCHAR(255)
+        tableName: extra_attribute
+- changeSet:
+    id: 1736428242171-3
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: extra_attribute_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: attribute_values_id
+            type: BIGINT
+        tableName: extra_attribute_attribute_values
+- changeSet:
+    id: 1736428242171-4
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: extra_attribute_valuePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: data_code
+            type: VARCHAR(255)
+        - column:
+            name: data_value
+            type: TEXT
+        - column:
+            name: sequence
+            type: BIGINT
+        tableName: extra_attribute_value
+- changeSet:
+    id: 1736428242171-5
+    author: Nirakar Sahoo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: portfolio_product_line_item_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: extra_attributes_id
+            type: BIGINT
+        tableName: portfolio_product_line_item_extra_attributes
+- changeSet:
+    id: 1736428242171-6
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_ASSET_PROPORTIONUNIQUE_IDENTIFIER_COL
+        tableName: asset_proportion
+- changeSet:
+    id: 1736428242171-7
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_EXTRA_ATTRIBUTEUNIQUE_IDENTIFIER_COL
+        tableName: extra_attribute
+- changeSet:
+    id: 1736428242171-8
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_EXTRA_ATTRIBUTE_VALUEUNIQUE_IDENTIFIER_COL
+        tableName: extra_attribute_value
+- changeSet:
+    id: 1736428242171-9
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: attribute_values_id
+        constraintName: UK_46h42i3blf5qot1eqnxf87ylu
+        tableName: extra_attribute_attribute_values
+- changeSet:
+    id: 1736428242171-10
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: extra_attributes_id
+        constraintName: UK_fp8904nximtyl09cbb2tdv76d
+        tableName: portfolio_product_line_item_extra_attributes
+- changeSet:
+    id: 1736428242171-11
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: attribute_values_id
+        baseTableName: extra_attribute_attribute_values
+        constraintName: FK1xc195dotjm7oqum5tnskupwl
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: extra_attribute_value
+        validate: true
+- changeSet:
+    id: 1736428242171-12
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_proportion_id
+        baseTableName: asset_proportion
+        constraintName: FK9o5tqk2p5u4t9fpav755hkvfd
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1736428242171-13
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: portfolio_product_line_item_id
+        baseTableName: portfolio_product_line_item_extra_attributes
+        constraintName: FKd0mmax3g5i9om2t4h3ep8vyod
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: portfolio_product_line_item
+        validate: true
+- changeSet:
+    id: 1736428242171-14
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: extra_attributes_id
+        baseTableName: portfolio_product_line_item_extra_attributes
+        constraintName: FKjds79j0vwars3g8vi540wweq9
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: extra_attribute
+        validate: true
+- changeSet:
+    id: 1736428242171-15
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: extra_attribute_id
+        baseTableName: extra_attribute_attribute_values
+        constraintName: FKmx0uh6dg1m0gvr8d4l3ug4ysa
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: extra_attribute
+        validate: true
+- changeSet:
+    id: 1736428242171-16
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: portfolio_line_item_id
+        baseTableName: asset_proportion
+        constraintName: FKs6qao3mmrik3l9oa814so27v1
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: portfolio_line_item
+        validate: true
+- changeSet:
+    id: 1739951665975-1
+    author: Nirakar Sahoo (generated)
+    changes:
+      - createTable:
+          columns:
+            - column:
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+                  primaryKeyName: ie_sub_typePK
+                name: id
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: created_by_tenant
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: created_by_user
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: created_timestamp
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: last_modified_by_tenant
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: last_modified_by_user
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: last_modified_timestamp
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: unique_identifier
+                type: VARCHAR(255)
+            - column:
+                name: app_created_timestamp
+                type: BIGINT
+            - column:
+                name: app_last_modified_timestamp
+                type: BIGINT
+            - column:
+                name: created_by_app_version
+                type: BIGINT
+            - column:
+                name: inactive_reason
+                type: VARCHAR(255)
+            - column:
+                name: inactive_timestamp
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: is_active
+                type: BIT
+            - column:
+                name: last_modified_by_app_version
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: tenant_id
+                type: BIGINT
+            - column:
+                name: code
+                type: VARCHAR(255)
+            - column:
+                name: type
+                type: VARCHAR(255)
+            - column:
+                constraints:
+                  nullable: false
+                name: ie
+                type: BIGINT
+          tableName: ie_sub_type
+- changeSet:
+    id: 1739951665975-2
+    author: Nirakar Sahoo (generated)
+    changes:
+      - addUniqueConstraint:
+          columnNames: unique_identifier
+          constraintName: UC_IE_SUB_TYPEUNIQUE_IDENTIFIER_COL
+          tableName: ie_sub_type
+- changeSet:
+    id: 1739951665975-3
+    author: Nirakar Sahoo (generated)
+    changes:
+      - addForeignKeyConstraint:
+          baseColumnNames: ie
+          baseTableName: ie_sub_type
+          constraintName: FK2m6vc4q6gtdolgre8yfwmo9ge
+          deferrable: false
+          initiallyDeferred: false
+          referencedColumnNames: id
+          referencedTableName: ie
+          validate: true
+- changeSet:
+    id: 1740481705103-2
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: input_type_label
+            type: varchar(255)
+        tableName: cost_specification_master
+- changeSet:
+    id: 1740563878792-1
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: grouping_code
+            type: varchar(255)
+        tableName: cost_specification_master
+
+- changeSet:
+    id: 1746539383258-1
+    author: raush (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: asset_specs_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: spec_values_id
+            type: BIGINT
+        tableName: asset_specs_spec_values
+- changeSet:
+    id: 1746539383258-2
+    author: raush (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: spec_values_id
+        constraintName: UK_cho2naxlfwr1y2awu4oiycr63
+        tableName: asset_specs_spec_values
+- changeSet:
+    id: 1746539383258-3
+    author: raush (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_specs_id
+        baseTableName: asset_specs_spec_values
+        constraintName: FKgdnj0njubxwm634cbppe3o016
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: asset_specs
+        validate: true
+- changeSet:
+    id: 1746539383258-4
+    author: raush (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: spec_values_id
+        baseTableName: asset_specs_spec_values
+        constraintName: FKnuc4tum7ttccm4iv9uwa38odw
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+
+- changeSet:
+    id: 1747745478617-1
+    author: raush (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: specificationPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: value
+            type: VARCHAR(255)
+        - column:
+            name: cost_specification_id
+            type: BIGINT
+        tableName: specification
+- changeSet:
+    id: 1747745478617-2
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: ie_unique_identifier
+            type: varchar(255)
+        tableName: ie
+- changeSet:
+    id: 1747745478617-3
+    author: raush (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: ie_unique_identifier
+        constraintName: UC_IEIE_UNIQUE_IDENTIFIER_COL
+        tableName: ie
+- changeSet:
+    id: 1747745478617-4
+    author: raush (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_SPECIFICATIONUNIQUE_IDENTIFIER_COL
+        tableName: specification
+- changeSet:
+    id: 1747745478617-5
+    author: raush (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: cost_specification_id
+        baseTableName: specification
+        constraintName: FKeog6y6fqttqh72ft4qx7higfa
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: cost_specification
+        validate: true
+
+- changeSet:
+    id: 1748001013758-1
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sub_type
+            type: varchar(255)
+        tableName: cost_specification
+- changeSet:
+    id: 1748001013758-2
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: type
+            type: varchar(255)
+        tableName: cost_specification
+- changeSet:
+    id: 1751880288153-1
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: active_for
+            type: varchar(255)
+        tableName: asset
+- changeSet:
+    id: 1751880288153-2
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: active_for
+            type: varchar(255)
+        tableName: portfolio_line_item
+- changeSet:
+    id: 1751880288153-3
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: active_for_type
+            type: varchar(255)
+        tableName: asset
+- changeSet:
+    id: 1751880288153-4
+    author: raush (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: active_for_type
+            type: varchar(255)
+        tableName: portfolio_line_item
+

@@ -1,0 +1,267 @@
+databaseChangeLog:
+- changeSet:
+    id: 1698162085617-6
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: content
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: multi_language_id
+            type: BIGINT
+        tableName: content_multi_language
+- changeSet:
+    id: 1698162085617-7
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: multi_languagePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: language_context
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: text
+            type: LONGTEXT
+        tableName: multi_language
+- changeSet:
+    id: 1698162085617-8
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: payload
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: multi_language_id
+            type: BIGINT
+        tableName: payload_multi_language
+- changeSet:
+    id: 1698162085617-9
+    author: sandeep (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: title
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: multi_language_id
+            type: BIGINT
+        tableName: title_multi_language
+- changeSet:
+    id: 1698162085617-10
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_MULTI_LANGUAGEUNIQUE_IDENTIFIER_COL
+        tableName: multi_language
+- changeSet:
+    id: 1698162085617-11
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: multi_language_id
+        constraintName: UK_7t84dg5tpi4ltcvxu96gnqurh
+        tableName: content_multi_language
+- changeSet:
+    id: 1698162085617-12
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: multi_language_id
+        constraintName: UK_91jsyib79hbx85wg01p3t3yjb
+        tableName: title_multi_language
+- changeSet:
+    id: 1698162085617-13
+    author: sandeep (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: multi_language_id
+        constraintName: UK_kr4t527ujb7rpbqmjsauqob8f
+        tableName: payload_multi_language
+- changeSet:
+    id: 1698162085617-14
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: payload
+        baseTableName: payload_multi_language
+        constraintName: FK31m4kbdihegdlrl7fmtyow7ta
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: post
+        validate: true
+- changeSet:
+    id: 1698162085617-15
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: content
+        baseTableName: content_multi_language
+        constraintName: FKa1xsl2pqe0sivbw2o2mdxdn0k
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: post
+        validate: true
+- changeSet:
+    id: 1698162085617-16
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: multi_language_id
+        baseTableName: payload_multi_language
+        constraintName: FKa9h5jld38itrgxp5c7v9m3647
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: multi_language
+        validate: true
+- changeSet:
+    id: 1698162085617-17
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: multi_language_id
+        baseTableName: content_multi_language
+        constraintName: FKdgxusdx07h1oe0pj9wvetlbw3
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: multi_language
+        validate: true
+- changeSet:
+    id: 1698162085617-18
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: multi_language_id
+        baseTableName: title_multi_language
+        constraintName: FKsjcyglhps2cipif3c3mepmoxx
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: multi_language
+        validate: true
+- changeSet:
+    id: 1698162085617-19
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: title
+        baseTableName: title_multi_language
+        constraintName: FKtnpg0qppxq3gr64ulv1bv04w2
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: post
+        validate: true
+
+- changeSet:
+      id: 1698219878093-6
+      author: sandeep (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: contact_number
+                          type: varchar(255)
+                tableName: post_actor

@@ -1,0 +1,184 @@
+databaseChangeLog:
+- changeSet:
+    id: 1721719815506-2
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: market_context
+            type: varchar(255)
+        tableName: lead
+- changeSet:
+    id: 1721719815506-3
+    author: dibyajit (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: market_context
+            type: varchar(255)
+        tableName: tenant_app_association
+
+- changeSet:
+    id: 1722315984049-2
+    author: DELL (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tenant_meta_additional_propertyPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: is_multi_valued
+            type: BIT
+        - column:
+            constraints:
+              nullable: false
+            name: meta_key
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: meta_value
+            type: VARCHAR(255)
+        - column:
+            name: multi_value_separator
+            type: VARCHAR(255)
+        - column:
+            name: tenant_meta_config
+            type: BIGINT
+        tableName: tenant_meta_additional_property
+- changeSet:
+    id: 1722315984049-3
+    author: DELL (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: actor_context
+            type: varchar(255)
+        tableName: tenant_meta_config
+- changeSet:
+    id: 1722315984049-4
+    author: DELL (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: password
+            type: varchar(255)
+        tableName: tenant_meta_config
+- changeSet:
+    id: 1722315984049-5
+    author: DELL (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: user_login
+            type: varchar(255)
+        tableName: tenant_meta_config
+- changeSet:
+    id: 1722315984049-6
+    author: DELL (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_TENANT_META_ADDITIONAL_PROPERTYUNIQUE_IDENTIFIER_COL
+        tableName: tenant_meta_additional_property
+- changeSet:
+    id: 1722315984049-7
+    author: DELL (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: tenant_meta_config, is_active, meta_key
+        constraintName: UniqueTenantMeta
+        tableName: tenant_meta_additional_property
+- changeSet:
+    id: 1722315984049-8
+    author: DELL (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tenant_meta_config
+        baseTableName: tenant_meta_additional_property
+        constraintName: FK4uk8gq7riois8xygcf5yussnf
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant_meta_config
+        validate: true
+
+

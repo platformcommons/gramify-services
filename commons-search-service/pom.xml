@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-service-base</artifactId>
+        <version>0.7.1</version>
+    </parent>
+
+    <artifactId>commons-search-service-base</artifactId>
+    <version>${revision}${changelist}</version>
+    <packaging>pom</packaging>
+  
+    <name>commons-search-service-base</name>
+
+    <properties>
+        <revision>1.2.8</revision>
+        <changelist/>
+        <service-base-pack.version>0.7.1</service-base-pack.version>
+        <BRBASE-generated-dto.version>11.1.6</BRBASE-generated-dto.version>
+        <BRPROGRAM-generated-dto.version>9.0.1</BRPROGRAM-generated-dto.version>
+        <spring-boot-starter-data-solr.version>2.4.12</spring-boot-starter-data-solr.version>
+        <commons-domain-service.version>1.0.0</commons-domain-service.version>
+        <commons-market-service.version>1.3.3</commons-market-service.version>
+        <commons-post-service.version>1.3.0</commons-post-service.version>
+        <changemaker-opportunity-service.version>3.0.9</changemaker-opportunity-service.version>
+        <commons-opportunity-service.version>0.0.7</commons-opportunity-service.version>
+        <commons-query-service.version>0.2.3</commons-query-service.version>
+        <commons-worknode-service.version>2.1.7</commons-worknode-service.version>
+        <poi.version>5.2.2</poi.version>
+    </properties>
+    <modules>
+        <module>avro</module>
+        <module>dto</module>
+        <module>client</module>
+        <module>service</module>
+    </modules>
+
+    <dependencies>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-service-pack</artifactId>
+                <version>${service-base-pack.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-search-service-avro</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-search-service-dto</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-search-service-client</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-worknode-service-dto</artifactId>
+                <version>${commons-worknode-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-domain-service-dto</artifactId>
+                <version>${commons-domain-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-market-service-dto</artifactId>
+                <version>${commons-market-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-post-service-dto</artifactId>
+                <version>${commons-post-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-query-service-vms-dto</artifactId>
+                <version>${commons-query-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-opportunity-service-dto</artifactId>
+                <version>${commons-opportunity-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>changemaker-opportunity-service-dto</artifactId>
+                <version>${changemaker-opportunity-service.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.platformcommons</groupId>
+                    <artifactId>commons-api-generator-maven-plugin</artifactId>
+                    <version>0.1.8</version>
+                    <executions>
+                        <execution>
+                            <configuration>
+                                <serviceName>sample-service</serviceName>
+                                <clientPackage>com.platformcommons.platform.service.search.client</clientPackage>
+                                <dtoPackage>com.platformcommons.platform.service.search.dto</dtoPackage>
+                                <inputSpec>${project.basedir}/../service/src/main/resources/specs/master.yml</inputSpec>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
+
+

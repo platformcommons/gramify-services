@@ -1,0 +1,380 @@
+databaseChangeLog:
+- changeSet:
+    id: 1686658507092-1
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: context
+            type: varchar(255)
+        tableName: ref_data
+- changeSet:
+    id: 1686658507092-2
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: context_id
+            type: varchar(255)
+        tableName: ref_data
+- changeSet:
+    id: 1686658507092-3
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: media_url
+            type: varchar(255)
+        tableName: ref_data
+- changeSet:
+    id: 1686658507092-4
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sequence
+            type: integer
+        tableName: ref_data
+- changeSet:
+    id: 1686658507092-5
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: tagged_to_entity_id
+            type: bigint
+        tableName: post
+- changeSet:
+    id: 1686658507092-6
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: tagged_to_entity_type
+            type: varchar(255)
+        tableName: post
+
+
+- changeSet:
+    id: 1689233627183-1
+    author: vishal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: post_tenant_configPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_public_feed_allowed
+            type: BIT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_login
+            type: VARCHAR(255)
+        tableName: post_tenant_config
+- changeSet:
+    id: 1689233627183-2
+    author: vishal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: tenant_id
+        constraintName: UniqueTenantId
+        tableName: post_tenant_config
+- changeSet:
+    id: 1689233627183-3
+    author: vishal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: tenant_login
+        constraintName: UniqueTenantLogin
+        tableName: post_tenant_config
+
+
+- changeSet:
+    id: 1690509802940-5
+    author: vishal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_read_event_logPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: entity_id
+            type: BIGINT
+        - column:
+            name: entity_type
+            type: VARCHAR(255)
+        - column:
+            name: user_id
+            type: BIGINT
+        tableName: user_read_event_log
+- changeSet:
+    id: 1690509802940-6
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: content
+            type: LONGTEXT
+        tableName: post
+- changeSet:
+    id: 1690509802940-7
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: content_type
+            type: varchar(255)
+        tableName: post
+- changeSet:
+    id: 1690509802940-8
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: read_count
+            type: bigint
+        tableName: post
+- changeSet:
+    id: 1690509802940-9
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: read_time_estimate
+            type: time
+        tableName: post
+- changeSet:
+    id: 1690509802940-10
+    author: vishal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_USER_READ_EVENT_LOGUNIQUE_IDENTIFIER_COL
+        tableName: user_read_event_log
+- changeSet:
+    id: 1690509802940-11
+    author: vishal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: user_id, entity_id, entity_type
+        constraintName: uk_user_id_entity_id_entity_type
+        tableName: user_read_event_log
+- changeSet:
+    id: 1690509802940-12
+    author: vishal (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: entity_id
+        indexName: idx_entity_id
+        tableName: user_read_event_log
+- changeSet:
+    id: 1690509802940-13
+    author: vishal (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: entity_type
+        indexName: idx_entity_type
+        tableName: user_read_event_log
+- changeSet:
+    id: 1690509802940-14
+    author: vishal (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: user_id
+        indexName: idx_user_id
+        tableName: user_read_event_log
+
+#databaseChangeLog:  - humam
+- changeSet:
+    id: 1691673174678-5
+    author: humam (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: category
+            type: varchar(255)
+        tableName: post
+- changeSet:
+    id: 1691673174678-6
+    author: humam (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sub_category
+            type: varchar(255)
+        tableName: post
+
+
+
+- changeSet:
+    id: 1692364599413-5
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: attachment_kind
+            type: varchar(255)
+        tableName: attachment
+- changeSet:
+    id: 1692364599413-6
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: attachment_kind_identifier
+            type: varchar(255)
+        tableName: attachment
+- changeSet:
+    id: 1692364599413-7
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: attachment_kind_meta
+            type: varchar(255)
+        tableName: attachment
+- changeSet:
+    id: 1692364599413-8
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sequence
+            type: bigint
+        tableName: attachment
+
+- changeSet:
+    id: 1692703109631-5
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: status
+            type: varchar(255)
+        tableName: post
+- changeSet:
+    id: 1692703109631-6
+    author: vishal (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: status_updated_date
+            type: datetime
+        tableName: post
+- changeSet:
+      id: 1694083355261-11
+      author: sandeep (generated)
+      changes:
+          - addColumn:
+                columns:
+                    - column:
+                          name: title
+                          type: varchar(255)
+                tableName: post

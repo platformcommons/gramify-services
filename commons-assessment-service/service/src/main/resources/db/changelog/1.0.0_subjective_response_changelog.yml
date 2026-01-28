@@ -1,0 +1,17 @@
+databaseChangeLog:
+- changeSet:
+    id: subject_response_remarks_id_1
+    author: jitendra (manual)
+    changes:
+    - modifyDataType:
+          tableName: dr_subjective_response
+          columnName: remarks
+          newDataType: longtext
+- changeSet:
+    id: objective_response_remarks_id_2
+    author: jitendra (manual)
+    changes:
+      - modifyDataType:
+          tableName: dr_objective_response
+          columnName: remarks
+          newDataType: longtext

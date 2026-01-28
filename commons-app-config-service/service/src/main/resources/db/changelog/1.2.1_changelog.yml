@@ -1,0 +1,35 @@
+databaseChangeLog:
+- changeSet:
+    id: 1766992978124-2
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: app_rbac_meta
+            type: bigint
+        tableName: app_operation
+- changeSet:
+    id: 1766992978124-3
+    author: sandeep (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: role_type
+            type: varchar(255)
+        tableName: app_rbac_meta
+- changeSet:
+    id: 1766992978124-4
+    author: sandeep (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_rbac_meta
+        baseTableName: app_operation
+        constraintName: FKk9brukjci202clsdhcu5m4rgu
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_rbac_meta
+        validate: true
+

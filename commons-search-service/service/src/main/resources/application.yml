@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: commons-search-service
+  profiles:
+    active: ${COMMONS_ENVIRONMENT_PROFILE:dev}
+  config:
+    import: "optional:configserver:${COMMONS_CONFIG_SERVER_URL:https://dev.platformcommons.org/commons-config}"

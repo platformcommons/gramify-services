@@ -1,0 +1,2547 @@
+openapi: 3.0.0
+info:
+  title: post-service
+  version: '1.0.1'
+tags:
+  - name: Post
+  - name: PostActor
+  - name: Reaction
+  - name: Response
+  - name: Attachment
+  - name: LinkedPost
+paths:
+  /api/v1/post/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      operationId: get-post-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/post/timeline:
+    get:
+      summary: Fetch Timeline
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      operationId: fetch-timeline
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: appContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: domainContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: languageContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: locationContext
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: postType
+          required: false
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: direction
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: taggedToEntityType
+          required: false
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: taggedToEntityId
+        - schema:
+            type: string
+          in: query
+          name: category
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: subCategory
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: status
+          required: false
+
+  /api/v1/post/me:
+    patch:
+      summary: Patch Post For Logged In User
+      operationId: patchUpdateForLoggedInUser
+      parameters:
+        - schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+          in: query
+          name: addedAttachmentIds
+          required: false
+        - schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+          in: query
+          name: deleteAttachmentIds
+          required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+      description: ''
+  /api/v1/post/public:
+    get:
+      summary: Get By Id For Public
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      operationId: get-post-by-id-for-public
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: tenantLogin
+          required: true
+  /api/v1/post/uuid/public:
+    get:
+      summary: Get By UUID For Public
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      operationId: getPostByUUIDForPublic
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: uuid
+          required: true
+  /api/v1/post:
+    get:
+      summary: Get By Id
+      tags:
+        - Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      operationId: get-post
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: Publish Post
+      operationId: post-post
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+    put:
+      summary: Update Post
+      operationId: put-post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+      description: ''
+    patch:
+      summary: Update Post Using Patch
+      operationId: patch-post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+      description: ''
+    delete:
+      summary: Delete Post
+      operationId: delete-post
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          description: Either postId or identifier required
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: identifier
+          description: Either postId or identifier required
+          required: false
+      description: This API deletes existing post
+      tags:
+        - Post
+  /api/v1/reaction/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Reaction
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reaction'
+      operationId: get-reaction-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+
+  /api/v1/reaction/response/{responseId}:
+    post:
+      summary: Save Reaction For A Response
+      operationId: createReactionForResponse
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reaction'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: path
+          name: responseId
+          required: true
+      tags:
+        - Reaction
+
+  /api/v1/reaction/entity-type:
+    post:
+      summary: Post Reaction By Entity Type
+      operationId: postReactionByEntityType
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reaction'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: entityId
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: entityType
+          required: true
+      tags:
+        - Reaction
+
+  /api/v1/reaction:
+    get:
+      summary: Get By Id
+      tags:
+        - Reaction
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reaction'
+      operationId: get-reaction
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: createReactionForPost
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reaction'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: Either postId or postIdentifier required
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: postIdentifier
+          required: false
+          description: Either postId or postIdentifier required
+      tags:
+        - Reaction
+    put:
+      summary: ''
+      operationId: put-reaction
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reaction'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reaction'
+      tags:
+        - Reaction
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-reaction
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: reactionIdentifier
+          required: false
+          description: Either reactionId or reactionIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Reaction
+  /api/v1/response/page:
+    get:
+      summary: Get Response By EntityId And EntityType
+      operationId: getResponsePageByEntityIdAndType
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Response'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: entityId
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: entityType
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+        - schema:
+            type: string
+          in: query
+          name: direction
+        - schema:
+            type: string
+          in: query
+          name: tenantLogin
+          required: true
+  /api/v1/response/posts/page:
+    get:
+      summary: Get Response for Post
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Response'
+      operationId: get-response-page-for-post
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: Either postId or postIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: postIdentifier
+          description: Either postId or postIdentifier required
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+        - schema:
+            type: string
+          in: query
+          name: direction
+        - schema:
+            type: string
+          in: query
+          name: responseType
+  /api/v1/response/posts/page/public:
+    get:
+      summary: Get Response By PostId For Public
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Response'
+      operationId: get-response-page-for-post-for-public
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          required: true
+          name: postId
+          description: Either postId or postIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: postIdentifier
+          description: Either postId or postIdentifier required
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+        - schema:
+            type: string
+          in: query
+          name: direction
+        - schema:
+            type: string
+          in: query
+          required: true
+          name: tenantLogin
+
+  /api/v1/response/posts/uuid/page/public:
+    get:
+      summary: Get Response By Post UUID For Public
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Response'
+      operationId: getResponseByPostUUIDForPublic
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: postUUID
+          description: Either postId or postIdentifier required
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+        - schema:
+            type: string
+          in: query
+          name: direction
+
+  /api/v1/response/{responseId}/reaction/me:
+    get:
+      summary: Get My Reaction and Total Count On A Response
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReactionForUpdate'
+      operationId: getMyReactionAndTotalCountOnAResponse
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: path
+          name: responseId
+          required: true
+
+  /api/v1/response:
+    get:
+      summary: Get By Id
+      tags:
+        - Response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      operationId: get-response
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: Post Response By EntityId And EntityType
+      operationId: post-response-by-entity-type
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: entityId
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: entityType
+          required: true
+      tags:
+        - Response
+    put:
+      summary: ''
+      operationId: put-response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      tags:
+        - Response
+      description: ''
+    patch:
+      summary: 'Patch Response'
+      operationId: patchResponse
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      tags:
+        - Response
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-response
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: responseId
+          required: false
+          description: Either responseId or responseIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: responseIdentifier
+          required: false
+          description: Either responseId or responseIdentifier required
+        - schema:
+            type: string
+          in: query
+          name: reason
+          description: reason for deleting response
+          required: true
+      tags:
+        - Response
+
+  /api/v1/post/{postId}/response:
+    delete:
+      summary: Delete Response By Me Or On My Post
+      operationId: deleteResponseOnAPost
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: responseId
+          required: true
+          description: Either responseId or responseIdentifier required
+        - schema:
+            type: integer
+            format: int64
+          in: path
+          name: postId
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          description: reason for deleting response
+          required: true
+      tags:
+        - Response
+
+  /api/v1/response/posts:
+    post:
+      summary: ''
+      operationId: post-response-for-post
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: Either postId or postIdentifier required
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: postIdentifier
+          required: false
+          description: Either postId or postIdentifier required
+      tags:
+        - Response
+      description: This API allows to create a Response for Post.
+
+  /api/v1/posts/user-read-event-logs/me:
+    post:
+      summary: ''
+      operationId: create-user-read-event-for-post
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: PostId is required
+          required: true
+      tags:
+        - Post
+      description: This API allows to create user-read-event-logs for Post by CurrentUser
+  /api/v1/attachments:
+    delete:
+      summary: Delete attachment
+      operationId: delete-attachment
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: entityId
+          description: EntityId is required
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: entityType
+          required: EntityType is required
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: attachmentId
+          description: AttachmentId is required
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          description: Reason is Required
+          required: true
+      description: This API deletes existing attachment
+      tags:
+        - Attachment
+  /api/v1/posts/status:
+    patch:
+      summary: Patch Post Status
+      operationId: patch-post-status
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      tags:
+        - Post
+      description: 'This API Updated the Post Status'
+
+  /api/v1/post-actor-certificates/post:
+    get:
+      summary: Get By PostId
+      tags:
+        - PostActorCertificate
+      operationId: getByPostId
+      parameters:
+        - name: postId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: The ID of the post to retrieve actor certificates for.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostActorCertificate'
+
+  /api/v1/post/admin:
+    get:
+      summary: Fetch Post For Admin
+      tags:
+        - Post
+      operationId: fetchPostForAdmin
+      parameters:
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: The page number.
+        - name: size
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: The page size.
+        - name: appContext
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The application context.
+        - name: postType
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The post type.
+        - name: postSubTypes
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          description: The set of post subtypes.
+        - name: sortBy
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The field to sort by.
+        - name: direction
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The sort direction.
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The post category.
+        - name: subCategory
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The post subcategory.
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The post status.
+        - name: actorType
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The actor type.
+        - name: actorId
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+          description: The actor ID.
+        - name: excludeStatus
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The actor ID.
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                   $ref: '#/components/schemas/Post'
+    patch:
+      summary: Update Post And Assign Certificate to a Post from Admin
+      tags:
+        - Post
+      operationId: patchUpdatePostAndAssignCertificate
+      parameters:
+        - name: sendMail
+          in: query
+          required: false
+          schema:
+            type: boolean
+      requestBody:
+        description: The PostDTO to update and assign a certificate.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '204':
+          description: No Content
+
+  /api/v1/certificate-templates:
+    patch:
+      summary: Patch Tenant Certificate Template
+      description: Patch the Tenant Certificate Template.
+      operationId: patchUpdate
+      tags:
+        - TenantCertificateTemplate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantCertificateTemplate'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantCertificateTemplate'
+    post:
+      summary: Post Tenant Certificate Template For Logged In Tenant
+      tags:
+        - TenantCertificateTemplate
+      operationId: postCertificateTemplateForLoggedInTenant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantCertificateTemplate'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+
+  /api/v1/certificate-templates/me:
+    get:
+      summary: Get Certificate Templates For Logged In Tenant
+      tags:
+        - TenantCertificateTemplate
+      operationId: getCertificateTemplatesForLoggedInTenant
+      parameters:
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sortBy
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: direction
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TenantCertificateTemplate'
+
+  /api/v1/post/reaction/me:
+    get:
+      summary: Get My Reaction and Total Count
+      description: |
+        This endpoint retrieves a user's reaction and the total count of reactions for a post by its ID.
+      operationId: getMyReactionAndTotalCount
+      tags:
+        - Post
+      parameters:
+        - in: query
+          name: postId
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: The ID of the post for which to get the reaction and total count.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReactionForUpdate'
+
+  /api/v1/post-actor/me:
+    get:
+      summary: Get Post Actor Of Logged In User
+      tags:
+        - PostActor
+      operationId : getForLoggedInUser
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostActor'
+    patch:
+      summary: Patch Update For Logged In User
+      tags:
+        - PostActor
+      operationId: patchUpdateForLoggedInUser
+      requestBody:
+        description: PostActorDTO object for updating
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostActor'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostActor'
+
+  /api/v1/post-tenant-config/me:
+    get:
+      summary: Get Post Tenant Config For Logged In Tenant
+      tags:
+        - PostTenantConfig
+      operationId: getForLoggedInTenant
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostTenantConfig'
+
+  /api/v1/post-tenant-config/public:
+    get:
+      summary: Get Post Tenant Config By Tenant Login
+      tags:
+        - PostTenantConfig
+      operationId: getByTenantLogin
+      parameters:
+        - name: tenantLogin
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostTenantConfig'
+
+  /api/v1/post-tenant-config/:
+    post:
+      summary: Save Post Tenant Config
+      tags:
+        - PostTenantConfig
+      operationId: save
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostTenantConfig'
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostTenantConfig'
+    patch:
+      summary: Patch Update Post Tenant Config
+      tags:
+        - PostTenantConfig
+      operationId: patchUpdate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostTenantConfig'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostTenantConfig'
+
+  /api/v1/post/status/bulk:
+    patch:
+      summary: Change Status Of Posts In Bulk And Assign Certificate
+      description: |
+        This endpoint allows changing the status of multiple posts in bulk and optionally assigning certificates.
+      operationId: changeStatusAndAssignCertificateInBulk
+      tags:
+        - Post
+      parameters:
+        - name: postIds
+          in: query
+          description: Set of post IDs to change the status for.
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+          style: form
+          explode: true
+        - name: status
+          in: query
+          description: New status to assign to the posts.
+          required: true
+          schema:
+            type: string
+          style: form
+          explode: true
+        - name: assignCertificate
+          in: query
+          description: Whether to assign certificates.
+          required: false
+          schema:
+            type: boolean
+          style: form
+          explode: true
+        - name: tenantCertificateTemplateId
+          in: query
+          description: ID of the certificate template to use for assignment.
+          required: false
+          schema:
+            type: integer
+            format: int64
+          style: form
+          explode: true
+        - name: sendMail
+          in: query
+          description: Whether to send certificate emails.
+          required: false
+          schema:
+            type: boolean
+          style: form
+          explode: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+
+  /api/v1/post/task/{taskId}:
+    get:
+      summary: Check Task Status
+      operationId: getTaskStatus
+      tags:
+        - Post
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /api/v1/post/all/me:
+    get:
+      summary: Fetch My Posts
+      operationId: fetchPostsForLoggedInUser
+      tags:
+        - Post
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          description: Page size
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: appContext
+          in: query
+          description: Filter by app context
+          schema:
+            type: string
+        - name: domainContext
+          in: query
+          description: Filter by domain context
+          schema:
+            type: string
+        - name: postType
+          in: query
+          description: Filter by post type
+          schema:
+            type: string
+        - name: postSubType
+          in: query
+          description: Filter by post sub-type
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          description: Sort by field
+          schema:
+            type: string
+        - name: direction
+          in: query
+          description: Sort direction
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter by status
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+
+  /api/v2/post/all/me:
+    get:
+      summary: Fetch My Posts V2
+      operationId: fetchPostsForLoggedInUserV2
+      tags:
+        - Post
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          description: Page size
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: appContext
+          in: query
+          description: Filter by app context
+          schema:
+            type: string
+        - name: domainContext
+          in: query
+          description: Filter by domain context
+          schema:
+            type: string
+        - name: postType
+          in: query
+          description: Filter by post type
+          schema:
+            type: string
+        - name: postSubType
+          in: query
+          description: Filter by post sub-type
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          description: Sort by field
+          schema:
+            type: string
+        - name: direction
+          in: query
+          description: Sort direction
+          schema:
+            type: string
+        - name: includeStatusSet
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: excludeStatusSet
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+
+  /api/v1/post/user/all/public:
+    get:
+      summary: Fetch All Published Posts By User Id
+      operationId: fetchPublishedPostsByUserId
+      tags:
+        - Post
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          description: Page size
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: appContext
+          in: query
+          description: Filter by app context
+          schema:
+            type: string
+        - name: domainContext
+          in: query
+          description: Filter by domain context
+          schema:
+            type: string
+        - name: postType
+          in: query
+          description: Filter by post type
+          schema:
+            type: string
+        - name: postSubType
+          in: query
+          description: Filter by post sub-type
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          description: Sort by field
+          schema:
+            type: string
+        - name: direction
+          in: query
+          description: Sort direction
+          schema:
+            type: string
+        - name: tenantLogin
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+
+  /api/v1/post-notification-templates/default:
+    post:
+      summary: Create Default Post Notification Template
+      operationId: createDefaultPostNotificationTemplate
+      tags:
+        - PostNotificationTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostNotificationTemplate'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /api/v1/post-notification-templates:
+    post:
+      summary: Create Post Notification Template
+      operationId: createPostNotificationTemplate
+      tags:
+        - PostNotificationTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostNotificationTemplate'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+    get:
+      summary: Get Post Notification Templates for Logged In Tenant
+      operationId: getForLoggedInTenant
+      tags:
+        - PostNotificationTemplate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostNotificationTemplate'
+    patch:
+      summary: Patch Update Post Notification Template
+      operationId: patchUpdate
+      tags:
+        - PostNotificationTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostNotificationTemplate'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostNotificationTemplate'
+
+  /api/v3/post:
+    post:
+      summary: Publish Post with Multiple Attachments via AttachmentIds
+      operationId: savePostWithMultipleAttachments
+      tags:
+        - Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      parameters:
+        - name: attachmentIds
+          in: query
+          description: List of attachment IDs
+          required: false
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /api/v1/post/linked-post:
+    get:
+      summary: Get All LinkedPost
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LinkedPost'
+        '206':
+          description: Partial Content
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LinkedPost'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      operationId: getAllLinkedPost
+      description: This API gives all an existing LinkedPost within the boundary of pagination.
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: page
+          description: Page
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: size
+          description: Size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sortBy
+          description: SortBy
+        - schema:
+            type: string
+          in: query
+          name: direction
+          description: Direction
+        - schema:
+            type: string
+          in: query
+          name: linkingType
+          description: linkingType
+          required: false
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: postId
+          description: postId
+          required: false
+      tags:
+        - LinkedPost
+    post:
+      summary: ''
+      operationId: createLinkPost
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      description: This API creates a LinkedPost.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkedPost'
+      tags:
+        - LinkedPost
+    put:
+      summary: Update LinkedPost
+      operationId: updateLinkedPost
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedPost'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedPost'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      description: This API update an existing linkedPost.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkedPost'
+        description: Required LinkedPostDTO for the update operation
+      tags:
+        - LinkedPost
+    patch:
+      summary: Patch LinkedPost
+      operationId: patchLinkedPost
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedPost'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      description: This API patch an existing LinkedPost.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkedPost'
+        description: Required LinkedPost for the patch operation.
+      tags:
+        - LinkedPost
+  '/api/v1/post/linked-post/{linkedPostId}':
+    parameters:
+      - schema:
+          type: integer
+          format: int64
+        name: linkedPostId
+        in: path
+        required: true
+        description: linkedPost Id
+    get:
+      summary: Get LinkedPost By Id
+      tags:
+        - LinkedPost
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedPost'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      operationId: getLinkedPostById
+      description: This API get an existing LinkedPost by id.
+    delete:
+      summary: Delete LinkedPost
+      operationId: deleteLinkedPostById
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      description: This API delete an existing LinkedPost by Id.
+      tags:
+        - LinkedPost
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: reason
+          description: Reason
+          required: true
+
+  /api/v1/report-flag/page:
+    get:
+      summary: Get By Page
+      tags:
+        - ReportFlag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReportFlag'
+      operationId: get-report-flag-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reportType
+        - schema:
+            type: string
+          in: query
+          name: marketCode
+  /api/v1/report-flag:
+    get:
+      summary: Get By Id
+      tags:
+        - ReportFlag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportFlag'
+      operationId: get-report-flag
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-report-flag
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportFlag'
+      tags:
+        - ReportFlag
+    put:
+      summary: ''
+      operationId: put-report-flag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportFlag'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportFlag'
+      tags:
+        - ReportFlag
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-report-flag
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - ReportFlag
+
+
+components:
+  schemas:
+    Post:
+      title: Post
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        postedBy:
+          $ref: '#/components/schemas/PostActor'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostTag'
+        postTagActors:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostTagActor'
+        payload:
+          type: string
+        commentCount:
+          type: integer
+          format: int64
+        reactCount:
+          type: integer
+          format: int64
+        emotion:
+          type: string
+        expertRank:
+          type: integer
+          format: int64
+        pointsAwarded:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+        isPinnedPost:
+          type: boolean
+        postTime:
+          type: string
+          format: date-time
+        postStartDate:
+          type: string
+          format: date-time
+        postEndDate:
+          type: string
+          format: date-time
+        postType:
+          type: string
+        visibility:
+          type: string
+        linkedEntityCode:
+          type: string
+        attachmentUrl:
+          type: string
+        locationContext:
+          type: string
+        appContext:
+          type: string
+        languageContext:
+          type: string
+        domainContext:
+          type: string
+        isPublic:
+          type: boolean
+        isSensitive:
+          type: boolean
+        isModified:
+          type: boolean
+        isModerated:
+          type: boolean
+        hasAttachment:
+          type: boolean
+        taggedToEntityType:
+          type: string
+        taggedToEntityId:
+          type: integer
+          format: int64
+        content:
+          type: string
+        readCount:
+          type: integer
+          format: int64
+        readTimeEstimate:
+          type: string
+          format: time
+        contentType:
+          type: string
+        category:
+          type: string
+        subCategory:
+          type: string
+        status:
+          type: string
+        statusUpdatedDate:
+          type: string
+          format: date-time
+        postSubType:
+          type: string
+        effort:
+          $ref: '#/components/schemas/UoMValue'
+        approvedEffort:
+          $ref: '#/components/schemas/UoMValue'
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        address:
+          type: string
+        postImpacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostImpact'
+        postContents:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostContent'
+        title:
+          type: string
+        evaluationRemarks:
+          type: string
+        postActorCertificate:
+            $ref: '#/components/schemas/PostActorCertificate'
+        causes:
+          type: array
+          items:
+            type: string
+        titles:
+          type: array
+          items:
+            $ref: '#/components/schemas/MultiLanguage'
+        payloads:
+          type: array
+          items:
+            $ref: '#/components/schemas/MultiLanguage'
+        contents:
+          type: array
+          items:
+            $ref: '#/components/schemas/MultiLanguage'
+        authorResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthorResponse'
+
+    PostActor:
+      title: PostActor
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        actorId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        iconpic:
+          type: string
+        username:
+          type: string
+        actorType:
+          type: string
+        emailAddress:
+          type: string
+        countOfPostTypeDifferenceClick:
+          type: integer
+          format: int32
+
+    Reaction:
+      title: Reaction
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        reactedBy:
+          $ref: '#/components/schemas/PostActor'
+        reactedDateTime:
+          type: string
+          format: date-time
+        reactedOnEntityId:
+          type: integer
+          format: int64
+        reactedOnEntityType:
+          type: string
+        reactionType:
+          type: string
+    Response:
+      title: Response
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        responseBy:
+          $ref: '#/components/schemas/PostActor'
+        payload:
+          type: string
+        responseType:
+          type: string
+        responseDateTime:
+          type: string
+          format: date-time
+
+    PostImpact:
+      title: PostImpact
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        postId:
+          type: integer
+          format: int64
+        beneficiaryType:
+          type: string
+        label:
+          type: string
+        actualImpact:
+          $ref: '#/components/schemas/UoMValue'
+        approvedImpact:
+          $ref: '#/components/schemas/UoMValue'
+
+    TenantCertificateTemplate:
+      title: TenantCertificateTemplate
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        certificateUUIDFormat:
+          type: string
+        title:
+          type: string
+        templateUrl:
+          type: string
+        jsonDataForPosition:
+          type: string
+        cause:
+          type: string
+        certificateTextDetailsSet:
+          type: array
+          items:
+             $ref: '#/components/schemas/CertificateTextDetails'
+
+
+    PostActorCertificate:
+      title: PostActorCertificate
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        postId:
+          type: integer
+          format: int64
+        postActorId:
+          type: integer
+          format: int64
+        url:
+          type: string
+        title:
+          type: string
+        certificateTemplateCode:
+          type: string
+        awardedBy:
+          type: integer
+          format: int64
+        isPublic:
+          type: boolean
+        issuedDate:
+          type: string
+          format: date-time
+        validTillDate:
+          type: string
+          format: date-time
+        mailSent:
+          type: boolean
+        mailSentDate:
+          type: string
+          format: date-time
+
+    ReactionForUpdate:
+      title: ReactionForUpdate
+      type: object
+      properties:
+        reactedByMe:
+          type: boolean
+        totalReactCount:
+          type: integer
+          format: int64
+
+    PostTenantConfig:
+      title: PostTenantConfig
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+        tenantLogin:
+          type: string
+        isPublicFeedAllowed:
+          type: boolean
+        countOfPostTypeDifferenceShown:
+          type: integer
+          format: int32
+        isUserProfilePublic:
+          type: boolean
+        isUserFeedPublic:
+          type: boolean
+        tenantLogoUrl:
+          type: string
+        isLoggedInFeedAllowed:
+          type: boolean
+        getIsResponseAndReactionPublic:
+          type: boolean
+
+    CertificateTextDetails:
+      title: CertificateTextDetails
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        tenantCertificateTemplateId:
+          type: integer
+          format: int64
+        textCode:
+          type: string
+        fontSize:
+          type: integer
+          format: int32
+        fontStyle:
+          type: integer
+          format: int32
+        fontName:
+          type: string
+        colorCode:
+          type: string
+        pointX:
+          type: integer
+          format: int32
+        pointY:
+          type: integer
+          format: int32
+        justification:
+          type: integer
+          format: int32
+
+    PostNotificationTemplate:
+      title: PostNotificationTemplate
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        isDefault:
+          type: boolean
+        notificationEventConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotificationEventConfig'
+
+    NotificationEventConfig:
+      title: NotificationEventConfig
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        eventCode:
+          type: string
+        postType:
+          type: string
+        postSubType:
+          type: string
+        postStatus:
+          type: string
+        notificationCode:
+          type: string
+        subjectLineFormat:
+          type: string
+        postNotificationTemplateId:
+          type: integer
+          format: int64
+
+    MultiLanguage:
+      title: MultiLanguage
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        text:
+          type: string
+        languageContext:
+          type: string
+
+    LinkedPost:
+      title: LinkedPost
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        sourcePost:
+          $ref: '#/components/schemas/Post'
+        targetPost:
+          $ref: '#/components/schemas/Post'
+        linkingType:
+          type: string
+
+    AuthorResponse:
+      title: AuthorResponse
+      type: object
+      properties:
+        payload:
+          type: string
+        type:
+          type: string
+
+
+    PostContent:
+      title: PostContent
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        contentData:
+          type: string
+        contentType:
+          type: string
+        contentMimeType:
+          type: string
+
+
+    Proposal:
+      title: Proposal
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        problemStatement:
+          type: string
+        proposedSolution:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProposalTag'
+
+
+    ReportFlag:
+      title: ReportFlag
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        reportType:
+          type: string
+        reportStatus:
+          type: string
+        reportedOnEntityId:
+          type: integer
+          format: int64
+        reportedOnEntityType:
+          type: string
+        reporteeRemarks:
+          type: string
+        reportedOnDateTime:
+          type: string
+          format: date-time
+        reviewedByActorId:
+          type: integer
+          format: int64
+        reviewedByActorType:
+          type: string
+        reviewerRemarks:
+          type: string
+        reportText:
+          type: string
+        reportedByActorId:
+          type: integer
+          format: int64
+        reportedByActorType:
+          type: string
+        marketCode:
+          type: string
+
+    PostTagActor:
+      title: PostTagActor
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        actorId:
+          type: integer
+          format: int64
+        actorIdentifier:
+          type: string
+        actorName:
+          type: string
+        sequence:
+          type: integer
+          format: int64
+        post:
+          $ref: '#/components/schemas/Post'

@@ -1,0 +1,1587 @@
+databaseChangeLog:
+- changeSet:
+    id: 1717836373222-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: assesse_dimPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: assesse_id
+            type: BIGINT
+        - column:
+            name: assessed_for_entity_id
+            type: VARCHAR(255)
+        - column:
+            name: assessed_for_entity_type
+            type: VARCHAR(255)
+        - column:
+            name: assessee_actor_id
+            type: VARCHAR(255)
+        - column:
+            name: assessee_actor_type
+            type: VARCHAR(255)
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: assesse_created_at
+            type: BIGINT
+        - column:
+            name: assessment_instance_id
+            type: BIGINT
+        - column:
+            name: assessment_taken_on
+            type: datetime
+        - column:
+            name: assessor_actor_id
+            type: VARCHAR(255)
+        - column:
+            name: assessor__actor_type
+            type: VARCHAR(255)
+        - column:
+            name: correct_question
+            type: BIGINT
+        - column:
+            name: in_active_at
+            type: BIGINT
+        - column:
+            name: in_active_reason
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: score
+            type: DOUBLE
+        - column:
+            name: total_question
+            type: BIGINT
+        tableName: assesse_dim
+- changeSet:
+    id: 1717836373222-2
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: assesse_response_factPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: aia_default_response_id
+            type: BIGINT
+        - column:
+            name: assesse_created_at
+            type: BIGINT
+        - column:
+            name: assessed_for_entity_id
+            type: VARCHAR(255)
+        - column:
+            name: assessed_for_entity_type
+            type: VARCHAR(255)
+        - column:
+            name: assessee_actor_id
+            type: VARCHAR(255)
+        - column:
+            name: assessee_actor_type
+            type: VARCHAR(255)
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_assesse_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_id
+            type: BIGINT
+        - column:
+            name: assessment_taken_on
+            type: datetime
+        - column:
+            name: assessor_id
+            type: VARCHAR(255)
+        - column:
+            name: assessor_type
+            type: VARCHAR(255)
+        - column:
+            name: child_default_option_id
+            type: BIGINT
+        - column:
+            name: correct_question
+            type: BIGINT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: in_active_at
+            type: BIGINT
+        - column:
+            name: in_active_reason
+            type: VARCHAR(255)
+        - column:
+            name: is_active
+            type: BIT
+        - column:
+            name: language
+            type: VARCHAR(255)
+        - column:
+            name: mtf_option_id
+            type: BIGINT
+        - column:
+            name: multi_select_response
+            type: TEXT
+        - column:
+            name: multi_select_response_ids
+            type: VARCHAR(255)
+        - column:
+            name: objective_response
+            type: TEXT
+        - column:
+            name: option_id
+            type: BIGINT
+        - column:
+            name: parent_question_id
+            type: BIGINT
+        - column:
+            name: percentage
+            type: DOUBLE
+        - column:
+            name: question_id
+            type: BIGINT
+        - column:
+            name: question_response
+            type: LONGTEXT
+        - column:
+            name: question_text
+            type: TEXT
+        - column:
+            name: response_created_at
+            type: BIGINT
+        - column:
+            name: response_updated_at
+            type: BIGINT
+        - column:
+            name: score
+            type: DOUBLE
+        - column:
+            name: section_questions_id
+            type: BIGINT
+        - column:
+            name: subjective_response_ids
+            type: VARCHAR(255)
+        - column:
+            name: subjective_responses
+            type: LONGTEXT
+        - column:
+            name: user_display_name
+            type: VARCHAR(255)
+        - column:
+            name: user_login
+            type: VARCHAR(255)
+        tableName: assesse_response_fact
+- changeSet:
+    id: 1717836373222-3
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: assesse_skill_dimPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: assesse_actor_id
+            type: VARCHAR(255)
+        - column:
+            name: assesse_actor_type
+            type: VARCHAR(255)
+        - column:
+            name: assesse_id
+            type: BIGINT
+        - column:
+            name: correct_question_ids
+            type: TEXT
+        - column:
+            name: correct_questions
+            type: BIGINT
+        - column:
+            name: incorrect_question_ids
+            type: TEXT
+        - column:
+            name: scored
+            type: DOUBLE
+        - column:
+            name: skill_id
+            type: BIGINT
+        - column:
+            name: total_questions
+            type: BIGINT
+        - column:
+            name: total_weight
+            type: DOUBLE
+        tableName: assesse_skill_dim
+- changeSet:
+    id: 1717836373222-4
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: assessment_instance_dimPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: assessment_code
+            type: VARCHAR(255)
+        - column:
+            name: assessment_created_at
+            type: BIGINT
+        - column:
+            name: assessment_desc
+            type: TEXT
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_created_at
+            type: BIGINT
+        - column:
+            name: assessment_instance_end_date
+            type: datetime
+        - column:
+            name: assessment_instance_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_name
+            type: TEXT
+        - column:
+            name: assessment_instance_start_date
+            type: datetime
+        - column:
+            name: assessment_mode
+            type: VARCHAR(255)
+        - column:
+            name: assessment_name
+            type: TEXT
+        - column:
+            name: assessment_subtype
+            type: VARCHAR(255)
+        - column:
+            name: assessment_type
+            type: VARCHAR(255)
+        - column:
+            name: base_language
+            type: VARCHAR(255)
+        - column:
+            name: conducted_by_actor_id
+            type: VARCHAR(255)
+        - column:
+            name: conducted_by_actor_type
+            type: VARCHAR(255)
+        - column:
+            name: context
+            type: VARCHAR(255)
+        - column:
+            name: created_by
+            type: BIGINT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: domain
+            type: VARCHAR(255)
+        - column:
+            name: duplicated_count
+            type: BIGINT
+        - column:
+            name: duplicated_from
+            type: BIGINT
+        - column:
+            name: for_entity_id
+            type: VARCHAR(255)
+        - column:
+            name: for_entity_type
+            type: VARCHAR(255)
+        - column:
+            name: in_active_at
+            type: BIGINT
+        - column:
+            name: in_active_reason
+            type: VARCHAR(255)
+        - column:
+            name: is_active
+            type: BIT
+        - column:
+            name: is_public
+            type: BIT
+        - column:
+            name: is_specific_visibility
+            type: BIT
+        - column:
+            name: language
+            type: VARCHAR(255)
+        - column:
+            name: monitered_by_actor_id
+            type: VARCHAR(255)
+        - column:
+            name: monitered_by_actor_type
+            type: VARCHAR(255)
+        - column:
+            name: question_paper_code
+            type: VARCHAR(255)
+        - column:
+            name: question_paper_description
+            type: TEXT
+        - column:
+            name: question_paper_id
+            type: BIGINT
+        - column:
+            name: question_paper_id_created_at
+            type: BIGINT
+        - column:
+            name: question_paper_name
+            type: TEXT
+        - column:
+            name: response_count
+            type: BIGINT
+        - column:
+            name: schedule_status
+            type: VARCHAR(255)
+        - column:
+            name: sub_domain
+            type: VARCHAR(255)
+        - column:
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: total_question
+            type: BIGINT
+        - column:
+            name: total_weight
+            type: DOUBLE
+        tableName: assessment_instance_dim
+- changeSet:
+    id: 1717836373222-5
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: currency_valuePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: currency
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: value
+            type: DOUBLE
+        tableName: currency_value
+- changeSet:
+    id: 1717836373222-6
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: mltextPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: language_code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: text
+            type: TEXT
+        tableName: mltext
+- changeSet:
+    id: 1717836373222-7
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: option_factPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_id
+            type: BIGINT
+        - column:
+            name: child_default_option_id
+            type: BIGINT
+        - column:
+            name: default_option_id
+            type: BIGINT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: mtf_option_id
+            type: BIGINT
+        - column:
+            name: options_id
+            type: BIGINT
+        - column:
+            name: parent_question_id
+            type: BIGINT
+        - column:
+            name: question_id
+            type: BIGINT
+        - column:
+            name: question_paper_id
+            type: BIGINT
+        - column:
+            name: question_paper_section_id
+            type: BIGINT
+        - column:
+            name: response_count
+            type: BIGINT
+        - column:
+            name: section_question_id
+            type: BIGINT
+        - column:
+            name: tenant_id
+            type: BIGINT
+        tableName: option_fact
+- changeSet:
+    id: 1717836373222-8
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: options_dimPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: child_default_option_id
+            type: BIGINT
+        - column:
+            name: child_question
+            type: TEXT
+        - column:
+            name: created_at
+            type: BIGINT
+        - column:
+            name: created_by
+            type: BIGINT
+        - column:
+            name: default_option_id
+            type: BIGINT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: is_correct
+            type: BIT
+        - column:
+            name: language
+            type: VARCHAR(255)
+        - column:
+            name: mtf_option_id
+            type: BIGINT
+        - column:
+            name: option_code
+            type: VARCHAR(255)
+        - column:
+            name: option_text
+            type: TEXT
+        - column:
+            name: option_weight
+            type: DOUBLE
+        - column:
+            name: options_id
+            type: BIGINT
+        - column:
+            name: parent_question_id
+            type: BIGINT
+        - column:
+            name: question_id
+            type: BIGINT
+        - column:
+            name: response_count
+            type: BIGINT
+        - column:
+            name: sequence
+            type: BIGINT
+        - column:
+            name: tenant_id
+            type: BIGINT
+        tableName: options_dim
+- changeSet:
+    id: 1717836373222-9
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: question_dimPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: child_default_option_id
+            type: BIGINT
+        - column:
+            name: correct_options
+            type: BIGINT
+        - column:
+            name: create_at
+            type: BIGINT
+        - column:
+            name: create_by
+            type: BIGINT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: language
+            type: VARCHAR(255)
+        - column:
+            name: options
+            type: BIGINT
+        - column:
+            name: parent_question_id
+            type: BIGINT
+        - column:
+            name: question_code
+            type: VARCHAR(255)
+        - column:
+            name: question_domain
+            type: VARCHAR(255)
+        - column:
+            name: question_id
+            type: BIGINT
+        - column:
+            name: question_sub_domain
+            type: VARCHAR(255)
+        - column:
+            name: question_subtype
+            type: VARCHAR(255)
+        - column:
+            name: question_text
+            type: TEXT
+        - column:
+            name: question_type
+            type: VARCHAR(255)
+        - column:
+            name: question_weight
+            type: DOUBLE
+        - column:
+            name: tenant_id
+            type: BIGINT
+        tableName: question_dim
+- changeSet:
+    id: 1717836373222-10
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: question_dim_id
+            type: BIGINT
+        - column:
+            name: skill_ids
+            type: BIGINT
+        tableName: question_dim_skill_ids
+- changeSet:
+    id: 1717836373222-11
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: question_factPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_id
+            type: BIGINT
+        - column:
+            name: assessment_question_paper_id
+            type: BIGINT
+        - column:
+            name: child_default_option_id
+            type: BIGINT
+        - column:
+            name: correct_count
+            type: BIGINT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: incorrect_count
+            type: BIGINT
+        - column:
+            name: linked_default_option_id
+            type: BIGINT
+        - column:
+            name: linked_question_id
+            type: BIGINT
+        - column:
+            name: parent_question_id
+            type: BIGINT
+        - column:
+            name: question_id
+            type: BIGINT
+        - column:
+            name: question_paper_section_id
+            type: BIGINT
+        - column:
+            name: question_skills
+            type: VARCHAR(255)
+        - column:
+            name: responded_count
+            type: BIGINT
+        - column:
+            name: section_question_id
+            type: BIGINT
+        - column:
+            name: skipped_count
+            type: BIGINT
+        - column:
+            name: tenant_id
+            type: BIGINT
+        tableName: question_fact
+- changeSet:
+    id: 1717836373222-12
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: question_paper_section_dimPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: BIGINT
+        - column:
+            name: created_by
+            type: BIGINT
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: language
+            type: VARCHAR(255)
+        - column:
+            name: mandatory_questions
+            type: BIGINT
+        - column:
+            name: name
+            type: TEXT
+        - column:
+            name: question_paper_id
+            type: BIGINT
+        - column:
+            name: question_paper_section_id
+            type: BIGINT
+        - column:
+            name: sequence
+            type: BIGINT
+        - column:
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: text
+            type: TEXT
+        - column:
+            name: total_questions
+            type: BIGINT
+        - column:
+            name: total_weight
+            type: DOUBLE
+        tableName: question_paper_section_dim
+- changeSet:
+    id: 1717836373222-13
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_classPK
+            name: code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        tableName: ref_class
+- changeSet:
+    id: 1717836373222-14
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_class_hierarchyPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: child
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: parent
+            type: VARCHAR(255)
+        tableName: ref_class_hierarchy
+- changeSet:
+    id: 1717836373222-15
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_dataPK
+            name: code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: class_code
+            type: VARCHAR(255)
+        - column:
+            name: context
+            type: VARCHAR(255)
+        - column:
+            name: context_id
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: LONGTEXT
+        - column:
+            name: media_url
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: sequence
+            type: INT
+        tableName: ref_data
+- changeSet:
+    id: 1717836373222-16
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_data_hierarchyPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: child
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: parent
+            type: VARCHAR(255)
+        tableName: ref_data_hierarchy
+- changeSet:
+    id: 1717836373222-17
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: ref_data_code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: labels_id
+            type: BIGINT
+        tableName: ref_data_labels
+- changeSet:
+    id: 1717836373222-18
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: section_question_dimPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: BIGINT
+        - column:
+            name: created_by
+            type: BIGINT
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: language
+            type: VARCHAR(255)
+        - column:
+            name: mandatory_question
+            type: BIT
+        - column:
+            name: question_id
+            type: BIGINT
+        - column:
+            name: question_paper_id
+            type: BIGINT
+        - column:
+            name: question_paper_section_id
+            type: BIGINT
+        - column:
+            name: section_question_id
+            type: BIGINT
+        - column:
+            name: sequence
+            type: BIGINT
+        - column:
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: total_questions
+            type: BIGINT
+        - column:
+            name: total_weight
+            type: DOUBLE
+        tableName: section_question_dim
+- changeSet:
+    id: 1717836373222-19
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: skill_factPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: assessment_id
+            type: BIGINT
+        - column:
+            name: assessment_instance_id
+            type: BIGINT
+        - column:
+            name: child_default_option_id
+            type: BIGINT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: parent_question_id
+            type: BIGINT
+        - column:
+            name: question_id
+            type: BIGINT
+        - column:
+            name: question_paper_id
+            type: BIGINT
+        - column:
+            name: question_paper_section_id
+            type: BIGINT
+        - column:
+            name: section_question_id
+            type: BIGINT
+        - column:
+            name: skill_id
+            type: BIGINT
+        - column:
+            name: total_weightage
+            type: DOUBLE
+        tableName: skill_fact
+- changeSet:
+    id: 1717836373222-20
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: uomvaluePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: max_value
+            type: DOUBLE
+        - column:
+            name: min_value
+            type: DOUBLE
+        - column:
+            constraints:
+              nullable: false
+            name: uom
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: value
+            type: DOUBLE
+        tableName: uomvalue
+- changeSet:
+    id: 1717836373222-21
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_contribution_dimPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linked_system
+            type: VARCHAR(255)
+        - column:
+            name: assessment_count
+            type: BIGINT
+        - column:
+            name: dim_type
+            type: VARCHAR(255)
+        - column:
+            name: dim_value
+            type: VARCHAR(255)
+        - column:
+            name: question_count
+            type: BIGINT
+        - column:
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: user_id
+            type: BIGINT
+        tableName: user_contribution_dim
+- changeSet:
+    id: 1717836373222-22
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_CURRENCY_VALUEUNIQUE_IDENTIFIER_COL
+        tableName: currency_value
+- changeSet:
+    id: 1717836373222-23
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_MLTEXTUNIQUE_IDENTIFIER_COL
+        tableName: mltext
+- changeSet:
+    id: 1717836373222-24
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code
+        constraintName: UC_REF_CLASSCODE_COL
+        tableName: ref_class
+- changeSet:
+    id: 1717836373222-25
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_CLASSUNIQUE_IDENTIFIER_COL
+        tableName: ref_class
+- changeSet:
+    id: 1717836373222-26
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_CLASS_HIERARCHYUNIQUE_IDENTIFIER_COL
+        tableName: ref_class_hierarchy
+- changeSet:
+    id: 1717836373222-27
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code
+        constraintName: UC_REF_DATACODE_COL
+        tableName: ref_data
+- changeSet:
+    id: 1717836373222-28
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_DATAUNIQUE_IDENTIFIER_COL
+        tableName: ref_data
+- changeSet:
+    id: 1717836373222-29
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_DATA_HIERARCHYUNIQUE_IDENTIFIER_COL
+        tableName: ref_data_hierarchy
+- changeSet:
+    id: 1717836373222-30
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_UOMVALUEUNIQUE_IDENTIFIER_COL
+        tableName: uomvalue
+- changeSet:
+    id: 1717836373222-31
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: labels_id
+        constraintName: UK_piceb2tue6rm9k0o3445fmw3l
+        tableName: ref_data_labels
+- changeSet:
+    id: 1717836373222-32
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: child, parent
+        constraintName: idx_ref_class_hierarchy_uniqueness
+        tableName: ref_class_hierarchy
+- changeSet:
+    id: 1717836373222-33
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: child, parent
+        constraintName: idx_ref_data_hierarchy_uniqueness
+        tableName: ref_data_hierarchy
+- changeSet:
+    id: 1717836373222-34
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code, class_code
+        constraintName: idx_ref_data_uniqueness
+        tableName: ref_data
+- changeSet:
+    id: 1717836373222-35
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: question_dim_id
+        baseTableName: question_dim_skill_ids
+        constraintName: FK1a3e4hhfn6hkr21jy1mx1k3e3
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: question_dim
+        validate: true
+- changeSet:
+    id: 1717836373222-36
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent
+        baseTableName: ref_class_hierarchy
+        constraintName: FK6xyymgvhidwp5087quqnmyrck
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_class
+        validate: true
+- changeSet:
+    id: 1717836373222-37
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: labels_id
+        baseTableName: ref_data_labels
+        constraintName: FK7c0r78us1n0b6q5kugwq2uwry
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1717836373222-38
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: child
+        baseTableName: ref_class_hierarchy
+        constraintName: FK7ljxoxieetbim2fyq3mi232vq
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_class
+        validate: true
+- changeSet:
+    id: 1717836373222-39
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent
+        baseTableName: ref_data_hierarchy
+        constraintName: FK9m7md3hxns5sq00rw0o6m49h4
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1717836373222-40
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: child
+        baseTableName: ref_data_hierarchy
+        constraintName: FKcl7fa4jve0cdqewpdu4dwt3h1
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1717836373222-41
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ref_data_code
+        baseTableName: ref_data_labels
+        constraintName: FKqq6ry2bnqlx4rghglipavpihw
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+- changeSet:
+    id: 1718339186578-1
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sequence
+            type: bigint
+        tableName: assessment_instance_dim
+

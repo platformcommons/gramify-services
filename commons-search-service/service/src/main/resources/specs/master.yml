@@ -1,0 +1,2038 @@
+openapi: 3.0.0
+info:
+  version: 0.0.3
+  title: Commons Search Service
+tags:
+  - name: TenantUser
+  - name: CompanyMasterData
+  - name: EducationalInstitute
+  - name: App
+
+paths:
+  /api/v1/tenant-user:
+    post:
+      tags:
+        - TenantUser
+      operationId: saveTenantUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantUser'
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantUser'
+    put:
+      tags:
+        - TenantUser
+      operationId: updateTenantUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantUser'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  api/v1/tenant-users/search:
+    post:
+      tags:
+        - TenantUser
+      operationId: readTenantUserByDetails
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Search'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TenantUser'
+  api/v1/tenant-users/search/{keyword}:
+    get:
+      tags:
+        - TenantUser
+      operationId: readTenantUser
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: path
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TenantUser'
+
+  /api/v1/company:
+    post:
+      tags:
+        - CompanyMasterData
+      operationId: saveCompanyMasterData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyMasterData'
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyMasterData'
+
+    put:
+      tags:
+        - CompanyMasterData
+      operationId: updateCompanyMasterData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyMasterData'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+
+  api/v1/company/search/{keyword}:
+    get:
+      tags:
+        - CompanyMasterData
+      operationId: readCompany
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: path
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyMasterData'
+
+  api/v2/company/search:
+    get:
+      tags:
+        - CompanyMasterData
+      operationId: readCompanyByName
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: query
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyMasterData'
+
+  /api/v1/educational:
+    post:
+      tags:
+        - EducationalInstitute
+      operationId: saveEducationalInstitute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationalInstitute'
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationalInstitute'
+
+    put:
+      tags:
+        - EducationalInstitute
+      operationId: updateEducationalInstitute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationalInstitute'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+
+  api/v1/educational/search/{keyword}:
+    get:
+      tags:
+        - EducationalInstitute
+      operationId: readEducationalInstitute
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: path
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EducationalInstitute'
+
+  api/v2/educational/search:
+    get:
+      tags:
+        - EducationalInstitute
+      operationId: readEducationalInstituteByName
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: query
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EducationalInstitute'
+
+  api/v1/app/search/{keyword}:
+    get:
+      tags:
+        - App
+      operationId: readApp
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: path
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/App'
+  /api/v1/commons-area-code:
+    post:
+      tags:
+        - CommonsAreaPinCode
+      operationId: saveCommonsAreaPinCode
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommonsAreaPinCode'
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonsAreaPinCode'
+    put:
+      tags:
+        - CommonsAreaPinCode
+      operationId: updateCommonsAreaPinCode
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommonsAreaPinCode'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonsAreaPinCode'
+  api/v1/commons-area-code/search:
+    get:
+      tags:
+        - CommonsAreaPinCode
+      operationId: readCommonsAreaPinCode
+      parameters:
+        - schema:
+            type: string
+          name: keyword
+          in: query
+          required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonsAreaPinCode'
+
+
+components:
+  schemas:
+    TenantUser:
+      description: This is the TenantUser object
+      type: object
+      required:
+        - complete_name
+        - mobile
+        - email
+      properties:
+        id:
+          type: integer
+          format: int64
+        user_login:
+          type: string
+        complete_name:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        email:
+          type: string
+        gender:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pincode:
+          type: integer
+          format: int64
+        tenant_id:
+          type: integer
+          format: int64
+        tenant_login:
+          type: string
+        roles_codes:
+          type: string
+
+    Search:
+      type: object
+      required:
+        - complete_name
+        - mobile
+        - email
+      properties:
+        complete_name:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        email:
+          type: string
+
+    CompanyMasterData:
+      description: This is the CompanyMasterData object
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        alias:
+          type: string
+        state:
+          type: string
+        city:
+          type: string
+        domain:
+          type: string
+        category:
+          type: string
+
+    EducationalInstitute:
+      description: This is the EducationalInstitute object
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        alias:
+          type: string
+        state:
+          type: string
+        city:
+          type: string
+        type:
+          type: string
+
+    App:
+      title: App
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        slug:
+          type: string
+        authorId:
+          type: integer
+          format: int64
+        authorName:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+        domainCodes:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        subDomainCodes:
+          type: array
+          items:
+            type: string
+        useCaseIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        features:
+          type: object
+          additionalProperties:
+            type: string
+        rating:
+          type: number
+          format: double
+
+    UseCase:
+      title: UseCase
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        authorId:
+          type: integer
+          format: int64
+        sequence:
+          type: integer
+          format: int64
+        authorName:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+        domainCodes:
+          type: array
+          items:
+            type: string
+        subDomainCodes:
+          type: array
+          items:
+            type: string
+        features:
+          type: object
+          additionalProperties:
+            type: string
+
+    Domain:
+      title: Domain
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        code:
+          type: string
+        context:
+          type: string
+        tenantId:
+          type: integer
+          format: int64
+        subDomainCodes:
+          type: array
+          items:
+            type: string
+        isRoot:
+          type: boolean
+
+    DomainHierarchy:
+      title: DomainHierarchy
+      type: object
+      properties:
+        parentId:
+          type: integer
+          format: int64
+        childId:
+          type: integer
+          format: int64
+
+    ProductSKU:
+      title: ProductSKU
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        productId:
+          type: integer
+          format: int64
+        productCode:
+          type: string
+        productNames:
+          type: array
+          items:
+            type: string
+        productName_en:
+          type: string
+        productName_hin:
+          type: string
+        genericProductId:
+          type: integer
+          format: int64
+        genericProductNames:
+          type: array
+          items:
+            type: string
+        genericProductVarietyId:
+          type: integer
+          format: int64
+        genericProductVarietyNames:
+          type: array
+          items:
+            type: string
+        productSKUId:
+          type: integer
+          format: int64
+        productSKUNames:
+          type: array
+          items:
+            type: string
+        traderCenterProductId:
+          type: integer
+          format: int64
+        tmaChannelProductId:
+          type: integer
+          format: int64
+        categoryCodes:
+          type: array
+          items:
+            type: string
+        categoryNames:
+          type: array
+          items:
+            type: string
+        subCategoryCodes:
+          type: array
+          items:
+            type: string
+        subCategoryNames:
+          type: array
+          items:
+            type: string
+        traderId:
+          type: integer
+          format: int64
+        traderName:
+          type: string
+        channelId:
+          type: integer
+          format: int64
+        channelName:
+          type: string
+        channelCode:
+          type: string
+        marketId:
+          type: integer
+          format: int64
+        marketName:
+          type: string
+        marketCode:
+          type: string
+        availableQuantity:
+          type: integer
+          format: int64
+        serviceableArea:
+          type: array
+          items:
+            type: string
+        tenantId:
+          type: integer
+          format: int64
+
+
+
+    GenericProductVarietyFilter:
+      title: GenericProductVarietyFilter
+      type: object
+      required:
+        - page
+        - size
+        - fields
+        - marketCode
+        - channelCode
+      properties:
+        searchTerm:
+          type: string
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        sortBy:
+          type: string
+        direction:
+          type: string
+        fields:
+          type: array
+          items:
+            type: string
+        marketCode:
+          type: string
+        channelCode:
+          type: string
+        priceStartRange:
+          type: number
+          format: double
+        priceEndRange:
+          type: number
+          format: double
+        quantityStartRange:
+          type: number
+          format: double
+        quantityEndRange:
+          type: number
+          format: double
+        maxSellerCount:
+          type: integer
+          format: int64
+        subCategories:
+          type: array
+          items:
+            type: string
+        categories:
+          type: array
+          items:
+            type: string
+        genericProductVarietyId:
+          type: array
+          items:
+            type: integer
+            format: int64
+        genericProductId:
+          type: array
+          items:
+            type: integer
+            format: int64
+        excludeGenericProductVarietyId:
+          type: integer
+          format: int64
+        solutionId:
+          type: integer
+          format: int64
+        excludeCategoryCodes:
+          type: array
+          items:
+            type: string
+
+
+    CommonsAreaPinCode:
+      description: This is the CommonsAreaPinCode object
+      type: object
+      required:
+        - areaCode
+      properties:
+        id:
+          type: integer
+          format: int64
+        areaCode:
+          type: string
+        districtCode:
+          type: string
+        stateCode:
+          type: string
+        countryCode:
+          type: string
+        stateLabel:
+          type: string
+        districtLabel:
+          type: string
+        countryLabel:
+          type: string
+        label:
+          type: string
+        alternativeLabel:
+          type: string
+
+    OpportunityFilter:
+      title: OpportunityFilter
+      type: object
+      required:
+        - page
+        - size
+        - marketUUID
+      properties:
+        searchTerm:
+          type: string
+        addressSearchTerm:
+          type: string
+        fetch:
+          type: string
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        causeCodes:
+          type: array
+          items:
+            type: string
+        locationCodes:
+          type: array
+          items:
+            type: string
+        tenantLogins:
+          type: array
+          items:
+            type: string
+        locationTypes:
+          type: array
+          items:
+            type: string
+        skillCodes:
+          type: array
+          items:
+            type: string
+        opportunityTypes:
+          type: array
+          items:
+            type: string
+        opportunitySubTypes:
+          type: array
+          items:
+            type: string
+        marketUUID:
+          type: string
+        jobTypes:
+          type: array
+          items:
+            type: string
+        minimumCompensation:
+          type: number
+          format: double
+        maximumCompensation:
+          type: number
+          format: double
+        workPlaceTypes:
+          type: array
+          items:
+            type: string
+        minimumExperienceDays:
+          type: integer
+          format: int64
+        maximumExperienceDays:
+          type: integer
+          format: int64
+        cityCode:
+          type: string
+        stateCode:
+          type: string
+        countryCode:
+          type: string
+        roleTypes:
+          type: array
+          items:
+            type: string
+        pathways:
+          type: array
+          items:
+            type: string
+        sectors:
+          type: array
+          items:
+            type: string
+        cityCodes:
+          type: array
+          items:
+            type: string
+        organisationCodes:
+          type: array
+          items:
+            type: string
+        organisationTypes:
+          type: array
+          items:
+            type: string
+        datePostedCode:
+          type: string
+        status:
+          type: string
+        facetFields:
+          type: array
+          items:
+            type: string
+        marketPlaceVisibility:
+          type: string
+        createdByUserIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        fetchBasedOnRole:
+          type: boolean
+        restrictApplication:
+          type: boolean
+        opportunityTimeline:
+          type: string
+        opportunityCategories:
+          type: array
+          items:
+            type: string
+        opportunitySubCategories:
+          type: array
+          items:
+            type: string
+        excludeOpportunityIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        tags:
+          type: array
+          items:
+            type: string
+        scheduledStartDate:
+          type: string
+          format: date-time
+        scheduledEndDate:
+          type: string
+          format: date-time
+        tenantLogin:
+          type: string
+        opportunityTimelineBasedOnScheduledDate:
+          type: array
+          items:
+            type: string
+        opportunityTimelineBasedOnApplicationDate:
+          type: array
+          items:
+            type: string
+        targetGroups:
+          type: array
+          items:
+            type: string
+        fetchPromotedOpportunities:
+          type: boolean
+        educationQualificationCodes:
+          type: array
+          items:
+            type: string
+        educationDegreeCodes:
+          type: array
+          items:
+            type: string
+
+    Opportunity:
+      type: object
+      required:
+        -id
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        visibility:
+          type: string
+        type:
+          type: string
+        typeLabel:
+          type: string
+        subType:
+          type: string
+        scheduledStartDate:
+          type: string
+          format: date-time
+        scheduledEndDate:
+          type: string
+          format: date-time
+        applicationStartDate:
+          type: string
+          format: date-time
+        marketUuid:
+          type: string
+        applicationEndDate:
+          type: string
+          format: date-time
+        keyPoints:
+          type: string
+        expectedOutcome:
+          type: string
+        iconPic:
+          type: string
+        bannerImage:
+          type: string
+        tenant:
+          type: integer
+          format: int64
+        tenantLogin:
+          type: string
+        tenantName:
+          type: string
+        tenantIconPic:
+          type: string
+        tenantDescription:
+          type: string
+        tenantLink:
+          type: string
+        tenantSlug:
+          type: string
+        status:
+          type: string
+        opportunityApplicantCount:
+          type: integer
+          format: int64
+        slots:
+          type: integer
+          format: int32
+        minimumExperienceDays:
+          type: integer
+          format: int64
+        maximumExperienceDays:
+          type: integer
+          format: int64
+        marketPlaceVisibility:
+          type: string
+        cityCodes:
+          type: array
+          items:
+            type: string
+        stateCodes:
+          type: array
+          items:
+            type: string
+        countryCodes:
+          type: array
+          items:
+            type: string
+        addressesText:
+          type: array
+          items:
+            type: string
+        opportunityCauseList:
+          type: array
+          items:
+            type: string
+        opportunitySkillList:
+          type: array
+          items:
+            type: string
+        opportunityRoleTypeCodes:
+          type: array
+          items:
+            type: string
+        opportunitySectorCodes:
+          type: array
+          items:
+            type: string
+        opportunityPathwayCodes:
+          type: array
+          items:
+            type: string
+        workPlaceType:
+          type: string
+        jobType:
+          type: string
+        minimumCompensation:
+          type: number
+          format: double
+        maximumCompensation:
+          type: number
+          format: double
+        organisationCode:
+          type: string
+        organisationName:
+          type: string
+        organisationLogoUrl:
+          type: string
+        organisationType:
+          type: string
+        createdByUser:
+          type: integer
+          format: int64
+        createdDateTime:
+          type: string
+          format: date-time
+        sequence:
+          type: integer
+          format: int64
+        isRecommended:
+          type: boolean
+        visibleToRoles:
+          type: array
+          items:
+            type: string
+        stakeHolderUserIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        restrictApplication:
+          type: boolean
+        opportunityCategoryCodes:
+          type: array
+          items:
+            type: string
+        opportunitySubCategoryCodes:
+          type: array
+          items:
+            type: string
+        longDescription:
+          type: string
+        fetchType:
+          type: string
+        matchType:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        opportunityTimeline:
+          type: string
+        timezone:
+          type: string
+        commitment:
+          type: string
+        flowVersion:
+          type: string
+        locationType:
+          type: string
+        targetGroups:
+          type: array
+          items:
+            type: string
+        educationQualificationCodes:
+          type: array
+          items:
+            type: string
+        educationDegreeCodes:
+          type: array
+          items:
+            type: string
+        targetAmount:
+          type: number
+          format: double
+        amountCollected:
+          type: number
+          format: double
+        targetAmountCurrency:
+          type: string
+        manualAmountCollected:
+          type: double
+        displayTarget:
+          type: boolean
+
+    Post:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        postedByActorType:
+          type: string
+        postedByActorId:
+          type: integer
+          format: int64
+        postedByIconPic:
+          type: string
+        postedByName:
+          type: string
+        title:
+          type: string
+        payload:
+          type: string
+        postTime:
+          type: string
+          format: date-time
+        postType:
+          type: string
+        postSubType:
+          type: string
+        appContext:
+          type: string
+        content:
+          type: string
+        status:
+          type: string
+        isPublic:
+          type: boolean
+        tenantLogin:
+          type: string
+        tenantId:
+          type: integer
+          format: int64
+
+    CommonsLocation:
+      type: object
+      required:
+        -id
+      properties:
+        id:
+          type: string
+        stateCode:
+          type: string
+        countryCode:
+          type: string
+        cityCode:
+          type: string
+        districtCode:
+          type: string
+        addressLabel:
+          type: string
+        stateLabel:
+          type: string
+        cityLabel:
+          type: string
+        countryLabel:
+          type: string
+        latitude:
+          type: double
+        longitude:
+          type: double
+        locationCoordinates:
+          type: string
+        emojiCode:
+          type: string
+        locationType:
+          type: string
+        blockCode:
+          type: string
+        blockLabel:
+          type: string
+
+    CompanyMasterDataV2:
+      type: object
+      required:
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        alias:
+          type: string
+        websiteUrl:
+          type: string
+        logoUrl:
+          type: string
+    TagSearch:
+      title: TagSearch
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tagCode:
+          type: string
+        categoryCode:
+          type: string
+        subCategoryCode:
+          type: string
+        context:
+          type: string
+        type:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    GenericSolution:
+      title: GenericSolution
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        titles:
+          type: object
+          additionalProperties:
+            type: string
+        tagCodes:
+          type: array
+          items:
+            type: string
+        tagLabels:
+          type: array
+          items:
+            type: string
+        categoryCodes:
+          type: array
+          items:
+            type: string
+        categoryNames:
+          type: array
+          items:
+            type: string
+        subCategoryCodes:
+          type: array
+          items:
+            type: string
+        subCategoryNames:
+          type: array
+          items:
+            type: string
+        genericProductId:
+          type: integer
+          format: int64
+        genericProductCode:
+          type: string
+        genericProductName:
+          type: string
+        genericProductVarietyId:
+          type: integer
+          format: int64
+        genericProductVarietyCode:
+          type: string
+        genericProductVarietyName:
+          type: string
+        marketId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        solutionType:
+          type: string
+        noOfChildSolutions:
+          type: integer
+          format: int64
+
+    TMAChannelSolution:
+      title: TMAChannelSolution
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        traderCenterSolutionId:
+          type: integer
+          format: int64
+        solutionId:
+          type: integer
+          format: int64
+        tmaChannelSolutionId:
+          type: integer
+          format: int64
+        tagCodes:
+          type: array
+          items:
+            type: string
+        tagLabels:
+          type: array
+          items:
+            type: string
+        categoryCodes:
+          type: array
+          items:
+            type: string
+        categoryNames:
+          type: array
+          items:
+            type: string
+        subCategoryCodes:
+          type: array
+          items:
+            type: string
+        subCategoryNames:
+          type: array
+          items:
+            type: string
+        genericProductId:
+          type: integer
+          format: int64
+        genericProductCode:
+          type: string
+        genericProductName:
+          type: string
+        genericProductVarietyId:
+          type: integer
+          format: int64
+        genericProductVarietyCode:
+          type: string
+        genericProductVarietyName:
+          type: string
+        traderId:
+          type: integer
+          format: int64
+        traderIconURL:
+          type: string
+        traderName:
+          type: string
+        channelId:
+          type: integer
+          format: int64
+        channelName:
+          type: string
+        channelCode:
+          type: string
+        marketId:
+          type: integer
+          format: int64
+        marketName:
+          type: string
+        marketCode:
+          type: string
+        solutionType:
+          type: string
+        solutionClass:
+          type: string
+        baseSolutionId:
+          type: integer
+          format: int64
+        titles:
+          type: object
+          additionalProperties:
+            type: string
+        tagCodesByType:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        tagLabelsByType:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        tagLabelsByLang:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+    User:
+      type: object
+      required:
+        - userId
+      properties:
+        userId:
+          type: integer
+          format: int64
+        tenantId:
+          type: integer
+          format: int64
+        displayName:
+          type: string
+        login:
+          type: string
+        headLine:
+          type: string
+        genderCode:
+          type: string
+        profilePic:
+          type: string
+        primaryEmail:
+          type: string
+        primaryContactNumber:
+          type: string
+        primaryMobileCountryCode:
+          type: string
+        personId:
+          type: integer
+          format: int64
+        employmentDesignations:
+          type: array
+          items:
+            type: string
+        employmentOrganisationNames:
+          type: array
+          items:
+            type: string
+        currentStateCode:
+          type: string
+        currentCityCode:
+          type: string
+        currentCountryCode:
+          type: string
+        currentAddressLabel:
+          type: string
+        permanentStateCode:
+          type: string
+        permanentCityCode:
+          type: string
+        permanentCountryCode:
+          type: string
+        permanentAddressLabel:
+          type: string
+        cohort:
+          type: string
+        placementCity:
+          type: string
+        userAliasId:
+          type: string
+        totalYearsOfExperience:
+          type: double
+        educationQualificationCodes:
+          type: array
+          items:
+            type: string
+        relocationPreferenceSet:
+          type: array
+          items:
+            type: string
+        selfDeclarationCodes:
+          type: array
+          items:
+            type: string
+        educationDegreeCodes:
+          type: array
+          items:
+            type: string
+        educationInstituteNames:
+          type: array
+          items:
+            type: string
+        pathwayCodes:
+          type: array
+          items:
+            type: string
+        roleCodes:
+          type: array
+          items:
+            type: string
+        currentProfessionalStatus:
+          type: string
+        currentProfessionalStatusVisibility:
+          type: string
+        dateOfBirth:
+          type: string
+          format: date-time
+        memberSince:
+          type: string
+          format: date-time
+        currentCityLatLong:
+          type: string
+        permanentCityLatLong:
+          type: string
+        tenantLogin:
+          type: string
+        worknodeIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        employmentOrganisationCodes:
+          type: array
+          items:
+            type: string
+        currentEmploymentOrganisationCodes:
+          type: array
+          items:
+            type: string
+        educationInstituteCodes:
+          type: array
+          items:
+            type: string
+        pathwayLabels:
+          type: array
+          items:
+            type: string
+        profileVisibilityCodes:
+          type: array
+          items:
+            type: string
+
+    UserFilter:
+      type: object
+      properties:
+        searchTerm:
+          type: string
+        fetchBookmarkedUsers:
+          type: boolean
+        tenantLogin:
+          type: string
+        tenantId:
+          type: integer
+          format: int64
+        genderCodes:
+          type: array
+          items:
+            type: string
+        currentCountryCode:
+          type: string
+        currentStateCode:
+          type: string
+        currentCityCode:
+          type: string
+        currentCityCodes:
+          type: array
+          items:
+            type: string
+        facetFields:
+          type: array
+          items:
+            type: string
+        employmentOrganisationCodes:
+          type: array
+          items:
+            type: string
+        currentEmploymentOrganisationCodes:
+          type: array
+          items:
+            type: string
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        roleCodes:
+          type: array
+          items:
+            type: string
+        educationInstituteCodes:
+          type: array
+          items:
+            type: string
+        minimumTotalYearOfExperience:
+          type: double
+        maximumTotalYearOfExperience:
+          type: double
+        educationQualificationCodes:
+          type: array
+          items:
+            type: string
+        educationDegreeCodes:
+          type: array
+          items:
+            type: string
+        pathwayCodes:
+          type: array
+          items:
+            type: string
+        cohorts:
+          type: array
+          items:
+            type: string
+        placementCities:
+          type: array
+          items:
+            type: string
+        currentProfessionalStatusList:
+          type: array
+          items:
+            type: string
+        fetchType:
+          type: string
+        minLat:
+          type: number
+          format: double
+        minLong:
+          type: number
+          format: double
+        maxLat:
+          type: number
+          format: double
+        maxLong:
+          type: number
+          format: double
+        opportunityIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        excludeOpportunityIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        sortBy:
+          type: string
+        direction:
+          type: string
+        userIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        excludeUserIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        ageBaseLimit:
+          type: integer
+          format: int32
+        ageTopLimit:
+          type: integer
+          format: int32
+        memberSince:
+          type: string
+          format: date-time
+        worknodeId:
+          type: integer
+          format: int64
+        worknodeIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        fieldList:
+          type: array
+          items:
+            type: string
+        appContext:
+          type: string
+
+    OpportunityApplicantFilter:
+      type: object
+      properties:
+        searchTerm:
+          type: string
+        opportunityId:
+          type: integer
+          format: int64
+        applicationStatus:
+          type: string
+        stepCodeSet:
+          type: array
+          items:
+            type: string
+        pathwayCodes:
+          type: array
+          items:
+            type: string
+        opportunityApplicantTaskStatusSet:
+          type: array
+          items:
+            type: string
+        opportunityTaskIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        selectionStepIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        roleCodes:
+          type: array
+          items:
+            type: string
+        cohorts:
+          type: array
+          items:
+            type: string
+        placementCities:
+          type: array
+          items:
+            type: string
+        ownerResponseStepCode:
+          type: string
+        ownerResponseResultCode:
+          type: string
+        applicantCampaignCodes:
+          type: array
+          items:
+            type: string
+        applicantReferrerIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        stepStatusCodeSet:
+          type: array
+          items:
+            type: string
+        currentCitySet:
+          type: array
+          items:
+            type: string
+        startDateTime:
+          type: string
+          format: date-time
+        endDateTime:
+          type: string
+          format: date-time
+        interviewDateTime:
+          type: string
+          format: date-time
+        excludeApplicationStatus:
+          type: string
+        applicantOnboardingStatus:
+          type: string
+        attendanceStatusSet:
+          type: array
+          items:
+            type: string
+        failedRuleCodes:
+          type: array
+          items:
+            type: string
+        minimumTotalYearOfExperience:
+          type: double
+        maximumTotalYearOfExperience:
+          type: double
+        educationQualificationCodes:
+          type: array
+          items:
+            type: string
+        relocationPreferenceSet:
+          type: array
+          items:
+            type: string
+        selfDeclarationCodes:
+          type: array
+          items:
+            type: string
+        educationDegreeCodes:
+          type: array
+          items:
+            type: string
+        sortFieldName:
+          type: string
+        sortFieldOrder:
+          type: string
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        candidateType:
+          type: string
+        isVerified:
+          type: boolean
+        forRole:
+          type: string
+        retentionStatus:
+          type: string
+        assessmentSubStepId:
+          type: integer
+          format: int64
+        currentCountry:
+          type: string
+        currentState:
+          type: string
+        currentCity:
+          type: string
+        facetFields:
+          type: array
+          items:
+            type: string
+        rsvpStatusSet:
+          type: array
+          items:
+            type: string
+        supervisorId:
+          type: integer
+          format: int64
+        currentOwnerEntityId:
+          type: integer
+          format: int64
+        userIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        tenantLogin:
+          type: string
+        areaOfResidenceSet:
+          type: array
+          items:
+            type: string
+        userAttributeList:
+          type: array
+          items:
+            type: string
+        worknodeIdsForLoggedInUserFilter:
+          type: array
+          items:
+            type: integer
+            format: int64
+        communityIdsForLoggedInUserFilter:
+          type: array
+          items:
+            type: integer
+            format: int64
+        supervisorIdForLoggedInUserFilter:
+          type: integer
+          format: int64
+        eligibilityCriteriaCode:
+          type: string
+        startInterviewDateTime:
+          type: string
+          format: date-time
+        endInterviewDateTime:
+          type: string
+          format: date-time
+        entityIdSet:
+          type: array
+          items:
+            type: integer
+            format: int64
+        applicantSourceSet:
+          type: array
+          items:
+            type: string
+        applicantMediumSet:
+          type: array
+          items:
+            type: string
+        includeApplicantIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        assessmentFilter:
+          $ref: '#/components/schemas/AssessmentFilter'
+
+
+    EducationalInstituteV2:
+      title: EducationalInstituteV2
+      type: object
+      required:
+        - instituteName
+        - instituteType
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        instituteName:
+          type: string
+        parentInstituteName:
+          type: string
+        parentInstituteCode:
+          type: string
+        instituteType:
+          type: string
+        parentInstituteType:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        address:
+          type: string
+        website:
+          type: string
+
+    OpportunityApplicantTask:
+      title: OpportunityApplicantTask
+      type: object
+      properties:
+        opportunityApplicantId:
+          type: integer
+          format: int64
+        opportunityTaskId:
+          type: integer
+          format: int64
+        selectionStepId:
+          type: integer
+          format: int64
+        opportunityApplicantTaskStatus:
+          type: string
+
+    OpportunityApplicant:
+      title: OpportunityApplicant
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        marketUserId:
+          type: integer
+          format: int64
+        linkedUserId:
+          type: integer
+          format: int64
+        tenantLogin:
+          type: string
+        opportunityId:
+          type: integer
+          format: int64
+        applicationStatus:
+          type: string
+        currentStepStatus:
+          type: string
+        currentStepSubStatus:
+          type: string
+        currentSupervisorLinkedUserId:
+          type: integer
+          format: int64
+        forEntityId:
+          type: integer
+          format: int64
+        currentStepCode:
+          type: string
+        currentOwnerEntityId:
+          type: integer
+          format: int64
+        currentOwnerEntityType:
+          type: string
+        attendanceStatus:
+          type: string
+        retentionStatus:
+          type: string
+        forRole:
+          type: string
+        candidateType:
+          type: string
+        isVerified:
+          type: boolean
+        applicationType:
+          type: string
+        assessmentSubStepId:
+          type: integer
+          format: int64
+        rsvpStatus:
+          type: string
+        rsvpNotes:
+          type: string
+        applicationDateTime:
+          type: string
+          format: date-time
+        applicationSubmitDateTime:
+          type: string
+          format: date-time
+        applicationCompleteDateTime:
+          type: string
+          format: date-time
+        interviewDate:
+          type: string
+          format: date-time
+        policyAccepted:
+          type: boolean
+        cocAccepted:
+          type: boolean
+        loiAccepted:
+          type: boolean
+        areaOfResidence:
+          type: string
+        currentUserType:
+          type: string
+        appliedToEntityId:
+          type: integer
+          format: int64
+        applicantCampaign:
+          type: string
+        applicantReferrer:
+          type: integer
+          format: int64
+        name:
+          type: string
+        applicantEmail:
+          type: string
+        contactNumber:
+          type: string
+        applicantVersion:
+          type: integer
+          format: int64
+        userDTO:
+          $ref: '#/components/schemas/User'
+        applicantSource:
+          type: string
+        applicantMedium:
+          type: string
+
+    AssessmentFilter:
+      title: AssessmentFilter
+      type: object
+      properties:
+        assessmentId:
+          type: integer
+          format: int64
+        questionFilter:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestionFilter'
+
+    QuestionFilter:
+      title: QuestionFilter
+      type: object
+      properties:
+        questionId:
+          type: integer
+          format: int64
+        isAnd:
+          type: boolean
+        responseIds:
+          type: array
+          items:
+            type: integer
+            format: int64

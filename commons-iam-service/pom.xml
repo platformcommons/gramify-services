@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-service-base</artifactId>
+        <version>0.6.1</version>
+        <relativePath/>
+    </parent>
+    <properties>
+        <revision>3.2.4</revision>
+        <changelist/>
+        <commons-service-pack.version>0.6.1</commons-service-pack.version>
+        <BRBASE-generated-dto.version>11.1.6</BRBASE-generated-dto.version>
+        <json-flattener.version>0.14.0</json-flattener.version>
+        <system-stubs-jupiter.version>2.0.1</system-stubs-jupiter.version>
+        <jwt.version>3.19.1</jwt.version>
+        <commons.bulk-upload.sdk.version>1.2.2</commons.bulk-upload.sdk.version>
+        <commons-worknode-service.version>2.2.9</commons-worknode-service.version>
+        <commons-app-config-service.version>1.0.5</commons-app-config-service.version>
+        <commons-report-service.version>0.0.3</commons-report-service.version>
+        <commons-person-sdk.version>1.0.0</commons-person-sdk.version>
+        <commons-validator.version>1.8.0</commons-validator.version>
+        <commons-market-service.version>1.0.8</commons-market-service.version>
+    </properties>
+
+    <artifactId>commons-iam-base</artifactId>
+    <version>${revision}${changelist}</version>
+    <packaging>pom</packaging>
+
+    <name>commons-iam-base</name>
+
+
+    <modules>
+        <module>dto</module>
+        <module>client</module>
+        <module>service</module>
+    </modules>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>pcf-nexus</id>
+            <url>https://nexus.platformcommans.org/repository/pcf-group/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-service-pack</artifactId>
+                <version>${commons-service-pack.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-iam-avro</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-iam-dto</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-iam-client</artifactId>
+                <version>${revision}${changelist}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-report-service-dto</artifactId>
+                <version>${commons-report-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-app-config-service-dto</artifactId>
+                <version>${commons-app-config-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-bulk-upload</artifactId>
+                <version>${commons.bulk-upload.sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-person-sdk-dto</artifactId>
+                <version>${commons-person-sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mindtree.bridge.platform</groupId>
+                <artifactId>BRBASE-generated-dto</artifactId>
+                <version>${BRBASE-generated-dto.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-worknode-service-dto</artifactId>
+                <version>${commons-worknode-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-market-service-dto</artifactId>
+                <version>${commons-market-service.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

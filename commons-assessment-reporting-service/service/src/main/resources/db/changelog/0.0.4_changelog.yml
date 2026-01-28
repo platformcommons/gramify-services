@@ -1,0 +1,42 @@
+databaseChangeLog:
+- changeSet:
+    id: 1728110087050-1
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: assessee_actor_name
+            type: varchar(255)
+        tableName: assesse_response_fact
+- changeSet:
+    id: 1728110087050-2
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: assessor_name
+            type: varchar(255)
+        tableName: assesse_response_fact
+- changeSet:
+    id: 1728305154848-1
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: assessee_actor_name
+            type: TEXT
+        tableName: assesse_dim
+- changeSet:
+    id: 1728305154848-2
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: assessor_actor_name
+            type: TEXT
+        tableName: assesse_dim
+

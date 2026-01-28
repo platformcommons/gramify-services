@@ -1,0 +1,204 @@
+databaseChangeLog:
+- changeSet:
+    id: 1736257562284-3
+    author: aadarsh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_role_mapPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: role_code
+            type: VARCHAR(255)
+        - column:
+            name: user_id
+            type: BIGINT
+        tableName: user_role_map
+- changeSet:
+    id: 1736257562284-5
+    author: aadarsh (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: preferred_uom
+            type: varchar(255)
+        tableName: uomvalue
+- changeSet:
+    id: 1736257562284-6
+    author: aadarsh (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: preferred_value
+            type: double precision
+        tableName: uomvalue
+- changeSet:
+    id: 1736257562284-8
+    author: aadarsh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_USER_ROLE_MAPUNIQUE_IDENTIFIER_COL
+        tableName: user_role_map
+- changeSet:
+    id: 1736257562284-11
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tenant_id
+        baseTableName: user
+        constraintName: FKelinkvp4cx2ta4n5somgg77e2
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tenant
+        validate: true
+- changeSet:
+    id: 1736257562284-12
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: role_code
+        baseTableName: user_role_map
+        constraintName: FKq0gr9q4sq9h3m1tlqwi2yp6hi
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: role_code
+        referencedTableName: role
+        validate: true
+- changeSet:
+    id: 1736257562284-13
+    author: aadarsh (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: user_role_map
+        constraintName: FKq388ll15f0hdf6x123c1a9so6
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+      id: 1736487664589-14
+      author: aadarsh (generated)
+      changes:
+          - addUniqueConstraint:
+                columnNames: app_code, tenant_login
+                constraintName: UK5rjqpp5gt310uin5w1p7ax61w
+                tableName: app_detail
+- changeSet:
+      id: 1736487664589-15
+      author: aadarsh (generated)
+      changes:
+          - addNotNullConstraint:
+                columnDataType: bigint
+                columnName: user_id
+                tableName: user_role_map
+                validate: true
+#- changeSet:
+#      id: 1736487664589-16
+#      author: aadarsh (generated)
+#      changes:
+#          - addNotNullConstraint:
+#                columnDataType: varchar(255)
+#                columnName: role_code
+#                tableName: user_role_map
+#                validate: true
+- changeSet:
+      id: 1736487664589-17
+      author: aadarsh (generated)
+      changes:
+          - addNotNullConstraint:
+                columnDataType: varchar(255)
+                columnName: role_code
+                tableName: role
+                validate: true
+- changeSet:
+      id: 1736487664589-18
+      author: aadarsh (generated)
+      changes:
+          - addUniqueConstraint:
+                columnNames: role_code, user_id
+                constraintName: UK43dssicigbx4st50r3jn5l3tl
+                tableName: user_role_map
+- changeSet:
+    id: 1736257562284-19
+    author: aadarsh (generated)
+    changes:
+      - addColumn:
+          columns:
+            - column:
+                name: status
+                type: varchar(255)
+          tableName: user

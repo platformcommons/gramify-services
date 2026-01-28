@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.platformcommons</groupId>
+        <artifactId>commons-blocks-profiles-service-base</artifactId>
+        <version>${revision}${changelist}</version>
+    </parent>
+    <artifactId>commons-blocks-profiles-service-application-contract</artifactId>
+    <name>commons-blocks-profiles-service-application-contract</name>
+
+    <dependencies>
+        <!--for resolving base dto-->
+        <dependency>
+            <groupId>com.platformcommons</groupId>
+            <artifactId>commons-service-dto</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.platformcommons</groupId>
+                <artifactId>commons-workbench-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>dto</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/spec/master.yml</inputSpec>
+                            <output>${project.build.directory}/generated-sources/commons-service</output>
+                            <ignoreFileOverride>${project.basedir}/.codegen-ignore</ignoreFileOverride>
+                            <language>com.platformcommons.platform.dev.workbench.plugin.CommonsServiceDTOGenerator</language>
+                            <serviceName>commons-blocks-profiles-service</serviceName>
+                            <dtoPackage>com.platformcommons.platform.service.blockprofile.dto</dtoPackage>
+                        </configuration>
+                    </execution>
+<!--                    <execution>-->
+<!--                        <id>api</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <inputSpec>${project.basedir}/src/main/resources/spec/master.yml</inputSpec>-->
+<!--                            <output>${project.build.directory}/generated-sources/commons-service</output>-->
+<!--                            <ignoreFileOverride>${project.basedir}/.codegen-ignore</ignoreFileOverride>-->
+<!--                            <language>com.platformcommons.platform.dev.workbench.plugin.CommonsServiceAPIGenerator</language>-->
+<!--                            <apiPackage>>com.platformcommons.platform.service.blockprofile.api</apiPackage>-->
+<!--                            <serviceName>commons-blocks-profiles-service</serviceName>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

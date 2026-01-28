@@ -1,0 +1,2937 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1737456218420-3
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_addressPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: formatted_address
+                  type: VARCHAR(255)
+              - column:
+                  name: address_line_1
+                  type: VARCHAR(255)
+              - column:
+                  name: address_line_2
+                  type: VARCHAR(255)
+              - column:
+                  name: address_validity
+                  type: BIT
+              - column:
+                  name: city
+                  type: VARCHAR(255)
+              - column:
+                  name: country
+                  type: VARCHAR(255)
+              - column:
+                  name: district
+                  type: VARCHAR(255)
+              - column:
+                  name: geo_url
+                  type: VARCHAR(255)
+              - column:
+                  name: is_primary
+                  type: BIT
+              - column:
+                  name: landmark
+                  type: VARCHAR(255)
+              - column:
+                  name: latitude
+                  type: DECIMAL(19, 2)
+              - column:
+                  name: location_name
+                  type: VARCHAR(255)
+              - column:
+                  name: longitude
+                  type: DECIMAL(19, 2)
+              - column:
+                  name: panchayat
+                  type: VARCHAR(255)
+              - column:
+                  name: pin_code
+                  type: VARCHAR(255)
+              - column:
+                  name: place_id
+                  type: VARCHAR(255)
+              - column:
+                  name: state
+                  type: VARCHAR(255)
+              - column:
+                  name: taluk
+                  type: VARCHAR(255)
+              - column:
+                  name: town
+                  type: VARCHAR(255)
+              - column:
+                  name: address_type
+                  type: VARCHAR(255)
+              - column:
+                  name: verified
+                  type: BIT
+              - column:
+                  name: verified_by
+                  type: BIGINT
+              - column:
+                  name: verified_date_time
+                  type: datetime
+              - column:
+                  name: village
+                  type: VARCHAR(255)
+            tableName: sdk_address
+  - changeSet:
+      id: 1737456218420-4
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_contactPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: contact_type
+                  type: VARCHAR(255)
+              - column:
+                  name: contact_value
+                  type: VARCHAR(255)
+              - column:
+                  name: is_verified
+                  type: BIT
+            tableName: sdk_contact
+  - changeSet:
+      id: 1737456218420-5
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_logistical_informationPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: district
+                  type: VARCHAR(255)
+              - column:
+                  name: pincode
+                  type: VARCHAR(255)
+              - column:
+                  name: state
+                  type: VARCHAR(255)
+              - column:
+                  name: willing_to_travel
+                  type: BIT
+              - column:
+                  name: distances_willing_to_travel_to
+                  type: BIGINT
+              - column:
+                  name: min_group_size
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+              - column:
+                  name: price_per_hour
+                  type: BIGINT
+            tableName: sdk_logistical_information
+  - changeSet:
+      id: 1737456218420-6
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_organization_financePK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: cin
+                  type: VARCHAR(255)
+              - column:
+                  name: gst_number
+                  type: VARCHAR(255)
+              - column:
+                  name: pan
+                  type: VARCHAR(255)
+              - column:
+                  name: tan
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_organization_id
+                  type: BIGINT
+            tableName: sdk_organization_finance
+  - changeSet:
+      id: 1737456218420-7
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_personPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: entity_id
+                  type: BIGINT
+              - column:
+                  name: entity_type
+                  type: VARCHAR(255)
+              - column:
+                  name: has_organization
+                  type: BIT
+            tableName: sdk_person
+  - changeSet:
+      id: 1737456218420-8
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_achievementPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: end_date
+                  type: datetime
+              - column:
+                  name: has_validity
+                  type: BIT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: start_date
+                  type: datetime
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_achievement
+  - changeSet:
+      id: 1737456218420-9
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_address_mapPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: address_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_address_map
+  - changeSet:
+      id: 1737456218420-10
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_bank_detailPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: account_number
+                  type: VARCHAR(255)
+              - column:
+                  name: account_type
+                  type: VARCHAR(255)
+              - column:
+                  name: bank_name
+                  type: VARCHAR(255)
+              - column:
+                  name: branch_code
+                  type: VARCHAR(255)
+              - column:
+                  name: branch_name
+                  type: VARCHAR(255)
+              - column:
+                  name: is_primary
+                  type: BIT
+              - column:
+                  name: micr
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_bank_detail
+  - changeSet:
+      id: 1737456218420-11
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_contact_mapPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: contact_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_contact_map
+  - changeSet:
+      id: 1737456218420-12
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_educationPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: drop_out_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: drop_out_status
+                  type: VARCHAR(255)
+              - column:
+                  name: education_board
+                  type: VARCHAR(255)
+              - column:
+                  name: education_category
+                  type: VARCHAR(255)
+              - column:
+                  name: education_type
+                  type: VARCHAR(255)
+              - column:
+                  name: institute
+                  type: VARCHAR(255)
+              - column:
+                  name: percentage_of_marks
+                  type: DECIMAL(19, 2)
+              - column:
+                  name: remarks
+                  type: LONGTEXT
+              - column:
+                  name: stream
+                  type: VARCHAR(255)
+              - column:
+                  name: subject
+                  type: VARCHAR(255)
+              - column:
+                  name: year_of_joining
+                  type: datetime
+              - column:
+                  name: year_of_passing
+                  type: datetime
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_education
+  - changeSet:
+      id: 1737456218420-13
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_familyPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: average_monthly_income
+                  type: DECIMAL(19, 2)
+              - column:
+                  name: date_of_birth
+                  type: datetime
+              - column:
+                  name: education_level
+                  type: VARCHAR(255)
+              - column:
+                  name: gender
+                  type: VARCHAR(255)
+              - column:
+                  name: linked_person_id
+                  type: VARCHAR(255)
+              - column:
+                  name: member_name
+                  type: VARCHAR(255)
+              - column:
+                  name: occupation
+                  type: VARCHAR(255)
+              - column:
+                  name: primary_contact_number
+                  type: VARCHAR(255)
+              - column:
+                  name: primary_mail
+                  type: VARCHAR(255)
+              - column:
+                  name: relationship
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_family
+  - changeSet:
+      id: 1737456218420-14
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_identifierPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: identifier_attachment_url
+                  type: VARCHAR(255)
+              - column:
+                  name: identifier_type
+                  type: VARCHAR(255)
+              - column:
+                  name: is_verified
+                  type: VARCHAR(255)
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_identifier
+  - changeSet:
+      id: 1737456218420-15
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_insurancePK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: policy_number
+                  type: VARCHAR(255)
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_insurance
+  - changeSet:
+      id: 1737456218420-16
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_interestPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: interest_code
+                  type: VARCHAR(255)
+              - column:
+                  name: interest_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_interest
+  - changeSet:
+      id: 1737456218420-17
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_languagePK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: can_read
+                  type: BIT
+              - column:
+                  name: can_speak
+                  type: BIT
+              - column:
+                  name: can_write
+                  type: BIT
+              - column:
+                  name: language_code
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_language
+  - changeSet:
+      id: 1737456218420-18
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_organizationPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: entity_name
+                  type: VARCHAR(255)
+              - column:
+                  name: entity_type_code
+                  type: VARCHAR(255)
+              - column:
+                  name: gst_availablility
+                  type: BIT
+              - column:
+                  name: has_12a
+                  type: BIT
+              - column:
+                  name: has_80g
+                  type: BIT
+              - column:
+                  name: has_export_experience
+                  type: BIT
+              - column:
+                  name: has_fcra
+                  type: BIT
+              - column:
+                  name: has_gst
+                  type: BIT
+              - column:
+                  name: is_msme
+                  type: BIT
+              - column:
+                  name: lisence
+                  type: VARCHAR(255)
+              - column:
+                  name: msme_type_code
+                  type: VARCHAR(255)
+              - column:
+                  name: msme_uam_number
+                  type: VARCHAR(255)
+              - column:
+                  name: org_type_code
+                  type: VARCHAR(255)
+              - column:
+                  name: organization
+                  type: VARCHAR(255)
+              - column:
+                  name: shipping_info
+                  type: VARCHAR(255)
+              - column:
+                  name: year_of_registration
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_organization
+  - changeSet:
+      id: 1737456218420-19
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_pocPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: department
+                  type: VARCHAR(255)
+              - column:
+                  name: designation
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: linked_person_id
+                  type: BIGINT
+              - column:
+                  name: mobile
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_poc
+  - changeSet:
+      id: 1737456218420-20
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_professionPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: attachment_link
+                  type: VARCHAR(255)
+              - column:
+                  name: designation
+                  type: VARCHAR(255)
+              - column:
+                  name: employee_id
+                  type: VARCHAR(255)
+              - column:
+                  name: employer_details
+                  type: VARCHAR(255)
+              - column:
+                  name: employer_name
+                  type: VARCHAR(255)
+              - column:
+                  name: employer_type
+                  type: VARCHAR(255)
+              - column:
+                  name: from_date
+                  type: datetime
+              - column:
+                  name: job_sector
+                  type: VARCHAR(255)
+              - column:
+                  name: reason_for_leaving
+                  type: VARCHAR(255)
+              - column:
+                  name: to_date
+                  type: datetime
+              - column:
+                  name: work_details
+                  type: VARCHAR(255)
+              - column:
+                  name: work_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_profession
+  - changeSet:
+      id: 1737456218420-21
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_profilePK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: about
+                  type: VARCHAR(255)
+              - column:
+                  name: age
+                  type: BIGINT
+              - column:
+                  name: age_as_on_date
+                  type: datetime
+              - column:
+                  name: area_of_expertise
+                  type: VARCHAR(255)
+              - column:
+                  name: average_monthly_income
+                  type: DECIMAL(19, 2)
+              - column:
+                  name: blood_group
+                  type: VARCHAR(255)
+              - column:
+                  name: caste
+                  type: VARCHAR(255)
+              - column:
+                  name: category
+                  type: VARCHAR(255)
+              - column:
+                  name: cover_pic_url
+                  type: VARCHAR(255)
+              - column:
+                  name: date_of_birth
+                  type: datetime
+              - column:
+                  name: disability_details
+                  type: VARCHAR(255)
+              - column:
+                  name: disability_status
+                  type: VARCHAR(255)
+              - column:
+                  name: display_name
+                  type: VARCHAR(255)
+              - column:
+                  name: first_name
+                  type: VARCHAR(255)
+              - column:
+                  name: gender
+                  type: VARCHAR(255)
+              - column:
+                  name: headline
+                  type: VARCHAR(255)
+              - column:
+                  name: hobby
+                  type: VARCHAR(255)
+              - column:
+                  name: icon_pic_url
+                  type: VARCHAR(255)
+              - column:
+                  name: intro_video_url
+                  type: VARCHAR(255)
+              - column:
+                  name: last_name
+                  type: VARCHAR(255)
+              - column:
+                  name: life_status
+                  type: VARCHAR(255)
+              - column:
+                  name: marital_status
+                  type: VARCHAR(255)
+              - column:
+                  name: middle_name
+                  type: VARCHAR(255)
+              - column:
+                  name: mother_tongue
+                  type: VARCHAR(255)
+              - column:
+                  name: notes
+                  type: VARCHAR(255)
+              - column:
+                  name: occupation
+                  type: VARCHAR(255)
+              - column:
+                  name: religion
+                  type: VARCHAR(255)
+              - column:
+                  name: salutation
+                  type: VARCHAR(255)
+              - column:
+                  name: total_work_experience
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_profile
+  - changeSet:
+      id: 1737456218420-22
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_skillPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: proficiency_level
+                  type: VARCHAR(255)
+              - column:
+                  name: skill_code
+                  type: VARCHAR(255)
+              - column:
+                  name: skill_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_skill
+  - changeSet:
+      id: 1737456218420-23
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_person_social_mediaPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: facebook
+                  type: VARCHAR(255)
+              - column:
+                  name: instagram
+                  type: VARCHAR(255)
+              - column:
+                  name: linkedin
+                  type: VARCHAR(255)
+              - column:
+                  name: twitter
+                  type: VARCHAR(255)
+              - column:
+                  name: website
+                  type: VARCHAR(255)
+              - column:
+                  name: youtube
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_person_social_media
+  - changeSet:
+      id: 1737456218420-24
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_schedulePK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: code
+                  type: VARCHAR(255)
+              - column:
+                  name: sequence
+                  type: VARCHAR(255)
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: training_detail_id
+                  type: BIGINT
+            tableName: sdk_schedule
+  - changeSet:
+      id: 1737456218420-25
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdk_training_detailPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: person_id
+                  type: BIGINT
+            tableName: sdk_training_detail
+  - changeSet:
+      id: 1737456218420-26
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: person_id
+                  type: bigint
+            tableName: user
+  - changeSet:
+      id: 1737456218420-27
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_ADDRESSUNIQUE_IDENTIFIER_COL
+            tableName: sdk_address
+  - changeSet:
+      id: 1737456218420-28
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_CONTACTUNIQUE_IDENTIFIER_COL
+            tableName: sdk_contact
+  - changeSet:
+      id: 1737456218420-29
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_LOGISTICAL_INFORMATIONUNIQUE_IDENTIFIER_COL
+            tableName: sdk_logistical_information
+  - changeSet:
+      id: 1737456218420-30
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_ORGANIZATION_FINANCEUNIQUE_IDENTIFIER_COL
+            tableName: sdk_organization_finance
+  - changeSet:
+      id: 1737456218420-31
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSONUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person
+  - changeSet:
+      id: 1737456218420-32
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_ACHIEVEMENTUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_achievement
+  - changeSet:
+      id: 1737456218420-33
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_ADDRESS_MAPUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_address_map
+  - changeSet:
+      id: 1737456218420-34
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_BANK_DETAILUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_bank_detail
+  - changeSet:
+      id: 1737456218420-35
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_CONTACT_MAPUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_contact_map
+  - changeSet:
+      id: 1737456218420-36
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_EDUCATIONUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_education
+  - changeSet:
+      id: 1737456218420-37
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_FAMILYUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_family
+  - changeSet:
+      id: 1737456218420-38
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_IDENTIFIERUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_identifier
+  - changeSet:
+      id: 1737456218420-39
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_INSURANCEUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_insurance
+  - changeSet:
+      id: 1737456218420-40
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_INTERESTUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_interest
+  - changeSet:
+      id: 1737456218420-41
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_LANGUAGEUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_language
+  - changeSet:
+      id: 1737456218420-42
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_ORGANIZATIONUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_organization
+  - changeSet:
+      id: 1737456218420-43
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_POCUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_poc
+  - changeSet:
+      id: 1737456218420-44
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_PROFESSIONUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_profession
+  - changeSet:
+      id: 1737456218420-45
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_PROFILEUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_profile
+  - changeSet:
+      id: 1737456218420-46
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_SKILLUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_skill
+  - changeSet:
+      id: 1737456218420-47
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_PERSON_SOCIAL_MEDIAUNIQUE_IDENTIFIER_COL
+            tableName: sdk_person_social_media
+  - changeSet:
+      id: 1737456218420-48
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_SCHEDULEUNIQUE_IDENTIFIER_COL
+            tableName: sdk_schedule
+  - changeSet:
+      id: 1737456218420-49
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_PERSON_SDK_TRAINING_DETAILUNIQUE_IDENTIFIER_COL
+            tableName: sdk_training_detail
+  - changeSet:
+      id: 1737456218420-51
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_logistical_information
+            constraintName: FK2h1gktx2t4d3trto7nt0g6fqd
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-52
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_interest
+            constraintName: FK2iaoybvqb54m2eyby42q44jxx
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-53
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_identifier
+            constraintName: FK2odf9x7drl4bo0k5css424a26
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+
+  - changeSet:
+      id: 1737456218420-55
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_insurance
+            constraintName: FK3qovm6cvenht6crs2pk2l3f03
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-56
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: training_detail_id
+            baseTableName: sdk_schedule
+            constraintName: FK3tatvp923stuewungwv7yfhuf
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_training_detail
+            validate: true
+  - changeSet:
+      id: 1737456218420-57
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_social_media
+            constraintName: FK4gtw6ndq5v3e5tyhfue2msftu
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-58
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_organization
+            constraintName: FK4hx88rokxkdlny95j3in1gf5f
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-59
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: min_group_size
+            baseTableName: sdk_logistical_information
+            constraintName: FK5ni0q4htg8i9cui3sxrn9nxb8
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: uomvalue
+            validate: true
+  - changeSet:
+      id: 1737456218420-60
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_poc
+            constraintName: FK8r11sj5ddsxgo0c6aduriakam
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-61
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: contact_id
+            baseTableName: sdk_person_contact_map
+            constraintName: FK8ubwmvnxncfph62jwtp82qtmi
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_contact
+            validate: true
+  - changeSet:
+      id: 1737456218420-62
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: address_id
+            baseTableName: sdk_person_address_map
+            constraintName: FKaa1beco9emvrfahm5g1ltb17t
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_address
+            validate: true
+  - changeSet:
+      id: 1737456218420-63
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_skill
+            constraintName: FKe0ale666uisi05ebs763xst02
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-64
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_profession
+            constraintName: FKf9x6waarw54frxq43tynwj590
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-65
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: distances_willing_to_travel_to
+            baseTableName: sdk_logistical_information
+            constraintName: FKfpdsfs8rl5sq549rfvv69ahht
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: uomvalue
+            validate: true
+  - changeSet:
+      id: 1737456218420-66
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_profile
+            constraintName: FKgiwqyrkoi6urjoiu8ksotysl9
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-67
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_language
+            constraintName: FKh6cp7mic6b9ktnv849e1uguyi
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+
+  - changeSet:
+      id: 1737456218420-69
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_achievement
+            constraintName: FKkqbgyc44mddqeg8wi5d1tgvhl
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-70
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: price_per_hour
+            baseTableName: sdk_logistical_information
+            constraintName: FKmpn3h56u9nd451wlllhqdl1qs
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: currency_value
+            validate: true
+  - changeSet:
+      id: 1737456218420-71
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_education
+            constraintName: FKocpdkxsxj6bt12b5hol5ldeou
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-72
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_family
+            constraintName: FKpcx967op9lvf9uuwg4423b3fs
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-73
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: user
+            constraintName: FKpwlmi2m2se7eg6gvnrb1kg2xr
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-76
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_organization_id
+            baseTableName: sdk_organization_finance
+            constraintName: FKq4obcs3bob84dmd7g8c0txpx1
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person_organization
+            validate: true
+  - changeSet:
+      id: 1737456218420-77
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_bank_detail
+            constraintName: FKqm3ale1mlig10t9wh53gqpheo
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-78
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_training_detail
+            constraintName: FKs475kdf2pwdwwrs3oplvptwrn
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-79
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_address_map
+            constraintName: FKsxbmml4pneae7q10vojdggtwf
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true
+  - changeSet:
+      id: 1737456218420-80
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: person_id
+            baseTableName: sdk_person_contact_map
+            constraintName: FKtmh5jjds1cigccciooxp2mff2
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: sdk_person
+            validate: true

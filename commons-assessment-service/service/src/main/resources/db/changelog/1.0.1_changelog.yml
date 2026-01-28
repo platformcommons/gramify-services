@@ -1,0 +1,21 @@
+databaseChangeLog:
+- changeSet:
+    id: 1750217880199-3
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: is_child_option
+            type: bit
+        tableName: default_options
+- changeSet:
+    id: 1750217880199-4
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: parent_option_code
+            type: varchar(255)
+        tableName: default_options

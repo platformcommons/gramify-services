@@ -1,0 +1,354 @@
+databaseChangeLog:
+- changeSet:
+    id: 1694410360787-1
+    author: jitendra (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: skill_id, description_id
+        tableName: skill_description
+- changeSet:
+    id: 1694410360787-2
+    author: jitendra (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: skill_id, tag_id
+        tableName: skill_has_tags
+- changeSet:
+    id: 1694410360787-3
+    author: jitendra (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: skill_id, name_id
+        tableName: skill_name
+- changeSet:
+    id: 1701338010793-1
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: domain_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: descriptions_id
+            type: BIGINT
+        tableName: domain_descriptions
+- changeSet:
+    id: 1701338010793-2
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: domain_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: names_id
+            type: BIGINT
+        tableName: domain_names
+- changeSet:
+    id: 1701338010793-6
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: names_id
+        constraintName: UK_8u4562u74mn3kfc1hcwaldbak
+        tableName: domain_names
+- changeSet:
+    id: 1701338010793-7
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: descriptions_id
+        constraintName: UK_lb6qde434k8ke97ucyqx2khg9
+        tableName: domain_descriptions
+- changeSet:
+    id: 1701338010793-8
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: domain_id
+        baseTableName: domain_names
+        constraintName: FKblmfmi2t2k7f0pmvrrugdadym
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: domain
+        validate: true
+- changeSet:
+    id: 1701338010793-9
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: descriptions_id
+        baseTableName: domain_descriptions
+        constraintName: FKkh2okuyjfjwcqwdsew40rslfr
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1701338010793-10
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: names_id
+        baseTableName: domain_names
+        constraintName: FKo3a9dilltj6rxckxlussd6naa
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1701338010793-11
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: domain_id
+        baseTableName: domain_descriptions
+        constraintName: FKodtck6qaa4k0vda23m995h2mq
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: domain
+        validate: true
+- changeSet:
+    id: 1704430144507-4
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+         columns:
+         - column:
+             name: color_code
+             type: varchar(255)
+         tableName: domain
+- changeSet:
+    id: 1704439322828-1
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+       columns:
+       - column:
+          name: attachment_kind
+          type: varchar(255)
+       tableName: attachment
+- changeSet:
+    id: 1704439322828-2
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+       columns:
+       - column:
+          name: attachment_kind_identifier
+          type: varchar(255)
+       tableName: attachment
+- changeSet:
+    id: 1704439322828-3
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+       columns:
+       - column:
+          name: attachment_kind_meta
+          type: varchar(255)
+       tableName: attachment
+- changeSet:
+    id: 1704439322828-4
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+       columns:
+       - column:
+          name: media_url
+          type: varchar(255)
+       tableName: ref_data
+- changeSet:
+    id: 1704439322828-5
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+       columns:
+       - column:
+          name: sequence
+          type: bigint
+       tableName: attachment
+- changeSet:
+    id: 1704439322828-6
+    author: jitendra (generated)
+    changes:
+    - addColumn:
+       columns:
+       - column:
+          name: sequence
+          type: integer
+       tableName: ref_data
+
+- changeSet:
+    id: 1707388489702-1
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: skill_code, context, tenant_id
+        constraintName: skill_code_context_tenantId_index
+        tableName: skill
+- changeSet:
+    id: 1712042601241-3
+    author: jitendra (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ref_data_shared_contextPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: context
+            type: VARCHAR(255)
+        - column:
+            name: context_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: ref_data_code
+            type: VARCHAR(255)
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1712042601241-4
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_REF_DATA_SHARED_CONTEXTUNIQUE_IDENTIFIER_COL
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1712042601241-5
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: code, context
+        constraintName: UKnr3lxohsn5pom9wtfqcomqghj
+        tableName: domain
+- changeSet:
+    id: 1712042601241-6
+    author: jitendra (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: context, context_id, ref_data_code, is_active
+        constraintName: idx_ref_data_uniqueness_with_context
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1712042601241-7
+    author: jitendra (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: context
+        indexName: idx_context
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1712042601241-8
+    author: jitendra (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: context_id
+        indexName: idx_contextId
+        tableName: ref_data_shared_context
+- changeSet:
+    id: 1712042601241-9
+    author: jitendra (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ref_data_code
+        baseTableName: ref_data_shared_context
+        constraintName: FK3m5etvn9v2a2o53na4iv4n46n
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: code
+        referencedTableName: ref_data
+        validate: true
+

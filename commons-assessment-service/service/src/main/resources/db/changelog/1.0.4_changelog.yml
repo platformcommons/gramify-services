@@ -1,0 +1,29 @@
+databaseChangeLog:
+- changeSet:
+    id: 1759992086385-5
+    author: mnk46 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: shedlockPK
+            name: id
+            type: BIGINT
+        - column:
+            name: lock_until
+            type: datetime
+        - column:
+            name: locked_at
+            type: datetime
+        - column:
+            name: locked_by
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        tableName: shedlock
+

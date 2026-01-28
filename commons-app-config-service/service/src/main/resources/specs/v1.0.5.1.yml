@@ -1,0 +1,1407 @@
+openapi: 3.0.0
+info:
+  title: App-Service
+  version: '1.0.0'
+tags:
+  - name: App
+  - name: AppConfig
+  - name: AppVersion
+  - name: AppConfigScopeMaster
+  - name: AppMenu
+  - name: AppOperation
+  - name: AppRbac
+  - name: Instance
+paths:
+
+  /api/v1/app-menu/{appMenuId}/sub-menu:
+    post:
+      summary: ''
+      operationId: add-sub-menu-to-app-menu
+      responses:
+        '200':
+          description: Added
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppMenu'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: path
+          name: appMenuId
+          required: true
+      tags:
+        - AppMenu
+
+  /api/v1/app-rbac/{appRbacId}/app-operation:
+    post:
+      summary: ''
+      operationId: add-app-operation-to-app-rbac
+      responses:
+        '204':
+          description: Added
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppOperation'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: path
+          name: appRbacId
+          required: true
+      tags:
+        - AppRbac
+
+  /api/v1/app-rbac/{appRbacId}/app-menu:
+    post:
+      summary: 'add AppMenu to AppRbac'
+      tags:
+        - AppRbac
+      operationId: add-app-menu-to-app-rbac
+      responses:
+        '204':
+          description: Added
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppMenu'
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: path
+          name: appRbacId
+          required: true
+
+  /api/v1/app-rbac/{appCode}:
+    get:
+      summary: Get By App Code And Role
+      tags:
+        - AppRbac
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppRbac'
+      operationId: get-app-rbac-by-code-and-role
+      parameters:
+        - schema:
+            type: string
+          in: path
+          name: appCode
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: role
+          required: false
+        - schema:
+            type: boolean
+          in: query
+          name: includeDisabled
+          required: false
+
+  /api/v1/apps/page:
+    get:
+      summary: Get by Page
+      tags:
+        - App
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/App'
+      operationId: get-apps-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/apps:
+    get:
+      summary: Get By Id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+      operationId: get-apps
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+      tags:
+        - App
+    post:
+      summary: saveApp
+      operationId: post-apps
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/App'
+      tags:
+        - App
+    put:
+      summary: ''
+      operationId: put-apps
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/App'
+      tags:
+        - App
+    delete:
+      summary: ''
+      operationId: delete-apps
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - App
+  /api/v1/app-config/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppConfig
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppConfig'
+      operationId: get-app-configs-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-config:
+    get:
+      summary: Get By Id
+      tags:
+        - AppConfig
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppConfig'
+      operationId: get-app-configs
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: saveApp
+      operationId: post-app-config
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppConfig'
+      tags:
+        - AppConfig
+    put:
+      summary: ''
+      operationId: put-app-config
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppConfig'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppConfig'
+      tags:
+        - AppConfig
+    delete:
+      summary: ''
+      operationId: delete-app-config
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppConfig
+  '/api/v1/app-version/{appVersionId}/app-config':
+    post:
+      summary: Add AppConfig to AppVersion
+      operationId: post-api-v1-app-config-add
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AppConfig'
+      responses:
+        '204':
+          description: No Content
+      tags:
+        - AppConfig
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: path
+          name: appVersionId
+          required: true
+  /api/v1/app-config-scope-master/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppConfigScopeMaster
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppConfigScopeMaster'
+      operationId: get-app-config-scope-master-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-config-scope-master:
+    get:
+      summary: Get By Id
+      tags:
+        - AppConfigScopeMaster
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppConfigScopeMaster'
+      operationId: get-app-config-scope-master
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: saveApp
+      operationId: post-app-config-scope-master
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppConfigScopeMaster'
+      tags:
+        - AppConfigScopeMaster
+    put:
+      summary: ''
+      operationId: put-app-config-scope-master
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppConfigScopeMaster'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppConfigScopeMaster'
+      tags:
+        - AppConfigScopeMaster
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-app-config-scope-master
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppConfigScopeMaster
+  /api/v1/app-version/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppVersion
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppVersion'
+      operationId: get-app-version-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-version:
+    get:
+      summary: Get By Id
+      tags:
+        - AppVersion
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppVersion'
+      operationId: get-app-version
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: saveApp
+      operationId: post-app-version
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppVersion'
+      tags:
+        - AppVersion
+      description: ''
+    put:
+      summary: ''
+      operationId: put-app-version
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppVersion'
+      tags:
+        - AppVersion
+    delete:
+      summary: ''
+      operationId: delete-app-version
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppVersion
+      description: ''
+  '/api/v1/apps/{appId}/app-version':
+    post:
+      summary: Add AppVersion to App
+      operationId: post-api-v1-app-version-add
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: path
+          name: appId
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AppVersion'
+      tags:
+        - AppVersion
+
+
+  /api/v1/app-menu/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppMenu
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppMenu'
+      operationId: get-app-menu-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-menu:
+    get:
+      summary: Get By Id
+      tags:
+        - AppMenu
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppMenu'
+      operationId: get-app-menu
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-app-menu
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppMenu'
+      tags:
+        - AppMenu
+    put:
+      summary: ''
+      parameters:
+        - schema:
+            type: boolean
+          in: query
+          name: isPatch
+          required: false
+      operationId: put-app-menu
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppMenu'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppMenu'
+      tags:
+        - AppMenu
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-app-menu
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppMenu
+  /api/v1/app-menu/rbac-app-code:
+    get:
+      summary: Get AppMenu By appCode,App role of AppRbac and menuCode of AppMenu
+      tags:
+        - AppMenu
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppMenu'
+      operationId: get-app-menu-by-app-code-app-role-and-menu-code
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: appCode
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: role
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: menuCode
+          required: false
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-menu/rbac-id:
+    get:
+      summary: Get AppMenu By Id Of AppRbac
+      tags:
+        - AppMenu
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppMenu'
+      operationId: get-app-menu-by-id-of-app-rbac
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: rbacId
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-menu/toggle:
+    put:
+      summary: 'Toggle AppMenu'
+      tags:
+        - AppMenu
+      operationId: toggle-app-menu
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppMenu'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: appCode
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: role
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: menuCode
+          required: true
+  /api/v1/app-menu/sub-menu/toggle:
+    put:
+      summary: 'Toggle App SubMenu'
+      tags:
+        - AppMenu
+      operationId: toggle-app-sub-menu
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppMenu'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: appCode
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: role
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: menuCode
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: subMenuCode
+          required: true
+  /api/v1/app-operation/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppOperation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppOperation'
+      operationId: get-app-operation-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-operation:
+    get:
+      summary: Get By Id
+      tags:
+        - AppOperation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppOperation'
+      operationId: get-app-operation
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-app-operation
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppOperation'
+      tags:
+        - AppOperation
+    put:
+      summary: ''
+      parameters:
+        - schema:
+            type: boolean
+          in: query
+          name: isPatch
+          required: false
+      operationId: put-app-operation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppOperation'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppOperation'
+      tags:
+        - AppOperation
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-app-operation
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppOperation
+  /api/v1/app-operation/filter:
+    get:
+      summary: Get AppOperation By appCode,App role of AppRbac and entity of AppOperation
+      tags:
+        - AppOperation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppOperation'
+      operationId: get-app-operation-by-app-code-app-role-and-entity
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: appCode
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: role
+          required: false
+        - schema:
+            type: string
+          in: query
+          name: entity
+          required: false
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-rbac/page:
+    get:
+      summary: Get By Page
+      tags:
+        - AppRbac
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppRbac'
+      operationId: get-app-rbac-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+  /api/v1/app-rbac:
+    get:
+      summary: Get By Id
+      tags:
+        - AppRbac
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppRbac'
+      operationId: get-app-rbac
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-app-rbac
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppRbac'
+      tags:
+        - AppRbac
+    put:
+      summary: ''
+      operationId: put-app-rbac
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppRbac'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppRbac'
+      tags:
+        - AppRbac
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-app-rbac
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - AppRbac
+
+  /api/v1/app-config/app/default:
+    post:
+      operationId: create-configs-from-default-app-version
+      responses:
+        '201':
+          description: Created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefaultConfigRequest'
+      tags:
+        - AppConfig
+  /api/v1/instance:
+    get:
+      summary: Get By Id
+      tags:
+        - Instance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Instance'
+      operationId: get-instance
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+    post:
+      summary: ''
+      operationId: post-instance
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Instance'
+      tags:
+        - Instance
+    put:
+      summary: ''
+      operationId: put-instance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Instance'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Instance'
+      tags:
+        - Instance
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-instance
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+            format: int64
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: reason
+          required: true
+      tags:
+        - Instance
+  /api/v1/instance/page:
+    get:
+      summary: Get By Page
+      tags:
+        - Instance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Instance'
+      operationId: get-instance-page
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: page
+          required: true
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: size
+          required: true
+
+
+components:
+  schemas:
+    App:
+      title: App
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        apiKey:
+          type: string
+        code:
+          type: string
+        name:
+          type: string
+    AppConfig:
+      title: AppConfig
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        scopeCode:
+          type: string
+        scopeValue:
+          type: string
+        configKey:
+          type: string
+        configValue:
+          type: string
+        configType:
+          type: string
+        configValueML:
+          type: array
+          items:
+            $ref: '#/components/schemas/MLText'
+        notes:
+          type: string
+    AppConfigScopeMaster:
+      title: AppConfigScopeMaster
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        priority:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        dataType:
+          type: string
+    AppVersion:
+      title: AppVersion
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        version:
+          type: string
+        versionSequence:
+          type: string
+        isDeprecated:
+          type: integer
+          format: int32
+        appConfigList:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppConfig'
+    Config:
+      title: Config
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        configKey:
+          type: string
+        configType:
+          type: string
+        configValue:
+          type: string
+        configValueML:
+          type: array
+          items:
+            $ref: '#/components/schemas/MLText'
+
+    AppMenu:
+      title: AppMenu
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        parentMenuId:
+          type: integer
+          format: int64
+        menuCode:
+          type: string
+        sequence:
+          type: integer
+          format: int64
+        isRoot:
+          type: boolean
+        isEnabled:
+          type: boolean
+        label:
+          type: string
+        route:
+          type: string
+        menuType:
+          type: string
+        icon:
+          type: string
+        subMenu:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppMenu'
+    AppOperation:
+      title: AppOperation
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+
+        entity:
+          type: string
+        create:
+          type: boolean
+        update:
+          type: boolean
+        read:
+          type: boolean
+        delete:
+          type: boolean
+        isDirect:
+          type: boolean
+        download:
+          type: boolean
+        linkedMenuCode:
+          type: string
+        group:
+          type: string
+    AppRbac:
+      title: AppRbac
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        priority:
+          type: integer
+          format: int32
+        appCode:
+          type: string
+        isDefault:
+          type: boolean
+        role:
+          type: string
+        appMenuList:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppMenu'
+        appOperationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppOperation'
+    Instance:
+      title: Instance
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        code:
+          type: string
+        baseUrl:
+          type: string
+        appMillUrl:
+          type: string
+        healthUri:
+          type: string
+        status:
+          type: string
+
+    DefaultConfigRequest:
+      type: object
+      title: DefaultConfigRequest
+      properties:
+        id:
+          type: integer
+          format: int64
+

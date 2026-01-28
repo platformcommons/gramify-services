@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: commons-assessment-reporting-service
+  profiles:
+    active: ${COMMONS_ENVIRONMENT_PROFILE:dev}
+  config:
+    import:
+      - "optional:configserver:${COMMONS_CLOUD_CONFIG_URI:http://3.6.99.205:8888/}"

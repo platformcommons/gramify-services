@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1754559967449-12
+      author: sandeep (generated)
+      changes:
+        - addColumn:
+            tableName: bulk_upload_log
+            columns:
+              - column:
+                  name: status
+                  type: varchar(255)
+
+  - changeSet:
+      id: 1754559967449-13
+      author: sandeep
+      changes:
+        - addColumn:
+            tableName: bulk_upload_request
+            columns:
+              - column:
+                  name: request_create_date
+                  type: datetime
+              - column:
+                  name: process_start_date
+                  type: datetime
+              - column:
+                  name: process_complete_date
+                  type: datetime
+
+  - changeSet:
+      id: 1754559967449-14
+      author: sandeep
+      changes:
+        - addColumn:
+            tableName: bulk_upload_log
+            columns:
+              - column:
+                  name: execution_date
+                  type: datetime

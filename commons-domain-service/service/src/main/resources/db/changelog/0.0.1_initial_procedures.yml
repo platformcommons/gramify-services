@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial_procedures_1573022228406
+      author: dibyajit
+      changes:
+        - sqlFile:
+            endDelimiter: \#
+            splitStatements: true
+            path:  db/procedures/01_addDomainHierarchy.sql

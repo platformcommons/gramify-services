@@ -1,0 +1,139 @@
+databaseChangeLog:
+- changeSet:
+    id: 1699518850575-5
+    author: amitnarayan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: linked_postPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: linking_type
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: source_post
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: target_post
+            type: BIGINT
+        tableName: linked_post
+- changeSet:
+    id: 1699518850575-6
+    author: amitnarayan (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_LINKED_POSTUNIQUE_IDENTIFIER_COL
+        tableName: linked_post
+- changeSet:
+    id: 1699518850575-7
+    author: amitnarayan (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: language_context
+        indexName: IDX_LANGUAGE_CONTEXT
+        tableName: multi_language
+- changeSet:
+    id: 1699518850575-8
+    author: amitnarayan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: source_post
+        baseTableName: linked_post
+        constraintName: FK8q5rjsgh21362s4m2jnj4acch
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: post
+        validate: true
+- changeSet:
+    id: 1699518850575-9
+    author: amitnarayan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: target_post
+        baseTableName: linked_post
+        constraintName: FKq8qwi2gkd595mhrnsy4by2swy
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: post
+        validate: true
+

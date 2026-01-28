@@ -1,0 +1,38 @@
+openapi: 3.0.0
+
+info:
+  version: 0.0.1
+  title: <> Service
+tags:
+  - name: "Books"
+
+paths:
+  /books:
+    post:
+      operationId: createBook
+      requestBody:
+        description: HELLO
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        "201":
+          description: CREATED
+
+
+components:
+  schemas:
+    Book:
+      description: This is the book object
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          description: The name of book
+          type: string
+        author:
+          description: The author
+          type: string

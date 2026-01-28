@@ -1,0 +1,308 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1726065205985-1
+      author: raush (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: assessment_actorPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  name: actor_id
+                  type: VARCHAR(255)
+              - column:
+                  name: actor_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: assessment_instance_assesse_id
+                  type: BIGINT
+            tableName: assessment_actor
+  - changeSet:
+      id: 1726065205985-2
+      author: raush (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: is_group_assessment_response
+                  type: bit
+            tableName: assessment_instance_assesse
+  - changeSet:
+      id: 1726065205985-3
+      author: raush (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_ASSESSMENT_ACTORUNIQUE_IDENTIFIER_COL
+            tableName: assessment_actor
+  - changeSet:
+      id: 1726065205985-4
+      author: raush (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: assessment_instance_assesse_id
+            baseTableName: assessment_actor
+            constraintName: FK1ur7hl2t3wrwjidy3len8enru
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: assessment_instance_assesse
+            validate: true
+  - changeSet:
+      id: 1726663587036-2
+      author: raush (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: notes
+                  type: varchar(255)
+            tableName: assessment_instance_assesse
+
+  - changeSet:
+      id: 1727765665004-1
+      author: manish (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: assessment_kind
+                  type: varchar(255)
+            tableName: assessment
+  - changeSet:
+      id: 1727765665004-2
+      author: manish (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: name
+                  type: varchar(255)
+            tableName: assessment_actor
+  - changeSet:
+      id: 1728043189738-3
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: assessee_actor_name
+                  type: varchar(255)
+            tableName: assessment_instance_assesse
+  - changeSet:
+      id: 1728043189738-4
+      author: jitendra (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: assessor_actor_name
+                  type: varchar(255)
+            tableName: assessment_instance_assesse
+
+  - changeSet:
+      id: 1728370832036-3
+      author: raush (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: assessment_sub_kind
+                  type: varchar(255)
+            tableName: assessment
+
+
+
+  - changeSet:
+      id: 1729153485874-3
+      author: jitendra (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: assessmentconfigPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: config_key
+                  type: VARCHAR(255)
+              - column:
+                  name: config_value
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: assessment
+                  type: BIGINT
+            tableName: assessmentconfig
+  - changeSet:
+      id: 1729153485874-4
+      author: jitendra (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_ASSESSMENTCONFIGUNIQUE_IDENTIFIER_COL
+            tableName: assessmentconfig
+  - changeSet:
+      id: 1729153485874-6
+      author: jitendra (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: assessment
+            baseTableName: assessmentconfig
+            constraintName: FKav3opg9a03r4q8n7mywwis8qp
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: assessment
+            validate: true
+  - changeSet:
+      id: 1755153030213-6
+      author: raush (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: assessment_taken_for_date
+                  type: datetime
+            tableName: assessment_instance_assesse

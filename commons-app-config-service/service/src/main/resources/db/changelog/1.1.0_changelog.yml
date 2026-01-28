@@ -1,0 +1,269 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1730207408615-1
+      author: manish (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: app_rbac_metaPK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  name: app_created_timestamp
+                  type: BIGINT
+              - column:
+                  name: app_last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  name: created_by_app_version
+                  type: BIGINT
+              - column:
+                  name: inactive_reason
+                  type: VARCHAR(255)
+              - column:
+                  name: inactive_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_active
+                  type: BIT
+              - column:
+                  name: last_modified_by_app_version
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tenant_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: app_code
+                  type: VARCHAR(255)
+            tableName: app_rbac_meta
+  - changeSet:
+      id: 1730207408615-2
+      author: manish (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: app_rbac_meta
+                  type: bigint
+            tableName: app_menu
+  - changeSet:
+      id: 1730207408615-3
+      author: manish (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_APP_RBAC_METAUNIQUE_IDENTIFIER_COL
+            tableName: app_rbac_meta
+  - changeSet:
+      id: 1730207408615-4
+      author: manish (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: app_rbac_meta
+            baseTableName: app_menu
+            constraintName: FKe9gtcx2tueb61brq2pegrmbh7
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: app_rbac_meta
+            validate: true
+  - changeSet:
+      id: 1734000718776-2
+      author: sandeep (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: entity_type
+                  type: varchar(255)
+            tableName: app_rbac_meta
+  - changeSet:
+      id: 1734000718776-3
+      author: sandeep (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: entity_type
+                  type: varchar(255)
+            tableName: app_rbac
+  - changeSet:
+      id: 1734009218568-2
+      author: sandeep (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: default_landing_route
+                  type: varchar(255)
+            tableName: app_rbac
+  - changeSet:
+      id: 1734429379090-2
+      author: sandeep (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: custom_link
+                  type: varchar(255)
+            tableName: app_menu
+  - changeSet:
+      id: 1737381150051-6
+      author: manish (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: is_market_default
+                  type: bit
+            tableName: app_rbac
+  - changeSet:
+      id: 1737381150051-7
+      author: manish (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: market_context
+                  type: varchar(255)
+            tableName: app_rbac
+  - changeSet:
+      id: 1739363359467-1
+      author: sandeep (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: currency_value_rangePK
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_tenant
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_by_user
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_modified_timestamp
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unique_identifier
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: currency
+                  type: VARCHAR(255)
+              - column:
+                  name: maximum_value
+                  type: DOUBLE
+              - column:
+                  name: minimum_value
+                  type: DOUBLE
+              - column:
+                  name: value
+                  type: DOUBLE
+            tableName: currency_value_range
+  - changeSet:
+      id: 1739363359467-2
+      author: sandeep (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: preferred_uom
+                  type: varchar(255)
+            tableName: uomvalue
+  - changeSet:
+      id: 1739363359467-3
+      author: sandeep (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: preferred_value
+                  type: double precision
+            tableName: uomvalue
+  - changeSet:
+      id: 1739363359467-4
+      author: sandeep (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: unique_identifier
+            constraintName: UC_CURRENCY_VALUE_RANGEUNIQUE_IDENTIFIER_COL
+            tableName: currency_value_range

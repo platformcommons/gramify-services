@@ -1,0 +1,56 @@
+package com.platformcommons.platform.service.iam.application.constant;
+
+public final class NotificationConstant {
+
+    public static final String ADMIN_NAME = "AdminName";
+
+    public static final String MARKET_NAME = "MarketName";
+
+    public static final String TENANT_LOGO_URL = "TenantLogoUrl";
+
+    public static final String TENANT_NAME = "TenantName";
+
+    public static final String MARKET_TENANT_LOGO_URL = "MarketTenantLogoUrl";
+
+    public static final String MARKET_OWNER_NAME = "MarketOwnerName";
+
+    public static final String MSG_SUBJECT = "MSG_SUBJECT";
+
+    public static final String USER_NAME = "UserName";
+
+    public static final String SIGNUP_USER_NAME = "SignUpUserName";
+
+    public static final String MARKET_APP_BASE_URL = "MarketAppBaseUrl";
+
+    public static final String TENANT_SUPPORT_EMAILS = "TenantSupportEmails";
+
+    public static final String TENANT_SUPPORT_CONTACT_NUMBERS = "TenantSupportContactNumbers";
+
+    public static final String NOTIFICATION_CODE_TENANT_CREATION_MAIL_TO_TENANT_ADMIN = "NOTIFICATION_CODE.TENANT_CREATION_MAIL_TO_TENANT_ADMIN";
+
+    public static final String NOTIFICATION_CODE_TENANT_CREATION_MAIL_TO_MARKET_OWNER = "NOTIFICATION_CODE.TENANT_CREATION_MAIL_TO_MARKET_OWNER";
+
+    public static final String NOTIFICATION_CODE_USER_SIGN_UP_VERIFIED_MAIL_TO_USER = "NOTIFICATION_CODE.USER_SIGN_UP_VERIFIED_MAIL_TO_USER";
+
+    public static final String NOTIFICATION_CODE_USER_SIGN_UP_VERIFIED_MAIL_TO_TENANT = "NOTIFICATION_CODE.USER_SIGN_UP_VERIFIED_MAIL_TO_TENANT";
+
+    public static final String NOTIFICATION_CODE_USER_SIGN_UP_NOT_VERIFIED_MAIL_TO_USER = "NOTIFICATION_CODE.USER_SIGN_UP_NOT_VERIFIED_MAIL_TO_USER";
+
+    public static final String NOTIFICATION_CODE_USER_SIGN_UP_NOT_VERIFIED_MAIL_TO_TENANT = "NOTIFICATION_CODE.USER_SIGN_UP_NOT_VERIFIED_MAIL_TO_TENANT";
+
+    public static final String NOTIFICATION_CODE_USER_VERIFICATION_STATUS_CHANGE_TO_VERIFIED_MAIL_TO_USER = "NOTIFICATION_CODE.USER_VERIFICATION_STATUS_CHANGE_TO_VERIFIED_MAIL_TO_USER";
+
+    public static final String NOTIFICATION_CODE_USER_VERIFICATION_STATUS_CHANGE_TO_ON_HOLD_MAIL_TO_USER = "NOTIFICATION_CODE.USER_VERIFICATION_STATUS_CHANGE_TO_ON_HOLD_MAIL_TO_USER";
+
+    public static final String NOTIFICATION_CODE_USER_VERIFICATION_STATUS_CHANGE_TO_REJECTED_MAIL_TO_USER = "NOTIFICATION_CODE.USER_VERIFICATION_STATUS_CHANGE_TO_REJECTED_MAIL_TO_USER";
+
+    public static final String NOTIFICATION_CODE_TENANT_SIGN_UP_EMAIL_OTP = "NOTIFICATION_CODE.TENANT_SIGN_UP_EMAIL_OTP";
+
+    public static final String NOTIFICATION_CODE_USER_SIGN_UP_EMAIL_OTP = "NOTIFICATION_CODE.USER_SIGN_UP_EMAIL_OTP";
+
+    public static final String NOTIFICATION_CODE_VMS_USER_ADD_WELCOME = "NOTIFICATION_CODE.VMS_USER_ADD_WELCOME";
+
+    public static final String NOTIFICATION_CODE_USER_ADD_WELCOME = "NOTIFICATION_CODE.USER_ADD_WELCOME";
+
+    public static final String PARAMS_OTP = "IAM_OTP";
+}

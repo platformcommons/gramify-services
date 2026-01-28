@@ -1,0 +1,1188 @@
+databaseChangeLog:
+- changeSet:
+    id: 1701364428707-1
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: harvest_logPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: generic_product_code
+            type: VARCHAR(255)
+        - column:
+            name: generic_product_id
+            type: BIGINT
+        - column:
+            name: generic_product_variety_code
+            type: VARCHAR(255)
+        - column:
+            name: generic_product_variety_id
+            type: BIGINT
+        - column:
+            name: harvest_complete_date
+            type: date
+        - column:
+            name: harvest_date
+            type: date
+        - column:
+            name: owning_entity_id
+            type: VARCHAR(255)
+        - column:
+            name: owning_entity_type
+            type: VARCHAR(255)
+        - column:
+            name: portfolio_product_line_item_id
+            type: BIGINT
+        - column:
+            name: season
+            type: VARCHAR(255)
+        - column:
+            name: surplus_output_id
+            type: BIGINT
+        - column:
+            name: total_harvest_id
+            type: BIGINT
+        tableName: harvest_log
+- changeSet:
+    id: 1701364428707-2
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: method_masterPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: method_code
+            type: VARCHAR(255)
+        tableName: method_master
+- changeSet:
+    id: 1701364428707-3
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: method_master_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: description_list_id
+            type: BIGINT
+        tableName: method_master_description_list
+- changeSet:
+    id: 1701364428707-4
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: method_master_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: name_list_id
+            type: BIGINT
+        tableName: method_master_name_list
+- changeSet:
+    id: 1701364428707-5
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: portfolio_line_item
+            type: BIGINT
+        - column:
+            name: method_master_codes
+            type: VARCHAR(255)
+        tableName: method_master_portfolio_line_item
+- changeSet:
+    id: 1701364428707-6
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: portfolioPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: domain
+            type: VARCHAR(255)
+        - column:
+            name: owner_entity_id
+            type: BIGINT
+        - column:
+            name: owner_entity_type
+            type: VARCHAR(255)
+        tableName: portfolio
+- changeSet:
+    id: 1701364428707-7
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: portfolio_itemPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: category
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: expertise_level
+            type: VARCHAR(255)
+        - column:
+            name: linked_entity_id
+            type: VARCHAR(255)
+        - column:
+            name: linked_entity_type
+            type: VARCHAR(255)
+        - column:
+            name: rating
+            type: VARCHAR(255)
+        - column:
+            name: title
+            type: VARCHAR(255)
+        - column:
+            name: type
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: portfolio_id
+            type: BIGINT
+        tableName: portfolio_item
+- changeSet:
+    id: 1701364428707-8
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: portfolio_line_itemPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: asset_code
+            type: VARCHAR(255)
+        - column:
+            name: session_code
+            type: VARCHAR(255)
+        - column:
+            name: type
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: portfolio_id
+            type: BIGINT
+        tableName: portfolio_line_item
+- changeSet:
+    id: 1701364428707-9
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: portfolio_product_line_itemPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: actual_end_date
+            type: datetime
+        - column:
+            name: actual_start_date
+            type: datetime
+        - column:
+            name: generic_product_code
+            type: VARCHAR(255)
+        - column:
+            name: generic_product_id
+            type: BIGINT
+        - column:
+            name: generic_product_variety_code
+            type: VARCHAR(255)
+        - column:
+            name: generic_product_variety_id
+            type: BIGINT
+        - column:
+            name: harvest_end_date
+            type: datetime
+        - column:
+            name: harvest_start_date
+            type: datetime
+        - column:
+            name: harvest_status
+            type: VARCHAR(255)
+        - column:
+            name: harvest_type
+            type: VARCHAR(255)
+        - column:
+            name: is_major_crop
+            type: BIT
+        - column:
+            name: planned_end_date
+            type: datetime
+        - column:
+            name: planned_start_date
+            type: datetime
+        - column:
+            name: actual_output_id
+            type: BIGINT
+        - column:
+            name: asset_proportion_id
+            type: BIGINT
+        - column:
+            name: expected_output_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: portfolio_line_item_id
+            type: BIGINT
+        - column:
+            name: surplus_output_id
+            type: BIGINT
+        tableName: portfolio_product_line_item
+- changeSet:
+    id: 1701364428707-10
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: practice_masterPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_tenant
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_by_user
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: last_modified_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: unique_identifier
+            type: VARCHAR(255)
+        - column:
+            name: app_created_timestamp
+            type: BIGINT
+        - column:
+            name: app_last_modified_timestamp
+            type: BIGINT
+        - column:
+            name: created_by_app_version
+            type: BIGINT
+        - column:
+            name: inactive_reason
+            type: VARCHAR(255)
+        - column:
+            name: inactive_timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: is_active
+            type: BIT
+        - column:
+            name: last_modified_by_app_version
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tenant_id
+            type: BIGINT
+        - column:
+            name: context
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: practice_code
+            type: VARCHAR(255)
+        tableName: practice_master
+- changeSet:
+    id: 1701364428707-11
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: practice_master_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: description_list_id
+            type: BIGINT
+        tableName: practice_master_description_list
+- changeSet:
+    id: 1701364428707-12
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: practice_master_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: name_list_id
+            type: BIGINT
+        tableName: practice_master_name_list
+- changeSet:
+    id: 1701364428707-13
+    author: dibyajit (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: portfolio_line_item
+            type: BIGINT
+        - column:
+            name: practice_master_codes
+            type: VARCHAR(255)
+        tableName: practice_master_portfolio_line_item
+- changeSet:
+    id: 1701364428707-14
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_HARVEST_LOGUNIQUE_IDENTIFIER_COL
+        tableName: harvest_log
+- changeSet:
+    id: 1701364428707-15
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_METHOD_MASTERUNIQUE_IDENTIFIER_COL
+        tableName: method_master
+- changeSet:
+    id: 1701364428707-16
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_PORTFOLIOUNIQUE_IDENTIFIER_COL
+        tableName: portfolio
+- changeSet:
+    id: 1701364428707-17
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_PORTFOLIO_ITEMUNIQUE_IDENTIFIER_COL
+        tableName: portfolio_item
+- changeSet:
+    id: 1701364428707-18
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_PORTFOLIO_LINE_ITEMUNIQUE_IDENTIFIER_COL
+        tableName: portfolio_line_item
+- changeSet:
+    id: 1701364428707-19
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_PORTFOLIO_PRODUCT_LINE_ITEMUNIQUE_IDENTIFIER_COL
+        tableName: portfolio_product_line_item
+- changeSet:
+    id: 1701364428707-20
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: unique_identifier
+        constraintName: UC_PRACTICE_MASTERUNIQUE_IDENTIFIER_COL
+        tableName: practice_master
+- changeSet:
+    id: 1701364428707-21
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name_list_id
+        constraintName: UK_8hxmds44429u4gcex7xivv9dq
+        tableName: method_master_name_list
+- changeSet:
+    id: 1701364428707-22
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: description_list_id
+        constraintName: UK_be72g5v5fky3vbue8nqy1daq7
+        tableName: method_master_description_list
+- changeSet:
+    id: 1701364428707-23
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: description_list_id
+        constraintName: UK_ir9gkf8tsdmx1dqvqtt4xcroa
+        tableName: practice_master_description_list
+- changeSet:
+    id: 1701364428707-24
+    author: dibyajit (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name_list_id
+        constraintName: UK_mlpss6gshdm6pln7rax2alcx0
+        tableName: practice_master_name_list
+- changeSet:
+    id: 1701364428707-25
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: practice_master_id
+        baseTableName: practice_master_name_list
+        constraintName: FK1ggwme218u8yy3ycmu17ym8hc
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: practice_master
+        validate: true
+- changeSet:
+    id: 1701364428707-26
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: portfolio_id
+        baseTableName: portfolio_line_item
+        constraintName: FK4if1irh9f8ti65ea7k5xo1f0o
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: portfolio
+        validate: true
+- changeSet:
+    id: 1701364428707-27
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: practice_master_id
+        baseTableName: practice_master_description_list
+        constraintName: FK7i4dqgid8we9cs3xycwh641hh
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: practice_master
+        validate: true
+- changeSet:
+    id: 1701364428707-28
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: surplus_output_id
+        baseTableName: harvest_log
+        constraintName: FK7mc76oitig1wwbrikyi2w4u8
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1701364428707-29
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: total_harvest_id
+        baseTableName: harvest_log
+        constraintName: FK8cwpqjqt3mu47067suqucqvsb
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1701364428707-30
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: description_list_id
+        baseTableName: method_master_description_list
+        constraintName: FKb31h8fvyg6map46cu3chjyewg
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1701364428707-31
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: description_list_id
+        baseTableName: practice_master_description_list
+        constraintName: FKbr4jkewojea94ecl2adgn00qt
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1701364428707-32
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: portfolio_id
+        baseTableName: portfolio_item
+        constraintName: FKdlgpfr12wdukodaavox0sq7fv
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: portfolio
+        validate: true
+- changeSet:
+    id: 1701364428707-33
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: portfolio_line_item_id
+        baseTableName: portfolio_product_line_item
+        constraintName: FKer0l3vgy0yda4x30b87l6vwm9
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: portfolio_line_item
+        validate: true
+- changeSet:
+    id: 1701364428707-34
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: actual_output_id
+        baseTableName: portfolio_product_line_item
+        constraintName: FKfjhakvgsc6ykchrhqkeaoc692
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1701364428707-35
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: portfolio_line_item
+        baseTableName: practice_master_portfolio_line_item
+        constraintName: FKglr55phcrtuhyrjoxs9xf3347
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: portfolio_line_item
+        validate: true
+- changeSet:
+    id: 1701364428707-36
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: name_list_id
+        baseTableName: practice_master_name_list
+        constraintName: FKj3k2ya6ecnwgce616uqb2o1is
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1701364428707-37
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: asset_proportion_id
+        baseTableName: portfolio_product_line_item
+        constraintName: FKjrs2f2w8sip6027yg09vplxjy
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1701364428707-38
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: method_master_id
+        baseTableName: method_master_name_list
+        constraintName: FKjwmux66pcck1xe0awm5x1e1tp
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: method_master
+        validate: true
+- changeSet:
+    id: 1701364428707-39
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: surplus_output_id
+        baseTableName: portfolio_product_line_item
+        constraintName: FKl2wxh3uqjfso266kp9rosn2kh
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1701364428707-40
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: expected_output_id
+        baseTableName: portfolio_product_line_item
+        constraintName: FKlgdf1mxrrdrfcrl1f5e2jjj0l
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: uomvalue
+        validate: true
+- changeSet:
+    id: 1701364428707-41
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: name_list_id
+        baseTableName: method_master_name_list
+        constraintName: FKp6ondr4qxtyarnek6m5nbdply
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: mltext
+        validate: true
+- changeSet:
+    id: 1701364428707-42
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: method_master_id
+        baseTableName: method_master_description_list
+        constraintName: FKr1d6n4t7klgt7l1ml3toijnjw
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: method_master
+        validate: true
+- changeSet:
+    id: 1701364428707-43
+    author: dibyajit (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: portfolio_line_item
+        baseTableName: method_master_portfolio_line_item
+        constraintName: FKsbf7int77frs2vhnmefwmwusw
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: portfolio_line_item
+        validate: true
+- changeSet:
+    id: 1701772160767-1
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: commitment_status
+            type: varchar(255)
+        tableName: portfolio_product_line_item
+- changeSet:
+    id: 1701861233971-1
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: alias_id
+            type: varchar(255)
+        tableName: portfolio
+- changeSet:
+    id: 1701861233971-2
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: alias_id
+            type: varchar(255)
+        tableName: portfolio_line_item
+- changeSet:
+    id: 1701861233971-3
+    author: Nirakar Sahoo (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: alias_id
+            type: varchar(255)
+        tableName: portfolio_product_line_item
+
+
+
